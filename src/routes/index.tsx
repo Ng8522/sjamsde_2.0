@@ -266,40 +266,40 @@ function Index() {
       </section>
 
       {/* Community */}
-      <section id="community" className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
-          <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-l from-primary/20 to-transparent rounded-full blur-3xl translate-x-1/3" />
+      <section id="community" className="relative py-32 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
-          <img
-            src={communityImg}
-            alt="St John volunteers caring for the community"
-            width={1200}
-            height={800}
-            loading="lazy"
-            className="w-full max-w-md mx-auto aspect-[4/3] object-cover rounded-3xl ring-2 ring-primary/20 shadow-2xl shadow-primary/20"
-          />
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-20 items-center relative z-10">
+          <div className="group">
+            <img
+              src={communityImg}
+              alt="St John volunteers caring for the community"
+              width={1200}
+              height={800}
+              loading="lazy"
+              className="w-full max-w-md mx-auto aspect-[4/3] object-cover rounded-3xl ring-4 ring-primary/20 shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all"
+            />
+          </div>
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
-              <span className="size-1.5 rounded-full bg-primary" />
+            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20 w-fit">
+              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Community
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">For the people, <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">by the people</span>.</h2>
-            <p className="text-muted-foreground mb-12 max-w-[48ch] leading-relaxed text-lg">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">For the <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">people</span>, by the <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">people</span>.</h2>
+            <p className="text-xl text-muted-foreground mb-14 max-w-[50ch] leading-relaxed font-medium">
               Beyond emergencies, our volunteers run programmes that bring care to where it's needed most.
             </p>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {community.map((c) => (
-                <div key={c.n} className="flex gap-5 group">
-                  <div className="shrink-0 size-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary/80 group-hover:text-primary-foreground transition-all group-hover:shadow-lg group-hover:shadow-primary/30">
-                    <c.icon className="size-6" />
+                <div key={c.n} className="flex gap-6 group cursor-default">
+                  <div className="shrink-0 size-16 rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/15 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary group-hover:text-primary-foreground transition-all group-hover:shadow-xl group-hover:shadow-primary/40 group-hover:scale-110 font-black text-xl">
+                    {c.n}
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1.5 flex items-center gap-3 group-hover:text-primary transition-colors">
-                      <span className="text-sm text-primary/60 font-mono font-bold">{c.n}</span>
-                      {c.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground max-w-[42ch] leading-relaxed">{c.desc}</p>
+                    <h4 className="font-black text-xl mb-2 group-hover:text-primary transition-colors">{c.title}</h4>
+                    <p className="text-base text-muted-foreground max-w-[42ch] leading-relaxed">{c.desc}</p>
                   </div>
                 </div>
               ))}
@@ -349,87 +349,88 @@ function Index() {
       </section>
 
       {/* Events */}
-      <section id="events" className="relative bg-gradient-to-br from-background via-primary/3 to-secondary/5 border-y border-primary/10 py-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10 pointer-events-none opacity-30">
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/20 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/3" />
+      <section id="events" className="relative py-32 overflow-hidden bg-gradient-to-br from-background via-background to-white">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
-            <div>
-              <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
-                <span className="size-2 rounded-full bg-primary animate-pulse" />
-                Upcoming Events
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-[24ch] leading-tight">
-                Join us at our next <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">community event</span>.
-              </h2>
-            </div>
-            <div className="flex flex-wrap gap-3 self-start md:self-auto">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
+              Upcoming Events
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
+              Join us at our next <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">community event</span>.
+            </h2>
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/events"
-                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-secondary group"
+                className="inline-flex items-center gap-3 text-base font-black text-primary hover:text-secondary group"
               >
                 All events
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
+              <div className="w-px h-6 bg-gray-300" />
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary group"
+                className="inline-flex items-center gap-3 text-base font-black text-muted-foreground hover:text-primary group"
               >
                 Past event gallery
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
+              <div className="w-px h-6 bg-gray-300" />
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary group"
+                className="inline-flex items-center gap-3 text-base font-black text-muted-foreground hover:text-primary group"
               >
                 Training courses
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {portalEvents.map((e) => {
               const [day, month] = e.date.split(" ");
               return (
                 <article
                   key={e.id}
-                  className="group bg-gradient-to-br from-card to-card/50 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all flex flex-col hover:-translate-y-1"
+                  className="group bg-white rounded-2xl border-2 border-gray-200 overflow-hidden hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/25 hover:-translate-y-3 transition-all flex flex-col"
                 >
-                  <div className="flex items-stretch border-b border-primary/10">
-                    <div className="bg-gradient-to-br from-primary to-secondary text-primary-foreground p-5 flex flex-col items-center justify-center min-w-[88px] group-hover:shadow-lg transition-all">
-                      <div className="text-3xl font-bold tabular-nums leading-none">{day}</div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest mt-1 opacity-95">{month}</div>
+                  <div className="flex items-stretch border-b-2 border-gray-200 bg-gradient-to-r from-primary to-secondary">
+                    <div className="text-primary-foreground p-6 flex flex-col items-center justify-center min-w-[100px] font-black">
+                      <div className="text-4xl tabular-nums leading-none">{day}</div>
+                      <div className="text-xs uppercase tracking-widest mt-2 opacity-95 font-black">{month}</div>
                     </div>
-                    <div className="flex-1 px-5 py-4 flex flex-col justify-center">
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-primary mb-1">
+                    <div className="flex-1 px-6 py-5 flex flex-col justify-center">
+                      <span className="text-xs font-black uppercase tracking-wider text-white mb-1">
                         {e.tag}
                       </span>
-                      <span className="text-xs text-muted-foreground font-medium">{e.day}</span>
+                      <span className="text-sm text-white/90 font-bold">{e.day}</span>
                     </div>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="font-bold text-lg mb-4 leading-snug group-hover:text-primary transition-colors">
+                  <div className="p-7 flex-1 flex flex-col">
+                    <h3 className="font-black text-xl mb-5 leading-tight group-hover:text-primary transition-colors">
                       {e.title}
                     </h3>
-                    <div className="space-y-2.5 text-sm text-muted-foreground mb-6">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="size-4 text-primary shrink-0" />
-                        <span>{e.location}</span>
+                    <div className="space-y-3 text-base text-muted-foreground mb-7">
+                      <div className="flex items-center gap-3">
+                        <MapPin className="size-5 text-primary shrink-0 font-black" />
+                        <span className="font-medium">{e.location}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="size-4 text-primary shrink-0" />
-                        <span>{e.time}</span>
+                      <div className="flex items-center gap-3">
+                        <Clock className="size-5 text-primary shrink-0 font-black" />
+                        <span className="font-medium">{e.time}</span>
                       </div>
                     </div>
                     <Link
                       to="/events/$eventId"
                       params={{ eventId: e.id }}
-                      className="mt-auto inline-flex items-center justify-between text-sm font-bold text-primary border-t border-primary/10 pt-5 hover:text-secondary group/link"
+                      className="mt-auto inline-flex items-center justify-between text-base font-black text-primary border-t-2 border-gray-200 pt-6 hover:text-secondary group/link"
                     >
                       Register / Details
-                      <ArrowRight className="size-4 group-hover/link:translate-x-1 transition-transform" />
+                      <ArrowRight className="size-5 group-hover/link:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
                 </article>
@@ -503,33 +504,33 @@ function Index() {
       </section>
 
       {/* Donation CTA */}
-      <section id="donate" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground rounded-3xl p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-primary/40">
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary-foreground rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+      <section id="donate" className="max-w-7xl mx-auto px-6 py-32">
+        <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground rounded-3xl p-16 md:p-24 relative overflow-hidden shadow-2xl shadow-primary/50">
+          <div className="absolute inset-0 opacity-15 pointer-events-none">
+            <div className="absolute -top-40 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
+            <div className="absolute -bottom-40 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
           </div>
-          <div className="relative z-10 max-w-xl">
-            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase opacity-90 mb-5 bg-primary-foreground/20 px-4 py-2 rounded-full w-fit">
-              <span className="size-2 rounded-full bg-primary-foreground" />
+          <div className="relative z-10 max-w-2xl">
+            <span className="inline-flex items-center gap-3 text-xs font-black tracking-[0.3em] uppercase opacity-95 mb-6 bg-primary-foreground/20 px-6 py-3 rounded-full w-fit border border-primary-foreground/30">
+              <span className="size-3 rounded-full bg-primary-foreground animate-pulse" />
               Support Our Mission
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-              Fuel life-saving work with your generosity.
+            <h2 className="text-6xl md:text-7xl font-black tracking-tighter mb-8 leading-tight">
+              Fuel <span className="bg-gradient-to-r from-primary-foreground via-white to-primary-foreground bg-clip-text text-transparent">life-saving</span> work.
             </h2>
-            <p className="opacity-95 mb-10 text-lg leading-relaxed">
+            <p className="text-xl opacity-95 mb-12 leading-relaxed max-w-[45ch] font-medium">
               Your donation maintains our ambulance fleet and subsidises dialysis treatment for low-income patients.
             </p>
             <Link
               to="/donate"
-              className="inline-flex items-center gap-2 h-13 px-8 bg-primary-foreground text-primary font-bold rounded-lg hover:shadow-xl hover:shadow-primary-foreground/30 hover:-translate-y-1 transition-all text-base"
+              className="inline-flex items-center gap-3 h-16 px-10 bg-white text-primary font-black rounded-xl hover:shadow-2xl hover:shadow-white/50 hover:-translate-y-2 active:translate-y-0 transition-all text-lg tracking-wide uppercase"
             >
-              <Plus className="size-5" strokeWidth={2.8} />
-              Make a Secure Donation
+              <Plus className="size-7" strokeWidth={2.8} />
+              Donate Now
             </Link>
           </div>
-          <div className="absolute -right-20 -bottom-24 opacity-[0.12] pointer-events-none">
-            <Plus className="size-[32rem]" strokeWidth={1.2} />
+          <div className="absolute -right-32 -bottom-32 opacity-10 pointer-events-none">
+            <Plus className="size-96" strokeWidth={1} />
           </div>
         </div>
       </section>
