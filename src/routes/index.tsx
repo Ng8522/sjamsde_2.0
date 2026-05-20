@@ -216,47 +216,58 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section id="services" className="bg-muted/40 border-y border-border py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
+      <section id="services" className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 border-y border-primary/10 py-24 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-40 -z-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/3" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/3 translate-x-1/3" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
             <div>
-              <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase block mb-3">Our Services</span>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight max-w-[20ch]">
-                Emergency & medical services, around the clock.
+              <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
+                <span className="size-2 rounded-full bg-primary animate-pulse" />
+                Our Services
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-[22ch] leading-tight">
+                Emergency & medical services, <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">around the clock</span>.
               </h2>
             </div>
-            <p className="text-muted-foreground max-w-[40ch]">
+            <p className="text-muted-foreground max-w-[40ch] leading-relaxed">
               Accredited healthcare support for residents, organisations and event organisers across Selangor.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-6">
             {services.map((s) => (
               <article
                 key={s.title}
-                className="group bg-card p-7 rounded-xl border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all flex flex-col"
+                className="group relative bg-gradient-to-br from-card via-card to-card/60 p-8 rounded-2xl border border-primary/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15 transition-all flex flex-col overflow-hidden"
               >
-                <div className="size-11 rounded-lg bg-primary/10 text-primary grid place-items-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <s.icon className="size-5" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:from-primary/20 transition-all" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mb-8 leading-relaxed">{s.desc}</p>
-                <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
+                <div className="size-14 rounded-xl bg-gradient-to-br from-primary to-secondary/80 text-primary-foreground grid place-items-center mb-6 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all relative z-10">
+                  <s.icon className="size-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 relative z-10">{s.title}</h3>
+                <p className="text-sm text-muted-foreground mb-8 leading-relaxed relative z-10">{s.desc}</p>
+                <div className="mt-auto pt-6 border-t border-primary/10 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-2">
-                    {s.live && <span className="size-2 rounded-full bg-secondary animate-pulse" />}
-                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                    {s.live && <span className="size-2.5 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />}
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary/70">
                       {s.tag}
                     </span>
                   </div>
                   {"internal" in s && s.internal ? (
-                    <Link to={s.href} className="text-sm font-medium text-primary hover:text-secondary inline-flex items-center gap-1">
+                    <Link to={s.href} className="text-sm font-bold text-primary hover:text-secondary inline-flex items-center gap-2 group/link">
                       {s.cta}
-                      <ArrowRight className="size-3.5" />
+                      <ArrowRight className="size-4 group-hover/link:translate-x-0.5 transition-transform" />
                     </Link>
                   ) : (
-                    <a href={s.href} className="text-sm font-medium text-primary hover:text-secondary inline-flex items-center gap-1">
+                    <a href={s.href} className="text-sm font-bold text-primary hover:text-secondary inline-flex items-center gap-2 group/link">
                       {s.cta}
-                      <ArrowRight className="size-3.5" />
+                      <ArrowRight className="size-4 group-hover/link:translate-x-0.5 transition-transform" />
                     </a>
                   )}
                 </div>
