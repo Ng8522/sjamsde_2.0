@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   HeartHandshake,
+  ChevronDown,
+  MapPin,
+  Mail,
+  Phone,
 } from "lucide-react";
+import { useState } from "react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
@@ -28,6 +33,22 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    timeline: true,
+    organisation: false,
+    iso: false,
+    awards: false,
+    membership: false,
+    contact: false,
+  });
+
+  const toggleSection = (section: string) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   return (
     <SiteLayout>
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/2 to-background border-b border-primary/20">
@@ -92,68 +113,220 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* History Timeline */}
+      {/* Additional About Sections */}
       <section className="py-16 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-32 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/10 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4 border border-primary/20">
-              <span className="size-2 rounded-full bg-primary" />
-              Our Journey
-            </span>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter max-w-2xl mx-auto leading-tight">History & Milestones</h2>
-          </div>
-
-          <div className="space-y-8">
-            {[
-              {
-                year: "1972",
-                title: "New Era Begins",
-                desc: "As a result of the St. John Ambulance (Incorporation) Act, St. John Council were formed in every state. This movement marks the new beginning of the organisation as St. John Ambulance enters a new era.",
-              },
-              {
-                year: "1990",
-                title: "SJAM-SDE Established",
-                desc: "SJAM – SDE was officially segregated from SJAM Wilayah Persekutuan. Dr. Chen Soo-See was appointed as the first State Commander, serving with dedication until 1998.",
-              },
-              {
-                year: "1998",
-                title: "Leadership Transition",
-                desc: "Mr Ho Thiam Hock was appointed as State Commander after being transferred from National Headquarters. Under his command and along with Mr Yeo Kim Thong as Deputy State Commander, SJAM – SDE saw significant changes in administration and re-demarcation of Areas.",
-              },
-              {
-                year: "2004",
-                title: "Era of Growth",
-                desc: "Mr Yeo Kim Thong was appointed as State Commander. Under his visionary leadership, more projects and changes were implemented to improve and benefit the Area HQs, officers and members.",
-              },
-              {
-                year: "2009",
-                title: "National Recognition",
-                desc: "On 12th December, State Commander Mr Yeo Kim Thong (Burnard) was awarded the Darjah Kebesaran Dato'-Sultan Sharafuddin Idris Shah (D.S.I.S) by HRH Sultan of Selangor. The award carries the title Dato' in recognition of his tremendous contribution and leadership.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="flex gap-8 animate-on-scroll" style={{ animationDelay: `${idx * 50}ms` }}>
-                <div className="flex flex-col items-center gap-4">
-                  <div className="w-24 text-center">
-                    <span className="inline-block text-2xl font-semibold text-primary">{item.year}</span>
-                  </div>
-                  <div className="w-1 h-20 bg-gradient-to-b from-primary to-secondary rounded-full" />
-                  {idx === 4 && <div className="w-6 h-6 rounded-full bg-primary" />}
+        <div className="max-w-5xl mx-auto px-6 relative z-10 space-y-4">
+          {/* Accordion Sections */}
+          {[
+            {
+              id: "timeline",
+              title: "History & Milestones",
+              badge: "Our Journey",
+              content: (
+                <div className="space-y-6">
+                  {[
+                    { year: "1972", title: "New Era Begins", desc: "As a result of the St. John Ambulance (Incorporation) Act, St. John Council were formed in every state. This movement marks the new beginning of the organisation as St. John Ambulance enters a new era." },
+                    { year: "1990", title: "SJAM-SDE Established", desc: "SJAM – SDE was officially segregated from SJAM Wilayah Persekutuan. Dr. Chen Soo-See was appointed as the first State Commander, serving with dedication until 1998." },
+                    { year: "1998", title: "Leadership Transition", desc: "Mr Ho Thiam Hock was appointed as State Commander after being transferred from National Headquarters. Under his command and along with Mr Yeo Kim Thong as Deputy State Commander, SJAM – SDE saw significant changes in administration and re-demarcation of Areas." },
+                    { year: "2004", title: "Era of Growth", desc: "Mr Yeo Kim Thong was appointed as State Commander. Under his visionary leadership, more projects and changes were implemented to improve and benefit the Area HQs, officers and members." },
+                    { year: "2009", title: "National Recognition", desc: "On 12th December, State Commander Mr Yeo Kim Thong (Burnard) was awarded the Darjah Kebesaran Dato'-Sultan Sharafuddin Idris Shah (D.S.I.S) by HRH Sultan of Selangor. The award carries the title Dato' in recognition of his tremendous contribution and leadership." },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-4 animate-on-scroll" style={{ animationDelay: `${idx * 50}ms` }}>
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="text-sm font-semibold text-primary">{item.year}</div>
+                        <div className="w-1 h-12 bg-gradient-to-b from-primary/60 to-primary/20 rounded-full" />
+                      </div>
+                      <div className="pb-2 flex-1 pt-1">
+                        <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="pb-8 flex-1">
-                  <div className="bg-white rounded-xl border-2 border-gray-200 p-6 hover:border-primary/40 hover:shadow-lg transition-all">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              ),
+            },
+            {
+              id: "organisation",
+              title: "Organisation Structure",
+              badge: "Leadership",
+              content: (
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-primary mb-3">State Leadership</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
+                        <p className="text-sm font-semibold text-foreground">State President</p>
+                        <p className="text-xs text-muted-foreground mt-1">Tan Sri Dato' Sri Tee Boon Kee</p>
+                      </div>
+                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
+                        <p className="text-sm font-semibold text-foreground">Deputy State President</p>
+                        <p className="text-xs text-muted-foreground mt-1">(Dr.) Lim Tee Leong</p>
+                      </div>
+                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
+                        <p className="text-sm font-semibold text-foreground">State Commander</p>
+                        <p className="text-xs text-muted-foreground mt-1">Mr. Lim Wun Lok</p>
+                      </div>
+                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
+                        <p className="text-sm font-semibold text-foreground">Deputy State Commander</p>
+                        <p className="text-xs text-muted-foreground mt-1">Mr. Sim Kah Heun</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">For complete organisation structure, contact State Headquarters at sjamselangor@sjam.org.my</p>
+                </div>
+              ),
+            },
+            {
+              id: "iso",
+              title: "ISO 9001 Certification",
+              badge: "Quality Standards",
+              content: (
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">Kawasan Pantai Selangor (KPS)</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Achieved ISO 9001:2000 in 2000, upgraded to 2008 in 2010. Received SJAM Color in 2001 from HRH Sultan of Selangor.</p>
+                    <p className="text-xs font-medium text-primary">Coverage: Administration, Ambulance Service, Haemodialysis Service</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">State HQ</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Achieved ISO 9001:2008 in 2009.</p>
+                    <p className="text-xs font-medium text-primary">Coverage: Administration support, Advance First-aid, Train-the-Trainers, Officers Training</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">Other Areas</h4>
+                    <p className="text-xs text-muted-foreground">KSS and KSTU achieved ISO in 2011 and received their Color in Jan 2012 from Lord Prior – Prof. Anthony R. Mellows.</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ),
+            },
+            {
+              id: "awards",
+              title: "Awards & Honours",
+              badge: "Recognition",
+              content: (
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">2019 BIZZ AMEA Award</h4>
+                    <p className="text-xs text-muted-foreground">International recognition for excellence and innovation in service delivery.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">2018 EURO Award</h4>
+                    <p className="text-xs text-muted-foreground">Prestigious international award recognizing outstanding contribution to community service.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <h4 className="font-semibold text-foreground mb-2">Meritorious Bars (1994)</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Awarded by The Order of St. John, England for exceptional bravery during the Port Klang Disaster (1980). 19 officers and members were recognized for their dedication and commitment.</p>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "membership",
+              title: "Membership & Involvement",
+              badge: "Be Part of Us",
+              content: (
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-4">SJAM-SDE is one of the most active voluntary and youth organizations in Selangor, with over 4,400 members carrying out first aid and home nursing duties at public and private events.</p>
+                    <h4 className="font-semibold text-foreground mb-3">Member Benefits</h4>
+                    <div className="space-y-2">
+                      <div className="flex gap-3">
+                        <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-medium text-foreground">Insurance Coverage</p>
+                          <p className="text-xs text-muted-foreground">RM 100,000 upon death/permanent disability, RM 10,000 medical coverage</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-medium text-foreground">International Training Standards</p>
+                          <p className="text-xs text-muted-foreground">ISO 9001:2008 certified training in First Aid and Life Saving techniques</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-medium text-foreground">Youth Development</p>
+                          <p className="text-xs text-muted-foreground">Cadets (12-19) access to badges, leadership and skills training</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "contact",
+              title: "Contact & Area Offices",
+              badge: "Get In Touch",
+              content: (
+                <div className="space-y-4">
+                  <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
+                    <div className="flex gap-3 mb-3">
+                      <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-xs font-medium text-foreground">Email</p>
+                        <p className="text-xs text-muted-foreground">sjamselangor@sjam.org.my</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 mb-3">
+                      <Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-xs font-medium text-foreground">Mobile</p>
+                        <p className="text-xs text-muted-foreground">+60 17-969 4235 / +60 17-471 1966 / +60 12-416 4934</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-xs font-medium text-foreground">Address</p>
+                        <p className="text-xs text-muted-foreground">No. 10-A, Lorong Bayu Tinggi 4C, Taman Bayu Tinggi, 41200 Klang, Selangor</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-semibold text-foreground mb-2">Area Offices (6 Active Areas)</h4>
+                    <p className="text-xs text-muted-foreground">State headquarters coordinates six operational areas across Selangor: Coastal, North Central, South Central, Southern, Northern, and Western Selangor.</p>
+                  </div>
+                </div>
+              ),
+            },
+          ].map((section) => (
+            <div
+              key={section.id}
+              className="border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/40 transition-colors bg-white/30 backdrop-blur-sm"
+            >
+              <button
+                onClick={() => toggleSection(section.id)}
+                className="w-full flex items-center justify-between p-5 hover:bg-primary/5 transition-colors"
+              >
+                <div className="flex items-center gap-3 flex-1 text-left">
+                  <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                    {section.badge}
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">{section.title}</h3>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary flex-shrink-0 transition-transform ${
+                    expandedSections[section.id] ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedSections[section.id] && (
+                <div className="px-5 pb-5 border-t border-primary/10 pt-5 text-muted-foreground">
+                  {section.content}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
+
     </SiteLayout>
   );
 }
