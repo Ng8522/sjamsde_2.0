@@ -154,45 +154,99 @@ function AboutPage() {
               title: "Organisation Structure",
               badge: "Leadership",
               content: (
-                <div className="space-y-6">
+                <div className="space-y-8">
+                  {/* Tier 1: Executive Leadership */}
                   <div>
-                    <h4 className="font-semibold text-primary mb-4">State Leadership</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
-                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full aspect-square object-cover" />
-                        <div className="p-4">
-                          <p className="text-sm font-semibold text-foreground">State President</p>
-                          <p className="text-xs text-muted-foreground mt-1">Tan Sri Dato' Sri Tee Boon Kee</p>
-                          <p className="text-xs text-primary mt-2">PSM, SSAP, DSSA, OStJ</p>
+                    <div className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-widest uppercase mb-4 pb-2 border-b-2 border-primary/30">
+                      <span className="w-2 h-2 rounded-full bg-primary" />
+                      Executive Leadership
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="group rounded-xl overflow-hidden border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg bg-gradient-to-br from-white to-primary/5">
+                        <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 h-48">
+                          <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <div className="p-5">
+                          <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">State President</p>
+                          <p className="text-base font-semibold text-foreground leading-tight">Tan Sri Dato' Sri Tee Boon Kee</p>
+                          <p className="text-xs text-muted-foreground mt-2">PSM, SSAP, DSSA, OStJ</p>
                         </div>
                       </div>
-                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
-                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full aspect-square object-cover" />
-                        <div className="p-4">
-                          <p className="text-sm font-semibold text-foreground">Deputy State President</p>
-                          <p className="text-xs text-muted-foreground mt-1">(Dr.) Lim Tee Leong</p>
-                          <p className="text-xs text-primary mt-2">PJK, SBStJ, DHL(Hons)</p>
+                      <div className="group rounded-xl overflow-hidden border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg bg-gradient-to-br from-white to-primary/5">
+                        <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 h-48">
+                          <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                         </div>
-                      </div>
-                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
-                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full aspect-square object-cover" />
-                        <div className="p-4">
-                          <p className="text-sm font-semibold text-foreground">State Commander</p>
-                          <p className="text-xs text-muted-foreground mt-1">Mr. Lim Wun Lok</p>
-                          <p className="text-xs text-primary mt-2">SIS, PJK, OStJ</p>
-                        </div>
-                      </div>
-                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
-                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full aspect-square object-cover" />
-                        <div className="p-4">
-                          <p className="text-sm font-semibold text-foreground">Deputy State Commander</p>
-                          <p className="text-xs text-muted-foreground mt-1">Mr. Sim Kah Heun</p>
-                          <p className="text-xs text-primary mt-2">AMP, OStJ, FBDO</p>
+                        <div className="p-5">
+                          <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">State Commander</p>
+                          <p className="text-base font-semibold text-foreground leading-tight">Mr. Lim Wun Lok</p>
+                          <p className="text-xs text-muted-foreground mt-2">SIS, PJK, OStJ</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">For complete organisation structure, contact State Headquarters at sjamselangor@sjam.org.my</p>
+
+                  {/* Tier 2: Senior Management */}
+                  <div>
+                    <div className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-widest uppercase mb-4 pb-2 border-b-2 border-primary/30">
+                      <span className="w-2 h-2 rounded-full bg-primary" />
+                      Senior Management
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="group rounded-xl overflow-hidden border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg bg-gradient-to-br from-white to-primary/5">
+                        <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 h-48">
+                          <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <div className="p-5">
+                          <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Deputy State President</p>
+                          <p className="text-base font-semibold text-foreground leading-tight">(Dr.) Lim Tee Leong</p>
+                          <p className="text-xs text-muted-foreground mt-2">PJK, SBStJ, DHL(Hons)</p>
+                        </div>
+                      </div>
+                      <div className="group rounded-xl overflow-hidden border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-lg bg-gradient-to-br from-white to-primary/5">
+                        <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 h-48">
+                          <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <div className="p-5">
+                          <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Deputy State Commander</p>
+                          <p className="text-base font-semibold text-foreground leading-tight">Mr. Sim Kah Heun</p>
+                          <p className="text-xs text-muted-foreground mt-2">AMP, OStJ, FBDO</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tier 3: Key Officers Grid */}
+                  <div>
+                    <div className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-widest uppercase mb-4 pb-2 border-b-2 border-primary/30">
+                      <span className="w-2 h-2 rounded-full bg-primary" />
+                      Key Officers
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {[
+                        { name: "Dr Wong Hui Chin", role: "State Medical Officer", cred: "SSStJ", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WongHuiChin-300x300.jpg" },
+                        { name: "Mr. Ng Chee Kai", role: "State Superintendent (Operations)", cred: "PPT, OStJ, FNSM", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Chee-Kai-1-200x300.jpg" },
+                        { name: "Ms. Ng Sew Wan", role: "State Superintendent (Nursing)", cred: "PJK, SSStJ", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Sew-Wan-225x300.jpg" },
+                        { name: "Ms. Che Wei Sien", role: "State Honorary Secretary", cred: "—", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Che-Wei-Sien-199x300.jpeg" },
+                        { name: "Mr. Chang Hian Keon", role: "State Honorary Treasurer", cred: "—", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Michael-Chang-Hian-Keong.png" },
+                        { name: "Ms. Farah Abdul Wahab", role: "State Nursing Officer", cred: "—", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Farah-200x300.jpg" },
+                      ].map((officer, idx) => (
+                        <div key={idx} className="group rounded-lg overflow-hidden border border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/40 hover:bg-white/60">
+                          <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-32">
+                            <img src={officer.img} alt={officer.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          <div className="p-3">
+                            <p className="text-xs uppercase tracking-wider font-bold text-primary mb-0.5">{officer.role}</p>
+                            <p className="text-sm font-semibold text-foreground leading-tight">{officer.name}</p>
+                            <p className="text-xs text-muted-foreground mt-1">{officer.cred}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
+                    <p className="text-xs text-muted-foreground leading-relaxed">This organization structure showcases the core leadership team. For the complete hierarchy including all area commanders and additional officers, visit our website or contact State Headquarters at <span className="font-semibold text-primary">sjamselangor@sjam.org.my</span></p>
+                  </div>
                 </div>
               ),
             },
