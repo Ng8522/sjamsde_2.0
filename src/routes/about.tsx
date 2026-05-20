@@ -156,23 +156,39 @@ function AboutPage() {
               content: (
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-primary mb-3">State Leadership</h4>
+                    <h4 className="font-semibold text-primary mb-4">State Leadership</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
-                        <p className="text-sm font-semibold text-foreground">State President</p>
-                        <p className="text-xs text-muted-foreground mt-1">Tan Sri Dato' Sri Tee Boon Kee</p>
+                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full aspect-square object-cover" />
+                        <div className="p-4">
+                          <p className="text-sm font-semibold text-foreground">State President</p>
+                          <p className="text-xs text-muted-foreground mt-1">Tan Sri Dato' Sri Tee Boon Kee</p>
+                          <p className="text-xs text-primary mt-2">PSM, SSAP, DSSA, OStJ</p>
+                        </div>
                       </div>
-                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
-                        <p className="text-sm font-semibold text-foreground">Deputy State President</p>
-                        <p className="text-xs text-muted-foreground mt-1">(Dr.) Lim Tee Leong</p>
+                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full aspect-square object-cover" />
+                        <div className="p-4">
+                          <p className="text-sm font-semibold text-foreground">Deputy State President</p>
+                          <p className="text-xs text-muted-foreground mt-1">(Dr.) Lim Tee Leong</p>
+                          <p className="text-xs text-primary mt-2">PJK, SBStJ, DHL(Hons)</p>
+                        </div>
                       </div>
-                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
-                        <p className="text-sm font-semibold text-foreground">State Commander</p>
-                        <p className="text-xs text-muted-foreground mt-1">Mr. Lim Wun Lok</p>
+                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full aspect-square object-cover" />
+                        <div className="p-4">
+                          <p className="text-sm font-semibold text-foreground">State Commander</p>
+                          <p className="text-xs text-muted-foreground mt-1">Mr. Lim Wun Lok</p>
+                          <p className="text-xs text-primary mt-2">SIS, PJK, OStJ</p>
+                        </div>
                       </div>
-                      <div className="bg-white/50 rounded-lg p-4 border border-primary/10">
-                        <p className="text-sm font-semibold text-foreground">Deputy State Commander</p>
-                        <p className="text-xs text-muted-foreground mt-1">Mr. Sim Kah Heun</p>
+                      <div className="bg-white/50 rounded-lg overflow-hidden border border-primary/10 hover:border-primary/40 transition-colors">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full aspect-square object-cover" />
+                        <div className="p-4">
+                          <p className="text-sm font-semibold text-foreground">Deputy State Commander</p>
+                          <p className="text-xs text-muted-foreground mt-1">Mr. Sim Kah Heun</p>
+                          <p className="text-xs text-primary mt-2">AMP, OStJ, FBDO</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -227,8 +243,9 @@ function AboutPage() {
               content: (
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
-                    <h4 className="font-semibold text-foreground mb-2">2019 BIZZ AMEA Award</h4>
-                    <p className="text-xs text-muted-foreground">International recognition for excellence and innovation in service delivery.</p>
+                    <h4 className="font-semibold text-foreground mb-3">2019 BIZZ AMEA Award</h4>
+                    <p className="text-xs text-muted-foreground mb-3">International recognition for excellence and innovation in service delivery.</p>
+                    <iframe width="100%" height="280" src="https://www.youtube.com/embed/lHuCHbQVCLU" title="2019 BIZZ AMEA Award" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="rounded-lg border border-primary/20"></iframe>
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">2018 EURO Award</h4>
