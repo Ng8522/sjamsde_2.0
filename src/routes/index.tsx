@@ -148,67 +148,68 @@ function Index() {
         />
         <div className="absolute -top-32 -right-32 size-[36rem] rounded-full bg-secondary/10 blur-3xl -z-10" />
 
-        <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-20 grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-6 pt-20 md:pt-32 pb-24 grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-20 items-center relative z-10">
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.2em] uppercase mb-5 bg-primary/10 px-3 py-1.5 rounded-full">
-              <span className="size-1.5 rounded-full bg-primary" />
+            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full w-fit">
+              <span className="size-2 rounded-full bg-primary animate-pulse" />
               SJAM SDE · Est. 1990 · Pro Utilitate Hominum
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.75rem] font-semibold tracking-tight text-balance leading-[1.05] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-balance leading-[1.0] mb-8 text-foreground">
               Serve with heart. Give with love.{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 For the Service of Mankind.
               </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-[58ch] mb-10">
+            <p className="text-lg text-muted-foreground max-w-[58ch] mb-12 leading-relaxed">
               Professional emergency medical response and community care across Selangor — sustained by volunteers, clinicians and your generosity.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="tel:0333715005"
-                className="inline-flex items-center gap-2 h-12 px-6 bg-primary text-primary-foreground font-medium rounded-md hover:bg-secondary transition-colors shadow-lg shadow-primary/20"
+                className="inline-flex items-center gap-2 h-13 px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-bold rounded-lg hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all text-base"
               >
-                <Phone className="size-4" />
+                <Phone className="size-5" />
                 Request Ambulance
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 h-12 px-6 bg-card text-foreground font-medium rounded-md hover:bg-muted transition-colors border border-border"
+                className="inline-flex items-center gap-2 h-13 px-7 bg-card text-foreground font-bold rounded-lg hover:bg-muted hover:border-primary/40 transition-all border border-primary/10 text-base"
               >
                 View Services
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-5" />
               </a>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={ambulanceImg}
               alt="St John Ambulance Malaysia ambulance on duty"
               width={1024}
               height={1280}
-              className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-2xl shadow-2xl shadow-primary/15 ring-1 ring-border"
+              className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-3xl shadow-2xl shadow-primary/25 ring-2 ring-primary/20 relative z-10"
             />
-            <div className="absolute -top-3 -right-3 size-16 rounded-full bg-secondary text-secondary-foreground grid place-items-center shadow-lg rotate-12">
+            <div className="absolute -top-6 -right-6 size-20 rounded-full bg-gradient-to-br from-secondary to-primary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/40 rotate-12 relative z-20 font-bold">
               <div className="text-center leading-tight">
-                <div className="text-[9px] font-semibold uppercase tracking-widest opacity-80">Since</div>
-                <div className="text-base font-bold tabular-nums">1990</div>
+                <div className="text-xs font-bold uppercase tracking-widest opacity-95">Since</div>
+                <div className="text-2xl font-black tabular-nums">1990</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Stats strip */}
-        <div className="border-y border-border bg-card/60 backdrop-blur">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+        <div className="border-y border-primary/10 bg-gradient-to-r from-primary/5 via-background to-secondary/5 backdrop-blur-sm relative z-10">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10">
             {[
               { v: "35+", l: "Years in Selangor" },
               { v: "24/7", l: "Emergency Ready" },
               { v: "1,200+", l: "Active Volunteers" },
               { v: "50k+", l: "Lives Touched" },
             ].map((s) => (
-              <div key={s.l} className="px-4 md:px-8 py-6 text-center md:text-left">
-                <div className="text-2xl md:text-3xl font-semibold text-primary tabular-nums">{s.v}</div>
-                <div className="text-[11px] md:text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.l}</div>
+              <div key={s.l} className="px-4 md:px-8 py-8 text-center md:text-left group hover:bg-primary/5 transition-colors">
+                <div className="text-3xl md:text-4xl font-black text-primary tabular-nums group-hover:scale-110 transition-transform">{s.v}</div>
+                <div className="text-[11px] md:text-xs uppercase tracking-widest text-muted-foreground mt-2 font-semibold">{s.l}</div>
               </div>
             ))}
           </div>
@@ -278,7 +279,10 @@ function Index() {
       </section>
 
       {/* Community */}
-      <section id="community" className="py-24">
+      <section id="community" className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+          <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-l from-primary/20 to-transparent rounded-full blur-3xl translate-x-1/3" />
+        </div>
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
           <img
             src={communityImg}
@@ -286,26 +290,29 @@ function Index() {
             width={1200}
             height={800}
             loading="lazy"
-            className="w-full max-w-md mx-auto aspect-[4/3] object-cover rounded-2xl ring-1 ring-border shadow-xl shadow-primary/10"
+            className="w-full max-w-md mx-auto aspect-[4/3] object-cover rounded-3xl ring-2 ring-primary/20 shadow-2xl shadow-primary/20"
           />
           <div>
-            <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase block mb-3">Community</span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">For the people, by the people.</h2>
-            <p className="text-muted-foreground mb-10 max-w-[48ch]">
+            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
+              <span className="size-1.5 rounded-full bg-primary" />
+              Community
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">For the people, <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">by the people</span>.</h2>
+            <p className="text-muted-foreground mb-12 max-w-[48ch] leading-relaxed text-lg">
               Beyond emergencies, our volunteers run programmes that bring care to where it's needed most.
             </p>
-            <div className="space-y-7">
+            <div className="space-y-6">
               {community.map((c) => (
                 <div key={c.n} className="flex gap-5 group">
-                  <div className="shrink-0 size-11 rounded-lg bg-primary/10 text-primary grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <c.icon className="size-5" />
+                  <div className="shrink-0 size-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary/80 group-hover:text-primary-foreground transition-all group-hover:shadow-lg group-hover:shadow-primary/30">
+                    <c.icon className="size-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 flex items-center gap-2">
-                      <span className="text-xs text-muted-foreground tabular-nums">{c.n}</span>
+                    <h4 className="font-bold text-lg mb-1.5 flex items-center gap-3 group-hover:text-primary transition-colors">
+                      <span className="text-sm text-primary/60 font-mono font-bold">{c.n}</span>
                       {c.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground max-w-[42ch]">{c.desc}</p>
+                    <p className="text-sm text-muted-foreground max-w-[42ch] leading-relaxed">{c.desc}</p>
                   </div>
                 </div>
               ))}
@@ -315,36 +322,37 @@ function Index() {
 
         <div
           id="rakan-st-john"
-          className="max-w-7xl mx-auto px-6 mt-20 pt-20 border-t border-border grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-center"
+          className="max-w-7xl mx-auto px-6 mt-24 pt-24 border-t border-primary/10 grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-20 items-center"
         >
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start group">
             <img
               src={RAKAN_ST_JOHN_LOGO_URL}
               alt="Rakan St John logo"
               width={320}
               height={320}
               loading="lazy"
-              className="w-full max-w-[280px] md:max-w-[320px] h-auto object-contain drop-shadow-md"
+              className="w-full max-w-[280px] md:max-w-[320px] h-auto object-contain drop-shadow-xl group-hover:drop-shadow-2xl transition-all"
             />
           </div>
           <div>
-            <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase block mb-3">
+            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
+              <span className="size-1.5 rounded-full bg-primary" />
               Community programme
             </span>
-            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3">Rakan St John</h3>
-            <p className="text-lg text-muted-foreground font-medium mb-5 max-w-[48ch]">{RAKAN_ST_JOHN_TAGLINE}</p>
-            <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-6">{RAKAN_ST_JOHN_HOME_SUMMARY}</p>
-            <ul className="space-y-3 mb-8 max-w-[56ch]">
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 leading-tight">Rakan St John</h3>
+            <p className="text-lg text-primary font-semibold mb-4 max-w-[48ch]">{RAKAN_ST_JOHN_TAGLINE}</p>
+            <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-8">{RAKAN_ST_JOHN_HOME_SUMMARY}</p>
+            <ul className="space-y-3 mb-10 max-w-[56ch]">
               {RAKAN_ST_JOHN_HOME_HIGHLIGHTS.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-muted-foreground">
-                  <span className="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" aria-hidden />
+                <li key={item} className="flex gap-3 text-sm text-muted-foreground group hover:text-foreground transition-colors">
+                  <span className="mt-1.5 size-2 rounded-full bg-gradient-to-br from-primary to-secondary shrink-0" aria-hidden />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             <Link
               to="/volunteer"
-              className="inline-flex items-center gap-2 h-11 px-6 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-secondary transition-colors"
+              className="inline-flex items-center gap-2 h-12 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-bold text-sm hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all"
             >
               Register online
               <ArrowRight className="size-4" />
@@ -354,83 +362,87 @@ function Index() {
       </section>
 
       {/* Events */}
-      <section id="events" className="bg-muted/40 border-y border-border py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
+      <section id="events" className="relative bg-gradient-to-br from-background via-primary/3 to-secondary/5 border-y border-primary/10 py-24 overflow-hidden">
+        <div className="absolute inset-0 -z-10 pointer-events-none opacity-30">
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/20 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/3" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
             <div>
-              <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase block mb-3">
+              <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
+                <span className="size-2 rounded-full bg-primary animate-pulse" />
                 Upcoming Events
               </span>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight max-w-[22ch]">
-                Join us at our next community event.
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-[24ch] leading-tight">
+                Join us at our next <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">community event</span>.
               </h2>
             </div>
-            <div className="flex flex-wrap gap-4 self-start md:self-auto">
+            <div className="flex flex-wrap gap-3 self-start md:self-auto">
               <Link
                 to="/events"
-                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-secondary"
+                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-secondary group"
               >
                 All events
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary"
+                className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary group"
               >
                 Past event gallery
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary"
+                className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary group"
               >
                 Training courses
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-6">
             {portalEvents.map((e) => {
               const [day, month] = e.date.split(" ");
               return (
                 <article
                   key={e.id}
-                  className="group bg-card rounded-xl border border-border overflow-hidden hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col"
+                  className="group bg-gradient-to-br from-card to-card/50 rounded-2xl border border-primary/10 overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all flex flex-col hover:-translate-y-1"
                 >
-                  <div className="flex items-stretch border-b border-border">
-                    <div className="bg-gradient-to-br from-primary to-secondary text-primary-foreground p-5 flex flex-col items-center justify-center min-w-[88px]">
+                  <div className="flex items-stretch border-b border-primary/10">
+                    <div className="bg-gradient-to-br from-primary to-secondary text-primary-foreground p-5 flex flex-col items-center justify-center min-w-[88px] group-hover:shadow-lg transition-all">
                       <div className="text-3xl font-bold tabular-nums leading-none">{day}</div>
-                      <div className="text-[10px] font-semibold uppercase tracking-widest mt-1 opacity-90">{month}</div>
+                      <div className="text-[10px] font-bold uppercase tracking-widest mt-1 opacity-95">{month}</div>
                     </div>
                     <div className="flex-1 px-5 py-4 flex flex-col justify-center">
-                      <span className="text-[10px] font-semibold uppercase tracking-widest text-secondary mb-1">
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-primary mb-1">
                         {e.tag}
                       </span>
-                      <span className="text-xs text-muted-foreground">{e.day}</span>
+                      <span className="text-xs text-muted-foreground font-medium">{e.day}</span>
                     </div>
                   </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="font-semibold text-lg mb-4 leading-snug group-hover:text-primary transition-colors">
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="font-bold text-lg mb-4 leading-snug group-hover:text-primary transition-colors">
                       {e.title}
                     </h3>
-                    <div className="space-y-2 text-sm text-muted-foreground mb-5">
+                    <div className="space-y-2.5 text-sm text-muted-foreground mb-6">
                       <div className="flex items-center gap-2">
-                        <MapPin className="size-3.5 text-primary shrink-0" />
+                        <MapPin className="size-4 text-primary shrink-0" />
                         <span>{e.location}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="size-3.5 text-primary shrink-0" />
+                        <Clock className="size-4 text-primary shrink-0" />
                         <span>{e.time}</span>
                       </div>
                     </div>
                     <Link
                       to="/events/$eventId"
                       params={{ eventId: e.id }}
-                      className="mt-auto inline-flex items-center justify-between text-sm font-medium text-primary border-t border-border pt-4 hover:text-secondary"
+                      className="mt-auto inline-flex items-center justify-between text-sm font-bold text-primary border-t border-primary/10 pt-5 hover:text-secondary group/link"
                     >
                       Register / Details
-                      <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="size-4 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </article>
@@ -441,15 +453,18 @@ function Index() {
       </section>
 
       {/* Mobile App */}
-      <section id="app" className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section id="app" className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 -z-10 pointer-events-none opacity-30">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-secondary/20 to-transparent rounded-full blur-3xl translate-y-1/3 translate-x-1/3" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <div className="order-2 md:order-1">
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.2em] uppercase mb-5 bg-primary/10 px-3 py-1.5 rounded-full">
-              <Smartphone className="size-3.5" />
+            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
+              <Smartphone className="size-4" />
               SSMP app · download only
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-5">Already a SJAM member?</h2>
-            <p className="text-muted-foreground max-w-[48ch] mb-8 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">Already a SJAM member?</h2>
+            <p className="text-muted-foreground max-w-[48ch] mb-10 leading-relaxed text-lg">
               Member registration, duty hours, SOS and internal announcements are in the SSMP mobile app — not on this public website.
             </p>
             <StoreDownloadBadges className="[&_img]:h-12" />
@@ -467,7 +482,7 @@ function Index() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="w-full aspect-square object-cover rounded-2xl ring-1 ring-border shadow-2xl shadow-primary/10 transition-transform duration-200 group-hover:scale-[1.02]"
+                className="w-full aspect-square object-cover rounded-3xl ring-2 ring-primary/20 shadow-2xl shadow-primary/30 transition-all duration-200 group-hover:scale-[1.02] group-hover:ring-primary/40"
               />
               <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/0 transition-colors group-hover:bg-black/25">
                 <span className="flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium opacity-0 shadow-md transition-opacity group-hover:opacity-100">
@@ -489,12 +504,12 @@ function Index() {
                 />
               </DialogContent>
             </Dialog>
-            <div className="absolute -bottom-4 -right-4 bg-card border border-border rounded-xl px-4 py-3 shadow-lg flex items-center gap-3">
-              <span className="relative flex size-2.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-secondary/60 animate-ping" />
-                <span className="relative inline-flex rounded-full size-2.5 bg-secondary" />
+            <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-secondary to-primary text-primary-foreground border border-secondary/30 rounded-2xl px-5 py-3.5 shadow-2xl shadow-primary/40 flex items-center gap-3 font-bold">
+              <span className="relative flex size-3">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-primary-foreground/60 animate-ping" />
+                <span className="relative inline-flex rounded-full size-3 bg-primary-foreground" />
               </span>
-              <span className="text-xs font-medium">Coming Soon</span>
+              <span className="text-xs font-bold uppercase tracking-widest">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -502,25 +517,32 @@ function Index() {
 
       {/* Donation CTA */}
       <section id="donate" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="bg-primary text-primary-foreground rounded-2xl p-10 md:p-16 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground rounded-3xl p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-primary/40">
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary-foreground rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+          </div>
           <div className="relative z-10 max-w-xl">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase opacity-80 block mb-4">Support Our Mission</span>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-5">
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase opacity-90 mb-5 bg-primary-foreground/20 px-4 py-2 rounded-full w-fit">
+              <span className="size-2 rounded-full bg-primary-foreground" />
+              Support Our Mission
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
               Fuel life-saving work with your generosity.
             </h2>
-            <p className="opacity-90 mb-8 text-lg">
+            <p className="opacity-95 mb-10 text-lg leading-relaxed">
               Your donation maintains our ambulance fleet and subsidises dialysis treatment for low-income patients.
             </p>
             <Link
               to="/donate"
-              className="inline-flex items-center gap-2 h-12 px-7 bg-background text-primary font-semibold rounded-md hover:bg-card transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 h-13 px-8 bg-primary-foreground text-primary font-bold rounded-lg hover:shadow-xl hover:shadow-primary-foreground/30 hover:-translate-y-1 transition-all text-base"
             >
-              <Plus className="size-4" strokeWidth={2.8} />
+              <Plus className="size-5" strokeWidth={2.8} />
               Make a Secure Donation
             </Link>
           </div>
-          <div className="absolute -right-16 -bottom-20 opacity-[0.08] pointer-events-none">
-            <Plus className="size-[28rem]" strokeWidth={1.5} />
+          <div className="absolute -right-20 -bottom-24 opacity-[0.12] pointer-events-none">
+            <Plus className="size-[32rem]" strokeWidth={1.2} />
           </div>
         </div>
       </section>
