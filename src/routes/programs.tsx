@@ -21,37 +21,55 @@ function ProgramsPage() {
     {
       title: "24/7 Ambulance Service",
       description: "Professional emergency ambulance service available round the clock for immediate medical assistance.",
-      features: ["Emergency response", "Patient transportation", "Basic & advanced life support"],
+      current: 1847,
+      target: 2000,
+      unit: "calls responded",
+      progress: 92,
       icon: "🚑",
     },
     {
       title: "First Aid Training",
       description: "Comprehensive first aid and life-saving training programs certified to international standards.",
-      features: ["Basic First Aid", "Advanced certification", "Cadet training programs"],
+      current: 3456,
+      target: 5000,
+      unit: "members trained",
+      progress: 69,
       icon: "🏥",
     },
     {
-      title: "Blood Donation",
+      title: "Blood Donation Drives",
       description: "Regular blood donation drives to support hospitals and emergency medical services.",
-      features: ["Blood collection drives", "Health screening", "Community participation"],
+      current: 847,
+      target: 1200,
+      unit: "units collected",
+      progress: 71,
       icon: "💉",
     },
     {
-      title: "Youth Development",
+      title: "Youth Cadet Program",
       description: "Cadet programs for youth aged 12-19 focusing on leadership, skills, and community service.",
-      features: ["Cadet training", "Proficiency badges", "Leadership development"],
+      current: 425,
+      target: 600,
+      unit: "cadets enrolled",
+      progress: 71,
       icon: "👥",
     },
     {
       title: "Haemodialysis Service",
       description: "Specialized dialysis treatment service for patients requiring regular renal care.",
-      features: ["Dialysis treatment", "Patient care", "Medical supervision"],
+      current: 156,
+      target: 250,
+      unit: "patients served",
+      progress: 62,
       icon: "💊",
     },
     {
-      title: "Community Events",
+      title: "Community Events Support",
       description: "Medical support and first aid coverage at public and private events throughout Selangor.",
-      features: ["Event coverage", "First aid standby", "Emergency response"],
+      current: 234,
+      target: 300,
+      unit: "events covered",
+      progress: 78,
       icon: "🎯",
     },
   ];
@@ -77,39 +95,65 @@ function ProgramsPage() {
         </div>
       </section>
 
-      {/* Programs Grid */}
+      {/* Programs with Progress Bars */}
       <section className="py-20 bg-gradient-to-br from-background via-primary/2 to-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programs.map((program, idx) => (
-              <div
-                key={idx}
-                className="group bg-white/70 backdrop-blur-sm border border-primary/15 rounded-xl p-8 hover:border-primary/40 hover:bg-white/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-on-scroll"
-                style={{ animationDelay: `${idx * 100}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
-                <div className="relative z-10">
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                    {program.icon}
+        <div className="max-w-5xl mx-auto px-6 space-y-12">
+          {programs.map((program, idx) => (
+            <div
+              key={idx}
+              className="animate-on-scroll"
+              style={{ animationDelay: `${idx * 100}ms` }}
+            >
+              <div className="bg-white/70 backdrop-blur-sm border border-primary/15 rounded-2xl p-8 hover:border-primary/40 hover:bg-white/90 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="text-5xl">{program.icon}</div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-2">
+                      {program.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {program.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">
-                    {program.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                    {program.description}
-                  </p>
-                  <div className="space-y-2 pt-4 border-t border-primary/10">
-                    {program.features.map((feature, fidx) => (
-                      <div key={fidx} className="flex items-start gap-2">
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                        <span className="text-xs text-muted-foreground">{feature}</span>
+                </div>
+
+                {/* Progress Bar Section */}
+                <div className="pt-6 border-t border-primary/10">
+                  <div className="flex items-baseline justify-between gap-4 mb-4">
+                    <div>
+                      <span className="text-3xl md:text-4xl font-bold text-foreground">
+                        {program.current.toLocaleString()}
+                      </span>
+                      <span className="text-muted-foreground ml-2">of</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl md:text-3xl font-bold text-foreground">
+                        {program.target.toLocaleString()}
                       </div>
-                    ))}
+                      <div className="text-xs text-muted-foreground mt-1">
+                        {program.unit}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-4">
+                    <div
+                      className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
+                      style={{ width: `${program.progress}%` }}
+                    />
+                  </div>
+
+                  {/* Progress Text */}
+                  <div className="text-right">
+                    <span className="text-sm font-semibold text-primary">
+                      {program.progress}% achieved
+                    </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
