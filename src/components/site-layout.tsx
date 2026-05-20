@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CheckCircle2, Menu, Phone, Plus } from "lucide-react";
+import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin, Smartphone } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { StoreDownloadBadges } from "@/components/store-download-badges";
@@ -133,27 +133,43 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
-    <header className="bg-background border-b border-border sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/85">
+    <header className="bg-background border-b border-border/50 sticky top-0 z-40 backdrop-blur-sm supports-[backdrop-filter]:bg-background/95 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
           <StJohnCross className="size-9 sm:size-10 shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
-            <span className="text-xs sm:text-sm font-semibold truncate">St John Ambulans Malaysia</span>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground truncate">
+            <span className="text-xs sm:text-sm font-bold truncate text-foreground">St John Ambulans Malaysia</span>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground truncate">
               Selangor Darul Ehsan
             </span>
           </div>
         </Link>
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          {navLinks.map((item) => (
-            <Link key={item.to} to={item.to} className={navLinkClassName(pathname, item.to)}>
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1 text-sm font-medium text-muted-foreground">
+          {navLinks.map((item) => {
+            const isActive = isNavActive(pathname, item.to);
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={cn(
+                  "px-3 py-2 rounded-lg transition-all relative group",
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "hover:text-foreground hover:bg-muted/50"
+                )}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full" />
+                )}
+              </Link>
+            );
+          })}
+          <div className="w-px h-6 bg-border/50 mx-2" />
           <Link
             to="/donate"
             className={cn(
-              "inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground rounded-md hover:bg-secondary transition-colors",
+              "inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-secondary hover:shadow-md transition-all",
               pathname === "/donate" && "ring-2 ring-primary/30",
             )}
           >
@@ -164,7 +180,7 @@ export function SiteHeader() {
         <div className="lg:hidden flex items-center gap-2 shrink-0">
           <Link
             to="/donate"
-            className="inline-flex items-center gap-1 h-9 px-3 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-secondary transition-colors"
+            className="inline-flex items-center gap-1 h-9 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:bg-secondary hover:shadow-md transition-all"
           >
             <Plus className="size-4" strokeWidth={2.5} />
             <span className="sr-only sm:not-sr-only">Donate</span>
@@ -178,104 +194,126 @@ export function SiteHeader() {
 
 export function SiteFooter({ id }: { id?: string }) {
   return (
-    <footer id={id} className="bg-muted/50 border-t border-border pt-20 pb-10 mt-auto">
+    <footer id={id} className="bg-gradient-to-b from-muted/30 to-background border-t border-border/50 pt-20 pb-10 mt-auto">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr] gap-12 pb-16 border-b border-border">
+        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr] gap-12 pb-12 border-b border-border/50">
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <StJohnCross className="size-9" />
-              <span className="font-semibold">SJAM Selangor</span>
+            <div className="flex items-center gap-3 mb-6">
+              <StJohnCross className="size-10" />
+              <div className="flex flex-col">
+                <span className="font-bold text-foreground">SJAM Selangor</span>
+                <span className="text-xs text-muted-foreground">Service of Mankind</span>
+              </div>
             </div>
-            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed mb-6 max-w-[52ch]">
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed mb-8 max-w-[52ch]">
               {SITE_FOOTER_INTRO.map((line) => {
                 const [label, ...rest] = line.split(" — ");
                 const body = rest.join(" — ");
                 return (
                   <p key={line}>
-                    <span className="font-medium text-foreground">{label}</span>
+                    <span className="font-semibold text-foreground">{label}</span>
                     {body ? <> — {body}</> : null}
                   </p>
                 );
               })}
             </div>
-            <div className="space-y-1.5 text-sm text-muted-foreground mb-6">
-              <p>Selangor Darul Ehsan, Malaysia</p>
-              <p>
-                Email:{" "}
-                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-primary hover:underline">
+            <div className="space-y-3 text-sm mb-8">
+              <div className="flex items-start gap-3 group">
+                <MapPin className="size-4 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground">Selangor Darul Ehsan, Malaysia</span>
+              </div>
+              <div className="flex items-start gap-3 group">
+                <Mail className="size-4 text-primary mt-0.5 shrink-0" />
+                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors break-all">
                   {SITE_CONTACT_EMAIL}
                 </a>
-              </p>
+              </div>
             </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">SSMP mobile app</p>
-            <StoreDownloadBadges />
+            <div className="bg-primary/5 rounded-lg p-4">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">SSMP Mobile App</p>
+              <StoreDownloadBadges />
+            </div>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Explore</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Explore</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/about" className="hover:text-primary">
+                <Link to="/about" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-primary">
+                <Link to="/donate" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Donate
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-primary">
+                <Link to="/events" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Events
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="hover:text-primary">
+                <Link to="/gallery" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Event gallery
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="hover:text-primary">
+                <Link to="/courses" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Courses
                 </Link>
               </li>
               <li>
-                <Link to="/volunteer" className="hover:text-primary">
+                <Link to="/volunteer" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Rakan St John
                 </Link>
               </li>
               <li>
-                <Link to="/about" hash="ambulance-services" className="hover:text-primary">
+                <Link to="/about" hash="ambulance-services" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Ambulance services
                 </Link>
               </li>
               <li>
-                <Link to="/about" hash="blood-donation" className="hover:text-primary">
+                <Link to="/about" hash="blood-donation" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
+                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
                   Blood donation
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Hotlines</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Hotlines</h4>
             <div className="space-y-5">
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Ambulance · 24/7</p>
-                <a href="tel:0333715005" className="text-lg font-semibold tabular-nums text-primary hover:text-secondary">
+              <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 hover:bg-primary/10 transition-colors group">
+                <div className="flex items-center gap-2 mb-2">
+                  <Smartphone className="size-4 text-primary" />
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Ambulance · 24/7</p>
+                </div>
+                <a href="tel:0333715005" className="text-lg font-bold tabular-nums text-primary hover:text-secondary transition-colors block">
                   03-3371 5005
                 </a>
               </div>
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Haemodialysis Centre</p>
-                <a href="tel:0333735005" className="text-lg font-semibold tabular-nums text-primary hover:text-secondary">
+              <div className="bg-muted/40 border border-border/50 rounded-lg p-4 hover:bg-muted/60 transition-colors">
+                <div className="flex items-center gap-2 mb-2">
+                  <Smartphone className="size-4 text-muted-foreground" />
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Haemodialysis Centre</p>
+                </div>
+                <a href="tel:0333735005" className="text-lg font-bold tabular-nums text-foreground hover:text-primary transition-colors block">
                   03-3373 5005
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} St John Ambulans Malaysia, Selangor Darul Ehsan. All rights reserved.</p>
-          <p className="font-medium tracking-wider uppercase">Pro Utilitate Hominum</p>
+          <p className="font-semibold tracking-wider uppercase text-foreground/60">Pro Utilitate Hominum</p>
         </div>
       </div>
     </footer>
