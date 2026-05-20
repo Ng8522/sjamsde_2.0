@@ -72,6 +72,16 @@ function ProgramsPage() {
       progress: 78,
       icon: "🎯",
     },
+    {
+      title: "Ophthalmic Care Unit (OCU)",
+      description: "Free eye screening and prescription glasses distribution program supporting vulnerable communities. Our 45th deployment successfully screened 31 individuals with 16 receiving free glasses.",
+      current: 45,
+      target: 60,
+      unit: "deployments completed",
+      progress: 75,
+      icon: "👁️",
+      highlight: "16 people received free prescription glasses in latest deployment"
+    },
   ];
 
   return (
@@ -117,8 +127,15 @@ function ProgramsPage() {
                   </div>
                 </div>
 
+                {/* Highlight if exists */}
+                {program.highlight && (
+                  <div className="mb-6 p-4 bg-primary/10 border border-primary/20 rounded-lg">
+                    <p className="text-sm font-semibold text-primary">{program.highlight}</p>
+                  </div>
+                )}
+
                 {/* Progress Bar Section */}
-                <div className="pt-6 border-t border-primary/10">
+                <div className={`${program.highlight ? '' : 'pt-6'} border-t border-primary/10`}>
                   <div className="flex items-baseline justify-between gap-4 mb-4">
                     <div>
                       <span className="text-3xl md:text-4xl font-bold text-foreground">
