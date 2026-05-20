@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight,
   HeartHandshake,
@@ -38,6 +38,7 @@ function AboutPage() {
     organisation: false,
     iso: false,
     awards: false,
+    trainers: false,
     membership: false,
     contact: false,
   });
@@ -319,6 +320,53 @@ function AboutPage() {
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">Meritorious Bars (1994)</h4>
                     <p className="text-xs text-muted-foreground">Awarded by The Order of St. John, England for exceptional bravery during the Port Klang Disaster (1980). 19 officers and members were recognized for their dedication and commitment.</p>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: "trainers",
+              title: "Qualified First Aid Trainers",
+              badge: "Training",
+              content: (
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-4">SJAM Selangor has developed 97+ qualified first aid trainers since 2005, with trainers distributed across all operational areas.</p>
+                    <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10 mb-4">
+                      <h4 className="font-semibold text-foreground mb-2">Program Details</h4>
+                      <div className="space-y-2">
+                        <div className="flex gap-3">
+                          <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <div>
+                            <p className="text-xs font-medium text-foreground">Started</p>
+                            <p className="text-xs text-muted-foreground">2005 with yearly intake</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3">
+                          <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <div>
+                            <p className="text-xs font-medium text-foreground">Renewal</p>
+                            <p className="text-xs text-muted-foreground">Trainers must resit every 3 years</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3">
+                          <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <div>
+                            <p className="text-xs font-medium text-foreground">Coverage</p>
+                            <p className="text-xs text-muted-foreground">All 6 operational areas in Selangor</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => window.location.href = '/about/qualified-trainers'}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-semibold"
+                    >
+                      Search Trainers Directory
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               ),
