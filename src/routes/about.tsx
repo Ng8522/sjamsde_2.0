@@ -1,11 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Ambulance,
   ArrowRight,
-  Droplets,
   HeartHandshake,
-  Phone,
-  Users,
 } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
@@ -15,10 +11,7 @@ import {
   ABOUT_INTRO,
   ABOUT_OTHER_SERVICES,
   ABOUT_STATS,
-  AMBULANCE_SERVICE,
-  BLOOD_DONATION,
 } from "@/lib/about-content";
-import ambulanceImg from "../assets/ambulance.jpg";
 import communityImg from "../assets/community.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -96,92 +89,6 @@ function AboutPage() {
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id={AMBULANCE_SERVICE.id} className="py-24 md:py-16 bg-white border-y border-primary/20 scroll-mt-24 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -bottom-32 right-0 w-96 h-96 bg-gradient-to-tl from-primary/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_minmax(0,450px)] gap-6 lg:gap-20 items-start">
-            <div>
-              <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
-                <Ambulance className="size-4" />
-                Our services
-              </span>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6 leading-tight">{AMBULANCE_SERVICE.title}</h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 text-base font-medium">{AMBULANCE_SERVICE.summary}</p>
-              <a
-                href={AMBULANCE_SERVICE.hotlineTel}
-                className="inline-flex items-center gap-4 rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 to-secondary/5 px-6 py-5 mb-10 hover:bg-primary/15 hover:border-primary/50 transition-all group"
-              >
-                <span className="size-12 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shrink-0 font-semibold">
-                  <Phone className="size-6" />
-                </span>
-                <span>
-                  <span className="text-xs text-muted-foreground block font-medium">24-hour emergency hotline</span>
-                  <span className="text-2xl font-semibold tabular-nums text-primary">{AMBULANCE_SERVICE.hotline}</span>
-                </span>
-              </a>
-              <ul className="space-y-5">
-                {AMBULANCE_SERVICE.points.map((point) => (
-                  <li key={point.slice(0, 48)} className="flex gap-4 text-base text-muted-foreground leading-relaxed font-medium">
-                    <span className="mt-2 size-2 rounded-full bg-gradient-to-r from-primary to-secondary shrink-0" aria-hidden />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="group">
-              <img
-                src={ambulanceImg}
-                alt="SJAM Selangor ambulance on emergency duty"
-                className="w-full aspect-[4/3] object-cover rounded-3xl ring-4 ring-primary/20 shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all sticky top-24"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id={BLOOD_DONATION.id} className="py-24 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 scroll-mt-24 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-32 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,500px)_1fr] gap-6 lg:gap-20 items-center relative z-10">
-          <div className="rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent p-12 lg:p-14 group hover:border-primary/40 hover:bg-primary/15 transition-all">
-            <Droplets className="size-14 text-primary mb-6 font-semibold" />
-            <p className="text-3xl font-semibold leading-snug mb-4">{BLOOD_DONATION.title}</p>
-            <p className="text-base text-muted-foreground leading-relaxed font-medium mb-8">
-              Look out for blood drives listed on our events calendar — or contact us to host a session with your organisation.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild>
-                <Link to="/events">
-                  Upcoming events
-                  <ArrowRight className="size-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link to="/gallery">Past event gallery</Link>
-              </Button>
-            </div>
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
-              <Droplets className="size-4" />
-              Activities
-            </span>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">{BLOOD_DONATION.summary}</h2>
-            <ul className="space-y-5">
-              {BLOOD_DONATION.points.map((point) => (
-                <li key={point.slice(0, 48)} className="flex gap-4 text-base text-muted-foreground leading-relaxed font-medium">
-                  <span className="mt-2 size-2 rounded-full bg-gradient-to-r from-primary to-secondary shrink-0" aria-hidden />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
