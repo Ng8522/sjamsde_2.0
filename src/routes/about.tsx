@@ -78,13 +78,13 @@ function AboutPage() {
             <div className="mt-12 flex flex-wrap gap-4">
               <Button asChild>
                 <Link to="/volunteer">
-                  <Users className="size-5" />
+                  <HeartHandshake className="size-5" />
                   Join as volunteer
                 </Link>
               </Button>
               <Button asChild variant="outline">
                 <Link to="/donate">
-                  <HeartHandshake className="size-5" />
+                  <ArrowRight className="size-5" />
                   Support our work
                 </Link>
               </Button>
