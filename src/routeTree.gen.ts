@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
 import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as QualifiedTrainersRouteImport } from './routes/qualified-trainers'
+import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
@@ -28,6 +30,16 @@ const VolunteerRoute = VolunteerRouteImport.update({
 const ScheduleRoute = ScheduleRouteImport.update({
   id: '/schedule',
   path: '/schedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualifiedTrainersRoute = QualifiedTrainersRouteImport.update({
+  id: '/qualified-trainers',
+  path: '/qualified-trainers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -78,6 +90,8 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/programs': typeof ProgramsRoute
+  '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
@@ -90,6 +104,8 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/programs': typeof ProgramsRoute
+  '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
@@ -103,6 +119,8 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/programs': typeof ProgramsRoute
+  '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
@@ -117,6 +135,8 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/programs'
+    | '/qualified-trainers'
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
@@ -129,6 +149,8 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/programs'
+    | '/qualified-trainers'
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
@@ -141,6 +163,8 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/programs'
+    | '/qualified-trainers'
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
@@ -154,6 +178,8 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
+  ProgramsRoute: typeof ProgramsRoute
+  QualifiedTrainersRoute: typeof QualifiedTrainersRoute
   ScheduleRoute: typeof ScheduleRoute
   VolunteerRoute: typeof VolunteerRoute
 }
@@ -172,6 +198,20 @@ declare module '@tanstack/react-router' {
       path: '/schedule'
       fullPath: '/schedule'
       preLoaderRoute: typeof ScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qualified-trainers': {
+      id: '/qualified-trainers'
+      path: '/qualified-trainers'
+      fullPath: '/qualified-trainers'
+      preLoaderRoute: typeof QualifiedTrainersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -261,6 +301,8 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRoute,
+  ProgramsRoute: ProgramsRoute,
+  QualifiedTrainersRoute: QualifiedTrainersRoute,
   ScheduleRoute: ScheduleRoute,
   VolunteerRoute: VolunteerRoute,
 }
