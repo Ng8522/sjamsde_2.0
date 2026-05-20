@@ -3,7 +3,7 @@
   "private": true,
   "sideEffects": ["**/*.css", "./src/styles.css"],
   "type": "module",
-  "homepage": "https://ng8522.github.io/sparkling-sjamsde",
+  "homepage": "https://ng8522.github.io/sjamsde_2.0",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build-pages.mjs",
