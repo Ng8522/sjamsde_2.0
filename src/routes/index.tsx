@@ -73,7 +73,7 @@ function Index() {
   const [appPreviewOpen, setAppPreviewOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased">
+    <div className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden">
       {/* Floating Side Donate Button */}
       <Link
         to="/donate"
@@ -134,82 +134,74 @@ function Index() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* Decorative gradient + cross pattern */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-background to-secondary/10" />
-        <div
-          className="absolute inset-0 -z-10 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-            color: "var(--primary)",
-          }}
-        />
-        <div className="absolute -top-32 -right-32 size-[36rem] rounded-full bg-secondary/10 blur-3xl -z-10" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/2 to-background">
+        {/* Decorative animated gradients */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl animate-pulse opacity-60" />
+          <div className="absolute -bottom-32 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/25 to-transparent rounded-full blur-3xl animate-pulse opacity-50" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full blur-3xl" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-6 pt-20 md:pt-32 pb-24 grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-32 lg:pt-40 pb-32 grid lg:grid-cols-[1.4fr_0.6fr] gap-16 lg:gap-24 items-center relative z-10">
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full w-fit">
-              <span className="size-2 rounded-full bg-primary animate-pulse" />
-              SJAM SDE · Est. 1990 · Pro Utilitate Hominum
+            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 px-5 py-2.5 rounded-full w-fit border border-primary/20">
+              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
+              SJAM SDE · Est. 1990
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-balance leading-[1.0] mb-8 text-foreground">
-              Serve with heart. Give with love.{" "}
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                For the Service of Mankind.
-              </span>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-balance leading-[0.95] mb-10 text-foreground">
+              Serve with <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">heart</span>. Give with <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">love</span>.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-[58ch] mb-12 leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-[55ch] mb-14 leading-relaxed font-medium">
               Professional emergency medical response and community care across Selangor — sustained by volunteers, clinicians and your generosity.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <a
                 href="tel:0333715005"
-                className="inline-flex items-center gap-2 h-13 px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-bold rounded-lg hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all text-base"
+                className="inline-flex items-center gap-3 h-14 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-black rounded-xl hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1.5 active:translate-y-0 transition-all text-base tracking-wider uppercase"
               >
-                <Phone className="size-5" />
-                Request Ambulance
+                <Phone className="size-6" />
+                Emergency Call
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 h-13 px-7 bg-card text-foreground font-bold rounded-lg hover:bg-muted hover:border-primary/40 transition-all border border-primary/10 text-base"
+                className="inline-flex items-center gap-3 h-14 px-8 bg-white text-primary font-black rounded-xl border-2 border-primary hover:bg-primary/5 hover:shadow-lg transition-all text-base tracking-wider uppercase"
               >
-                View Services
-                <ArrowRight className="size-5" />
+                Our Services
+                <ArrowRight className="size-6" />
               </a>
             </div>
           </div>
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative group hidden lg:block">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/20 to-transparent rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+            <div className="absolute inset-0 rounded-3xl border-2 border-primary/20 backdrop-blur-sm" />
             <img
               src={ambulanceImg}
               alt="St John Ambulance Malaysia ambulance on duty"
               width={1024}
               height={1280}
-              className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-3xl shadow-2xl shadow-primary/25 ring-2 ring-primary/20 relative z-10"
+              className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-3xl shadow-2xl shadow-primary/40 ring-2 ring-primary/30 relative z-10 group-hover:scale-[1.03] transition-transform duration-500"
             />
-            <div className="absolute -top-6 -right-6 size-20 rounded-full bg-gradient-to-br from-secondary to-primary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/40 rotate-12 relative z-20 font-bold">
+            <div className="absolute -top-8 -right-8 size-24 rounded-full bg-gradient-to-br from-secondary via-primary to-secondary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/50 rotate-12 relative z-20 font-black border-4 border-white">
               <div className="text-center leading-tight">
-                <div className="text-xs font-bold uppercase tracking-widest opacity-95">Since</div>
-                <div className="text-2xl font-black tabular-nums">1990</div>
+                <div className="text-xs font-black uppercase tracking-widest">Since</div>
+                <div className="text-3xl font-black tabular-nums">1990</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Stats strip */}
-        <div className="border-y border-primary/10 bg-gradient-to-r from-primary/5 via-background to-secondary/5 backdrop-blur-sm relative z-10">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/10">
+        <div className="border-y border-primary/20 bg-gradient-to-r from-primary/8 via-background to-secondary/8 backdrop-blur-xl relative z-10">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/15">
             {[
               { v: "35+", l: "Years in Selangor" },
               { v: "24/7", l: "Emergency Ready" },
               { v: "1,200+", l: "Active Volunteers" },
               { v: "50k+", l: "Lives Touched" },
             ].map((s) => (
-              <div key={s.l} className="px-4 md:px-8 py-8 text-center md:text-left group hover:bg-primary/5 transition-colors">
-                <div className="text-3xl md:text-4xl font-black text-primary tabular-nums group-hover:scale-110 transition-transform">{s.v}</div>
-                <div className="text-[11px] md:text-xs uppercase tracking-widest text-muted-foreground mt-2 font-semibold">{s.l}</div>
+              <div key={s.l} className="px-4 md:px-8 py-12 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default">
+                <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{s.v}</div>
+                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-bold">{s.l}</div>
               </div>
             ))}
           </div>
@@ -217,58 +209,53 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section id="services" className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 border-y border-primary/10 py-24 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-40 -z-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/3" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/3 translate-x-1/3" />
+      <section id="services" className="relative bg-white py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
-            <div>
-              <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
-                <span className="size-2 rounded-full bg-primary animate-pulse" />
-                Our Services
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-[22ch] leading-tight">
-                Emergency & medical services, <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">around the clock</span>.
-              </h2>
-            </div>
-            <p className="text-muted-foreground max-w-[40ch] leading-relaxed">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/15 px-6 py-3 rounded-full mb-6 border border-primary/20">
+              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
+              Our Services
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter max-w-[28ch] mx-auto leading-tight mb-6">
+              Emergency & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">medical care</span>, around the clock.
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
               Accredited healthcare support for residents, organisations and event organisers across Selangor.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-8">
             {services.map((s) => (
               <article
                 key={s.title}
-                className="group relative bg-gradient-to-br from-card via-card to-card/60 p-8 rounded-2xl border border-primary/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15 transition-all flex flex-col overflow-hidden"
+                className="group relative bg-gradient-to-br from-white to-gray-50 p-10 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all flex flex-col overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:from-primary/20 transition-all" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 group-hover:from-primary/30 transition-all" />
+                <div className="size-16 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center mb-8 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all relative z-10 font-black">
+                  <s.icon className="size-7" />
                 </div>
-                <div className="size-14 rounded-xl bg-gradient-to-br from-primary to-secondary/80 text-primary-foreground grid place-items-center mb-6 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all relative z-10">
-                  <s.icon className="size-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 relative z-10">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mb-8 leading-relaxed relative z-10">{s.desc}</p>
-                <div className="mt-auto pt-6 border-t border-primary/10 flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-2">
-                    {s.live && <span className="size-2.5 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />}
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary/70">
+                <h3 className="text-2xl font-black mb-4 relative z-10 text-foreground">{s.title}</h3>
+                <p className="text-base text-muted-foreground mb-10 leading-relaxed relative z-10">{s.desc}</p>
+                <div className="mt-auto pt-8 border-t-2 border-gray-200 flex items-center justify-between relative z-10">
+                  <div className="flex items-center gap-3">
+                    {s.live && <span className="size-3 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />}
+                    <span className="text-xs font-black uppercase tracking-wider text-primary">
                       {s.tag}
                     </span>
                   </div>
                   {"internal" in s && s.internal ? (
-                    <Link to={s.href} className="text-sm font-bold text-primary hover:text-secondary inline-flex items-center gap-2 group/link">
+                    <Link to={s.href} className="text-base font-black text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
                       {s.cta}
-                      <ArrowRight className="size-4 group-hover/link:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   ) : (
-                    <a href={s.href} className="text-sm font-bold text-primary hover:text-secondary inline-flex items-center gap-2 group/link">
+                    <a href={s.href} className="text-base font-black text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
                       {s.cta}
-                      <ArrowRight className="size-4 group-hover/link:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </a>
                   )}
                 </div>

@@ -267,17 +267,11 @@ export function SiteFooter({ id }: { id?: string }) {
             <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-7">Contact & Support</h4>
             <div className="space-y-3">
               <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom">
-                <div className="flex items-start justify-between mb-2">
-                  <p className="text-xs font-bold uppercase tracking-widest opacity-95">24/7 Ambulance</p>
-                  <span className="text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">🚑</span>
-                </div>
+                <p className="text-xs font-bold uppercase tracking-widest opacity-95 mb-2">24/7 Ambulance</p>
                 <p className="text-xl font-bold tabular-nums group-hover:translate-y-0.5 transition-transform">03-3371 5005</p>
               </a>
               <a href="tel:0333735005" className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom">
-                <div className="flex items-start justify-between mb-2">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Haemodialysis</p>
-                  <span className="text-primary/60 group-hover:text-primary transition-colors">🏥</span>
-                </div>
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Haemodialysis</p>
                 <p className="text-xl font-bold tabular-nums group-hover:text-primary transition-colors">03-3373 5005</p>
               </a>
             </div>
