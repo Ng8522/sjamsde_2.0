@@ -492,45 +492,6 @@ function Index() {
                 />
               </DialogContent>
             </Dialog>
-            <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-secondary to-primary text-primary-foreground border border-secondary/30 rounded-2xl px-5 py-3.5 shadow-2xl shadow-primary/40 flex items-center gap-3 font-medium">
-              <span className="relative flex size-3">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-primary-foreground/60 animate-ping" />
-                <span className="relative inline-flex rounded-full size-3 bg-primary-foreground" />
-              </span>
-              <span className="text-xs font-medium uppercase tracking-widest">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donation CTA */}
-      <section id="donate" className="max-w-7xl mx-auto px-6 py-32">
-        <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground rounded-3xl p-16 md:p-24 relative overflow-hidden shadow-2xl shadow-primary/50">
-          <div className="absolute inset-0 opacity-15 pointer-events-none">
-            <div className="absolute -top-40 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
-            <div className="absolute -bottom-40 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
-          </div>
-          <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.3em] uppercase opacity-95 mb-6 bg-primary-foreground/20 px-6 py-3 rounded-full w-fit border border-primary-foreground/30">
-              <span className="size-3 rounded-full bg-primary-foreground animate-pulse" />
-              Support Our Mission
-            </span>
-            <h2 className="text-6xl md:text-7xl font-semibold tracking-tighter mb-8 leading-tight">
-              Fuel <span className="bg-gradient-to-r from-primary-foreground via-white to-primary-foreground bg-clip-text text-transparent">life-saving</span> work.
-            </h2>
-            <p className="text-xl opacity-95 mb-12 leading-relaxed max-w-[45ch] font-medium">
-              Your donation maintains our ambulance fleet and subsidises dialysis treatment for low-income patients.
-            </p>
-            <Link
-              to="/donate"
-              className="inline-flex items-center gap-3 h-16 px-10 bg-white text-primary font-semibold rounded-xl hover:shadow-2xl hover:shadow-white/50 hover:-translate-y-2 active:translate-y-0 transition-all text-lg tracking-wide uppercase"
-            >
-              <Plus className="size-7" strokeWidth={2.8} />
-              Donate Now
-            </Link>
-          </div>
-          <div className="absolute -right-32 -bottom-32 opacity-10 pointer-events-none">
-            <Plus className="size-96" strokeWidth={1} />
           </div>
         </div>
       </section>
