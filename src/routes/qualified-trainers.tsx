@@ -138,6 +138,13 @@ const TRAINERS_BY_AREA = {
     { name: "R MURUGAN A/L RENGANATHAN", expiry: 2020 },
     { name: "TAN QIAO ER", expiry: 2019 },
   ],
+  "Tutors": [
+    { name: "LOGANATHAN A/L SOMASUNDARAM", expiry: 2018 },
+    { name: "PRESCILLA RUDD A/P SUNNY RUDD", expiry: 2018 },
+    { name: "RUTBA AMYSHYA MIR BINTI ABDULLAH", expiry: 2018 },
+    { name: "SUBRAMANIAM A/L GANAPATHY", expiry: 2018 },
+    { name: "MANIMARAN A/L V MUNISAMY", expiry: 2018 },
+  ],
 };
 
 function QualifiedTrainersPage() {
