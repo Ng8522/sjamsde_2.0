@@ -100,7 +100,7 @@ function Index() {
             </button>
             <div className="bg-gradient-to-br from-primary to-secondary p-5 text-primary-foreground">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest bg-primary-foreground/20 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-medium uppercase tracking-widest bg-primary-foreground/20 px-2 py-0.5 rounded">
                   Sponsored
                 </span>
               </div>
@@ -144,11 +144,11 @@ function Index() {
 
         <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-32 lg:pt-40 pb-32 grid lg:grid-cols-[1.4fr_0.6fr] gap-16 lg:gap-24 items-center relative z-10">
           <div>
-            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 px-5 py-2.5 rounded-full w-fit border border-primary/20">
+            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 px-5 py-2.5 rounded-full w-fit border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
               SJAM SDE · Est. 1990
             </span>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-balance leading-[0.95] mb-10 text-foreground">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-balance leading-[0.95] mb-10 text-foreground">
               Serve with <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">heart</span>. Give with <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">love</span>.
             </h1>
             <p className="text-xl text-muted-foreground max-w-[55ch] mb-14 leading-relaxed font-medium">
@@ -157,14 +157,14 @@ function Index() {
             <div className="flex flex-wrap gap-5">
               <a
                 href="tel:0333715005"
-                className="inline-flex items-center gap-3 h-14 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-black rounded-xl hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1.5 active:translate-y-0 transition-all text-base tracking-wider uppercase"
+                className="inline-flex items-center gap-3 h-14 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1.5 active:translate-y-0 transition-all text-base tracking-wider uppercase"
               >
                 <Phone className="size-6" />
                 Emergency Call
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-3 h-14 px-8 bg-white text-primary font-black rounded-xl border-2 border-primary hover:bg-primary/5 hover:shadow-lg transition-all text-base tracking-wider uppercase"
+                className="inline-flex items-center gap-3 h-14 px-8 bg-white text-primary font-semibold rounded-xl border-2 border-primary hover:bg-primary/5 hover:shadow-lg transition-all text-base tracking-wider uppercase"
               >
                 Our Services
                 <ArrowRight className="size-6" />
@@ -181,10 +181,10 @@ function Index() {
               height={1280}
               className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-3xl shadow-2xl shadow-primary/40 ring-2 ring-primary/30 relative z-10 group-hover:scale-[1.03] transition-transform duration-500"
             />
-            <div className="absolute -top-8 -right-8 size-24 rounded-full bg-gradient-to-br from-secondary via-primary to-secondary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/50 rotate-12 relative z-20 font-black border-4 border-white">
+            <div className="absolute -top-8 -right-8 size-24 rounded-full bg-gradient-to-br from-secondary via-primary to-secondary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/50 rotate-12 relative z-20 font-semibold border-4 border-white">
               <div className="text-center leading-tight">
-                <div className="text-xs font-black uppercase tracking-widest">Since</div>
-                <div className="text-3xl font-black tabular-nums">1990</div>
+                <div className="text-xs font-semibold uppercase tracking-widest">Since</div>
+                <div className="text-3xl font-semibold tabular-nums">1990</div>
               </div>
             </div>
           </div>
@@ -200,8 +200,8 @@ function Index() {
               { v: "50k+", l: "Lives Touched" },
             ].map((s) => (
               <div key={s.l} className="px-4 md:px-8 py-12 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default">
-                <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{s.v}</div>
-                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-bold">{s.l}</div>
+                <div className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{s.v}</div>
+                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-medium">{s.l}</div>
               </div>
             ))}
           </div>
@@ -216,11 +216,11 @@ function Index() {
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/15 px-6 py-3 rounded-full mb-6 border border-primary/20">
+            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/15 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Our Services
             </span>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tighter max-w-[28ch] mx-auto leading-tight mb-6">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[28ch] mx-auto leading-tight mb-6">
               Emergency & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">medical care</span>, around the clock.
             </h2>
             <p className="text-lg text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
@@ -235,25 +235,25 @@ function Index() {
                 className="group relative bg-gradient-to-br from-white to-gray-50 p-10 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all flex flex-col overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 group-hover:from-primary/30 transition-all" />
-                <div className="size-16 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center mb-8 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all relative z-10 font-black">
+                <div className="size-16 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center mb-8 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all relative z-10 font-semibold">
                   <s.icon className="size-7" />
                 </div>
-                <h3 className="text-2xl font-black mb-4 relative z-10 text-foreground">{s.title}</h3>
+                <h3 className="text-2xl font-semibold mb-4 relative z-10 text-foreground">{s.title}</h3>
                 <p className="text-base text-muted-foreground mb-10 leading-relaxed relative z-10">{s.desc}</p>
                 <div className="mt-auto pt-8 border-t-2 border-gray-200 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-3">
                     {s.live && <span className="size-3 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />}
-                    <span className="text-xs font-black uppercase tracking-wider text-primary">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {s.tag}
                     </span>
                   </div>
                   {"internal" in s && s.internal ? (
-                    <Link to={s.href} className="text-base font-black text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
+                    <Link to={s.href} className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
                       {s.cta}
                       <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   ) : (
-                    <a href={s.href} className="text-base font-black text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
+                    <a href={s.href} className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
                       {s.cta}
                       <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </a>
@@ -283,22 +283,22 @@ function Index() {
             />
           </div>
           <div>
-            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20 w-fit">
+            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20 w-fit">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Community
             </span>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">For the <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">people</span>, by the <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">people</span>.</h2>
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-8 leading-tight">For the <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">people</span>, by the <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">people</span>.</h2>
             <p className="text-xl text-muted-foreground mb-14 max-w-[50ch] leading-relaxed font-medium">
               Beyond emergencies, our volunteers run programmes that bring care to where it's needed most.
             </p>
             <div className="space-y-8">
               {community.map((c) => (
                 <div key={c.n} className="flex gap-6 group cursor-default">
-                  <div className="shrink-0 size-16 rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/15 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary group-hover:text-primary-foreground transition-all group-hover:shadow-xl group-hover:shadow-primary/40 group-hover:scale-110 font-black text-xl">
+                  <div className="shrink-0 size-16 rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/15 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary group-hover:text-primary-foreground transition-all group-hover:shadow-xl group-hover:shadow-primary/40 group-hover:scale-110 font-semibold text-xl">
                     {c.n}
                   </div>
                   <div>
-                    <h4 className="font-black text-xl mb-2 group-hover:text-primary transition-colors">{c.title}</h4>
+                    <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">{c.title}</h4>
                     <p className="text-base text-muted-foreground max-w-[42ch] leading-relaxed">{c.desc}</p>
                   </div>
                 </div>
@@ -322,11 +322,11 @@ function Index() {
             />
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
               <span className="size-1.5 rounded-full bg-primary" />
               Community programme
             </span>
-            <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 leading-tight">Rakan St John</h3>
+            <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 leading-tight">Rakan St John</h3>
             <p className="text-lg text-primary font-semibold mb-4 max-w-[48ch]">{RAKAN_ST_JOHN_TAGLINE}</p>
             <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-8">{RAKAN_ST_JOHN_HOME_SUMMARY}</p>
             <ul className="space-y-3 mb-10 max-w-[56ch]">
@@ -339,7 +339,7 @@ function Index() {
             </ul>
             <Link
               to="/volunteer"
-              className="inline-flex items-center gap-2 h-12 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-bold text-sm hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all"
+              className="inline-flex items-center gap-2 h-12 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all"
             >
               Register online
               <ArrowRight className="size-4" />
@@ -356,17 +356,17 @@ function Index() {
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2.5 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
               Upcoming Events
             </span>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
               Join us at our next <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">community event</span>.
             </h2>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/events"
-                className="inline-flex items-center gap-3 text-base font-black text-primary hover:text-secondary group"
+                className="inline-flex items-center gap-3 text-base font-semibold text-primary hover:text-secondary group"
               >
                 All events
                 <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
@@ -374,7 +374,7 @@ function Index() {
               <div className="w-px h-6 bg-gray-300" />
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-3 text-base font-black text-muted-foreground hover:text-primary group"
+                className="inline-flex items-center gap-3 text-base font-semibold text-muted-foreground hover:text-primary group"
               >
                 Past event gallery
                 <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
@@ -382,7 +382,7 @@ function Index() {
               <div className="w-px h-6 bg-gray-300" />
               <Link
                 to="/courses"
-                className="inline-flex items-center gap-3 text-base font-black text-muted-foreground hover:text-primary group"
+                className="inline-flex items-center gap-3 text-base font-semibold text-muted-foreground hover:text-primary group"
               >
                 Training courses
                 <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
@@ -399,35 +399,35 @@ function Index() {
                   className="group bg-white rounded-2xl border-2 border-gray-200 overflow-hidden hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/25 hover:-translate-y-3 transition-all flex flex-col"
                 >
                   <div className="flex items-stretch border-b-2 border-gray-200 bg-gradient-to-r from-primary to-secondary">
-                    <div className="text-primary-foreground p-6 flex flex-col items-center justify-center min-w-[100px] font-black">
+                    <div className="text-primary-foreground p-6 flex flex-col items-center justify-center min-w-[100px] font-semibold">
                       <div className="text-4xl tabular-nums leading-none">{day}</div>
-                      <div className="text-xs uppercase tracking-widest mt-2 opacity-95 font-black">{month}</div>
+                      <div className="text-xs uppercase tracking-widest mt-2 opacity-95 font-semibold">{month}</div>
                     </div>
                     <div className="flex-1 px-6 py-5 flex flex-col justify-center">
-                      <span className="text-xs font-black uppercase tracking-wider text-white mb-1">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-white mb-1">
                         {e.tag}
                       </span>
-                      <span className="text-sm text-white/90 font-bold">{e.day}</span>
+                      <span className="text-sm text-white/90 font-medium">{e.day}</span>
                     </div>
                   </div>
                   <div className="p-7 flex-1 flex flex-col">
-                    <h3 className="font-black text-xl mb-5 leading-tight group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-xl mb-5 leading-tight group-hover:text-primary transition-colors">
                       {e.title}
                     </h3>
                     <div className="space-y-3 text-base text-muted-foreground mb-7">
                       <div className="flex items-center gap-3">
-                        <MapPin className="size-5 text-primary shrink-0 font-black" />
+                        <MapPin className="size-5 text-primary shrink-0 font-semibold" />
                         <span className="font-medium">{e.location}</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Clock className="size-5 text-primary shrink-0 font-black" />
+                        <Clock className="size-5 text-primary shrink-0 font-semibold" />
                         <span className="font-medium">{e.time}</span>
                       </div>
                     </div>
                     <Link
                       to="/events/$eventId"
                       params={{ eventId: e.id }}
-                      className="mt-auto inline-flex items-center justify-between text-base font-black text-primary border-t-2 border-gray-200 pt-6 hover:text-secondary group/link"
+                      className="mt-auto inline-flex items-center justify-between text-base font-semibold text-primary border-t-2 border-gray-200 pt-6 hover:text-secondary group/link"
                     >
                       Register / Details
                       <ArrowRight className="size-5 group-hover/link:translate-x-1.5 transition-transform" />
@@ -447,11 +447,11 @@ function Index() {
         </div>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <div className="order-2 md:order-1">
-            <span className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
               <Smartphone className="size-4" />
               SSMP app · download only
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">Already a SJAM member?</h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">Already a SJAM member?</h2>
             <p className="text-muted-foreground max-w-[48ch] mb-10 leading-relaxed text-lg">
               Member registration, duty hours, SOS and internal announcements are in the SSMP mobile app — not on this public website.
             </p>
@@ -492,12 +492,12 @@ function Index() {
                 />
               </DialogContent>
             </Dialog>
-            <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-secondary to-primary text-primary-foreground border border-secondary/30 rounded-2xl px-5 py-3.5 shadow-2xl shadow-primary/40 flex items-center gap-3 font-bold">
+            <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-secondary to-primary text-primary-foreground border border-secondary/30 rounded-2xl px-5 py-3.5 shadow-2xl shadow-primary/40 flex items-center gap-3 font-medium">
               <span className="relative flex size-3">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-primary-foreground/60 animate-ping" />
                 <span className="relative inline-flex rounded-full size-3 bg-primary-foreground" />
               </span>
-              <span className="text-xs font-bold uppercase tracking-widest">Coming Soon</span>
+              <span className="text-xs font-medium uppercase tracking-widest">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -511,11 +511,11 @@ function Index() {
             <div className="absolute -bottom-40 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
           </div>
           <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-xs font-black tracking-[0.3em] uppercase opacity-95 mb-6 bg-primary-foreground/20 px-6 py-3 rounded-full w-fit border border-primary-foreground/30">
+            <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.3em] uppercase opacity-95 mb-6 bg-primary-foreground/20 px-6 py-3 rounded-full w-fit border border-primary-foreground/30">
               <span className="size-3 rounded-full bg-primary-foreground animate-pulse" />
               Support Our Mission
             </span>
-            <h2 className="text-6xl md:text-7xl font-black tracking-tighter mb-8 leading-tight">
+            <h2 className="text-6xl md:text-7xl font-semibold tracking-tighter mb-8 leading-tight">
               Fuel <span className="bg-gradient-to-r from-primary-foreground via-white to-primary-foreground bg-clip-text text-transparent">life-saving</span> work.
             </h2>
             <p className="text-xl opacity-95 mb-12 leading-relaxed max-w-[45ch] font-medium">
@@ -523,7 +523,7 @@ function Index() {
             </p>
             <Link
               to="/donate"
-              className="inline-flex items-center gap-3 h-16 px-10 bg-white text-primary font-black rounded-xl hover:shadow-2xl hover:shadow-white/50 hover:-translate-y-2 active:translate-y-0 transition-all text-lg tracking-wide uppercase"
+              className="inline-flex items-center gap-3 h-16 px-10 bg-white text-primary font-semibold rounded-xl hover:shadow-2xl hover:shadow-white/50 hover:-translate-y-2 active:translate-y-0 transition-all text-lg tracking-wide uppercase"
             >
               <Plus className="size-7" strokeWidth={2.8} />
               Donate Now

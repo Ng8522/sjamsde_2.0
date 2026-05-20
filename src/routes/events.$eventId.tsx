@@ -60,7 +60,7 @@ function EventDetailPage() {
 
         <div className="flex gap-4 items-start mb-6">
           <div className="bg-gradient-to-br from-primary to-secondary text-primary-foreground rounded-xl p-4 text-center min-w-[80px]">
-            <div className="text-2xl font-bold">{day}</div>
+            <div className="text-2xl font-medium">{day}</div>
             <div className="text-[10px] uppercase tracking-widest">{month}</div>
           </div>
           <div>

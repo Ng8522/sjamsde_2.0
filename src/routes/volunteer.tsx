@@ -142,7 +142,7 @@ function RakanStJohnPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-6 py-10 md:py-14">
-        <h2 className="text-center text-xl md:text-2xl font-bold tracking-wide uppercase underline underline-offset-8 decoration-2 mb-10">
+        <h2 className="text-center text-xl md:text-2xl font-medium tracking-wide uppercase underline underline-offset-8 decoration-2 mb-10">
           Registration Form
         </h2>
 

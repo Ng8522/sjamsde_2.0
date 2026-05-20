@@ -44,10 +44,10 @@ function AboutPage() {
           <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-          <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">{ABOUT_HERO.eyebrow}</span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter max-w-4xl leading-tight mb-8">{ABOUT_HERO.title}</h1>
+          <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">{ABOUT_HERO.eyebrow}</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl leading-tight mb-8">{ABOUT_HERO.title}</h1>
           <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6 font-medium">{ABOUT_HERO.subtitle}</p>
-          <p className="text-base font-black text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
+          <p className="text-base font-semibold text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
         </div>
       </section>
 
@@ -55,8 +55,8 @@ function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/15">
           {ABOUT_STATS.map((stat) => (
             <div key={stat.label} className="py-12 px-4 md:px-6 text-center md:text-left group hover:bg-primary/5 transition-colors cursor-default">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{stat.value}</div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-3 font-bold">{stat.label}</p>
+              <div className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{stat.value}</div>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-3 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -75,8 +75,8 @@ function AboutPage() {
             />
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
+            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               {ABOUT_INTRO.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
@@ -107,22 +107,22 @@ function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-[1fr_minmax(0,450px)] gap-16 lg:gap-20 items-start">
             <div>
-              <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
+              <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
                 <Ambulance className="size-4" />
                 Our services
               </span>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 leading-tight">{AMBULANCE_SERVICE.title}</h2>
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6 leading-tight">{AMBULANCE_SERVICE.title}</h2>
               <p className="text-muted-foreground leading-relaxed mb-8 text-base font-medium">{AMBULANCE_SERVICE.summary}</p>
               <a
                 href={AMBULANCE_SERVICE.hotlineTel}
                 className="inline-flex items-center gap-4 rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/10 to-secondary/5 px-6 py-5 mb-10 hover:bg-primary/15 hover:border-primary/50 transition-all group"
               >
-                <span className="size-12 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shrink-0 font-black">
+                <span className="size-12 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shrink-0 font-semibold">
                   <Phone className="size-6" />
                 </span>
                 <span>
-                  <span className="text-xs text-muted-foreground block font-bold">24-hour emergency hotline</span>
-                  <span className="text-2xl font-black tabular-nums text-primary">{AMBULANCE_SERVICE.hotline}</span>
+                  <span className="text-xs text-muted-foreground block font-medium">24-hour emergency hotline</span>
+                  <span className="text-2xl font-semibold tabular-nums text-primary">{AMBULANCE_SERVICE.hotline}</span>
                 </span>
               </a>
               <ul className="space-y-5">
@@ -151,8 +151,8 @@ function AboutPage() {
         </div>
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,500px)_1fr] gap-16 lg:gap-20 items-center relative z-10">
           <div className="rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent p-12 lg:p-14 group hover:border-primary/40 hover:bg-primary/15 transition-all">
-            <Droplets className="size-14 text-primary mb-6 font-black" />
-            <p className="text-3xl font-black leading-snug mb-4">{BLOOD_DONATION.title}</p>
+            <Droplets className="size-14 text-primary mb-6 font-semibold" />
+            <p className="text-3xl font-semibold leading-snug mb-4">{BLOOD_DONATION.title}</p>
             <p className="text-base text-muted-foreground leading-relaxed font-medium mb-8">
               Look out for blood drives listed on our events calendar — or contact us to host a session with your organisation.
             </p>
@@ -169,11 +169,11 @@ function AboutPage() {
             </div>
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 text-primary font-black text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
+            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
               <Droplets className="size-4" />
               Activities
             </span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-8 leading-tight">{BLOOD_DONATION.summary}</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">{BLOOD_DONATION.summary}</h2>
             <ul className="space-y-5">
               {BLOOD_DONATION.points.map((point) => (
                 <li key={point.slice(0, 48)} className="flex gap-4 text-base text-muted-foreground leading-relaxed font-medium">
@@ -191,16 +191,16 @@ function AboutPage() {
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-16">More <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">services</span></h2>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16">More <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">services</span></h2>
           <div className="grid sm:grid-cols-3 gap-8">
             {ABOUT_OTHER_SERVICES.map((service) => (
               <article key={service.title} className="bg-white rounded-2xl border-2 border-gray-200 p-8 flex flex-col hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all group">
-                <h3 className="font-black text-xl mb-4 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
+                <h3 className="font-semibold text-xl mb-4 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
                 <p className="text-base text-muted-foreground leading-relaxed flex-1 font-medium">{service.description}</p>
                 {"href" in service && service.href ? (
                   <Link
                     to={service.href}
-                    className="inline-flex items-center gap-2 mt-6 text-base font-black text-primary hover:text-secondary group/link"
+                    className="inline-flex items-center gap-2 mt-6 text-base font-semibold text-primary hover:text-secondary group/link"
                   >
                     Learn more
                     <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
@@ -209,7 +209,7 @@ function AboutPage() {
                   <Link
                     to="/"
                     hash="services"
-                    className="inline-flex items-center gap-2 mt-6 text-base font-black text-primary hover:text-secondary group/link"
+                    className="inline-flex items-center gap-2 mt-6 text-base font-semibold text-primary hover:text-secondary group/link"
                   >
                     View on home
                     <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />

@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @source "../index.html";
 @source "./**/*.{ts,tsx}";
+
+@layer base {
+  * {
+    @apply font-sans;
+  }
+
+  html {
+    @apply font-family-sans;
+  }
+}
+
+@theme inline {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
