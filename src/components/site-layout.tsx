@@ -194,9 +194,13 @@ export function SiteHeader() {
 
 export function SiteFooter({ id }: { id?: string }) {
   return (
-    <footer id={id} className="bg-gradient-to-b from-foreground/2 to-background border-t border-border/50 pt-24 pb-12 mt-auto">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-16 pb-16 border-b border-border/50">
+    <footer id={id} className="bg-gradient-to-br from-primary/5 via-secondary/3 to-background border-t border-primary/10 pt-24 pb-12 mt-auto relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-16 pb-16 border-b border-gradient-to-r border-primary/20">
           {/* Brand Column */}
           <div>
             <div className="flex items-start gap-3 mb-6">
@@ -230,7 +234,7 @@ export function SiteFooter({ id }: { id?: string }) {
                 </a>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/5 border border-primary/10 rounded-xl p-5">
+            <div className="bg-gradient-to-br from-primary/15 via-secondary/10 to-primary/5 border border-primary/20 rounded-xl p-5 shadow-lg shadow-primary/10 backdrop-blur-sm">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">SSMP Mobile App</p>
               <StoreDownloadBadges />
             </div>
@@ -262,12 +266,18 @@ export function SiteFooter({ id }: { id?: string }) {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-7">Contact & Support</h4>
             <div className="space-y-3">
-              <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary to-secondary/80 text-primary-foreground rounded-lg p-5 hover:shadow-lg hover:shadow-primary/20 transition-all hover:scale-105 origin-top-left">
-                <p className="text-xs font-bold uppercase tracking-widest opacity-90 mb-1.5">24/7 Ambulance</p>
+              <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom">
+                <div className="flex items-start justify-between mb-2">
+                  <p className="text-xs font-bold uppercase tracking-widest opacity-95">24/7 Ambulance</p>
+                  <span className="text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">🚑</span>
+                </div>
                 <p className="text-xl font-bold tabular-nums group-hover:translate-y-0.5 transition-transform">03-3371 5005</p>
               </a>
-              <a href="tel:0333735005" className="block group bg-muted/60 border border-border/50 text-foreground rounded-lg p-5 hover:bg-muted hover:border-primary/30 transition-all hover:scale-105 origin-top-left">
-                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1.5">Haemodialysis Centre</p>
+              <a href="tel:0333735005" className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom">
+                <div className="flex items-start justify-between mb-2">
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Haemodialysis</p>
+                  <span className="text-primary/60 group-hover:text-primary transition-colors">🏥</span>
+                </div>
                 <p className="text-xl font-bold tabular-nums group-hover:text-primary transition-colors">03-3373 5005</p>
               </a>
             </div>
