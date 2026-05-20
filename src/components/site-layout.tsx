@@ -238,50 +238,50 @@ export function SiteFooter({ id }: { id?: string }) {
             <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Explore</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/about" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/about" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/donate" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/donate" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Donate
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/events" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Events
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/gallery" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Event gallery
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/courses" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Courses
                 </Link>
               </li>
               <li>
-                <Link to="/volunteer" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/volunteer" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Rakan St John
                 </Link>
               </li>
               <li>
-                <Link to="/about" hash="ambulance-services" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/about" hash="ambulance-services" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Ambulance services
                 </Link>
               </li>
               <li>
-                <Link to="/about" hash="blood-donation" className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all">
-                  <span className="text-primary/0 group-hover:text-primary/100 transition-colors">→</span>
+                <Link to="/about" hash="blood-donation" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
                   Blood donation
                 </Link>
               </li>
