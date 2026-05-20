@@ -1,8 +1,8 @@
 /** Short organisation intro shown in the site footer. */
 export const SITE_FOOTER_INTRO = [
-  "Who we are — SJAM-SDE, part of SJAM since 1908, first aid at public events",
-  "Volunteers — 4,400+ members, motto, events and emergencies",
-  "Services — ambulance, dialysis since 1993, thanks for support",
+  "Who we are — SJAM-SDE, part of SJAM since 1908, providing emergency medical services and first aid at public events",
+  "Volunteers — 4,400+ dedicated members committed to our motto of serving with heart and giving with love",
+  "Services — 24-hour ambulance operations, haemodialysis services since 1993, and community medical programs",
 ] as const;
 
 /** Donation page hero copy (footer uses SITE_FOOTER_INTRO). */

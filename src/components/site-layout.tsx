@@ -194,126 +194,92 @@ export function SiteHeader() {
 
 export function SiteFooter({ id }: { id?: string }) {
   return (
-    <footer id={id} className="bg-gradient-to-b from-muted/30 to-background border-t border-border/50 pt-20 pb-10 mt-auto">
+    <footer id={id} className="bg-gradient-to-b from-foreground/2 to-background border-t border-border/50 pt-24 pb-12 mt-auto">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr] gap-12 pb-12 border-b border-border/50">
+        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-16 pb-16 border-b border-border/50">
+          {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <StJohnCross className="size-10" />
+            <div className="flex items-start gap-3 mb-6">
+              <StJohnCross className="size-11 shrink-0" />
               <div className="flex flex-col">
-                <span className="font-bold text-foreground">SJAM Selangor</span>
-                <span className="text-xs text-muted-foreground">Service of Mankind</span>
+                <span className="font-bold text-lg text-foreground">SJAM Selangor</span>
+                <span className="text-xs text-muted-foreground font-medium tracking-wide">Service of Mankind</span>
               </div>
             </div>
-            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed mb-8 max-w-[52ch]">
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed mb-10 max-w-[55ch]">
               {SITE_FOOTER_INTRO.map((line) => {
                 const [label, ...rest] = line.split(" — ");
                 const body = rest.join(" — ");
                 return (
-                  <p key={line}>
-                    <span className="font-semibold text-foreground">{label}</span>
+                  <p key={line} className="leading-relaxed">
+                    <span className="font-semibold text-foreground/90">{label}</span>
                     {body ? <> — {body}</> : null}
                   </p>
                 );
               })}
             </div>
-            <div className="space-y-3 text-sm mb-8">
-              <div className="flex items-start gap-3 group">
-                <MapPin className="size-4 text-primary mt-0.5 shrink-0" />
+            <div className="space-y-3 text-sm mb-10">
+              <div className="flex items-start gap-3">
+                <MapPin className="size-5 text-primary mt-0 shrink-0" />
                 <span className="text-muted-foreground">Selangor Darul Ehsan, Malaysia</span>
               </div>
-              <div className="flex items-start gap-3 group">
-                <Mail className="size-4 text-primary mt-0.5 shrink-0" />
-                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors break-all">
+              <div className="flex items-start gap-3">
+                <Mail className="size-5 text-primary mt-0 shrink-0" />
+                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors break-all font-medium">
                   {SITE_CONTACT_EMAIL}
                 </a>
               </div>
             </div>
-            <div className="bg-primary/5 rounded-lg p-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">SSMP Mobile App</p>
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/5 border border-primary/10 rounded-xl p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">SSMP Mobile App</p>
               <StoreDownloadBadges />
             </div>
           </div>
+
+          {/* Links Column */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Explore</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link to="/about" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/donate" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Donate
-                </Link>
-              </li>
-              <li>
-                <Link to="/events" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Event gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/volunteer" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Rakan St John
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" hash="ambulance-services" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Ambulance services
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" hash="blood-donation" className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
-                  Blood donation
-                </Link>
-              </li>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-7">Quick Links</h4>
+            <ul className="space-y-3.5 text-sm">
+              {[
+                { label: "About", to: "/about" },
+                { label: "Donate", to: "/donate" },
+                { label: "Events", to: "/events" },
+                { label: "Gallery", to: "/gallery" },
+                { label: "Courses", to: "/courses" },
+                { label: "Volunteer", to: "/volunteer" },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to as any} className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all">
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-primary">→</span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+
+          {/* Contact Column */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Hotlines</h4>
-            <div className="space-y-5">
-              <div className="bg-primary/5 border border-primary/10 rounded-lg p-4 hover:bg-primary/10 transition-colors group">
-                <div className="flex items-center gap-2 mb-2">
-                  <Smartphone className="size-4 text-primary" />
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Ambulance · 24/7</p>
-                </div>
-                <a href="tel:0333715005" className="text-lg font-bold tabular-nums text-primary hover:text-secondary transition-colors block">
-                  03-3371 5005
-                </a>
-              </div>
-              <div className="bg-muted/40 border border-border/50 rounded-lg p-4 hover:bg-muted/60 transition-colors">
-                <div className="flex items-center gap-2 mb-2">
-                  <Smartphone className="size-4 text-muted-foreground" />
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Haemodialysis Centre</p>
-                </div>
-                <a href="tel:0333735005" className="text-lg font-bold tabular-nums text-foreground hover:text-primary transition-colors block">
-                  03-3373 5005
-                </a>
-              </div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-7">Contact & Support</h4>
+            <div className="space-y-3">
+              <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary to-secondary/80 text-primary-foreground rounded-lg p-5 hover:shadow-lg hover:shadow-primary/20 transition-all hover:scale-105 origin-top-left">
+                <p className="text-xs font-bold uppercase tracking-widest opacity-90 mb-1.5">24/7 Ambulance</p>
+                <p className="text-xl font-bold tabular-nums group-hover:translate-y-0.5 transition-transform">03-3371 5005</p>
+              </a>
+              <a href="tel:0333735005" className="block group bg-muted/60 border border-border/50 text-foreground rounded-lg p-5 hover:bg-muted hover:border-primary/30 transition-all hover:scale-105 origin-top-left">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1.5">Haemodialysis Centre</p>
+                <p className="text-xl font-bold tabular-nums group-hover:text-primary transition-colors">03-3373 5005</p>
+              </a>
             </div>
           </div>
         </div>
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} St John Ambulans Malaysia, Selangor Darul Ehsan. All rights reserved.</p>
-          <p className="font-semibold tracking-wider uppercase text-foreground/60">Pro Utilitate Hominum</p>
+
+        {/* Footer Bottom */}
+        <div className="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} St John Ambulans Malaysia. All rights reserved.</p>
+          <p className="font-bold tracking-widest uppercase text-foreground/50 text-center sm:text-right">
+            Pro Utilitate Hominum
+          </p>
         </div>
       </div>
     </footer>
