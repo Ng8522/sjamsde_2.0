@@ -19,7 +19,6 @@ import {
   Smartphone,
   ZoomIn,
   Calendar,
-  Users,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
@@ -498,6 +497,63 @@ function Index() {
         </div>
       </section>
 
+      {/* Gallery Preview Section */}
+      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+            <div>
+              <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+                <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
+                Event Gallery
+              </span>
+              <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[22ch] leading-tight">
+                Moments of <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">impact</span>
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-3 h-12 px-6 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-secondary transition-all"
+            >
+              View full gallery
+              <ArrowRight className="size-5" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all cursor-pointer">
+              <img
+                src={communityImg}
+                alt="Community volunteers at work"
+                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div>
+                  <p className="text-white font-semibold text-lg">Community Service</p>
+                  <p className="text-white/80 text-sm">Volunteers making a difference</p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all cursor-pointer">
+              <img
+                src={ambulanceImg}
+                alt="Emergency ambulance response"
+                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div>
+                  <p className="text-white font-semibold text-lg">Emergency Response</p>
+                  <p className="text-white/80 text-sm">24/7 ambulance service</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Get Involved Section */}
       <section className="py-32 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -520,8 +576,8 @@ function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, title: "Volunteer", desc: "Join 4,400+ volunteers", cta: "Sign up", link: "/volunteer", color: "from-primary" },
-              { icon: HeartHandshake, title: "Support", desc: "Make a donation", cta: "Donate", link: "/donate", color: "from-secondary" },
+              { icon: HeartHandshake, title: "Volunteer", desc: "Join 4,400+ volunteers", cta: "Sign up", link: "/volunteer", color: "from-primary" },
+              { icon: Heart, title: "Support", desc: "Make a donation", cta: "Donate", link: "/donate", color: "from-secondary" },
               { icon: Calendar, title: "Events", desc: "Attend our programs", cta: "View events", link: "/events", color: "from-primary" },
               { icon: GraduationCap, title: "Learn", desc: "Take first aid courses", cta: "Book now", link: "/courses", color: "from-secondary" },
             ].map((item, idx) => (
