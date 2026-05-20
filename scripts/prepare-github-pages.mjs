@@ -1,7 +1,7 @@
 import { copyFileSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const base = process.env.GITHUB_PAGES_BASE ?? "/sparkling-sjamsde/";
+const base = process.env.GITHUB_PAGES_BASE ?? "/sjamsde_2.0/";
 const publicDir = ".output/public";
 const indexPath = join(publicDir, "index.html");
 

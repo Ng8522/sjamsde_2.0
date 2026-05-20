@@ -6,7 +6,7 @@ import { resolvePackageBin } from "./resolve-package-bin.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const viteBin = resolvePackageBin(root, "vite");
 
-const base = "/sparkling-sjamsde/";
+const base = "/sjamsde_2.0/";
 const env = {
   ...process.env,
   GITHUB_PAGES_BASE: base,
