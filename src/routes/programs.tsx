@@ -19,60 +19,6 @@ export const Route = createFileRoute("/programs")({
 function ProgramsPage() {
   const programs = [
     {
-      title: "24/7 Ambulance Service",
-      description: "Professional emergency ambulance service available round the clock for immediate medical assistance.",
-      current: 1847,
-      target: 2000,
-      unit: "calls responded",
-      progress: 92,
-      icon: "🚑",
-    },
-    {
-      title: "First Aid Training",
-      description: "Comprehensive first aid and life-saving training programs certified to international standards.",
-      current: 3456,
-      target: 5000,
-      unit: "members trained",
-      progress: 69,
-      icon: "🏥",
-    },
-    {
-      title: "Blood Donation Drives",
-      description: "Regular blood donation drives to support hospitals and emergency medical services.",
-      current: 847,
-      target: 1200,
-      unit: "units collected",
-      progress: 71,
-      icon: "💉",
-    },
-    {
-      title: "Youth Cadet Program",
-      description: "Cadet programs for youth aged 12-19 focusing on leadership, skills, and community service.",
-      current: 425,
-      target: 600,
-      unit: "cadets enrolled",
-      progress: 71,
-      icon: "👥",
-    },
-    {
-      title: "Haemodialysis Service",
-      description: "Specialized dialysis treatment service for patients requiring regular renal care.",
-      current: 156,
-      target: 250,
-      unit: "patients served",
-      progress: 62,
-      icon: "💊",
-    },
-    {
-      title: "Community Events Support",
-      description: "Medical support and first aid coverage at public and private events throughout Selangor.",
-      current: 234,
-      target: 300,
-      unit: "events covered",
-      progress: 78,
-      icon: "🎯",
-    },
-    {
       title: "Ophthalmic Care Unit (OCU)",
       description: "Free eye screening and prescription glasses distribution program supporting vulnerable communities. Our 45th deployment successfully screened 31 individuals with 16 receiving free glasses.",
       current: 45,
@@ -178,10 +124,10 @@ function ProgramsPage() {
       <section className="py-20 bg-gradient-to-r from-primary/5 via-background to-secondary/5 border-y border-primary/10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Join Our Mission
+            Support Our Ophthalmic Care Mission
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Whether you want to volunteer, donate, join training programs, or simply support our mission, there are many ways to get involved.
+            Help us bring vision care to vulnerable communities across Selangor. Your support enables us to continue our deployments and provide free eye screening and prescription glasses to those in need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
