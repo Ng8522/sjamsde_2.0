@@ -18,6 +18,7 @@ import {
   ABOUT_INTRO,
   ABOUT_STATS,
 } from "@/lib/about-content";
+import { SSMP_APP_STORE_URL, SSMP_PLAY_STORE_URL } from "@/lib/ssmp-app";
 import communityImg from "../assets/community.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -412,7 +413,7 @@ function AboutPage() {
                     <p className="text-xs text-muted-foreground mb-4">Download our mobile app and complete your registration to become a member. New members get full access to training programs and all member benefits.</p>
                     <div className="grid grid-cols-2 gap-3">
                       <a
-                        href="https://apps.apple.com"
+                        href={SSMP_APP_STORE_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-black text-white rounded-lg hover:bg-black/90 transition-colors font-semibold text-xs"
@@ -421,7 +422,7 @@ function AboutPage() {
                         App Store
                       </a>
                       <a
-                        href="https://play.google.com"
+                        href={SSMP_PLAY_STORE_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-black text-white rounded-lg hover:bg-black/90 transition-colors font-semibold text-xs"
