@@ -18,6 +18,7 @@ import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as AboutQualifiedTrainersRouteImport } from './routes/about/qualified-trainers'
 
 const VolunteerRoute = VolunteerRouteImport.update({
   id: '/volunteer',
@@ -64,39 +65,47 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/$eventId',
   getParentRoute: () => EventsRoute,
 } as any)
+const AboutQualifiedTrainersRoute = AboutQualifiedTrainersRouteImport.update({
+  id: '/qualified-trainers',
+  path: '/qualified-trainers',
+  getParentRoute: () => AboutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
+  '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
+  '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
+  '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/schedule'
     | '/volunteer'
+    | '/about/qualified-trainers'
     | '/events/$eventId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/schedule'
     | '/volunteer'
+    | '/about/qualified-trainers'
     | '/events/$eventId'
   id:
     | '__root__'
@@ -132,12 +143,13 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/schedule'
     | '/volunteer'
+    | '/about/qualified-trainers'
     | '/events/$eventId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  AboutRoute: typeof AboutRouteWithChildren
   CoursesRoute: typeof CoursesRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
@@ -211,8 +223,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof EventsRoute
     }
+    '/about/qualified-trainers': {
+      id: '/about/qualified-trainers'
+      path: '/qualified-trainers'
+      fullPath: '/about/qualified-trainers'
+      preLoaderRoute: typeof AboutQualifiedTrainersRouteImport
+      parentRoute: typeof AboutRoute
+    }
   }
 }
+
+interface AboutRouteChildren {
+  AboutQualifiedTrainersRoute: typeof AboutQualifiedTrainersRoute
+}
+
+const AboutRouteChildren: AboutRouteChildren = {
+  AboutQualifiedTrainersRoute: AboutQualifiedTrainersRoute,
+}
+
+const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
 
 interface EventsRouteChildren {
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -227,7 +256,7 @@ const EventsRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  AboutRoute: AboutRouteWithChildren,
   CoursesRoute: CoursesRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,

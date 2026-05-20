@@ -1,7 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @source "../index.html";
 @source "./**/*.{ts,tsx}";
+
+@layer base {
+  * {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Scroll Animation Utilities */
+  @supports (animation-timeline: view()) {
+    .animate-on-scroll {
+      opacity: 0;
+      animation: fadeInUp forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .animate-scroll-fade {
+      animation: scrollFade forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 50%;
+    }
+
+    .animate-scale-in {
+      opacity: 0;
+      animation: scaleInUp forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scrollFade {
+    from {
+      opacity: 0.3;
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  @keyframes scaleInUp {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+}
 
 @custom-variant dark (&:is(.dark *));
 

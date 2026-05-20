@@ -35,7 +35,7 @@ function ProgrammeCard({ course, onFindOutMore }: { course: Course; onFindOutMor
         course.cardTheme,
       )}
     >
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">{course.code}</h2>
+      <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground">{course.code}</h2>
       <p className="text-base md:text-lg font-medium text-foreground/85 mt-2 mb-8 max-w-[28ch] leading-snug">
         {course.subtitle}
       </p>
@@ -44,7 +44,7 @@ function ProgrammeCard({ course, onFindOutMore }: { course: Course; onFindOutMor
         {course.highlights.map((item) => (
           <li key={item.text} className="flex items-start justify-center gap-2 text-sm md:text-[15px] text-foreground/90">
             <Check className="size-4 shrink-0 mt-0.5 opacity-60" aria-hidden />
-            <span className={cn(item.emphasis && "font-bold text-foreground")}>{item.text}</span>
+            <span className={cn(item.emphasis && "font-medium text-foreground")}>{item.text}</span>
           </li>
         ))}
       </ul>

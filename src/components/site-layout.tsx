@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CheckCircle2, Menu, Phone, Plus } from "lucide-react";
+import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin, Smartphone } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { StoreDownloadBadges } from "@/components/store-download-badges";
@@ -133,27 +133,43 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
-    <header className="bg-background border-b border-border sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/85">
+    <header className="bg-background border-b border-border/50 sticky top-0 z-40 backdrop-blur-sm supports-[backdrop-filter]:bg-background/95 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
           <StJohnCross className="size-9 sm:size-10 shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
-            <span className="text-xs sm:text-sm font-semibold truncate">St John Ambulans Malaysia</span>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground truncate">
+            <span className="text-xs sm:text-sm font-medium truncate text-foreground">St John Ambulans Malaysia</span>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground truncate">
               Selangor Darul Ehsan
             </span>
           </div>
         </Link>
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          {navLinks.map((item) => (
-            <Link key={item.to} to={item.to} className={navLinkClassName(pathname, item.to)}>
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1 text-sm font-medium text-muted-foreground">
+          {navLinks.map((item) => {
+            const isActive = isNavActive(pathname, item.to);
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={cn(
+                  "px-3 py-2 rounded-lg transition-all relative group",
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "hover:text-foreground hover:bg-muted/50"
+                )}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full" />
+                )}
+              </Link>
+            );
+          })}
+          <div className="w-px h-6 bg-border/50 mx-2" />
           <Link
             to="/donate"
             className={cn(
-              "inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground rounded-md hover:bg-secondary transition-colors",
+              "inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-secondary hover:shadow-md transition-all",
               pathname === "/donate" && "ring-2 ring-primary/30",
             )}
           >
@@ -164,7 +180,7 @@ export function SiteHeader() {
         <div className="lg:hidden flex items-center gap-2 shrink-0">
           <Link
             to="/donate"
-            className="inline-flex items-center gap-1 h-9 px-3 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-secondary transition-colors"
+            className="inline-flex items-center gap-1 h-9 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:bg-secondary hover:shadow-md transition-all"
           >
             <Plus className="size-4" strokeWidth={2.5} />
             <span className="sr-only sm:not-sr-only">Donate</span>
@@ -178,104 +194,96 @@ export function SiteHeader() {
 
 export function SiteFooter({ id }: { id?: string }) {
   return (
-    <footer id={id} className="bg-muted/50 border-t border-border pt-20 pb-10 mt-auto">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[1.5fr_1fr_1fr] gap-12 pb-16 border-b border-border">
+    <footer id={id} className="bg-gradient-to-br from-primary/5 via-secondary/3 to-background border-t border-primary/10 pt-24 pb-12 mt-auto relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-6 pb-16 border-b border-gradient-to-r border-primary/20">
+          {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <StJohnCross className="size-9" />
-              <span className="font-semibold">SJAM Selangor</span>
+            <div className="flex items-start gap-3 mb-6">
+              <StJohnCross className="size-11 shrink-0" />
+              <div className="flex flex-col">
+                <span className="font-medium text-lg text-foreground">SJAM Selangor</span>
+                <span className="text-xs text-muted-foreground font-medium tracking-wide">Service of Mankind</span>
+              </div>
             </div>
-            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed mb-6 max-w-[52ch]">
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed mb-10 max-w-[55ch]">
               {SITE_FOOTER_INTRO.map((line) => {
                 const [label, ...rest] = line.split(" — ");
                 const body = rest.join(" — ");
                 return (
-                  <p key={line}>
-                    <span className="font-medium text-foreground">{label}</span>
+                  <p key={line} className="leading-relaxed">
+                    <span className="font-semibold text-foreground/90">{label}</span>
                     {body ? <> — {body}</> : null}
                   </p>
                 );
               })}
             </div>
-            <div className="space-y-1.5 text-sm text-muted-foreground mb-6">
-              <p>Selangor Darul Ehsan, Malaysia</p>
-              <p>
-                Email:{" "}
-                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-primary hover:underline">
+            <div className="space-y-3 text-sm mb-10">
+              <div className="flex items-start gap-3">
+                <MapPin className="size-5 text-primary mt-0 shrink-0" />
+                <span className="text-muted-foreground">Selangor Darul Ehsan, Malaysia</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="size-5 text-primary mt-0 shrink-0" />
+                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors break-all font-medium">
                   {SITE_CONTACT_EMAIL}
                 </a>
-              </p>
+              </div>
             </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">SSMP mobile app</p>
-            <StoreDownloadBadges />
+            <div className="bg-gradient-to-br from-primary/15 via-secondary/10 to-primary/5 border border-primary/20 rounded-xl p-5 shadow-lg shadow-primary/10 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-widest text-primary mb-4">SSMP Mobile App</p>
+              <StoreDownloadBadges />
+            </div>
           </div>
+
+          {/* Links Column */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Explore</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link to="/about" className="hover:text-primary">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/donate" className="hover:text-primary">
-                  Donate
-                </Link>
-              </li>
-              <li>
-                <Link to="/events" className="hover:text-primary">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="hover:text-primary">
-                  Event gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses" className="hover:text-primary">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/volunteer" className="hover:text-primary">
-                  Rakan St John
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" hash="ambulance-services" className="hover:text-primary">
-                  Ambulance services
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" hash="blood-donation" className="hover:text-primary">
-                  Blood donation
-                </Link>
-              </li>
+            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">Quick Links</h4>
+            <ul className="space-y-3.5 text-sm">
+              {[
+                { label: "About", to: "/about" },
+                { label: "Donate", to: "/donate" },
+                { label: "Events", to: "/events" },
+                { label: "Gallery", to: "/gallery" },
+                { label: "Courses", to: "/courses" },
+                { label: "Volunteer", to: "/volunteer" },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to as any} className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all">
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-primary">→</span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+
+          {/* Contact Column */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">Hotlines</h4>
-            <div className="space-y-5">
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Ambulance · 24/7</p>
-                <a href="tel:0333715005" className="text-lg font-semibold tabular-nums text-primary hover:text-secondary">
-                  03-3371 5005
-                </a>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">Haemodialysis Centre</p>
-                <a href="tel:0333735005" className="text-lg font-semibold tabular-nums text-primary hover:text-secondary">
-                  03-3373 5005
-                </a>
-              </div>
+            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">Contact & Support</h4>
+            <div className="space-y-3">
+              <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom">
+                <p className="text-xs font-medium uppercase tracking-widest opacity-95 mb-2">24/7 Ambulance</p>
+                <p className="text-xl font-medium tabular-nums group-hover:translate-y-0.5 transition-transform">03-3371 5005</p>
+              </a>
+              <a href="tel:0333735005" className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom">
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Haemodialysis</p>
+                <p className="text-xl font-medium tabular-nums group-hover:text-primary transition-colors">03-3373 5005</p>
+              </a>
             </div>
           </div>
         </div>
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} St John Ambulans Malaysia, Selangor Darul Ehsan. All rights reserved.</p>
-          <p className="font-medium tracking-wider uppercase">Pro Utilitate Hominum</p>
+
+        {/* Footer Bottom */}
+        <div className="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} St John Ambulans Malaysia. All rights reserved.</p>
+          <p className="font-medium tracking-widest uppercase text-foreground/50 text-center sm:text-right">
+            Pro Utilitate Hominum
+          </p>
         </div>
       </div>
     </footer>
