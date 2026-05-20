@@ -18,6 +18,8 @@ import {
   X,
   Smartphone,
   ZoomIn,
+  Calendar,
+  Users,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
@@ -492,6 +494,53 @@ function Index() {
                 />
               </DialogContent>
             </Dialog>
+          </div>
+        </div>
+      </section>
+
+      {/* Get Involved Section */}
+      <section className="py-32 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
+              Get Involved
+            </span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl mx-auto leading-tight mb-8">
+              Be part of something <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">meaningful</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
+              Join our mission to serve the community with heart and save lives
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Users, title: "Volunteer", desc: "Join 4,400+ volunteers", cta: "Sign up", link: "/volunteer", color: "from-primary" },
+              { icon: HeartHandshake, title: "Support", desc: "Make a donation", cta: "Donate", link: "/donate", color: "from-secondary" },
+              { icon: Calendar, title: "Events", desc: "Attend our programs", cta: "View events", link: "/events", color: "from-primary" },
+              { icon: GraduationCap, title: "Learn", desc: "Take first aid courses", cta: "Book now", link: "/courses", color: "from-secondary" },
+            ].map((item, idx) => (
+              <Link
+                key={idx}
+                to={item.link}
+                className="group relative bg-white rounded-2xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-3 transition-all flex flex-col items-start"
+              >
+                <div className={`size-14 rounded-xl bg-gradient-to-br ${item.color} to-secondary text-primary-foreground grid place-items-center mb-5 group-hover:shadow-lg group-hover:shadow-primary/40 transition-all`}>
+                  <item.icon className="size-7" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-sm text-muted-foreground mb-6 flex-1">{item.desc}</p>
+                <span className="inline-flex items-center gap-2 text-base font-semibold text-primary group-hover:text-secondary transition-colors">
+                  {item.cta}
+                  <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
