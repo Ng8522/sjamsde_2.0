@@ -16,7 +16,12 @@ import { cn } from "@/lib/utils";
 
 export function StJohnCross({ className = "" }: { className?: string }) {
   return (
-    <div className={cn("grid place-items-center bg-primary text-primary-foreground rounded-md", className)}>
+    <div
+      className={cn(
+        "grid place-items-center bg-primary text-primary-foreground rounded-md",
+        className,
+      )}
+    >
       <Plus className="size-3/5" strokeWidth={2.5} />
     </div>
   );
@@ -31,7 +36,9 @@ export function EmergencyBanner() {
             <span className="absolute inline-flex h-full w-full rounded-full bg-primary-foreground/60 animate-ping" />
             <span className="relative inline-flex rounded-full size-2.5 bg-primary-foreground" />
           </span>
-          <span className="text-xs font-medium tracking-widest uppercase">24hr Emergency Hotline</span>
+          <span className="text-xs font-medium tracking-widest uppercase">
+            24hr Emergency Hotline
+          </span>
           <a href="tel:0333715005" className="text-base font-semibold tabular-nums hover:underline">
             03-3371 5005
           </a>
@@ -45,7 +52,10 @@ export function EmergencyBanner() {
   );
 }
 
-const navLinks: { label: string; to: "/" | "/about" | "/programs" | "/events" | "/gallery" | "/courses" | "/volunteer" }[] = [
+const navLinks: {
+  label: string;
+  to: "/" | "/about" | "/programs" | "/events" | "/gallery" | "/courses" | "/volunteer";
+}[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Programs", to: "/programs" },
@@ -93,11 +103,14 @@ function MobileSiteNav({ pathname }: { pathname: string }) {
           <Menu className="size-5" />
         </button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[min(100vw-2rem,20rem)] p-0 flex flex-col">
-        <SheetHeader className="px-6 pt-6 pb-4 border-b border-border text-left">
+      <SheetContent
+        side="right"
+        className="w-[min(100vw-2rem,20rem)] p-0 flex h-full max-h-[100dvh] flex-col gap-0 overflow-hidden"
+      >
+        <SheetHeader className="shrink-0 px-6 pt-6 pb-4 border-b border-border text-left">
           <SheetTitle className="text-base font-semibold">Menu</SheetTitle>
         </SheetHeader>
-        <nav className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-1">
+        <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 flex flex-col gap-1">
           {navLinks.map((item) => (
             <SheetClose asChild key={item.to}>
               <Link to={item.to} className={navLinkClassName(pathname, item.to, true)}>
@@ -118,11 +131,14 @@ function MobileSiteNav({ pathname }: { pathname: string }) {
             </Link>
           </SheetClose>
         </nav>
-        <div className="px-6 py-4 border-t border-border bg-muted/40">
+        <div className="shrink-0 px-6 py-4 border-t border-border bg-muted/40">
           <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">
             24hr emergency
           </p>
-          <a href="tel:0333715005" className="text-lg font-semibold tabular-nums text-primary hover:text-secondary">
+          <a
+            href="tel:0333715005"
+            className="text-lg font-semibold tabular-nums text-primary hover:text-secondary"
+          >
             03-3371 5005
           </a>
         </div>
@@ -140,7 +156,9 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
           <StJohnCross className="size-9 sm:size-10 shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
-            <span className="text-xs sm:text-sm font-medium truncate text-foreground">St John Ambulans Malaysia</span>
+            <span className="text-xs sm:text-sm font-medium truncate text-foreground">
+              St John Ambulans Malaysia
+            </span>
             <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground truncate">
               Selangor Darul Ehsan
             </span>
@@ -157,7 +175,7 @@ export function SiteHeader() {
                   "px-3 py-2 rounded-lg transition-all relative group",
                   isActive
                     ? "text-primary font-semibold"
-                    : "hover:text-foreground hover:bg-muted/50"
+                    : "hover:text-foreground hover:bg-muted/50",
                 )}
               >
                 {item.label}
@@ -196,7 +214,10 @@ export function SiteHeader() {
 
 export function SiteFooter({ id }: { id?: string }) {
   return (
-    <footer id={id} className="bg-gradient-to-br from-primary/5 via-secondary/3 to-background border-t border-primary/10 pt-24 pb-12 mt-auto relative overflow-hidden">
+    <footer
+      id={id}
+      className="bg-gradient-to-br from-primary/5 via-secondary/3 to-background border-t border-primary/10 pt-24 pb-12 mt-auto relative overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -209,7 +230,9 @@ export function SiteFooter({ id }: { id?: string }) {
               <StJohnCross className="size-11 shrink-0" />
               <div className="flex flex-col">
                 <span className="font-medium text-lg text-foreground">SJAM Selangor</span>
-                <span className="text-xs text-muted-foreground font-medium tracking-wide">Service of Mankind</span>
+                <span className="text-xs text-muted-foreground font-medium tracking-wide">
+                  Service of Mankind
+                </span>
               </div>
             </div>
             <div className="space-y-4 text-sm text-muted-foreground leading-relaxed mb-10 max-w-[55ch]">
@@ -231,20 +254,27 @@ export function SiteFooter({ id }: { id?: string }) {
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="size-5 text-primary mt-0 shrink-0" />
-                <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="text-muted-foreground hover:text-primary transition-colors break-all font-medium">
+                <a
+                  href={`mailto:${SITE_CONTACT_EMAIL}`}
+                  className="text-muted-foreground hover:text-primary transition-colors break-all font-medium"
+                >
                   {SITE_CONTACT_EMAIL}
                 </a>
               </div>
             </div>
             <div className="bg-gradient-to-br from-primary/15 via-secondary/10 to-primary/5 border border-primary/20 rounded-xl p-5 shadow-lg shadow-primary/10 backdrop-blur-sm">
-              <p className="text-xs font-medium uppercase tracking-widest text-primary mb-4">SSMP Mobile App</p>
+              <p className="text-xs font-medium uppercase tracking-widest text-primary mb-4">
+                SSMP Mobile App
+              </p>
               <StoreDownloadBadges />
             </div>
           </div>
 
           {/* Links Column */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">Quick Links</h4>
+            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">
+              Quick Links
+            </h4>
             <ul className="space-y-3.5 text-sm">
               {[
                 { label: "About", to: "/about" },
@@ -256,8 +286,13 @@ export function SiteFooter({ id }: { id?: string }) {
                 { label: "Volunteer", to: "/volunteer" },
               ].map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to as any} className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all">
-                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-primary">→</span>
+                  <Link
+                    to={item.to as any}
+                    className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all"
+                  >
+                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-primary">
+                      →
+                    </span>
                     <span>{item.label}</span>
                   </Link>
                 </li>
@@ -267,15 +302,31 @@ export function SiteFooter({ id }: { id?: string }) {
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">Contact & Support</h4>
+            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">
+              Contact & Support
+            </h4>
             <div className="space-y-3">
-              <a href="tel:0333715005" className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom">
-                <p className="text-xs font-medium uppercase tracking-widest opacity-95 mb-2">24/7 Ambulance</p>
-                <p className="text-xl font-medium tabular-nums group-hover:translate-y-0.5 transition-transform">03-3371 5005</p>
+              <a
+                href="tel:0333715005"
+                className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom"
+              >
+                <p className="text-xs font-medium uppercase tracking-widest opacity-95 mb-2">
+                  24/7 Ambulance
+                </p>
+                <p className="text-xl font-medium tabular-nums group-hover:translate-y-0.5 transition-transform">
+                  03-3371 5005
+                </p>
               </a>
-              <a href="tel:0333735005" className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom">
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Haemodialysis</p>
-                <p className="text-xl font-medium tabular-nums group-hover:text-primary transition-colors">03-3373 5005</p>
+              <a
+                href="tel:0333735005"
+                className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom"
+              >
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">
+                  Haemodialysis
+                </p>
+                <p className="text-xl font-medium tabular-nums group-hover:text-primary transition-colors">
+                  03-3373 5005
+                </p>
               </a>
             </div>
           </div>
@@ -295,7 +346,12 @@ export function SiteFooter({ id }: { id?: string }) {
 
 export function SiteLayout({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("min-h-screen bg-background text-foreground antialiased flex flex-col", className)}>
+    <div
+      className={cn(
+        "min-h-screen bg-background text-foreground antialiased flex flex-col",
+        className,
+      )}
+    >
       <EmergencyBanner />
       <SiteHeader />
       <main className="flex-1">{children}</main>

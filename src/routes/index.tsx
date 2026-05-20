@@ -19,6 +19,7 @@ import {
   Smartphone,
   ZoomIn,
   Calendar,
+  LayoutGrid,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
@@ -710,7 +711,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 icon: HeartHandshake,
@@ -719,6 +720,14 @@ function Index() {
                 cta: "Sign up",
                 link: "/volunteer",
                 color: "from-primary",
+              },
+              {
+                icon: LayoutGrid,
+                title: "Programs",
+                desc: "Community health & outreach initiatives",
+                cta: "View programs",
+                link: "/programs",
+                color: "from-secondary",
               },
               {
                 icon: Heart,
@@ -731,7 +740,7 @@ function Index() {
               {
                 icon: Calendar,
                 title: "Events",
-                desc: "Attend our programs",
+                desc: "Community events & calendar",
                 cta: "View events",
                 link: "/events",
                 color: "from-primary",
