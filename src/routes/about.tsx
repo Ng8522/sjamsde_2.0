@@ -358,15 +358,15 @@ function AboutPage() {
                         </div>
                       </div>
                     </div>
-                    <button
-                      onClick={() => window.location.href = '/about/qualified-trainers'}
+                    <Link
+                      to="/about/qualified-trainers"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-semibold"
                     >
                       Search Trainers Directory
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ),
