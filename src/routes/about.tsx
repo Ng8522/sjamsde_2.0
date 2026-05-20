@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   ABOUT_HERO,
   ABOUT_INTRO,
-  ABOUT_OTHER_SERVICES,
   ABOUT_STATS,
 } from "@/lib/about-content";
 import communityImg from "../assets/community.jpg";
@@ -89,41 +88,6 @@ function AboutPage() {
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 md:py-16 bg-gradient-to-br from-background via-primary/2 to-background border-t border-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-10">More <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">services</span></h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {ABOUT_OTHER_SERVICES.map((service) => (
-              <article key={service.title} className="bg-white rounded-2xl border-2 border-gray-200 p-8 flex flex-col hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all group">
-                <h3 className="font-semibold text-xl mb-4 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed flex-1 font-medium">{service.description}</p>
-                {"href" in service && service.href ? (
-                  <Link
-                    to={service.href}
-                    className="inline-flex items-center gap-2 mt-6 text-base font-semibold text-primary hover:text-secondary group/link"
-                  >
-                    Learn more
-                    <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                ) : (
-                  <Link
-                    to="/"
-                    hash="services"
-                    className="inline-flex items-center gap-2 mt-6 text-base font-semibold text-primary hover:text-secondary group/link"
-                  >
-                    View on home
-                    <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                )}
-              </article>
-            ))}
           </div>
         </div>
       </section>
