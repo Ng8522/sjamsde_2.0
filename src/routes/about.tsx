@@ -200,6 +200,23 @@ function AboutPage() {
                     <h4 className="font-semibold text-foreground mb-2">Other Areas</h4>
                     <p className="text-xs text-muted-foreground">KSS and KSTU achieved ISO in 2011 and received their Color in Jan 2012 from Lord Prior – Prof. Anthony R. Mellows.</p>
                   </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <a href="https://sde.sjamsde.org.my/about_us/iso9001/" target="_blank" rel="noopener noreferrer" className="group">
+                      <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg border border-primary/20 hover:border-primary/40 p-3 flex items-center justify-center transition-all hover:shadow-md">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/SJAM-2021-2024-ISO-Cert1.jpg" alt="ISO Certificate 2021-2024" className="w-full h-full object-cover rounded" />
+                      </div>
+                    </a>
+                    <a href="https://sde.sjamsde.org.my/about_us/iso9001/" target="_blank" rel="noopener noreferrer" className="group">
+                      <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg border border-primary/20 hover:border-primary/40 p-3 flex items-center justify-center transition-all hover:shadow-md">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/SJAM-2018-2021-ISO-Cert1-scaled.jpg" alt="ISO Certificate 2018-2021" className="w-full h-full object-cover rounded" />
+                      </div>
+                    </a>
+                    <a href="https://sde.sjamsde.org.my/about_us/iso9001/" target="_blank" rel="noopener noreferrer" className="group">
+                      <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg border border-primary/20 hover:border-primary/40 p-3 flex items-center justify-center transition-all hover:shadow-md">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/SJAM-KPS-2011-2014-ISO-Cert1.jpg" alt="ISO Certificate KPS" className="w-full h-full object-cover rounded" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
               ),
             },
@@ -215,11 +232,22 @@ function AboutPage() {
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">2018 EURO Award</h4>
-                    <p className="text-xs text-muted-foreground">Prestigious international award recognizing outstanding contribution to community service.</p>
+                    <p className="text-xs text-muted-foreground mb-3">Prestigious international award recognizing outstanding contribution to community service.</p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                      <a href="https://sde.sjamsde.org.my/about_us/2018-euro-award/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2023/01/GpersonMainPg-214x300.jpg" alt="EURO Award recipient" className="w-full rounded border border-primary/20 hover:border-primary/40 transition-colors" />
+                      </a>
+                      <a href="https://sde.sjamsde.org.my/about_us/2018-euro-award/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2023/01/GpersonPg23-207x300.jpg" alt="EURO Award recipient" className="w-full rounded border border-primary/20 hover:border-primary/40 transition-colors" />
+                      </a>
+                      <a href="https://sde.sjamsde.org.my/about_us/2018-euro-award/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2023/01/GpersonPg25-210x300.jpg" alt="EURO Award recipient" className="w-full rounded border border-primary/20 hover:border-primary/40 transition-colors" />
+                      </a>
+                    </div>
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">Meritorious Bars (1994)</h4>
-                    <p className="text-xs text-muted-foreground mb-2">Awarded by The Order of St. John, England for exceptional bravery during the Port Klang Disaster (1980). 19 officers and members were recognized for their dedication and commitment.</p>
+                    <p className="text-xs text-muted-foreground">Awarded by The Order of St. John, England for exceptional bravery during the Port Klang Disaster (1980). 19 officers and members were recognized for their dedication and commitment.</p>
                   </div>
                 </div>
               ),
@@ -289,6 +317,7 @@ function AboutPage() {
                       </div>
                     </div>
                   </div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7487234018844!2d101.42653!3d3.02850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc48c0b4b4b4b5%3A0x3b4b4b4b4b4b4b4b!2sSt%20John%20Ambulans%20Malaysia%20Selangor!5e0!3m2!1sen!2smy!4v1234567890" width="100%" height="250" style={{border: 0, borderRadius: '0.5rem'}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="border border-primary/10 rounded-lg"></iframe>
                   <div>
                     <h4 className="text-xs font-semibold text-foreground mb-2">Area Offices (6 Active Areas)</h4>
                     <p className="text-xs text-muted-foreground">State headquarters coordinates six operational areas across Selangor: Coastal, North Central, South Central, Southern, Northern, and Western Selangor.</p>
