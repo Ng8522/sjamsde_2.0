@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+
+# Build & framework output
+dist/
+dist-ssr/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+*.local
+
+# Wrangler / Cloudflare
+.wrangler/
+
+# Test & coverage
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Caches
+.turbo/
+.cache/
+.eslintcache
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Optional: uncomment if you use Bun locally and do not want bun.lock in git
+# bun.lock

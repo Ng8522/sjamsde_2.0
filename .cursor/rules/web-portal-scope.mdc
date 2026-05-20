@@ -1,0 +1,28 @@
+---
+description: SJAM SDE web portal scope — exclude mobile app features
+globs: src/**/*
+alwaysApply: true
+---
+
+# Web portal only (not SSMP mobile)
+
+This repo is the **public website mock-up**. Do **not** implement SSMP / mobile app features here.
+
+## Build on the website
+
+- UI/UX marketing pages, services, community content
+- Mock **donation** flow (`/donate`) — FPX/DuitNow/card UI only
+- Mock **course booking** (`/courses`)
+- Mock **public event registration** (`/events`) — community-facing only
+- Mock **volunteer interest** form (`/volunteer`)
+- Emergency hotlines, contact, SEO metadata
+
+## Do not build in this repo
+
+- Member registration / activation
+- Duty hour tracking, achievements, member dashboard
+- SOS, admin/exco portals, approver workflows
+- In-app event creation, push notifications, role-based member access
+- Any “members portal” logged-in experience
+
+The homepage may link to App Store / Google Play for **download only**. No mobile feature UI on the web.

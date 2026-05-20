@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="156" height="48" viewBox="0 0 156 48" role="img" aria-label="Get it on Google Play">
+  <rect width="156" height="48" rx="8" fill="#fff" stroke="#d4d4d8" stroke-width="1"/>
+  <g transform="translate(6, 7) scale(0.68)">
+    <path d="m27.622 25.899-14.194 15.066c.0005.0031.0016.0057.0021.0089.4353 1.636 1.9296 2.8406 3.703 2.8406.7089 0 1.3745-.1917 1.9453-.5281l.0453-.0266 15.978-9.22-7.479-8.141" fill="#eb3131"/>
+    <path d="m41.983 23.334-.0136-.0093-6.8982-3.999-7.7717 6.9156 7.7987 7.7977 6.8618-3.9592c1.203-.6495 2.0197-1.9177 2.0197-3.3802 0-1.452-.8057-2.7139-1.9968-3.3655" fill="#f6b60b"/>
+    <path d="m13.426 12.37c-.0853.3147-.1302.6443-.1302.9865v26.623c0 .3416.0443.6723.1307.9859l14.684-14.681-14.684-13.914" fill="#5778c5"/>
+    <path d="m27.727 26.668 7.3473-7.3451-15.96-9.2534c-.5801-.3475-1.2572-.548-1.9817-.548-1.7734 0-3.2697 1.2068-3.7051 2.8447-.0005.0016-.0005.0027-.0005.0041l14.3 14.298" fill="#3bad49"/>
+  </g>
+  <text x="40" y="19" fill="#000" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="8.5">Get it on</text>
+  <text x="40" y="33" fill="#000" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="600">Google Play</text>
+</svg>
