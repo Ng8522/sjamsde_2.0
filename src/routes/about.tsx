@@ -359,7 +359,7 @@ function AboutPage() {
                       </div>
                     </div>
                     <Link
-                      to="/about/qualified-trainers"
+                      to="/qualified-trainers"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-semibold"
                     >
                       Search Trainers Directory
