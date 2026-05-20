@@ -45,9 +45,10 @@ export function EmergencyBanner() {
   );
 }
 
-const navLinks: { label: string; to: "/" | "/about" | "/events" | "/gallery" | "/courses" | "/volunteer" }[] = [
+const navLinks: { label: string; to: "/" | "/about" | "/programs" | "/events" | "/gallery" | "/courses" | "/volunteer" }[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Programs", to: "/programs" },
   { label: "Events", to: "/events" },
   { label: "Gallery", to: "/gallery" },
   { label: "Courses", to: "/courses" },
@@ -57,6 +58,7 @@ const navLinks: { label: string; to: "/" | "/about" | "/events" | "/gallery" | "
 function isNavActive(pathname: string, to: (typeof navLinks)[number]["to"]) {
   if (to === "/") return pathname === "/";
   if (to === "/about") return pathname === "/about" || pathname.startsWith("/about/");
+  if (to === "/programs") return pathname === "/programs" || pathname.startsWith("/programs/");
   if (to === "/events") return pathname === "/events" || pathname.startsWith("/events/");
   if (to === "/gallery") return pathname === "/gallery";
   return pathname === to || (to === "/courses" && pathname === "/schedule");
@@ -246,6 +248,7 @@ export function SiteFooter({ id }: { id?: string }) {
             <ul className="space-y-3.5 text-sm">
               {[
                 { label: "About", to: "/about" },
+                { label: "Programs", to: "/programs" },
                 { label: "Donate", to: "/donate" },
                 { label: "Events", to: "/events" },
                 { label: "Gallery", to: "/gallery" },
