@@ -62,11 +62,11 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-24 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,420px)_1fr] gap-16 lg:gap-20 items-start">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,420px)_1fr] gap-6 lg:gap-20 items-start">
           <div className="group">
             <img
               src={communityImg}
@@ -100,12 +100,12 @@ function AboutPage() {
         </div>
       </section>
 
-      <section id={AMBULANCE_SERVICE.id} className="py-24 md:py-32 bg-white border-y border-primary/20 scroll-mt-24 relative overflow-hidden">
+      <section id={AMBULANCE_SERVICE.id} className="py-24 md:py-16 bg-white border-y border-primary/20 scroll-mt-24 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -bottom-32 right-0 w-96 h-96 bg-gradient-to-tl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_minmax(0,450px)] gap-16 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[1fr_minmax(0,450px)] gap-6 lg:gap-20 items-start">
             <div>
               <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">
                 <Ambulance className="size-4" />
@@ -145,11 +145,11 @@ function AboutPage() {
         </div>
       </section>
 
-      <section id={BLOOD_DONATION.id} className="py-24 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 scroll-mt-24 relative overflow-hidden">
+      <section id={BLOOD_DONATION.id} className="py-24 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 scroll-mt-24 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,500px)_1fr] gap-16 lg:gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,500px)_1fr] gap-6 lg:gap-20 items-center relative z-10">
           <div className="rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent p-12 lg:p-14 group hover:border-primary/40 hover:bg-primary/15 transition-all">
             <Droplets className="size-14 text-primary mb-6 font-semibold" />
             <p className="text-3xl font-semibold leading-snug mb-4">{BLOOD_DONATION.title}</p>
@@ -186,13 +186,13 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-gradient-to-br from-background via-primary/2 to-background border-t border-primary/20 relative overflow-hidden">
+      <section className="py-24 md:py-16 bg-gradient-to-br from-background via-primary/2 to-background border-t border-primary/20 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16">More <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">services</span></h2>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-10">More <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">services</span></h2>
+          <div className="grid sm:grid-cols-3 gap-6">
             {ABOUT_OTHER_SERVICES.map((service) => (
               <article key={service.title} className="bg-white rounded-2xl border-2 border-gray-200 p-8 flex flex-col hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all group">
                 <h3 className="font-semibold text-xl mb-4 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>

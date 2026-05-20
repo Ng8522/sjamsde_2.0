@@ -143,7 +143,7 @@ function Index() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-32 lg:pt-40 pb-32 grid lg:grid-cols-[1.4fr_0.6fr] gap-16 lg:gap-24 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-20 lg:pt-24 pb-16 grid lg:grid-cols-[1.4fr_0.6fr] gap-6 lg:gap-6 items-center relative z-10">
           <div className="animate-on-scroll">
             <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 px-5 py-2.5 rounded-full w-fit border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
@@ -210,13 +210,13 @@ function Index() {
       </section>
 
       {/* Services */}
-      <section id="services" className="relative bg-white py-32 overflow-hidden">
+      <section id="services" className="relative bg-white py-16 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/15 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Our Services
@@ -229,7 +229,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-6">
             {services.map((s, idx) => (
               <article
                 key={s.title}
@@ -268,12 +268,12 @@ function Index() {
       </section>
 
       {/* Community */}
-      <section id="community" className="relative py-32 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section id="community" className="relative py-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-20 items-center relative z-10">
           <div className="group">
             <img
               src={communityImg}
@@ -311,7 +311,7 @@ function Index() {
 
         <div
           id="rakan-st-john"
-          className="max-w-7xl mx-auto px-6 mt-24 pt-24 border-t border-primary/10 grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-20 items-center"
+          className="max-w-7xl mx-auto px-6 mt-24 pt-24 border-t border-primary/10 grid lg:grid-cols-[minmax(0,340px)_1fr] gap-6 lg:gap-20 items-center"
         >
           <div className="flex justify-center lg:justify-start group">
             <img
@@ -351,13 +351,13 @@ function Index() {
       </section>
 
       {/* Events */}
-      <section id="events" className="relative py-32 overflow-hidden bg-gradient-to-br from-background via-background to-white">
+      <section id="events" className="relative py-16 overflow-hidden bg-gradient-to-br from-background via-background to-white">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
               Upcoming Events
@@ -392,7 +392,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {portalEvents.map((e) => {
               const [day, month] = e.date.split(" ");
               return (
@@ -447,7 +447,7 @@ function Index() {
         <div className="absolute inset-0 -z-10 pointer-events-none opacity-30">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-secondary/20 to-transparent rounded-full blur-3xl translate-y-1/3 translate-x-1/3" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-6 items-center relative z-10">
           <div className="order-2 md:order-1">
             <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
               <Smartphone className="size-4" />
@@ -499,13 +499,13 @@ function Index() {
       </section>
 
       {/* Gallery Preview Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-6">
             <div>
               <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
                 <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
@@ -556,13 +556,13 @@ function Index() {
       </section>
 
       {/* Get Involved Section */}
-      <section className="py-32 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Get Involved

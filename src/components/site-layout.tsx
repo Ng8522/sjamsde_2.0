@@ -200,7 +200,7 @@ export function SiteFooter({ id }: { id?: string }) {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
       </div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-16 pb-16 border-b border-gradient-to-r border-primary/20">
+        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-6 pb-16 border-b border-gradient-to-r border-primary/20">
           {/* Brand Column */}
           <div>
             <div className="flex items-start gap-3 mb-6">
