@@ -142,22 +142,36 @@ const TRAINERS_BY_AREA = {
 
 function QualifiedTrainersPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedArea, setSelectedArea] = useState<string | null>(null);
 
   const filteredTrainers = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
-    if (!query) return TRAINERS_BY_AREA;
+    let result = { ...TRAINERS_BY_AREA };
 
-    const filtered: typeof TRAINERS_BY_AREA = {};
-    Object.entries(TRAINERS_BY_AREA).forEach(([area, trainers]) => {
-      const matchingTrainers = trainers.filter((trainer) =>
-        trainer.name.toLowerCase().includes(query)
-      );
-      if (matchingTrainers.length > 0) {
-        filtered[area] = matchingTrainers;
+    // Filter by area if selected
+    if (selectedArea) {
+      const areaData = TRAINERS_BY_AREA[selectedArea as keyof typeof TRAINERS_BY_AREA];
+      if (areaData) {
+        result = { [selectedArea]: areaData };
       }
-    });
-    return filtered;
-  }, [searchQuery]);
+    }
+
+    // Filter by name search
+    if (query) {
+      const filtered: typeof TRAINERS_BY_AREA = {};
+      Object.entries(result).forEach(([area, trainers]) => {
+        const matchingTrainers = trainers.filter((trainer) =>
+          trainer.name.toLowerCase().includes(query)
+        );
+        if (matchingTrainers.length > 0) {
+          filtered[area] = matchingTrainers;
+        }
+      });
+      return filtered;
+    }
+
+    return result;
+  }, [searchQuery, selectedArea]);
 
   const totalTrainers = Object.values(filteredTrainers).reduce(
     (sum, trainers) => sum + trainers.length,
@@ -211,29 +225,46 @@ function QualifiedTrainersPage() {
         </div>
       </section>
 
-      {/* Search Section */}
+      {/* Search & Filter Section */}
       <section className="bg-white/60 border-b border-primary/10 sticky top-16 z-40 backdrop-blur-lg shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="relative group">
-            <Search className="absolute left-4 top-4 w-6 h-6 text-primary group-focus-within:text-primary/80 transition-colors" />
-            <input
-              type="text"
-              placeholder="Search trainer by full name..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-14 pr-6 py-4 border-2 border-primary/20 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 bg-white text-foreground placeholder-muted-foreground transition-all text-base font-medium shadow-sm hover:border-primary/30"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div className="md:col-span-2 relative group">
+              <Search className="absolute left-4 top-4 w-6 h-6 text-primary group-focus-within:text-primary/80 transition-colors" />
+              <input
+                type="text"
+                placeholder="Search trainer by full name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-6 py-4 border-2 border-primary/20 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 bg-white text-foreground placeholder-muted-foreground transition-all text-base font-medium shadow-sm hover:border-primary/30"
+              />
+            </div>
+            <select
+              value={selectedArea || ""}
+              onChange={(e) => setSelectedArea(e.target.value || null)}
+              className="px-6 py-4 border-2 border-primary/20 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 bg-white text-foreground transition-all text-base font-medium shadow-sm hover:border-primary/30"
+            >
+              <option value="">All Areas</option>
+              {Object.keys(TRAINERS_BY_AREA).map((area) => (
+                <option key={area} value={area}>
+                  {area}
+                </option>
+              ))}
+            </select>
           </div>
-          <div className="mt-4 flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <p className="text-sm text-muted-foreground">
-              Showing <span className="font-bold text-primary text-base">{totalTrainers}</span> trainer{totalTrainers !== 1 ? "s" : ""} {searchQuery && <span>matching <span className="font-semibold text-primary">"{searchQuery}"</span></span>}
+              Showing <span className="font-bold text-primary text-base">{totalTrainers}</span> trainer{totalTrainers !== 1 ? "s" : ""} {selectedArea && <span>from <span className="font-semibold text-primary">{selectedArea}</span></span>} {searchQuery && <span>matching <span className="font-semibold text-primary">"{searchQuery}"</span></span>}
             </p>
-            {searchQuery && (
+            {(searchQuery || selectedArea) && (
               <button
-                onClick={() => setSearchQuery("")}
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedArea(null);
+                }}
                 className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors"
               >
-                Clear search
+                Clear filters
               </button>
             )}
           </div>
