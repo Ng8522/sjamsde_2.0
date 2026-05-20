@@ -56,17 +56,68 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Ambulance, title: "24 Hr Ambulance", desc: "Rapid emergency evacuation and inter-hospital transfers with advanced life support.", tag: "Available Now", live: true, href: "tel:0333715005", cta: "03-3371 5005" },
-  { icon: HeartPulse, title: "Public Duty StandBy", desc: "Trained medical standby for sporting events, concerts and public gatherings.", tag: "Book Ahead", href: "mailto:user.selangor@sjam.org.my", cta: "Request" },
-  { icon: Activity, title: "Haemodialysis Service", desc: "Subsidised dialysis treatment for community members with kidney conditions.", tag: "Klang Centre", href: "tel:0333735005", cta: "03-3373 5005" },
-  { icon: GraduationCap, title: "Public First Aid Classes", desc: "Accredited CPR and emergency trauma certification for individuals and corporates.", tag: "Monthly Intake", href: "/courses", cta: "Book course", internal: true },
+  {
+    icon: Ambulance,
+    title: "24 Hr Ambulance",
+    desc: "Rapid emergency evacuation and inter-hospital transfers with advanced life support.",
+    tag: "Available Now",
+    live: true,
+    href: "tel:0333715005",
+    cta: "03-3371 5005",
+  },
+  {
+    icon: HeartPulse,
+    title: "Public Duty StandBy",
+    desc: "Trained medical standby for sporting events, concerts and public gatherings.",
+    tag: "Book Ahead",
+    href: "mailto:user.selangor@sjam.org.my",
+    cta: "Request",
+  },
+  {
+    icon: Activity,
+    title: "Haemodialysis Service",
+    desc: "Subsidised dialysis treatment for community members with kidney conditions.",
+    tag: "Klang Centre",
+    href: "tel:0333735005",
+    cta: "03-3373 5005",
+  },
+  {
+    icon: GraduationCap,
+    title: "Public First Aid Classes",
+    desc: "Accredited CPR and emergency trauma certification for individuals and corporates.",
+    tag: "Monthly Intake",
+    href: "/courses",
+    cta: "Book course",
+    internal: true,
+  },
 ];
 
 const community = [
-  { n: "01", icon: HeartHandshake, title: "Fundraising", desc: "Public appeals and campaigns that sustain ambulance operations, dialysis subsidies and community programmes.", href: "/donate" as const },
-  { n: "02", icon: Droplets, title: "Blood Donation Drives", desc: "Regular drives across Selangor to support the national blood bank reserves." },
-  { n: "03", icon: Truck, title: "Mobile Clinic", desc: "Bringing basic medical consultation and health screenings to underserved areas." },
-  { n: "04", icon: LifeBuoy, title: "Disaster Relief", desc: "Rapid deployment teams for flood response and large-scale emergency management." },
+  {
+    n: "01",
+    icon: HeartHandshake,
+    title: "Fundraising",
+    desc: "Public appeals and campaigns that sustain ambulance operations, dialysis subsidies and community programmes.",
+    href: "/donate" as const,
+  },
+  {
+    n: "02",
+    icon: Droplets,
+    title: "Blood Donation Drives",
+    desc: "Regular drives across Selangor to support the national blood bank reserves.",
+  },
+  {
+    n: "03",
+    icon: Truck,
+    title: "Mobile Clinic",
+    desc: "Bringing basic medical consultation and health screenings to underserved areas.",
+  },
+  {
+    n: "04",
+    icon: LifeBuoy,
+    title: "Disaster Relief",
+    desc: "Rapid deployment teams for flood response and large-scale emergency management.",
+  },
 ];
 
 function Index() {
@@ -139,7 +190,10 @@ function Index() {
         {/* Decorative animated gradients */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl animate-pulse opacity-60" />
-          <div className="absolute -bottom-32 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/25 to-transparent rounded-full blur-3xl animate-pulse opacity-50" style={{ animationDelay: '2s' }} />
+          <div
+            className="absolute -bottom-32 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/25 to-transparent rounded-full blur-3xl animate-pulse opacity-50"
+            style={{ animationDelay: "2s" }}
+          />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full blur-3xl" />
         </div>
 
@@ -150,10 +204,19 @@ function Index() {
               SJAM SDE · Est. 1990
             </span>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-balance leading-[0.95] mb-10 text-foreground">
-              Serve with <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">heart</span>. Give with <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">love</span>.
+              Serve with{" "}
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                heart
+              </span>
+              . Give with{" "}
+              <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
+                love
+              </span>
+              .
             </h1>
             <p className="text-xl text-muted-foreground max-w-[55ch] mb-14 leading-relaxed font-medium">
-              Professional emergency medical response and community care across Selangor — sustained by volunteers, clinicians and your generosity.
+              Professional emergency medical response and community care across Selangor — sustained
+              by volunteers, clinicians and your generosity.
             </p>
             <div className="flex flex-wrap gap-5">
               <a
@@ -200,9 +263,16 @@ function Index() {
               { v: "1,200+", l: "Active Volunteers" },
               { v: "50k+", l: "Lives Touched" },
             ].map((s) => (
-              <div key={s.l} className="px-4 md:px-8 py-12 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default">
-                <div className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">{s.v}</div>
-                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-medium">{s.l}</div>
+              <div
+                key={s.l}
+                className="px-4 md:px-8 py-12 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default"
+              >
+                <div className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">
+                  {s.v}
+                </div>
+                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-medium">
+                  {s.l}
+                </div>
               </div>
             ))}
           </div>
@@ -222,10 +292,15 @@ function Index() {
               Our Services
             </span>
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[28ch] mx-auto leading-tight mb-6">
-              Emergency & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">medical care</span>, around the clock.
+              Emergency &{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                medical care
+              </span>
+              , around the clock.
             </h2>
             <p className="text-lg text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
-              Accredited healthcare support for residents, organisations and event organisers across Selangor.
+              Accredited healthcare support for residents, organisations and event organisers across
+              Selangor.
             </p>
           </div>
 
@@ -240,22 +315,34 @@ function Index() {
                 <div className="size-16 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center mb-8 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all relative z-10 font-semibold">
                   <s.icon className="size-7" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 relative z-10 text-foreground">{s.title}</h3>
-                <p className="text-base text-muted-foreground mb-10 leading-relaxed relative z-10">{s.desc}</p>
+                <h3 className="text-2xl font-semibold mb-4 relative z-10 text-foreground">
+                  {s.title}
+                </h3>
+                <p className="text-base text-muted-foreground mb-10 leading-relaxed relative z-10">
+                  {s.desc}
+                </p>
                 <div className="mt-auto pt-8 border-t-2 border-gray-200 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-3">
-                    {s.live && <span className="size-3 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />}
+                    {s.live && (
+                      <span className="size-3 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />
+                    )}
                     <span className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {s.tag}
                     </span>
                   </div>
                   {"internal" in s && s.internal ? (
-                    <Link to={s.href} className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
+                    <Link
+                      to={s.href}
+                      className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link"
+                    >
                       {s.cta}
                       <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   ) : (
-                    <a href={s.href} className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link">
+                    <a
+                      href={s.href}
+                      className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link"
+                    >
                       {s.cta}
                       <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
                     </a>
@@ -268,7 +355,10 @@ function Index() {
       </section>
 
       {/* Community */}
-      <section id="community" className="relative py-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section
+        id="community"
+        className="relative py-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50"
+      >
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
@@ -289,9 +379,20 @@ function Index() {
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
               Community
             </span>
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-8 leading-tight">For the <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">people</span>, by the <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">people</span>.</h2>
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-8 leading-tight">
+              For the{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                people
+              </span>
+              , by the{" "}
+              <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                people
+              </span>
+              .
+            </h2>
             <p className="text-xl text-muted-foreground mb-14 max-w-[50ch] leading-relaxed font-medium">
-              Beyond emergencies, our volunteers run programmes that bring care to where it's needed most.
+              Beyond emergencies, our volunteers run programmes that bring care to where it's needed
+              most.
             </p>
             <div className="space-y-8">
               {community.map((c) => (
@@ -300,8 +401,12 @@ function Index() {
                     {c.n}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">{c.title}</h4>
-                    <p className="text-base text-muted-foreground max-w-[42ch] leading-relaxed">{c.desc}</p>
+                    <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">
+                      {c.title}
+                    </h4>
+                    <p className="text-base text-muted-foreground max-w-[42ch] leading-relaxed">
+                      {c.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -328,13 +433,25 @@ function Index() {
               <span className="size-1.5 rounded-full bg-primary" />
               Community programme
             </span>
-            <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 leading-tight">Rakan St John</h3>
-            <p className="text-lg text-primary font-semibold mb-4 max-w-[48ch]">{RAKAN_ST_JOHN_TAGLINE}</p>
-            <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-8">{RAKAN_ST_JOHN_HOME_SUMMARY}</p>
+            <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 leading-tight">
+              Rakan St John
+            </h3>
+            <p className="text-lg text-primary font-semibold mb-4 max-w-[48ch]">
+              {RAKAN_ST_JOHN_TAGLINE}
+            </p>
+            <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-8">
+              {RAKAN_ST_JOHN_HOME_SUMMARY}
+            </p>
             <ul className="space-y-3 mb-10 max-w-[56ch]">
               {RAKAN_ST_JOHN_HOME_HIGHLIGHTS.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-muted-foreground group hover:text-foreground transition-colors">
-                  <span className="mt-1.5 size-2 rounded-full bg-gradient-to-br from-primary to-secondary shrink-0" aria-hidden />
+                <li
+                  key={item}
+                  className="flex gap-3 text-sm text-muted-foreground group hover:text-foreground transition-colors"
+                >
+                  <span
+                    className="mt-1.5 size-2 rounded-full bg-gradient-to-br from-primary to-secondary shrink-0"
+                    aria-hidden
+                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -351,7 +468,10 @@ function Index() {
       </section>
 
       {/* Events */}
-      <section id="events" className="relative py-16 overflow-hidden bg-gradient-to-br from-background via-background to-white">
+      <section
+        id="events"
+        className="relative py-16 overflow-hidden bg-gradient-to-br from-background via-background to-white"
+      >
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
@@ -363,7 +483,11 @@ function Index() {
               Upcoming Events
             </span>
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
-              Join us at our next <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">community event</span>.
+              Join us at our next{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                community event
+              </span>
+              .
             </h2>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
@@ -403,7 +527,9 @@ function Index() {
                   <div className="flex items-stretch border-b-2 border-gray-200 bg-gradient-to-r from-primary to-secondary">
                     <div className="text-primary-foreground p-6 flex flex-col items-center justify-center min-w-[100px] font-semibold">
                       <div className="text-4xl tabular-nums leading-none">{day}</div>
-                      <div className="text-xs uppercase tracking-widest mt-2 opacity-95 font-semibold">{month}</div>
+                      <div className="text-xs uppercase tracking-widest mt-2 opacity-95 font-semibold">
+                        {month}
+                      </div>
                     </div>
                     <div className="flex-1 px-6 py-5 flex flex-col justify-center">
                       <span className="text-xs font-semibold uppercase tracking-wider text-white mb-1">
@@ -453,9 +579,12 @@ function Index() {
               <Smartphone className="size-4" />
               SSMP app · download only
             </span>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">Already a SJAM member?</h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
+              Already a SJAM SDE member?
+            </h2>
             <p className="text-muted-foreground max-w-[48ch] mb-10 leading-relaxed text-lg">
-              Member registration, duty hours, SOS and internal announcements are in the SSMP mobile app — not on this public website.
+              Member registration, duty hours, SOS and internal announcements are in the SSMP mobile
+              app — not on this public website.
             </p>
             <StoreDownloadBadges className="[&_img]:h-12" />
           </div>
@@ -512,7 +641,10 @@ function Index() {
                 Event Gallery
               </span>
               <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[22ch] leading-tight">
-                Moments of <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">impact</span>
+                Moments of{" "}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  impact
+                </span>
               </h2>
             </div>
             <Link
@@ -568,7 +700,10 @@ function Index() {
               Get Involved
             </span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl mx-auto leading-tight mb-8">
-              Be part of something <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">meaningful</span>
+              Be part of something{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                meaningful
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
               Join our mission to serve the community with heart and save lives
@@ -577,20 +712,52 @@ function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: HeartHandshake, title: "Volunteer", desc: "Join 4,400+ volunteers", cta: "Sign up", link: "/volunteer", color: "from-primary" },
-              { icon: Heart, title: "Support", desc: "Make a donation", cta: "Donate", link: "/donate", color: "from-secondary" },
-              { icon: Calendar, title: "Events", desc: "Attend our programs", cta: "View events", link: "/events", color: "from-primary" },
-              { icon: GraduationCap, title: "Learn", desc: "Take first aid courses", cta: "Book now", link: "/courses", color: "from-secondary" },
+              {
+                icon: HeartHandshake,
+                title: "Volunteer",
+                desc: "Join 4,400+ volunteers",
+                cta: "Sign up",
+                link: "/volunteer",
+                color: "from-primary",
+              },
+              {
+                icon: Heart,
+                title: "Support",
+                desc: "Make a donation",
+                cta: "Donate",
+                link: "/donate",
+                color: "from-secondary",
+              },
+              {
+                icon: Calendar,
+                title: "Events",
+                desc: "Attend our programs",
+                cta: "View events",
+                link: "/events",
+                color: "from-primary",
+              },
+              {
+                icon: GraduationCap,
+                title: "Learn",
+                desc: "Take first aid courses",
+                cta: "Book now",
+                link: "/courses",
+                color: "from-secondary",
+              },
             ].map((item, idx) => (
               <Link
                 key={idx}
                 to={item.link}
                 className="group relative bg-white rounded-2xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-3 transition-all flex flex-col items-start"
               >
-                <div className={`size-14 rounded-xl bg-gradient-to-br ${item.color} to-secondary text-primary-foreground grid place-items-center mb-5 group-hover:shadow-lg group-hover:shadow-primary/40 transition-all`}>
+                <div
+                  className={`size-14 rounded-xl bg-gradient-to-br ${item.color} to-secondary text-primary-foreground grid place-items-center mb-5 group-hover:shadow-lg group-hover:shadow-primary/40 transition-all`}
+                >
                   <item.icon className="size-7" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-muted-foreground mb-6 flex-1">{item.desc}</p>
                 <span className="inline-flex items-center gap-2 text-base font-semibold text-primary group-hover:text-secondary transition-colors">
                   {item.cta}
