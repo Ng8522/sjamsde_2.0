@@ -134,17 +134,17 @@ function AboutPage() {
           {/* State Patron */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Patron</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/sultan.jpg" alt="State Patron" className="w-full aspect-[3/4] object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-3">State Patron</p>
-                  <h4 className="text-xl font-semibold text-foreground mb-2">D.Y.M.M. Sultan Sharafuddin Idris Shah Alhaj</h4>
-                  <p className="text-sm text-foreground mb-3">Ibni Almarhum Sultan Salahuddin Abdul Aziz Shah Alhaj</p>
-                  <div className="space-y-2">
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Patron</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">D.Y.M.M. Sultan Sharafuddin Idris Shah Alhaj</h4>
+                  <p className="text-xs text-foreground mb-2">Ibni Almarhum Sultan Salahuddin Abdul Aziz Shah Alhaj</p>
+                  <div className="space-y-1">
                     <p className="text-xs text-muted-foreground font-medium">Honours & Titles:</p>
                     <p className="text-xs text-muted-foreground leading-relaxed">D.K., D.M.N., D.K. (Terengganu), D.K. (Kelantan), D.K. (Perak), D.K. (Perlis), D.K. (Negeri Sembilan), D.K. (Kedah), D.K. (Johor), D.K. (Pahang), S.P.M.S., S.S.I.S., S.P.M.J.</p>
-                    <p className="text-xs text-muted-foreground font-semibold mt-3">Sultan dan Yang DiPertuan Negeri Selangor Darul Ehsan Serta Segala Daerah Takluknya</p>
+                    <p className="text-xs text-muted-foreground font-semibold mt-1">Sultan dan Yang DiPertuan Negeri Selangor Darul Ehsan Serta Segala Daerah Takluknya</p>
                   </div>
                 </div>
               </div>
@@ -154,13 +154,13 @@ function AboutPage() {
           {/* State President */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State President</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full aspect-[3/4] object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State President</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Tan Sri Dato' Sri Tee Boon Kee</h4>
-                  <p className="text-sm text-muted-foreground">PSM, SSAP, DSSA, OStJ</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State President</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Tan Sri Dato' Sri Tee Boon Kee</h4>
+                  <p className="text-xs text-muted-foreground">PSM, SSAP, DSSA, OStJ</p>
                 </div>
               </div>
             </div>
@@ -169,32 +169,32 @@ function AboutPage() {
           {/* Deputy State President */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">Deputy State President</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full aspect-[3/4] object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">Deputy State President</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">(Dr.) Lim Tee Leong</h4>
-                  <p className="text-sm text-muted-foreground">PJK, SBStJ, DHL(Hons)</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State President</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">(Dr.) Lim Tee Leong</h4>
+                  <p className="text-xs text-muted-foreground">PJK, SBStJ, DHL(Hons)</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* State Vice President */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Vice President</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Vice President</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { name: "Dato (Dr.) Lim Sin Boon", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Dato_Lim_Sin_Boon.png", cred: "DIMP, SBSt.J, DHL (Hons)" },
                 { name: "Mr. So Ling Fong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-27-at-11.32.16_c0b0ffd3.jpg", cred: "AIS., PJK., MBA" },
                 { name: "(Dr.) Kong Kah Kit", img: "https://sde.sjamsde.org.my/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-27-at-11.33.25_1726fc09.jpg", cred: "PJK., MStJ., D.Man (Hons)" },
               ].map((person, idx) => (
-                <div key={idx} className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div key={idx} className="rounded-lg border border-primary/15 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                   <img src={person.img} alt={person.name} className="w-full aspect-square object-cover" />
-                  <div className="p-4">
-                    <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Vice President</p>
-                    <h4 className="text-sm font-semibold text-foreground mb-1">{person.name}</h4>
+                  <div className="p-2">
+                    <p className="text-xs uppercase tracking-wider font-bold text-primary mb-0.5">State Vice President</p>
+                    <h4 className="text-xs font-semibold text-foreground mb-0.5">{person.name}</h4>
                     <p className="text-xs text-muted-foreground">{person.cred}</p>
                   </div>
                 </div>
@@ -205,13 +205,13 @@ function AboutPage() {
           {/* State Commander */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Commander</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full aspect-[3/4] object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Commander</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Mr. Lim Wun Lok</h4>
-                  <p className="text-sm text-muted-foreground">SIS, PJK, OStJ</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Commander</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Lim Wun Lok</h4>
+                  <p className="text-xs text-muted-foreground">SIS, PJK, OStJ</p>
                 </div>
               </div>
             </div>
@@ -220,13 +220,13 @@ function AboutPage() {
           {/* Deputy State Commander */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">Deputy State Commander</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full aspect-[3/4] object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">Deputy State Commander</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Mr. Sim Kah Heun</h4>
-                  <p className="text-sm text-muted-foreground">AMP, OStJ, FBDO</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State Commander</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Sim Kah Heun</h4>
+                  <p className="text-xs text-muted-foreground">AMP, OStJ, FBDO</p>
                 </div>
               </div>
             </div>
@@ -235,13 +235,13 @@ function AboutPage() {
           {/* State Medical Officer */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Medical Officer</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WongHuiChin-300x300.jpg" alt="State Medical Officer" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Medical Officer</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Dr. Wong Hui Chin</h4>
-                  <p className="text-sm text-muted-foreground">SSStJ</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Medical Officer</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Dr. Wong Hui Chin</h4>
+                  <p className="text-xs text-muted-foreground">SSStJ</p>
                 </div>
               </div>
             </div>
@@ -250,13 +250,13 @@ function AboutPage() {
           {/* State Superintendent (Operations) */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Superintendent (Operations)</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Chee-Kai-1-200x300.jpg" alt="State Superintendent (Operations)" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Superintendent (Operations)</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Mr. Ng Chee Kai</h4>
-                  <p className="text-sm text-muted-foreground">PPT, OStJ, FNSM</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Operations)</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Ng Chee Kai</h4>
+                  <p className="text-xs text-muted-foreground">PPT, OStJ, FNSM</p>
                 </div>
               </div>
             </div>
@@ -265,13 +265,13 @@ function AboutPage() {
           {/* State Superintendent (Nursing) */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Superintendent (Nursing)</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Sew-Wan-225x300.jpg" alt="State Superintendent (Nursing)" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Superintendent (Nursing)</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Ms. Ng Sew Wan</h4>
-                  <p className="text-sm text-muted-foreground">PJK, SSStJ</p>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Nursing)</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Ms. Ng Sew Wan</h4>
+                  <p className="text-xs text-muted-foreground">PJK, SSStJ</p>
                 </div>
               </div>
             </div>
@@ -280,12 +280,12 @@ function AboutPage() {
           {/* State Honorary Secretary */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Honorary Secretary</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Che-Wei-Sien-199x300.jpeg" alt="State Honorary Secretary" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Honorary Secretary</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Ms. Che Wei Sien</h4>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Secretary</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Ms. Che Wei Sien</h4>
                 </div>
               </div>
             </div>
@@ -294,12 +294,12 @@ function AboutPage() {
           {/* State Honorary Treasurer */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Honorary Treasurer</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Michael-Chang-Hian-Keong.png" alt="State Honorary Treasurer" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Honorary Treasurer</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Mr. Chang Hian Keon @ Michael Chang</h4>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Treasurer</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Chang Hian Keon @ Michael Chang</h4>
                 </div>
               </div>
             </div>
@@ -308,12 +308,12 @@ function AboutPage() {
           {/* State Nursing Officer */}
           <div className="mb-16 pb-16 border-b border-primary/20">
             <h3 className="text-xl font-semibold text-foreground mb-6">State Nursing Officer</h3>
-            <div className="max-w-sm">
-              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-40">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Farah-200x300.jpg" alt="State Nursing Officer" className="w-full aspect-square object-cover" />
-                <div className="p-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">State Nursing Officer</p>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Ms. Farah Abdul Wahab</h4>
+                <div className="p-3">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Nursing Officer</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Ms. Farah Abdul Wahab</h4>
                 </div>
               </div>
             </div>
