@@ -83,35 +83,39 @@ function AboutPage() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,200px)_1fr] gap-6 lg:gap-8 items-start">
-          <div className="group flex-shrink-0">
-            <img
-              src={communityImg}
-              alt="SJAM Selangor volunteers serving the community"
-              className="w-full aspect-square object-cover rounded-lg ring-1 ring-primary/15 shadow-sm shadow-primary/10 group-hover:shadow-primary/30 group-hover:ring-primary/30 transition-all"
-            />
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              {ABOUT_INTRO.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
-              ))}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            <div className="hidden lg:block flex-shrink-0 w-32">
+              <div className="group">
+                <img
+                  src={communityImg}
+                  alt="SJAM Selangor volunteers serving the community"
+                  className="w-full aspect-square object-cover rounded-lg ring-1 ring-primary/15 shadow-sm shadow-primary/10 group-hover:shadow-primary/30 group-hover:ring-primary/30 transition-all"
+                />
+              </div>
             </div>
-            <div className="mt-12 flex flex-wrap gap-4">
-              <Button asChild>
-                <Link to="/volunteer">
-                  <HeartHandshake className="size-5" />
-                  Join as volunteer
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link to="/donate">
-                  <ArrowRight className="size-5" />
-                  Support our work
-                </Link>
-              </Button>
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                {ABOUT_INTRO.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
+                ))}
+              </div>
+              <div className="mt-12 flex flex-wrap gap-4">
+                <Button asChild>
+                  <Link to="/volunteer">
+                    <HeartHandshake className="size-5" />
+                    Join as volunteer
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link to="/donate">
+                    <ArrowRight className="size-5" />
+                    Support our work
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
