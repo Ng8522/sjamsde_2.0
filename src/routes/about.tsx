@@ -122,13 +122,13 @@ function AboutPage() {
       </section>
 
       {/* State Headquarters */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           {/* Leadership Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6 mx-auto">Leadership</span>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-4">State Headquarters</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Meet the dedicated leaders steering SJAM Selangor's mission to serve our community</p>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter mb-3">State Headquarters</h2>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">Meet the dedicated leaders steering SJAM Selangor's mission to serve our community</p>
           </div>
 
           {/* State Patron */}
