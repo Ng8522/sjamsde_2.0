@@ -83,12 +83,12 @@ function AboutPage() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,420px)_1fr] gap-6 lg:gap-20 items-start">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,300px)_1fr] gap-6 lg:gap-16 items-start">
           <div className="group">
             <img
               src={communityImg}
               alt="SJAM Selangor volunteers serving the community"
-              className="w-full aspect-[4/3] object-cover rounded-3xl ring-4 ring-primary/20 shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all"
+              className="w-full aspect-square object-cover rounded-3xl ring-4 ring-primary/20 shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all"
             />
           </div>
           <div>
