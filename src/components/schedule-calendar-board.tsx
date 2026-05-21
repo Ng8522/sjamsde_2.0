@@ -54,14 +54,14 @@ export function ScheduleCalendarBoard({
           <CardTitle className="text-lg">Select a date</CardTitle>
           <CardDescription>
             {combined
-              ? "Green dot = event, blue dot = course. Click a date to see both."
+              ? "Green dot = activity, blue dot = course. Click a date to see both."
               : `Days with ${kindLabel} are highlighted. Click a date to see what's on that day.`}
           </CardDescription>
           {combined ? (
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground pt-1">
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2 rounded-full bg-secondary" />
-                Community event
+                Community activity
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2 rounded-full bg-primary" />
@@ -134,7 +134,7 @@ export function ScheduleCalendarBoard({
           </CardTitle>
           <CardDescription>
             {dayEntries.length > 0
-              ? `${dayEntries.length} ${kindLabel}${dayEntries.length > 1 ? "s" : ""} on this day`
+              ? `${dayEntries.length} ${dayEntries.length > 1 ? (kindLabel === "activity" ? "activities" : `${kindLabel}s`) : kindLabel} on this day`
               : emptyDayMessage}
           </CardDescription>
         </CardHeader>
@@ -164,7 +164,7 @@ export function ScheduleCalendarBoard({
                         : "bg-primary/10 text-primary",
                     )}
                   >
-                    {combined ? (entry.kind === "event" ? "Event" : "Course") : entry.tag}
+                    {combined ? (entry.kind === "event" ? "Activity" : "Course") : entry.tag}
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1.5 mb-1">

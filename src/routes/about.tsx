@@ -26,6 +26,7 @@ import {
   formatGps,
   googleMapsEmbedUrl,
   googleMapsPlaceUrl,
+  stateHqGoogleMapsUrl,
   stateHqMapsQuery,
 } from "@/lib/contact-content";
 import { SSMP_APP_STORE_URL, SSMP_PLAY_STORE_URL } from "@/lib/ssmp-app";
@@ -752,16 +753,15 @@ function AboutPage() {
                     />
                     <p className="text-xs text-muted-foreground">
                       <a
-                        href={googleMapsPlaceUrl(stateHqMapsQuery())}
+                        href={stateHqGoogleMapsUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-semibold text-primary hover:underline"
                       >
-                        {STATE_HEADQUARTERS.address.join(", ")}
+                        {STATE_HEADQUARTERS.mapsPlaceName}
                       </a>
-                      <span className="block mt-1">
-                        GPS: {formatGps(STATE_HEADQUARTERS.gps)}
-                      </span>
+                      <span className="block mt-1">{STATE_HEADQUARTERS.address.join(", ")}</span>
+                      <span className="block mt-1">GPS: {formatGps(STATE_HEADQUARTERS.gps)}</span>
                     </p>
                   </div>
 

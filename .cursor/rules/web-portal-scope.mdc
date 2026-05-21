@@ -13,7 +13,7 @@ This repo is the **public website mock-up**. Do **not** implement SSMP / mobile 
 - UI/UX marketing pages, services, community content
 - Mock **donation** flow (`/donate`) — FPX/DuitNow/card UI only
 - Mock **course booking** (`/courses`)
-- Mock **public event registration** (`/events`) — community-facing only
+- Mock **public activity registration** (`/events`) — community-facing only
 - Mock **volunteer interest** form (`/volunteer`)
 - Emergency hotlines, contact, SEO metadata
 

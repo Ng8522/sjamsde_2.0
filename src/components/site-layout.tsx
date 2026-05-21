@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin, Smartphone } from "lucide-react";
+import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { StoreDownloadBadges } from "@/components/store-download-badges";
@@ -11,7 +11,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { SITE_CONTACT_EMAIL, SITE_FOOTER_INTRO } from "@/lib/site-footer-content";
+import {
+  STATE_HEADQUARTERS,
+  googleMapsEmbedUrl,
+  stateHqGoogleMapsUrl,
+  stateHqMapsQuery,
+} from "@/lib/contact-content";
+import { SITE_FOOTER_INTRO } from "@/lib/site-footer-content";
 import { cn } from "@/lib/utils";
 
 export function StJohnCross({ className = "" }: { className?: string }) {
@@ -59,7 +65,7 @@ const navLinks: {
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Programs", to: "/programs" },
-  { label: "Events", to: "/events" },
+  { label: "Activity", to: "/events" },
   { label: "Gallery", to: "/gallery" },
   { label: "Courses", to: "/courses" },
   { label: "Rakan St John", to: "/volunteer" },
@@ -223,7 +229,7 @@ export function SiteFooter({ id }: { id?: string }) {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
       </div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[2fr_1fr_1.2fr] gap-6 pb-16 border-b border-gradient-to-r border-primary/20">
+        <div className="grid lg:grid-cols-[2fr_1.2fr] gap-10 pb-16 border-b border-gradient-to-r border-primary/20">
           {/* Brand Column */}
           <div>
             <div className="flex items-start gap-3 mb-6">
@@ -248,17 +254,43 @@ export function SiteFooter({ id }: { id?: string }) {
               })}
             </div>
             <div className="space-y-3 text-sm mb-10">
-              <div className="flex items-start gap-3">
-                <MapPin className="size-5 text-primary mt-0 shrink-0" />
-                <span className="text-muted-foreground">Selangor Darul Ehsan, Malaysia</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail className="size-5 text-primary mt-0 shrink-0" />
+              <div>
+                <div className="flex items-start gap-3 mb-3">
+                  <MapPin className="size-5 text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-widest text-foreground mb-1">
+                      State Headquarters
+                    </p>
+                    <a
+                      href={stateHqGoogleMapsUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-foreground hover:text-primary transition-colors leading-snug block"
+                    >
+                      {STATE_HEADQUARTERS.mapsPlaceName}
+                    </a>
+                    <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+                      {STATE_HEADQUARTERS.address.join(", ")}
+                    </p>
+                  </div>
+                </div>
+                <div className="rounded-lg overflow-hidden border border-primary/15">
+                  <iframe
+                    title={STATE_HEADQUARTERS.mapsPlaceName}
+                    src={googleMapsEmbedUrl(stateHqMapsQuery())}
+                    className="w-full h-44"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
                 <a
-                  href={`mailto:${SITE_CONTACT_EMAIL}`}
-                  className="text-muted-foreground hover:text-primary transition-colors break-all font-medium"
+                  href={stateHqGoogleMapsUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-xs font-semibold text-primary hover:underline mt-2"
                 >
-                  {SITE_CONTACT_EMAIL}
+                  Open in Google Maps
                 </a>
               </div>
             </div>
@@ -268,36 +300,6 @@ export function SiteFooter({ id }: { id?: string }) {
               </p>
               <StoreDownloadBadges />
             </div>
-          </div>
-
-          {/* Links Column */}
-          <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-foreground mb-7">
-              Quick Links
-            </h4>
-            <ul className="space-y-3.5 text-sm">
-              {[
-                { label: "About", to: "/about" },
-                { label: "Programs", to: "/programs" },
-                { label: "Donate", to: "/donate" },
-                { label: "Events", to: "/events" },
-                { label: "Gallery", to: "/gallery" },
-                { label: "Courses", to: "/courses" },
-                { label: "Volunteer", to: "/volunteer" },
-              ].map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to as any}
-                    className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-all"
-                  >
-                    <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-primary">
-                      →
-                    </span>
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact Column */}
@@ -328,6 +330,42 @@ export function SiteFooter({ id }: { id?: string }) {
                   03-3373 5005
                 </p>
               </a>
+              <div className="rounded-xl border border-primary/15 bg-white/50 p-4 space-y-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Phone className="size-4 text-primary shrink-0" />
+                    <p className="text-xs font-medium uppercase tracking-widest text-foreground">
+                      Mobile
+                    </p>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {STATE_HEADQUARTERS.phones.map((phone) => (
+                      <li key={phone}>
+                        <a
+                          href={`tel:${phone.replace(/[\s-]/g, "")}`}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors tabular-nums font-medium"
+                        >
+                          {phone}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Mail className="size-4 text-primary shrink-0" />
+                    <p className="text-xs font-medium uppercase tracking-widest text-foreground">
+                      Email
+                    </p>
+                  </div>
+                  <a
+                    href={`mailto:${STATE_HEADQUARTERS.email}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors break-all font-medium"
+                  >
+                    {STATE_HEADQUARTERS.email}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

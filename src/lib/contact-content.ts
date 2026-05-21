@@ -15,9 +15,12 @@ export type AreaOffice = {
 };
 
 export const STATE_HEADQUARTERS = {
+  /** Google Maps listing (operational HQ near Jln Sungai Bertih, Klang). */
+  mapsPlaceName: "St. John Ambulans Malaysia Selangor State HQ",
   placeName: "St John Ambulans Malaysia Selangor Darul Ehsan",
   email: "sjamselangor@sjam.org.my",
   phones: ["+60 17-969 4235", "+60 17-471 1966", "+60 12-416 4934"],
+  /** Correspondence address (contact page). */
   address: [
     "No. 10-A, Lorong Bayu Tinggi 4C",
     "Taman Bayu Tinggi, 41200 Klang",
@@ -111,8 +114,13 @@ export function formatMapsQuery(parts: string[]) {
   return parts.filter(Boolean).join(", ");
 }
 
+/** Resolves to the Google Maps place pin (not the mailing address). */
 export function stateHqMapsQuery() {
-  return formatMapsQuery([STATE_HEADQUARTERS.placeName, ...STATE_HEADQUARTERS.address]);
+  return STATE_HEADQUARTERS.mapsPlaceName;
+}
+
+export function stateHqGoogleMapsUrl() {
+  return googleMapsPlaceUrl(stateHqMapsQuery());
 }
 
 export function areaMapsQuery(area: AreaOffice) {

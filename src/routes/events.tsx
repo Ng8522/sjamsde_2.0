@@ -9,7 +9,7 @@ import { getEventScheduleEntries, type ScheduleEntry } from "@/lib/calendar-sche
 export const Route = createFileRoute("/events")({
   component: EventsPage,
   head: () => ({
-    meta: [{ title: "Events — SJAM Selangor" }],
+    meta: [{ title: "Activity — SJAM Selangor" }],
   }),
 });
 
@@ -23,16 +23,16 @@ function EventsPage() {
         <div className="max-w-7xl mx-auto px-6 py-14">
           <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase flex items-center gap-2">
             <CalendarDays className="size-3.5" />
-            Community events
+            Community activity
           </span>
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3">Upcoming events</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3">Upcoming activity</h1>
           <p className="text-muted-foreground mt-4 max-w-2xl">
             Blood drives, outreach clinics and one-day activities. Pick a date to see what is on, then register for an
-            event.
+            activity.
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground mt-3">
             <Link to="/gallery" className="text-primary font-medium hover:underline">
-              Past event gallery
+              Past activity gallery
             </Link>
             <span className="hidden sm:inline text-border">·</span>
             <Link to="/courses" className="text-primary font-medium hover:underline">
@@ -44,8 +44,8 @@ function EventsPage() {
 
       <ScheduleCalendarBoard
         entries={entries}
-        kindLabel="events"
-        emptyDayMessage="No events on this date. Try another day or browse courses for training intakes."
+        kindLabel="activity"
+        emptyDayMessage="No activity on this date. Try another day or browse courses for training intakes."
         onSelectEntry={(entry: ScheduleEntry) => {
           if (entry.eventId) {
             navigate({ to: "/events/$eventId", params: { eventId: entry.eventId } });

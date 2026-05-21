@@ -16,7 +16,7 @@ export const Route = createFileRoute("/gallery")({
       { title: "Gallery — SJAM Selangor" },
       {
         name: "description",
-        content: "Photos and highlights from past SJAM Selangor community events and public duty deployments.",
+        content: "Photos and highlights from past SJAM Selangor community activity and public duty deployments.",
       },
     ],
   }),
@@ -61,7 +61,7 @@ function GalleryPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-14 md:py-16">
           <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase flex items-center gap-2">
             <Images className="size-3.5" />
-            Past events
+            Past activity
           </span>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3 max-w-xl">Gallery</h1>
           <p className="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
@@ -71,7 +71,7 @@ function GalleryPage() {
             to="/events"
             className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:text-secondary"
           >
-            Upcoming events
+            Upcoming activity
             <ArrowRight className="size-4" />
           </Link>
         </div>

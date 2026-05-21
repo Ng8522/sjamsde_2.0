@@ -19,6 +19,8 @@ import {
   Smartphone,
   ZoomIn,
   Calendar,
+  FileDown,
+  ExternalLink,
   LayoutGrid,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -26,6 +28,8 @@ import ambulanceImg from "../assets/ambulance.jpg";
 import communityImg from "../assets/community.jpg";
 import mobileAppImg from "../assets/mobile-app.jpeg";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
+import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
+import { SSMP_HOMEPAGE } from "@/lib/ssmp-app";
 import { EmergencyBanner, SiteFooter, SiteHeader } from "@/components/site-layout";
 import { portalEvents } from "@/lib/mock-data";
 import {
@@ -468,9 +472,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Events */}
+      {/* Activity */}
       <section
-        id="events"
+        id="activity"
         className="relative py-16 overflow-hidden bg-gradient-to-br from-background via-background to-white"
       >
         <div className="absolute inset-0 -z-10">
@@ -481,12 +485,12 @@ function Index() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
-              Upcoming Events
+              Upcoming Activity
             </span>
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
               Join us at our next{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                community event
+                community activity
               </span>
               .
             </h2>
@@ -495,7 +499,7 @@ function Index() {
                 to="/events"
                 className="inline-flex items-center gap-3 text-base font-semibold text-primary hover:text-secondary group"
               >
-                All events
+                All activity
                 <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
               <div className="w-px h-6 bg-gray-300" />
@@ -503,7 +507,7 @@ function Index() {
                 to="/gallery"
                 className="inline-flex items-center gap-3 text-base font-semibold text-muted-foreground hover:text-primary group"
               >
-                Past event gallery
+                Past activity gallery
                 <ArrowRight className="size-5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
               <div className="w-px h-6 bg-gray-300" />
@@ -578,14 +582,24 @@ function Index() {
           <div className="order-2 md:order-1">
             <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
               <Smartphone className="size-4" />
-              SSMP app · download only
+              {SSMP_HOMEPAGE.eyebrow}
             </span>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
-              Already a SJAM SDE member?
+              {SSMP_HOMEPAGE.title}
             </h2>
-            <p className="text-muted-foreground max-w-[48ch] mb-10 leading-relaxed text-lg">
-              Member registration, duty hours, SOS and internal announcements are in the SSMP mobile
-              app — not on this public website.
+            <p className="text-muted-foreground max-w-[48ch] mb-6 leading-relaxed text-lg">
+              {SSMP_HOMEPAGE.description}
+            </p>
+            <ul className="text-sm text-muted-foreground space-y-2 mb-6 max-w-[48ch]">
+              {SSMP_HOMEPAGE.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-2">
+                  <span className="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-muted-foreground/90 max-w-[48ch] mb-10 leading-relaxed border-l-2 border-primary/25 pl-4">
+              {SSMP_HOMEPAGE.scopeNote}
             </p>
             <StoreDownloadBadges className="[&_img]:h-12" />
           </div>
@@ -639,7 +653,7 @@ function Index() {
             <div>
               <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
                 <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
-                Event Gallery
+                Activity Gallery
               </span>
               <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[22ch] leading-tight">
                 Moments of{" "}
@@ -739,9 +753,9 @@ function Index() {
               },
               {
                 icon: Calendar,
-                title: "Events",
-                desc: "Community events & calendar",
-                cta: "View events",
+                title: "Activity",
+                desc: "Community activity & calendar",
+                cta: "View activity",
                 link: "/events",
                 color: "from-primary",
               },
@@ -774,6 +788,52 @@ function Index() {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Application forms */}
+      <section className="py-14 bg-muted/40 border-y border-primary/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
+              <FileDown className="size-4" />
+              Downloads
+            </span>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+              Application forms
+            </h2>
+            <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto leading-relaxed">
+              Download or complete the official forms for Rakan St John or first aid course intake.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {HOMEPAGE_APPLICATION_FORMS.map((form) => {
+              const isPdf = form.href.endsWith(".pdf");
+              return (
+                <a
+                  key={form.href}
+                  href={form.href}
+                  {...(isPdf ? { download: true } : {})}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-xl border-2 border-primary/20 bg-white p-5 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all"
+                >
+                  <span className="size-12 rounded-lg bg-primary/10 text-primary grid place-items-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    {isPdf ? <FileDown className="size-6" /> : <ExternalLink className="size-6" />}
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors leading-snug block">
+                      {form.label}
+                    </span>
+                    <span className="text-xs text-muted-foreground mt-1 block">
+                      {isPdf ? "Download PDF" : "Open online form"}
+                    </span>
+                  </span>
+                  <ArrowRight className="size-5 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

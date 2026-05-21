@@ -103,7 +103,7 @@ function CoursesPage() {
           </p>
           <p className="text-sm text-muted-foreground mt-3">
             <Link to="/events" className="text-primary font-medium hover:underline">
-              Community events calendar
+              Activity calendar
             </Link>
           </p>
         </div>
