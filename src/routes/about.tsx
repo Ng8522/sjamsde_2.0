@@ -117,6 +117,94 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* Board of Trustee & Advisors */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Board of Trustee */}
+          <div className="mb-20">
+            <div className="bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-lg py-8 mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900">Board of Trustee</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "PN ANNIE HARIATI OTHMAN",
+                  title: "Non-Govt Individual / Former Executive, MDEC, Cyberjaya",
+                  img: "https://via.placeholder.com/300x350?text=PN+ANNIE+HARIATI",
+                },
+                {
+                  name: "DATIN PADUKA CHE ASMAH IBRAHIM",
+                  title: "Former Director, Department of Environment Malaysia",
+                  img: "https://via.placeholder.com/300x350?text=DATIN+PADUKA+CHE",
+                },
+                {
+                  name: "EN ZAINAL FITRI A HAMID",
+                  title: "Surveyor Geomatics, Total/Qatar Energy",
+                  img: "https://via.placeholder.com/300x350?text=EN+ZAINAL+FITRI",
+                },
+                {
+                  name: "EN AIMAN HAKIM NORDIN",
+                  title: "Managing Director / Founder @ Isosyenergy Holdings Sdn Bhd",
+                  img: "https://via.placeholder.com/300x350?text=EN+AIMAN+HAKIM",
+                },
+                {
+                  name: "PN MAIZATUL AZNI ABDUL MUTALIB",
+                  title: "Registered Counsellor (KB 11859 PA 11476)",
+                  img: "https://via.placeholder.com/300x350?text=PN+MAIZATUL+AZNI",
+                },
+                {
+                  name: "NOR AZUAIRI CHE SIDEK",
+                  title: "Subsurface Lead, Total Energies Malay",
+                  img: "https://via.placeholder.com/300x350?text=NOR+AZUAIRI+CHE",
+                },
+              ].map((trustee, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="mb-4">
+                    <img src={trustee.img} alt={trustee.name} className="w-full aspect-[3/4] object-cover rounded-lg" />
+                  </div>
+                  <h3 className="font-bold text-sm text-gray-900 mb-2 uppercase tracking-wide">{trustee.name}</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">{trustee.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Advisors */}
+          <div>
+            <div className="bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-lg py-8 mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900">Advisors</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Elain Lockman",
+                  title: "Strategy & Sustainability Advisor",
+                  img: "https://via.placeholder.com/250x250?text=Elain+Lockman",
+                },
+                {
+                  name: "Hj Zairulshahfuddin Zainal Abidin",
+                  title: "Strategic & Donor Mgmt",
+                  img: "https://via.placeholder.com/250x250?text=Hj+Zairulshahfuddin",
+                },
+                {
+                  name: "Assoc. Prof Dr W Zulhafiz W Zahari",
+                  title: "Legal & Governance Practise Advisor",
+                  img: "https://via.placeholder.com/250x250?text=Assoc+Prof+Dr+W",
+                },
+              ].map((advisor, idx) => (
+                <div key={idx} className="bg-cyan-100 rounded-lg p-6 text-center">
+                  <div className="mb-4 flex justify-center">
+                    <img src={advisor.img} alt={advisor.name} className="w-40 h-40 object-cover rounded-full" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-1">{advisor.name}</h3>
+                  <p className="text-xs text-gray-700">{advisor.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Additional About Sections */}
       <section className="py-16 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
