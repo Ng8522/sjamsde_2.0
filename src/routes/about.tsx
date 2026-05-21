@@ -132,9 +132,9 @@ function AboutPage() {
           </div>
 
           {/* State Patron */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Patron</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Patron</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/sultan.jpg" alt="State Patron" className="w-full aspect-[3/4] object-cover" />
                 <div className="p-6">
@@ -152,9 +152,9 @@ function AboutPage() {
           </div>
 
           {/* State President */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State President</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State President</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full aspect-[3/4] object-cover" />
                 <div className="p-6">
@@ -167,9 +167,9 @@ function AboutPage() {
           </div>
 
           {/* Deputy State President */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">Deputy State President</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Deputy State President</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full aspect-[3/4] object-cover" />
                 <div className="p-6">
@@ -203,9 +203,9 @@ function AboutPage() {
           </div>
 
           {/* State Commander */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Commander</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Commander</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full aspect-[3/4] object-cover" />
                 <div className="p-6">
@@ -218,9 +218,9 @@ function AboutPage() {
           </div>
 
           {/* Deputy State Commander */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">Deputy State Commander</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Deputy State Commander</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full aspect-[3/4] object-cover" />
                 <div className="p-6">
@@ -233,9 +233,9 @@ function AboutPage() {
           </div>
 
           {/* State Medical Officer */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Medical Officer</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Medical Officer</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WongHuiChin-300x300.jpg" alt="State Medical Officer" className="w-full aspect-square object-cover" />
                 <div className="p-6">
@@ -248,9 +248,9 @@ function AboutPage() {
           </div>
 
           {/* State Superintendent (Operations) */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Superintendent (Operations)</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Superintendent (Operations)</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Chee-Kai-1-200x300.jpg" alt="State Superintendent (Operations)" className="w-full aspect-square object-cover" />
                 <div className="p-6">
@@ -263,9 +263,9 @@ function AboutPage() {
           </div>
 
           {/* State Superintendent (Nursing) */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Superintendent (Nursing)</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Superintendent (Nursing)</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Sew-Wan-225x300.jpg" alt="State Superintendent (Nursing)" className="w-full aspect-square object-cover" />
                 <div className="p-6">
@@ -278,9 +278,9 @@ function AboutPage() {
           </div>
 
           {/* State Honorary Secretary */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Honorary Secretary</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Honorary Secretary</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Che-Wei-Sien-199x300.jpeg" alt="State Honorary Secretary" className="w-full aspect-square object-cover" />
                 <div className="p-6">
@@ -292,9 +292,9 @@ function AboutPage() {
           </div>
 
           {/* State Honorary Treasurer */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Honorary Treasurer</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Honorary Treasurer</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Michael-Chang-Hian-Keong.png" alt="State Honorary Treasurer" className="w-full aspect-square object-cover" />
                 <div className="p-6">
@@ -306,9 +306,9 @@ function AboutPage() {
           </div>
 
           {/* State Nursing Officer */}
-          <div className="mb-20 pb-20 border-b border-primary/20">
-            <h3 className="text-2xl font-semibold text-foreground mb-8">State Nursing Officer</h3>
-            <div className="max-w-2xl">
+          <div className="mb-16 pb-16 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-6">State Nursing Officer</h3>
+            <div className="max-w-sm">
               <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                 <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Farah-200x300.jpg" alt="State Nursing Officer" className="w-full aspect-square object-cover" />
                 <div className="p-6">
