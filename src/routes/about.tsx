@@ -117,7 +117,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Structure */}
+      {/* State Headquarters */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           {/* Leadership Header */}
@@ -127,19 +127,56 @@ function AboutPage() {
             <p className="text-muted-foreground max-w-2xl mx-auto">Meet the dedicated leaders steering SJAM Selangor's mission to serve our community</p>
           </div>
 
+          {/* State Patron */}
+          <div className="mb-20 pb-20 border-b border-primary/20">
+            <h3 className="text-xl font-semibold text-foreground mb-8 inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              State Patron
+            </h3>
+            <div className="max-w-2xl">
+              <div className="rounded-xl border-2 border-primary/20 overflow-hidden bg-gradient-to-br from-white to-primary/5">
+                <div className="aspect-[3/4] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <svg className="w-16 h-16 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <p className="text-sm">Portrait</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-xs uppercase tracking-widest font-bold text-primary mb-3">State Patron</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">D.Y.M.M. Sultan Sharafuddin Idris Shah Alhaj</h4>
+                  <p className="text-sm text-foreground mb-3">Ibni Almarhum Sultan Salahuddin Abdul Aziz Shah Alhaj</p>
+                  <div className="space-y-1">
+                    <p className="text-xs text-muted-foreground font-medium">Honours & Titles:</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">D.K., D.M.N., D.K. (Terengganu), D.K. (Kelantan), D.K. (Perak), D.K. (Perlis), D.K. (Negeri Sembilan), D.K. (Kedah), D.K. (Johor), D.K. (Pahang), S.P.M.S., S.S.I.S., S.P.M.J.</p>
+                    <p className="text-xs text-muted-foreground font-semibold mt-2">Sultan dan Yang DiPertuan Negeri Selangor Darul Ehsan Serta Segala Daerah Takluknya</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Executive Leadership */}
-          <div className="mb-16">
-            <h3 className="text-xl font-semibold text-foreground mb-6 inline-flex items-center gap-2">
+          <div className="mb-20">
+            <h3 className="text-xl font-semibold text-foreground mb-8 inline-flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
               Executive Leadership
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { name: "Tan Sri Dato' Sri Tee Boon Kee", role: "State President", cred: "PSM, SSAP, DSSA, OStJ" },
                 { name: "Mr. Lim Wun Lok", role: "State Commander", cred: "SIS, PJK, OStJ" },
               ].map((person, idx) => (
                 <div key={idx} className="group rounded-xl border-2 border-primary/20 hover:border-primary/40 overflow-hidden bg-gradient-to-br from-white to-primary/5 transition-all hover:shadow-lg">
-                  <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10" />
+                  <div className="aspect-[3/4] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors">
+                    <div className="text-center text-muted-foreground">
+                      <svg className="w-20 h-20 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <p className="text-sm">Portrait</p>
+                    </div>
+                  </div>
                   <div className="p-6">
                     <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">{person.role}</p>
                     <h4 className="text-lg font-semibold text-foreground mb-1">{person.name}</h4>
@@ -151,18 +188,25 @@ function AboutPage() {
           </div>
 
           {/* Senior Management */}
-          <div className="mb-16">
-            <h3 className="text-xl font-semibold text-foreground mb-6 inline-flex items-center gap-2">
+          <div className="mb-20">
+            <h3 className="text-xl font-semibold text-foreground mb-8 inline-flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
               Senior Management
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { name: "(Dr.) Lim Tee Leong", role: "Deputy State President", cred: "PJK, SBStJ, DHL(Hons)" },
                 { name: "Mr. Sim Kah Heun", role: "Deputy State Commander", cred: "AMP, OStJ, FBDO" },
               ].map((person, idx) => (
                 <div key={idx} className="group rounded-xl border-2 border-primary/20 hover:border-primary/40 overflow-hidden bg-gradient-to-br from-white to-primary/5 transition-all hover:shadow-lg">
-                  <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10" />
+                  <div className="aspect-[3/4] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors">
+                    <div className="text-center text-muted-foreground">
+                      <svg className="w-20 h-20 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <p className="text-sm">Portrait</p>
+                    </div>
+                  </div>
                   <div className="p-6">
                     <p className="text-xs uppercase tracking-widest font-bold text-primary mb-2">{person.role}</p>
                     <h4 className="text-lg font-semibold text-foreground mb-1">{person.name}</h4>
@@ -175,11 +219,11 @@ function AboutPage() {
 
           {/* Key Officers */}
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6 inline-flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-foreground mb-8 inline-flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary" />
               Key Officers
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { name: "Dr. Wong Hui Chin", role: "State Medical Officer", cred: "SSStJ" },
                 { name: "Mr. Ng Chee Kai", role: "State Superintendent (Operations)", cred: "PPT, OStJ, FNSM" },
@@ -189,7 +233,14 @@ function AboutPage() {
                 { name: "Ms. Farah Abdul Wahab", role: "State Nursing Officer", cred: "—" },
               ].map((officer, idx) => (
                 <div key={idx} className="rounded-lg border border-primary/15 hover:border-primary/40 overflow-hidden bg-white/50 hover:bg-white/80 transition-all">
-                  <div className="h-28 bg-gradient-to-br from-primary/8 to-secondary/8" />
+                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center hover:from-primary/20 hover:to-secondary/20 transition-colors">
+                    <div className="text-center text-muted-foreground">
+                      <svg className="w-12 h-12 mx-auto mb-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <p className="text-xs">Portrait</p>
+                    </div>
+                  </div>
                   <div className="p-4">
                     <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">{officer.role}</p>
                     <h4 className="text-base font-semibold text-foreground mb-1">{officer.name}</h4>
