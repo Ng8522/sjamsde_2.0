@@ -60,11 +60,11 @@ function AboutPage() {
           <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-          <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">{ABOUT_HERO.eyebrow}</span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl leading-tight mb-8">{ABOUT_HERO.title}</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6 font-medium">{ABOUT_HERO.subtitle}</p>
-          <p className="text-base font-semibold text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
+        <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16">
+          <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-4">{ABOUT_HERO.eyebrow}</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter max-w-4xl leading-tight mb-6">{ABOUT_HERO.title}</h1>
+          <p className="text-base text-muted-foreground max-w-3xl leading-relaxed mb-4 font-medium">{ABOUT_HERO.subtitle}</p>
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-16 md:py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
