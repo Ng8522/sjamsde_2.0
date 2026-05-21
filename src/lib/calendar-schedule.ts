@@ -1,14 +1,17 @@
 import { courses, portalEvents, type Course, type PortalEvent } from "@/lib/mock-data";
+import { getSjamArea, type SjamAreaId } from "@/lib/sjam-areas";
 
 export type ScheduleEntry = {
   entryKey: string;
-  kind: "event" | "course"; 
+  kind: "event" | "course";
   startsAt: Date;
   title: string;
   tag: string;
   time: string;
   location: string;
   detail: string;
+  areaId?: SjamAreaId;
+  areaLabel?: string;
   eventId?: string;
   courseId?: string;
   sessionId?: string;
@@ -28,6 +31,7 @@ export function isSameCalendarDay(a: Date, b: Date) {
 }
 
 export function eventToEntries(event: PortalEvent & { startsAt: string }): ScheduleEntry[] {
+  const area = getSjamArea(event.areaId);
   return [
     {
       entryKey: `event-${event.id}`,
@@ -38,6 +42,8 @@ export function eventToEntries(event: PortalEvent & { startsAt: string }): Sched
       time: event.time,
       location: event.location,
       detail: `${event.spots - event.registered} spots left`,
+      areaId: event.areaId,
+      areaLabel: area.label,
       eventId: event.id,
     },
   ];
@@ -78,4 +84,12 @@ export function entriesOnDate(entries: ScheduleEntry[], date: Date) {
 
 export function datesWithEntries(entries: ScheduleEntry[]) {
   return entries.map((e) => e.startsAt);
+}
+
+export function entriesInMonth(entries: ScheduleEntry[], year: number, month: number) {
+  return entries.filter((e) => e.startsAt.getFullYear() === year && e.startsAt.getMonth() === month);
+}
+
+export function uniqueEventTags(entries: ScheduleEntry[]) {
+  return [...new Set(entries.map((e) => e.tag))].sort();
 }

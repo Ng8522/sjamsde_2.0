@@ -792,19 +792,19 @@ function Index() {
         </div>
       </section>
 
-      {/* Application forms */}
+      {/* Applications */}
       <section className="py-14 bg-muted/40 border-y border-primary/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
               <FileDown className="size-4" />
-              Downloads
+              Applications
             </span>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
-              Application forms
+              Official application forms
             </h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto leading-relaxed">
-              Download or complete the official forms for Rakan St John or first aid course intake.
+              Official application forms for Rakan St John and first aid course intake.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -827,7 +827,7 @@ function Index() {
                       {form.label}
                     </span>
                     <span className="text-xs text-muted-foreground mt-1 block">
-                      {isPdf ? "Download PDF" : "Open online form"}
+                      {isPdf ? "PDF application" : "Online application"}
                     </span>
                   </span>
                   <ArrowRight className="size-5 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform" />

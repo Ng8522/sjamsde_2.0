@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { CalendarDays } from "lucide-react";
 
-import { ScheduleCalendarBoard } from "@/components/schedule-calendar-board";
+import { ActivityCalendarBoard } from "@/components/activity-calendar-board";
 import { SiteLayout } from "@/components/site-layout";
 import { getEventScheduleEntries, type ScheduleEntry } from "@/lib/calendar-schedule";
 
@@ -27,8 +27,7 @@ function EventsPage() {
           </span>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3">Upcoming activity</h1>
           <p className="text-muted-foreground mt-4 max-w-2xl">
-            Blood drives, outreach clinics and one-day activities. Pick a date to see what is on, then register for an
-            activity.
+            Choose a month and year, then filter the list by SJAM area.
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground mt-3">
             <Link to="/gallery" className="text-primary font-medium hover:underline">
@@ -42,10 +41,9 @@ function EventsPage() {
         </div>
       </section>
 
-      <ScheduleCalendarBoard
+      <ActivityCalendarBoard
         entries={entries}
-        kindLabel="activity"
-        emptyDayMessage="No activity on this date. Try another day or browse courses for training intakes."
+        emptyDayMessage="No activities for this month and area. Try another month or select All areas."
         onSelectEntry={(entry: ScheduleEntry) => {
           if (entry.eventId) {
             navigate({ to: "/events/$eventId", params: { eventId: entry.eventId } });
