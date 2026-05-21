@@ -60,11 +60,11 @@ function AboutPage() {
           <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-          <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">{ABOUT_HERO.eyebrow}</span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl leading-tight mb-8">{ABOUT_HERO.title}</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6 font-medium">{ABOUT_HERO.subtitle}</p>
-          <p className="text-base font-semibold text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
+        <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16">
+          <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-4">{ABOUT_HERO.eyebrow}</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter max-w-4xl leading-tight mb-6">{ABOUT_HERO.title}</h1>
+          <p className="text-base text-muted-foreground max-w-3xl leading-relaxed mb-4 font-medium">{ABOUT_HERO.subtitle}</p>
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase">{ABOUT_HERO.motto}</p>
         </div>
       </section>
 
@@ -79,39 +79,389 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-16 md:py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-32 right-0 w-96 h-96 bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[minmax(0,420px)_1fr] gap-6 lg:gap-20 items-start">
-          <div className="group">
-            <img
-              src={communityImg}
-              alt="SJAM Selangor volunteers serving the community"
-              className="w-full aspect-[4/3] object-cover rounded-3xl ring-4 ring-primary/20 shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all"
-            />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            <div className="hidden lg:block flex-shrink-0 w-32">
+              <div className="group">
+                <img
+                  src={communityImg}
+                  alt="SJAM Selangor volunteers serving the community"
+                  className="w-full aspect-square object-cover rounded-lg ring-1 ring-primary/15 shadow-sm shadow-primary/10 group-hover:shadow-primary/30 group-hover:ring-primary/30 transition-all"
+                />
+              </div>
+            </div>
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                {ABOUT_INTRO.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
+                ))}
+              </div>
+              <div className="mt-12 flex flex-wrap gap-4">
+                <Button asChild>
+                  <Link to="/volunteer">
+                    <HeartHandshake className="size-5" />
+                    Join as volunteer
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link to="/donate">
+                    <ArrowRight className="size-5" />
+                    Support our work
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              {ABOUT_INTRO.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
+        </div>
+      </section>
+
+      {/* State Headquarters */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Leadership Header */}
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6 mx-auto">Leadership</span>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter mb-3">State Headquarters</h2>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">Meet the dedicated leaders steering SJAM Selangor's mission to serve our community</p>
+          </div>
+
+          {/* State Patron */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Patron</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/sultan.jpg" alt="State Patron" className="w-full aspect-[3/4] object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Patron</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">D.Y.M.M. Sultan Sharafuddin Idris Shah Alhaj</h4>
+                  <p className="text-xs text-foreground mb-2">Ibni Almarhum Sultan Salahuddin Abdul Aziz Shah Alhaj</p>
+                  <div className="space-y-1 border-t border-primary/10 pt-2">
+                    <p className="text-xs text-muted-foreground font-medium">Honours & Titles:</p>
+                    <p className="text-xs text-muted-foreground leading-snug">D.K., D.M.N., D.K. (Terengganu), D.K. (Kelantan), D.K. (Perak), D.K. (Perlis), D.K. (Negeri Sembilan), D.K. (Kedah), D.K. (Johor), D.K. (Pahang), S.P.M.S., S.S.I.S., S.P.M.J.</p>
+                    <p className="text-xs text-muted-foreground font-semibold mt-1">Sultan dan Yang DiPertuan Negeri Selangor Darul Ehsan Serta Segala Daerah Takluknya</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State President */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State President</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className="w-full aspect-[3/4] object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State President</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Tan Sri Dato' Sri Tee Boon Kee</h4>
+                  <p className="text-xs text-muted-foreground">PSM, SSAP, DSSA, OStJ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Deputy State President */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">Deputy State President</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className="w-full aspect-[3/4] object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State President</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">(Dr.) Lim Tee Leong</h4>
+                  <p className="text-xs text-muted-foreground">PJK, SBStJ, DHL(Hons)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Vice Presidents */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Vice President</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { name: "Dato (Dr.) Lim Sin Boon", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Dato_Lim_Sin_Boon.png", cred: "DIMP, SBSt.J, DHL (Hons)" },
+                { name: "Mr. So Ling Fong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-27-at-11.32.16_c0b0ffd3.jpg", cred: "AIS., PJK., MBA" },
+                { name: "(Dr.) Kong Kah Kit", img: "https://sde.sjamsde.org.my/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-27-at-11.33.25_1726fc09.jpg", cred: "PJK., MStJ., D.Man (Hons)" },
+              ].map((person, idx) => (
+                <div key={idx} className="rounded-lg border border-primary/15 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <img src={person.img} alt={person.name} className="w-full aspect-square object-cover" />
+                  <div className="p-3">
+                    <p className="text-xs uppercase tracking-wider font-bold text-primary mb-0.5">State Vice President</p>
+                    <h4 className="text-xs font-semibold text-foreground mb-0.5">{person.name}</h4>
+                    <p className="text-xs text-muted-foreground">{person.cred}</p>
+                  </div>
+                </div>
               ))}
             </div>
-            <div className="mt-12 flex flex-wrap gap-4">
-              <Button asChild>
-                <Link to="/volunteer">
-                  <HeartHandshake className="size-5" />
-                  Join as volunteer
-                </Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link to="/donate">
-                  <ArrowRight className="size-5" />
-                  Support our work
-                </Link>
-              </Button>
+          </div>
+
+          {/* State Commander */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Commander</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className="w-full aspect-[3/4] object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Commander</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Lim Wun Lok</h4>
+                  <p className="text-xs text-muted-foreground">SIS, PJK, OStJ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Deputy State Commander */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">Deputy State Commander</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className="w-full aspect-[3/4] object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State Commander</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Sim Kah Heun</h4>
+                  <p className="text-xs text-muted-foreground">AMP, OStJ, FBDO</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Medical Officer */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Medical Officer</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WongHuiChin-300x300.jpg" alt="State Medical Officer" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Medical Officer</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Dr. Wong Hui Chin</h4>
+                  <p className="text-xs text-muted-foreground">SSStJ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Superintendent (Operations) */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Superintendent (Operations)</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Chee-Kai-1-200x300.jpg" alt="State Superintendent (Operations)" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Operations)</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Mr. Ng Chee Kai</h4>
+                  <p className="text-xs text-muted-foreground">PPT, OStJ, FNSM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Superintendent (Nursing) */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Superintendent (Nursing)</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Sew-Wan-225x300.jpg" alt="State Superintendent (Nursing)" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Nursing)</p>
+                  <h4 className="text-sm font-semibold text-foreground mb-1">Ms. Ng Sew Wan</h4>
+                  <p className="text-xs text-muted-foreground">PJK, SSStJ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Honorary Secretary */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Honorary Secretary</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Che-Wei-Sien-199x300.jpeg" alt="State Honorary Secretary" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Secretary</p>
+                  <h4 className="text-sm font-semibold text-foreground">Ms. Che Wei Sien</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Honorary Treasurer */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Honorary Treasurer</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Michael-Chang-Hian-Keong.png" alt="State Honorary Treasurer" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Treasurer</p>
+                  <h4 className="text-sm font-semibold text-foreground">Mr. Chang Hian Keon @ Michael Chang</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* State Nursing Officer */}
+          <div className="mb-14 pb-12 border-b border-primary/10">
+            <h3 className="text-lg font-semibold text-foreground mb-6">State Nursing Officer</h3>
+            <div className="max-w-sm">
+              <div className="rounded-lg border border-primary/20 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Farah-200x300.jpg" alt="State Nursing Officer" className="w-full aspect-square object-cover" />
+                <div className="p-4">
+                  <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Nursing Officer</p>
+                  <h4 className="text-sm font-semibold text-foreground">Ms. Farah Abdul Wahab</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tier 6: Staff Officers - Medical */}
+          <div className="mb-16">
+            <div className="flex items-center gap-2 text-foreground font-bold text-xs tracking-widest uppercase mb-6 pb-3 border-b-2 border-primary/30">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              Medical Advisory Board
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { name: "Dr Foo Kwong Yong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Foo-Kwong-Yong.jpeg" },
+                { name: "Dr. Sham Kumar Sadanand", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Dr_Sham_Kumar.png", cred: "PJK" },
+                { name: "Dr. Liew Tien Seng", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Dr_Liew_Tien_Seng.png" },
+                { name: "Dr. Ang Kuan Ping", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Ang-Kuan-Ping.jpeg" },
+              ].map((person, idx) => (
+                <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                    <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Medical)</p>
+                    <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                    {person.cred && <p className="text-xs text-muted-foreground mt-2">{person.cred}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tier 7: Staff Officers - Operations */}
+          <div className="mb-16">
+            <div className="flex items-center gap-2 text-foreground font-bold text-xs tracking-widest uppercase mb-6 pb-3 border-b-2 border-primary/30">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              Operations Team
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {[
+                { name: "Mr. Lau Hao Yu", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lau-Hao-Yu-225x300.jpg" },
+                { name: "Mr. Tong Yong Xiang", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Tong-Yong-Xiang-scaled.jpg" },
+                { name: "Mr. Yew Chun Thong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WhatsApp-Image-2026-02-11-at-17.01.52.jpeg" },
+              ].map((person, idx) => (
+                <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                    <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Operations)</p>
+                    <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tier 8: Staff Officers - Specializations */}
+          <div className="mb-16">
+            <div className="flex items-center gap-2 text-foreground font-bold text-xs tracking-widest uppercase mb-6 pb-3 border-b-2 border-primary/30">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              Specialist Officers
+            </div>
+            <div className="space-y-8">
+              {/* Cadets */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-4 text-primary/70">Cadets Training</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {[
+                    { name: "Mr. Soh Chin Yong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Soh-Chin-Yong-210x300.jpg" },
+                    { name: "Mr. Tan Seng Hau", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Tan-Seng-Hau.jpeg" },
+                  ].map((person, idx) => (
+                    <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                      <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                        <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Cadets)</p>
+                        <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Training & Exam */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-4 text-primary/70">Training & Examination</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  {[
+                    { name: "Ms. Lim Yih Siah", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim-Yih-Siah-200x300.jpg" },
+                    { name: "Mr. Yew Chun Wee", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Yew_Chun_Wee.png" },
+                    { name: "Teo Cheng Chuan", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WhatsApp-Image-2025-11-11-at-22.54.25_9ec6fd44.jpg" },
+                  ].map((person, idx) => (
+                    <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                      <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                        <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Training & Exam)</p>
+                        <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Nursing */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-4 text-primary/70">Nursing Services</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {[
+                    { name: "Ms. Chan Zuo Wey", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Chan-Zuo-Wey.jpeg" },
+                    { name: "Ms. Woo Jia Nee", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Woo-Jia-Nee.jpeg" },
+                  ].map((person, idx) => (
+                    <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                      <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                        <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Nursing)</p>
+                        <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* IT */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-4 text-primary/70">Information Technology</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {[
+                    { name: "Mr. Bernard Ng Chee Meng", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WhatsApp-Image-2025-10-27-at-12.20.37_ce36db47-300x296.jpg" },
+                    { name: "Mr. Frank Lee Yong Chieu", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WhatsApp-Image-2025-10-27-at-12.22.01_ee406f9a-200x300.jpg" },
+                  ].map((person, idx) => (
+                    <div key={idx} className="group rounded-xl overflow-hidden border-2 border-primary/15 hover:border-primary/40 transition-all hover:shadow-md bg-white/60 hover:bg-white">
+                      <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5 h-40">
+                        <img src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (IT)</p>
+                        <h4 className="text-sm font-semibold text-foreground leading-snug">{person.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
