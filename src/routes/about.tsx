@@ -761,7 +761,6 @@ function AboutPage() {
                         {STATE_HEADQUARTERS.mapsPlaceName}
                       </a>
                       <span className="block mt-1">{STATE_HEADQUARTERS.address.join(", ")}</span>
-                      <span className="block mt-1">GPS: {formatGps(STATE_HEADQUARTERS.gps)}</span>
                     </p>
                   </div>
 
@@ -823,7 +822,6 @@ function AboutPage() {
                           >
                             <MapPin className="w-3 h-3" />
                             View on Google Maps
-                            {area.gps ? ` (${formatGps(area.gps)})` : ""}
                           </a>
                         </div>
                       ))}
