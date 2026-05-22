@@ -13,6 +13,7 @@ import { Route as VolunteerRouteImport } from './routes/volunteer'
 import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as QualifiedTrainersRouteImport } from './routes/qualified-trainers'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
@@ -40,6 +41,11 @@ const QualifiedTrainersRoute = QualifiedTrainersRouteImport.update({
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/login'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/login'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/login'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
+  LoginRoute: typeof LoginRoute
   ProgramsRoute: typeof ProgramsRoute
   QualifiedTrainersRoute: typeof QualifiedTrainersRoute
   ScheduleRoute: typeof ScheduleRoute
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: '/programs'
       fullPath: '/programs'
       preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRoute,
+  LoginRoute: LoginRoute,
   ProgramsRoute: ProgramsRoute,
   QualifiedTrainersRoute: QualifiedTrainersRoute,
   ScheduleRoute: ScheduleRoute,

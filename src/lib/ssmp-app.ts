@@ -5,7 +5,7 @@ export const SSMP_PLAY_STORE_URL = "https://play.google.com/store/apps/details?i
 /** Homepage SSMP section — download links only; member features live in the app. */
 export const SSMP_HOMEPAGE = {
   eyebrow: "SSMP mobile app",
-  title: "SJAM SDE members — download SSMP",
+  title: "Already a SJAM SDE member?",
   description:
     "The official SSMP app is where registered members manage accounts, record duty hours, access SOS support, and receive internal announcements from headquarters and your area.",
   scopeNote:

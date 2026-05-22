@@ -28,7 +28,7 @@ const galleryImages = {
 } as const;
 
 function coverSrc(album: PastEventAlbum) {
-  return galleryImages[album.coverImage];
+  return album.customImageUrl || galleryImages[album.coverImage];
 }
 
 function mosaicFor(album: PastEventAlbum) {

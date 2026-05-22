@@ -40,7 +40,7 @@ function ProgramsPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16">
           <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-4">
-            Our Services
+            What we do now
           </span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter max-w-3xl leading-tight mb-4">
             Comprehensive Health <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Programs</span>

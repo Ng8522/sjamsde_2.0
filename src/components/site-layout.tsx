@@ -125,6 +125,11 @@ function MobileSiteNav({ pathname }: { pathname: string }) {
             </SheetClose>
           ))}
           <SheetClose asChild>
+            <Link to="/login" className={navLinkClassName(pathname, "/login", true)}>
+              Login
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
             <Link
               to="/donate"
               className={cn(
@@ -192,6 +197,15 @@ export function SiteHeader() {
             );
           })}
           <div className="w-px h-6 bg-border/50 mx-2" />
+          <Link
+            to="/login"
+            className={cn(
+              "px-3 py-2 rounded-lg transition-all hover:text-foreground hover:bg-muted/50",
+              pathname === "/login" && "text-primary font-semibold",
+            )}
+          >
+            Login
+          </Link>
           <Link
             to="/donate"
             className={cn(

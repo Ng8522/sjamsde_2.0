@@ -522,7 +522,7 @@ function Index() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {portalEvents.map((e) => {
+            {portalEvents.slice(0, 3).map((e) => {
               const [day, month] = e.date.split(" ");
               return (
                 <article
