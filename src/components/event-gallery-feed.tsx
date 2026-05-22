@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { CalendarDays, ChevronRight, Images, MapPin } from "lucide-react";
+import { useMemo, useState } from "react";
+import { CalendarDays, ChevronRight, Images, MapPin, ChevronLeft } from "lucide-react";
 
 import { StJohnCross } from "@/components/site-layout";
 import {
@@ -268,6 +268,8 @@ function DateFilters({
   );
 }
 
+const ITEMS_PER_PAGE = 6;
+
 export function EventGalleryFeed({
   images,
   year,
@@ -276,9 +278,24 @@ export function EventGalleryFeed({
   onMonthChange,
   onOpenAlbum,
 }: EventGalleryFeedProps) {
+  const [currentPage, setCurrentPage] = useState(1);
   const years = useMemo(() => getGalleryYears(), []);
   const months = useMemo(() => (year === "all" ? [] : getGalleryMonthsForYear(year)), [year]);
   const albums = useMemo(() => filterPastEventAlbums(year, month), [year, month]);
+
+  const totalPages = Math.ceil(albums.length / ITEMS_PER_PAGE);
+  const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedAlbums = albums.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+  const handleYearChange = (newYear: string) => {
+    setCurrentPage(1);
+    onYearChange(newYear);
+  };
+
+  const handleMonthChange = (newMonth: string) => {
+    setCurrentPage(1);
+    onMonthChange(newMonth);
+  };
 
   return (
     <div className="max-w-7xl mx-auto w-full">
@@ -289,8 +306,8 @@ export function EventGalleryFeed({
           years={years}
           months={months}
           albumsCount={albums.length}
-          onYearChange={onYearChange}
-          onMonthChange={onMonthChange}
+          onYearChange={handleYearChange}
+          onMonthChange={handleMonthChange}
         />
       </div>
 
@@ -302,8 +319,8 @@ export function EventGalleryFeed({
             years={years}
             months={months}
             albumsCount={albums.length}
-            onYearChange={onYearChange}
-            onMonthChange={onMonthChange}
+            onYearChange={handleYearChange}
+            onMonthChange={handleMonthChange}
           />
         </div>
 
@@ -318,16 +335,45 @@ export function EventGalleryFeed({
                 <p className="text-sm text-muted-foreground mt-2">Try a different year or month.</p>
               </div>
             ) : (
-              <div className="space-y-4 sm:space-y-5 pb-8">
-                {albums.map((album) => (
-                  <GalleryPost
-                    key={album.id}
-                    album={album}
-                    images={images}
-                    onOpen={() => onOpenAlbum(album.id)}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="space-y-4 sm:space-y-5 pb-8">
+                  {paginatedAlbums.map((album) => (
+                    <GalleryPost
+                      key={album.id}
+                      album={album}
+                      images={images}
+                      onOpen={() => onOpenAlbum(album.id)}
+                    />
+                  ))}
+                </div>
+
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-between gap-4 pt-8 border-t border-border">
+                    <button
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                      className="inline-flex items-center gap-2 h-10 px-4 bg-white border border-border rounded-lg font-medium text-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronLeft className="size-4" />
+                      Previous
+                    </button>
+
+                    <div className="text-sm text-muted-foreground font-medium">
+                      Page <span className="text-foreground">{currentPage}</span> of{" "}
+                      <span className="text-foreground">{totalPages}</span>
+                    </div>
+
+                    <button
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      disabled={currentPage === totalPages}
+                      className="inline-flex items-center gap-2 h-10 px-4 bg-white border border-border rounded-lg font-medium text-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Next
+                      <ChevronRight className="size-4" />
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
