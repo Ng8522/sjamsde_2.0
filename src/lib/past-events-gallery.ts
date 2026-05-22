@@ -9,6 +9,10 @@ export type PastEventAlbum = {
   summary: string;
   coverImage: "community" | "ambulance";
   photoCount: number;
+  /** Optional custom image URL */
+  customImageUrl?: string;
+  /** Optional organizer name override */
+  organizer?: string;
 };
 
 export const pastEventAlbums: PastEventAlbum[] = [
@@ -22,6 +26,8 @@ export const pastEventAlbums: PastEventAlbum[] = [
     summary: "Basic Life Support accreditation course for MPPWP staff and personnel.",
     coverImage: "ambulance",
     photoCount: 12,
+    customImageUrl: "https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/529748731_1080561777603413_7728947610022874242_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=b96d88&_nc_ohc=l-9hYBGt4Q0Q7kNvwHZ8QXo&_nc_oc=AdozmfPFc0BlOvZnV8gT-QBHgZ2E1CjNkd-rUlMU7GAcE3Ru1Lt5FrBFKgysuPIJ1Ik&_nc_zt=23&_nc_ht=scontent-ord5-1.xx&_nc_gid=Sx4Rc5_XBddOUGc5TteFZQ&_nc_ss=7f289&oh=00_Af7Kq9AREEhdFwLWh4NwjSj1_z1o7IW0NFPbtEHVPRw2qg&oe=6A157A78",
+    organizer: "SJAM KSTU",
   },
   {
     id: "pusat-jagaan-megah-2025",

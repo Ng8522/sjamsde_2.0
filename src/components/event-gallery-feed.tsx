@@ -149,7 +149,7 @@ function GalleryPost({
         <StJohnCross className="size-10 shrink-0 rounded-full ring-2 ring-background shadow-sm" />
         <div className="min-w-0 flex-1 pt-0.5">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <p className="font-semibold text-[15px] leading-tight text-foreground">SJAM Selangor</p>
+            <p className="font-semibold text-[15px] leading-tight text-foreground">{album.organizer || "SJAM Selangor"}</p>
             <span className="text-[10px] font-semibold uppercase tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded-full">
               {album.tag}
             </span>
