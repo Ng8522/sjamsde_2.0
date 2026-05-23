@@ -162,7 +162,7 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
-    <header className="bg-background border-b border-border/50 sticky top-0 z-40 backdrop-blur-sm supports-[backdrop-filter]:bg-background/95 shadow-sm">
+    <header className="bg-background/95 border-b border-border/50 backdrop-blur-sm supports-[backdrop-filter]:bg-background/90 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
           <StJohnCross className="size-9 sm:size-10 shrink-0" />
@@ -229,6 +229,15 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
+  );
+}
+
+export function SiteTopChrome() {
+  return (
+    <div className="sticky top-0 z-50">
+      <EmergencyBanner />
+      <SiteHeader />
+    </div>
   );
 }
 
@@ -404,8 +413,7 @@ export function SiteLayout({ children, className }: { children: ReactNode; class
         className,
       )}
     >
-      <EmergencyBanner />
-      <SiteHeader />
+      <SiteTopChrome />
       <main className="flex-1">{children}</main>
       <SiteFooter />
     </div>

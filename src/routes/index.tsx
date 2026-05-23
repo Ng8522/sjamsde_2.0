@@ -29,7 +29,7 @@ import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
 import { pickRandomHomeGalleryPreview } from "@/lib/home-gallery-preview";
 import { SSMP_HOMEPAGE } from "@/lib/ssmp-app";
-import { EmergencyBanner, SiteFooter, SiteHeader } from "@/components/site-layout";
+import { SiteFooter, SiteTopChrome } from "@/components/site-layout";
 import { portalEvents } from "@/lib/mock-data";
 import {
   RAKAN_ST_JOHN_HOME_HIGHLIGHTS,
@@ -129,7 +129,7 @@ function Index() {
   const [appPreviewOpen, setAppPreviewOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground antialiased">
       {/* Floating Side Donate Button */}
       <Link
         to="/donate"
@@ -186,9 +186,9 @@ function Index() {
         </div>
       )}
 
-      <EmergencyBanner />
-      <SiteHeader />
+      <SiteTopChrome />
 
+      <div className="overflow-x-hidden">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/2 to-background">
         {/* Decorative animated gradients */}
@@ -721,6 +721,7 @@ function Index() {
       </section>
 
       <SiteFooter id="about" />
+      </div>
     </div>
   );
 }
