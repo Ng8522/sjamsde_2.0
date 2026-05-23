@@ -18,10 +18,8 @@ import {
   X,
   Smartphone,
   ZoomIn,
-  Calendar,
   FileDown,
   ExternalLink,
-  LayoutGrid,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
@@ -29,6 +27,7 @@ import communityImg from "../assets/community.jpg";
 import mobileAppImg from "../assets/mobile-app.jpeg";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
+import { pickRandomHomeGalleryPreview } from "@/lib/home-gallery-preview";
 import { SSMP_HOMEPAGE } from "@/lib/ssmp-app";
 import { EmergencyBanner, SiteFooter, SiteHeader } from "@/components/site-layout";
 import { portalEvents } from "@/lib/mock-data";
@@ -671,124 +670,7 @@ function Index() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all cursor-pointer">
-              <img
-                src={communityImg}
-                alt="Community volunteers at work"
-                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <p className="text-white font-semibold text-lg">Community Service</p>
-                  <p className="text-white/80 text-sm">Volunteers making a difference</p>
-                </div>
-              </div>
-            </div>
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all cursor-pointer">
-              <img
-                src={ambulanceImg}
-                alt="Emergency ambulance response"
-                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div>
-                  <p className="text-white font-semibold text-lg">Emergency Response</p>
-                  <p className="text-white/80 text-sm">24/7 ambulance service</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Get Involved Section */}
-      <section className="py-16 bg-gradient-to-br from-background via-primary/2 to-background relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
-              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
-              Get Involved
-            </span>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter max-w-4xl mx-auto leading-tight mb-8">
-              Be part of something{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                meaningful
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-              Join our mission to serve the community with heart and save lives
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {[
-              {
-                icon: HeartHandshake,
-                title: "Volunteer",
-                desc: "Join 4,400+ volunteers",
-                cta: "Sign up",
-                link: "/volunteer",
-                color: "from-primary",
-              },
-              {
-                icon: LayoutGrid,
-                title: "Programs",
-                desc: "Community health & outreach initiatives",
-                cta: "View programs",
-                link: "/programs",
-                color: "from-secondary",
-              },
-              {
-                icon: Heart,
-                title: "Support",
-                desc: "Make a donation",
-                cta: "Donate",
-                link: "/donate",
-                color: "from-secondary",
-              },
-              {
-                icon: Calendar,
-                title: "Activity",
-                desc: "Community activity & calendar",
-                cta: "View activity",
-                link: "/events",
-                color: "from-primary",
-              },
-              {
-                icon: GraduationCap,
-                title: "Learn",
-                desc: "Take first aid courses",
-                cta: "Book now",
-                link: "/courses",
-                color: "from-secondary",
-              },
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                to={item.link}
-                className="group relative bg-white rounded-2xl border-2 border-gray-200 p-8 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-3 transition-all flex flex-col items-start"
-              >
-                <div
-                  className={`size-14 rounded-xl bg-gradient-to-br ${item.color} to-secondary text-primary-foreground grid place-items-center mb-5 group-hover:shadow-lg group-hover:shadow-primary/40 transition-all`}
-                >
-                  <item.icon className="size-7" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-6 flex-1">{item.desc}</p>
-                <span className="inline-flex items-center gap-2 text-base font-semibold text-primary group-hover:text-secondary transition-colors">
-                  {item.cta}
-                  <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-            ))}
-          </div>
+          <HomeActivityGalleryPreview />
         </div>
       </section>
 
@@ -839,6 +721,82 @@ function Index() {
       </section>
 
       <SiteFooter id="about" />
+    </div>
+  );
+}
+
+const HOME_GALLERY_PREVIEW_COUNT = 2;
+
+function HomeActivityGalleryPreview() {
+  const [items] = useState(() => pickRandomHomeGalleryPreview(HOME_GALLERY_PREVIEW_COUNT));
+
+  if (items.length === 0) {
+    return (
+      <div className="grid md:grid-cols-2 gap-6">
+        <Link
+          to="/gallery"
+          className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all"
+        >
+          <img
+            src={communityImg}
+            alt="Community volunteers at work"
+            className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+            <div>
+              <p className="text-white font-semibold text-lg">2025 activity gallery</p>
+              <p className="text-white/80 text-sm">View events and photos</p>
+            </div>
+          </div>
+        </Link>
+        <Link
+          to="/gallery"
+          className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all"
+        >
+          <img
+            src={ambulanceImg}
+            alt="Emergency ambulance response"
+            className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+            <div>
+              <p className="text-white font-semibold text-lg">Past events</p>
+              <p className="text-white/80 text-sm">Browse the full gallery</p>
+            </div>
+          </div>
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      {items.map((item) => (
+        <Link
+          key={`${item.albumId}-${item.imageSrc}`}
+          to="/gallery/$albumId"
+          params={{ albumId: item.albumId }}
+          className="group relative rounded-2xl overflow-hidden border-2 border-gray-200 hover:border-primary/40 transition-all"
+        >
+          <img
+            src={item.imageSrc}
+            alt={item.title}
+            className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex items-end p-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wide text-white/70 mb-1">
+                {item.tag} · {item.dateLabel}
+              </p>
+              <p className="text-white font-semibold text-lg leading-snug line-clamp-2">{item.title}</p>
+              <p className="text-white/80 text-sm mt-1 flex items-center gap-1.5">
+                View album
+                <ArrowRight className="size-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </p>
+            </div>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { CalendarDays, ChevronRight, Images, MapPin, ChevronLeft } from "lucide-react";
 
 import { StJohnCross } from "@/components/site-layout";
@@ -10,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { getGalleryAlbumImages, getGalleryAlbumCover } from "@/lib/gallery-album-images";
 import {
   filterPastEventAlbums,
   getGalleryMonthsForYear,
@@ -26,13 +28,22 @@ type EventGalleryFeedProps = {
   month: string;
   onYearChange: (year: string) => void;
   onMonthChange: (month: string) => void;
-  onOpenAlbum: (id: string) => void;
 };
 
 const OBJECT_POSITIONS = ["center", "top", "bottom", "30% 20%", "70% 60%"] as const;
 
 function photosFor(album: PastEventAlbum, images: GalleryImages) {
-  const src = images[album.coverImage];
+  const real = getGalleryAlbumImages(album.id);
+  if (real.length > 0) {
+    const shown = Math.min(real.length, 5);
+    return real.slice(0, shown).map((src, i) => ({
+      src,
+      key: `${album.id}-${i}`,
+      objectPosition: OBJECT_POSITIONS[i % OBJECT_POSITIONS.length],
+    }));
+  }
+
+  const src = album.customImageUrl || getGalleryAlbumCover(album.id) || images[album.coverImage];
   const shown = Math.min(Math.max(album.photoCount, 1), 5);
   return Array.from({ length: shown }, (_, i) => ({
     src,
@@ -163,7 +174,7 @@ function GalleryPost({
 
       <div className="px-4 pb-3">
         <h2 className="text-[17px] font-semibold leading-snug text-foreground">{album.title}</h2>
-        <p className="text-[15px] text-foreground/90 leading-relaxed mt-1.5">{album.summary}</p>
+        <p className="text-[15px] text-foreground/90 leading-relaxed mt-1.5 whitespace-pre-line">{album.summary}</p>
         <p className="text-sm text-muted-foreground mt-2 flex items-start gap-1.5">
           <MapPin className="size-4 shrink-0 mt-0.5 text-primary" />
           <span>{album.location}</span>
@@ -276,8 +287,8 @@ export function EventGalleryFeed({
   month,
   onYearChange,
   onMonthChange,
-  onOpenAlbum,
 }: EventGalleryFeedProps) {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const years = useMemo(() => getGalleryYears(), []);
   const months = useMemo(() => (year === "all" ? [] : getGalleryMonthsForYear(year)), [year]);
@@ -295,6 +306,10 @@ export function EventGalleryFeed({
   const handleMonthChange = (newMonth: string) => {
     setCurrentPage(1);
     onMonthChange(newMonth);
+  };
+
+  const openAlbum = (id: string) => {
+    navigate({ to: "/gallery/$albumId", params: { albumId: id } });
   };
 
   return (
@@ -342,7 +357,7 @@ export function EventGalleryFeed({
                       key={album.id}
                       album={album}
                       images={images}
-                      onOpen={() => onOpenAlbum(album.id)}
+                      onOpen={() => openAlbum(album.id)}
                     />
                   ))}
                 </div>

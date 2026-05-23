@@ -76,7 +76,7 @@ function isNavActive(pathname: string, to: (typeof navLinks)[number]["to"]) {
   if (to === "/about") return pathname === "/about" || pathname.startsWith("/about/");
   if (to === "/programs") return pathname === "/programs" || pathname.startsWith("/programs/");
   if (to === "/events") return pathname === "/events" || pathname.startsWith("/events/");
-  if (to === "/gallery") return pathname === "/gallery";
+  if (to === "/gallery") return pathname === "/gallery" || pathname.startsWith("/gallery/");
   return pathname === to || (to === "/courses" && pathname === "/schedule");
 }
 

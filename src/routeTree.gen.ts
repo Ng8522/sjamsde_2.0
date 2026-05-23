@@ -20,6 +20,9 @@ import { Route as DonateRouteImport } from './routes/donate'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
+import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as AboutQualifiedTrainersRouteImport } from './routes/about/qualified-trainers'
 
@@ -78,6 +81,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryIndexRoute = GalleryIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => GalleryRoute,
+} as any)
+const MobileClinicEventIdRoute = MobileClinicEventIdRouteImport.update({
+  id: '/mobile-clinic/$eventId',
+  path: '/mobile-clinic/$eventId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryAlbumIdRoute = GalleryAlbumIdRouteImport.update({
+  id: '/$albumId',
+  path: '/$albumId',
+  getParentRoute: () => GalleryRoute,
+} as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/$eventId',
   path: '/$eventId',
@@ -95,7 +113,7 @@ export interface FileRoutesByFullPath {
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
-  '/gallery': typeof GalleryRoute
+  '/gallery': typeof GalleryRouteWithChildren
   '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
@@ -103,6 +121,9 @@ export interface FileRoutesByFullPath {
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,7 +131,6 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
-  '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
@@ -118,6 +138,9 @@ export interface FileRoutesByTo {
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/gallery': typeof GalleryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -126,7 +149,7 @@ export interface FileRoutesById {
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
-  '/gallery': typeof GalleryRoute
+  '/gallery': typeof GalleryRouteWithChildren
   '/login': typeof LoginRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
@@ -134,6 +157,9 @@ export interface FileRoutesById {
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +177,9 @@ export interface FileRouteTypes {
     | '/volunteer'
     | '/about/qualified-trainers'
     | '/events/$eventId'
+    | '/gallery/$albumId'
+    | '/mobile-clinic/$eventId'
+    | '/gallery/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -158,7 +187,6 @@ export interface FileRouteTypes {
     | '/courses'
     | '/donate'
     | '/events'
-    | '/gallery'
     | '/login'
     | '/programs'
     | '/qualified-trainers'
@@ -166,6 +194,9 @@ export interface FileRouteTypes {
     | '/volunteer'
     | '/about/qualified-trainers'
     | '/events/$eventId'
+    | '/gallery/$albumId'
+    | '/mobile-clinic/$eventId'
+    | '/gallery'
   id:
     | '__root__'
     | '/'
@@ -181,6 +212,9 @@ export interface FileRouteTypes {
     | '/volunteer'
     | '/about/qualified-trainers'
     | '/events/$eventId'
+    | '/gallery/$albumId'
+    | '/mobile-clinic/$eventId'
+    | '/gallery/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -189,12 +223,13 @@ export interface RootRouteChildren {
   CoursesRoute: typeof CoursesRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
-  GalleryRoute: typeof GalleryRoute
+  GalleryRoute: typeof GalleryRouteWithChildren
   LoginRoute: typeof LoginRoute
   ProgramsRoute: typeof ProgramsRoute
   QualifiedTrainersRoute: typeof QualifiedTrainersRoute
   ScheduleRoute: typeof ScheduleRoute
   VolunteerRoute: typeof VolunteerRoute
+  MobileClinicEventIdRoute: typeof MobileClinicEventIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -276,6 +311,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery/': {
+      id: '/gallery/'
+      path: '/'
+      fullPath: '/gallery/'
+      preLoaderRoute: typeof GalleryIndexRouteImport
+      parentRoute: typeof GalleryRoute
+    }
+    '/mobile-clinic/$eventId': {
+      id: '/mobile-clinic/$eventId'
+      path: '/mobile-clinic/$eventId'
+      fullPath: '/mobile-clinic/$eventId'
+      preLoaderRoute: typeof MobileClinicEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$albumId': {
+      id: '/gallery/$albumId'
+      path: '/$albumId'
+      fullPath: '/gallery/$albumId'
+      preLoaderRoute: typeof GalleryAlbumIdRouteImport
+      parentRoute: typeof GalleryRoute
+    }
     '/events/$eventId': {
       id: '/events/$eventId'
       path: '/$eventId'
@@ -314,18 +370,32 @@ const EventsRouteChildren: EventsRouteChildren = {
 const EventsRouteWithChildren =
   EventsRoute._addFileChildren(EventsRouteChildren)
 
+interface GalleryRouteChildren {
+  GalleryAlbumIdRoute: typeof GalleryAlbumIdRoute
+  GalleryIndexRoute: typeof GalleryIndexRoute
+}
+
+const GalleryRouteChildren: GalleryRouteChildren = {
+  GalleryAlbumIdRoute: GalleryAlbumIdRoute,
+  GalleryIndexRoute: GalleryIndexRoute,
+}
+
+const GalleryRouteWithChildren =
+  GalleryRoute._addFileChildren(GalleryRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRouteWithChildren,
   CoursesRoute: CoursesRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
-  GalleryRoute: GalleryRoute,
+  GalleryRoute: GalleryRouteWithChildren,
   LoginRoute: LoginRoute,
   ProgramsRoute: ProgramsRoute,
   QualifiedTrainersRoute: QualifiedTrainersRoute,
   ScheduleRoute: ScheduleRoute,
   VolunteerRoute: VolunteerRoute,
+  MobileClinicEventIdRoute: MobileClinicEventIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
