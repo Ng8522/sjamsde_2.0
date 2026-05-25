@@ -18,6 +18,25 @@ const GOOD_SAMARITAN_FOLDER = "2025 Opthalmic Care at Good Samaritan Home";
 const JUNIOR_XPLORER_FOLDER = "2025 Junior Xplorer AGMO Junior";
 const TIAM_YAM_FOLDER = "2025 Ophthalmic Care at Tiam Yam Toh Teng Klang";
 const KEBAJIKAN_ANAK_FOLDER = "2025 Ophthalmic Care at Kebajikan Anak Yatim Mary";
+const FIRST_AID_COMPETITION_FOLDER = "2025 64th First Aid & Home Nursing Competition";
+const KPS_CADET_FOLDER = "2025 KPS Cadet Training Course";
+const LITTLE_SISTER_FOLDER = "2023 Visit Pusat Jagaan Little Sister";
+const CANCER_SCREENING_FOLDER = "2023 Cancer Screening";
+const AIR_ATTENDANT_FOLDER = "2023 Air Attendant Course";
+const AIR_ATTENDANT_2013_FOLDER = "Air Attendant 2013";
+const BLOOD_DRIVE_NATIONWIDE_FOLDER = "2023 Nationwide Blood Donation Drive";
+const MASS_CPR_FOLDER = "2023 Mass CPR Awareness";
+const BLOOD_DRIVE_FOLDER = "2023 Blood Donation Drive";
+const BATANG_KALI_FOLDER = "2022 Batang Kali Landslide";
+const MOBILE_CLINIC_CHIK_FOLDER = "2022 Mobile Clinic – Chik Sin Thong Old Folks Home Selangor";
+const FLOOD_RELIEF_FOLDER = "2021 Flood Relief Taman Sri Muda";
+const COVID_STANDBY_FOLDER = "2020 – 2022 Covid-19 Standby";
+const BLOOD_DONATION_6_FOLDER = "2019 Blood Donation 6.0";
+const BLOOD_DONATION_4_FOLDER = "2017 Blood Donation 4.0";
+const BLOOD_DONATION_5_FOLDER = "2018 Blood Donation 5.0";
+const BLOOD_DONATION_3_FOLDER = "2016 Blood Donation 3.0";
+const BLOOD_DONATION_2_FOLDER = "2015 Blood Donation 2.0";
+const BLOOD_DONATION_2014_FOLDER = "2014 Blood Donation Drive";
 
 const blsMppwpFiles = [
   "528223460_1080561850936739_848810135091062088_n.jpg",
@@ -267,6 +286,287 @@ const tiamYamFiles = [
   "507187755_1333492002111874_1178953686159915000_n.jpg",
 ] as const;
 
+const firstAidCompetitionFiles = [
+  "500341920_1322700563191018_6409332214697727456_n.jpg",
+  "500438717_1322700556524352_8597971885577063771_n.jpg",
+  "500471168_1322700969857644_3970068516804964497_n.jpg",
+  "500473368_1322700803190994_5575382796288189250_n.jpg",
+  "500513891_1322701143190960_6538386248348025774_n.jpg",
+  "500526764_1322700543191020_9063117982367918908_n.jpg",
+  "500541287_1322701189857622_6046416418763282056_n.jpg",
+  "500552207_1322699516524456_7868358586864401552_n.jpg",
+  "500603876_1322700833190991_708778349130382958_n.jpg",
+  "500762956_1322699699857771_7550966603158094506_n.jpg",
+  "500969749_1322701123190962_1981777146802489090_n.jpg",
+  "501028390_1322700916524316_7033779125527693556_n.jpg",
+  "501031805_1322700919857649_1213114112096197242_n.jpg",
+  "501048454_1322700483191026_9207251202927465127_n.jpg",
+  "501048613_1322700566524351_6577374314794634219_n.jpg",
+  "501051369_1322700929857648_8365722865370040276_n.jpg",
+  "501171303_1322701016524306_6421072667197884116_n.jpg",
+  "501186806_1322700703191004_7579504698649102074_n.jpg",
+  "501202314_1322700529857688_135939452547998075_n.jpg",
+  "501222191_1322700869857654_1497997182097944412_n.jpg",
+  "502947564_1322699959857745_6839108252720467472_n.jpg",
+] as const;
+
+const kpsCadetFiles = [
+  "518335905_1209867504273800_6940967461009648388_n.jpg",
+  "518343431_1209866844273866_7598905761313301716_n.jpg",
+  "518346241_1209865010940716_6596394486872945467_n.jpg",
+  "518348048_1209867274273823_8292075751463230871_n.jpg",
+  "518358182_1209865367607347_2693216013183453137_n.jpg",
+  "518359790_1209866944273856_1568059337715512440_n.jpg",
+  "519058946_1209865750940642_248916879728237047_n.jpg",
+  "519070520_1209864750940742_3554688914343848632_n.jpg",
+  "519070520_1209867064273844_853293475633884019_n.jpg",
+  "519115777_1209866540940563_317102447040129283_n.jpg",
+  "519132671_1209865287607355_2637613666090511832_n.jpg",
+  "519169332_1209866700940547_4178358575999058690_n.jpg",
+  "519169976_1209865687607315_3394878853903564709_n.jpg",
+  "519624308_1209864740940743_9012961262582559502_n.jpg",
+  "519626463_1209865437607340_5082284702216123281_n.jpg",
+  "519626463_1209865867607297_8381213934672156511_n.jpg",
+  "519626463_1209865917607292_4855969253611831952_n.jpg",
+  "519667776_1209864727607411_829473693321330923_n.jpg",
+  "519874024_1209866617607222_4098525001620305502_n.jpg",
+  "519983014_1209866654273885_5472247281537137975_n.jpg",
+  "520156793_1209865090940708_162992073631776712_n.jpg",
+  "520160680_1209867407607143_1938510164524656126_n.jpg",
+  "520189035_1209865557607328_8715022431856232046_n.jpg",
+  "520193599_1209867310940486_5561630928839811820_n.jpg",
+  "520193611_1209864767607407_2715996567121088709_n.jpg",
+  "520202548_1209867194273831_520954230602152376_n.jpg",
+  "520225748_1209866110940606_5096811499268054860_n.jpg",
+  "520226924_1209866524273898_4887180308228100309_n.jpg",
+  "520236583_1209866407607243_2710947261470198803_n.jpg",
+  "520239576_1209866587607225_82658099292855452_n.jpg",
+  "520257280_1209866917607192_5456053873697482706_n.jpg",
+  "520278620_1209866307607253_6817102350924958388_n.jpg",
+  "520286198_1209867357607148_5815260866521898340_n.jpg",
+  "520334268_1209866410940576_953353764131076309_n.jpg",
+  "520413667_1209865504274000_4920469351874669322_n.jpg",
+  "520572844_1209864747607409_4680379986401077245_n.jpg",
+  "520580013_1209865270940690_78191233919548559_n.jpg",
+  "520587912_1209865630940654_2394478040702733033_n.jpg",
+  "520821564_1209865057607378_1386811181554792999_n.jpg",
+  "520825677_1209866817607202_1774758723138249115_n.jpg",
+  "520839339_1209867067607177_9139727707506514107_n.jpg",
+  "520906339_1209865420940675_5167733345890595268_n.jpg",
+  "520940720_1209866184273932_9095785297114944406_n.jpg",
+  "520955464_1209867477607136_4565646199021087331_n.jpg",
+  "521476740_1209865574273993_8522499180447423961_n.jpg",
+  "521530602_1209865097607374_7145482400377448778_n.jpg",
+  "521584853_1209865677607316_2551609859138876529_n.jpg",
+  "521660296_1209865050940712_4032079757657143264_n.jpg",
+  "521786939_1209866374273913_8440832129492403834_n.jpg",
+  "521805235_1209866737607210_2322430069272283743_n.jpg",
+  "521840131_1209867190940498_2078251091122080209_n.jpg",
+  "521845232_1209865894273961_1927349416937814126_n.jpg",
+  "521849158_1209866014273949_6352441740848816314_n.jpg",
+  "521964082_1209867070940510_6925996230619108899_n.jpg",
+  "522080507_1209866480940569_6757739005457681760_n.jpg",
+  "522133482_1209865234274027_6046719532614558079_n.jpg",
+  "522136373_1209867587607125_8878746395054720240_n.jpg",
+  "522167080_1209867287607155_4698729209590689744_n.jpg",
+  "522208901_1209865177607366_1845609218799811781_n.jpg",
+  "522287522_1209867537607130_3519033135480121934_n.jpg",
+  "522294377_1209866260940591_1655593416811034326_n.jpg",
+  "522405353_1209866267607257_8020914476712838364_n.jpg",
+  "522413111_1209866797607204_3020281500786817603_n.jpg",
+  "522518503_1209865960940621_7352378754342287009_n.jpg",
+  "522611287_1209866937607190_985415185344756195_n.jpg",
+  "522621364_1209867380940479_8685040740070632340_n.jpg",
+  "522638155_1209867177607166_3978994598119809648_n.jpg",
+  "522682777_1209865800940637_8555822315134737941_n.jpg",
+  "522685755_1209865280940689_4984289395930766393_n.jpg",
+  "523000449_1209865794273971_6063453535752973461_n.jpg",
+  "523039630_1209864690940748_3556947792610744991_n.jpg",
+  "523116457_1209865014274049_8002231103806762988_n.jpg",
+  "523167394_1209865260940691_3100740070715662_n.jpg",
+  "523221856_1209867614273789_1906586388257115923_n.jpg",
+] as const;
+
+const littleSisterFiles = [
+  "IMG-20230806-WA0009.jpg",
+  "IMG-20230806-WA0010.jpg",
+  "IMG-20230806-WA0011.jpg",
+  "IMG-20230806-WA0012.jpg",
+  "IMG-20230806-WA0013.jpg",
+  "IMG-20230806-WA0014.jpg",
+  "IMG-20230806-WA0015.jpg",
+  "IMG-20230806-WA0016.jpg",
+  "IMG-20230806-WA0017.jpg",
+  "IMG-20230806-WA0018.jpg",
+  "IMG-20230806-WA0019.jpg",
+  "IMG-20230806-WA0022.jpg",
+  "IMG-20230806-WA0023.jpg",
+  "IMG-20230806-WA0024.jpg",
+  "IMG-20230806-WA0025.jpg",
+  "IMG-20230806-WA0026.jpg",
+  "IMG-20230806-WA0027.jpg",
+  "IMG-20230806-WA0028.jpg",
+  "IMG-20230806-WA0029.jpg",
+  "IMG-20230806-WA0030.jpg",
+  "IMG-20230806-WA0031.jpg",
+  "IMG-20230806-WA0032.jpg",
+  "IMG-20230806-WA0033.jpg",
+  "IMG-20230806-WA0034.jpg",
+  "IMG-20230806-WA0035.jpg",
+  "IMG-20230806-WA0036.jpg",
+  "IMG-20230806-WA0037.jpg",
+  "IMG-20230806-WA0038.jpg",
+  "IMG-20230806-WA0039.jpg",
+  "IMG-20230806-WA0040.jpg",
+  "IMG-20230806-WA0041.jpg",
+  "IMG-20230806-WA0042.jpg",
+  "IMG-20230806-WA0043.jpg",
+  "IMG-20230806-WA0044.jpg",
+  "IMG-20230806-WA0045.jpg",
+  "IMG-20230806-WA0046.jpg",
+  "IMG-20230806-WA0047.jpg",
+  "IMG-20230806-WA0048.jpg",
+  "IMG-20230806-WA0049.jpg",
+  "IMG-20230806-WA0050.jpg",
+  "IMG-20230806-WA0051.jpg",
+  "IMG-20230806-WA0052.jpg",
+  "IMG-20230806-WA0053.jpg",
+  "IMG-20230806-WA0054.jpg",
+  "IMG-20230806-WA0055.jpg",
+  "IMG-20230806-WA0056.jpg",
+  "IMG-20230806-WA0057.jpg",
+  "IMG-20230806-WA0058.jpg",
+  "IMG-20230806-WA0059.jpg",
+  "IMG-20230806-WA0060.jpg",
+  "IMG-20230806-WA0061.jpg",
+  "IMG-20230806-WA0062.jpg",
+  "IMG-20230806-WA0063.jpg",
+  "IMG-20230806-WA0064.jpg",
+  "IMG-20230806-WA0065.jpg",
+  "IMG-20230806-WA0066.jpg",
+  "IMG-20230806-WA0067.jpg",
+  "IMG-20230806-WA0068.jpg",
+  "IMG-20230806-WA0069.jpg",
+  "IMG-20230806-WA0070.jpg",
+  "IMG-20230806-WA0071.jpg",
+  "IMG-20230806-WA0072.jpg",
+  "IMG-20230806-WA0073.jpg",
+  "IMG-20230806-WA0074.jpg",
+  "IMG-20230806-WA0075.jpg",
+  "IMG-20230806-WA0076.jpg",
+  "IMG-20230806-WA0077.jpg",
+  "IMG-20230806-WA0078.jpg",
+  "IMG-20230806-WA0079.jpg",
+] as const;
+
+const cancerScreeningFiles = [
+  "20230617-KSTS-Cancer-Screening1.jpeg",
+  "20230617-KSTS-Cancer-Screening2.jpeg",
+  "20230617-KSTS-Cancer-Screening3.jpeg",
+  "20230617-KSTS-Cancer-Screening.png",
+] as const;
+
+const airAttendantFiles = ["20230612-Air-Attendant-Course-1024x768.jpeg"] as const;
+
+const airAttendant2013Files = ["air_attendance.jpg"] as const;
+
+const bloodDriveNationwideFiles = ["NBDD-23-SGOR-3-1024x1024.png"] as const;
+
+const massCprFiles = [
+  "Mass-CPR-Midvalley-1.jpeg",
+  "Mass-CPR-Midvalley-2.jpeg",
+  "Mass-CPR-Midvalley-3.jpeg",
+  "Mass-CPR-Midvalley-6.jpeg",
+  "Mass-CPR-Midvalley-7.jpeg",
+  "Mass-CPR-Midvalley-8.jpeg",
+  "Mass-CPR-Midvalley-9.jpeg",
+  "Mass-CPR-Midvalley-10.jpeg",
+  "Mass-CPR-Midvalley-11.jpeg",
+  "Mass-CPR-Midvalley-12.jpeg",
+  "Mass-CPR-Midvalley-13.jpeg",
+  "Mass-CPR-Midvalley-14.jpeg",
+] as const;
+
+const bloodDriveFiles = [
+  "Blood-Donation-1.jpeg",
+  "Blood-Donation-1.jpg",
+  "Blood-Donation-2.jpeg",
+  "Blood-Donation-2.jpg",
+  "Blood-Donation-3.jpeg",
+  "Blood-Donation-4.jpeg",
+  "Blood-Donation-5.jpeg",
+  "Blood-Donation-6.jpeg",
+  "Blood-Donation-7.jpeg",
+  "Blood-Donation-8.jpeg",
+  "Blood-Donation-9.jpeg",
+] as const;
+
+const batangKaliFiles = [
+  "Batang-Kali-Landslide-Nov-2022-1.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-2.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-3.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-4.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-5.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-6.jpeg",
+  "Batang-Kali-Landslide-Nov-2022-7.jpeg",
+] as const;
+
+const mobileClinicChikFiles = [
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-1.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-2.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-3.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-4.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-5.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-6.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-7.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-8.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-9.jpeg",
+  "MobileClinic-ChikSinThongOldFolksHomeSelangor-Nov-2022-10.jpeg",
+] as const;
+
+const floodReliefFiles = [
+  "Flood-Relief-Taman-Sri-Muda-2021-1.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-2.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-3.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-4.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-5.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-6.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-7.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-8.jpeg",
+  "Flood-Relief-Taman-Sri-Muda-2021-9.jpeg",
+] as const;
+
+const covidStandbyFiles = [
+  "Covid-19-Initiatives-1.jpeg",
+  "Covid-19-Initiatives-2-768x576.jpg",
+  "Covid-19-Initiatives-3-768x432.jpg",
+  "Covid-19-Initiatives-4-768x576.jpg",
+  "Covid-19-Initiatives-5-768x576.jpg",
+  "Covid-19-Initiatives-6-768x433.jpg",
+  "Covid-19-Initiatives-7.jpg",
+] as const;
+
+const bloodDonation6Files = ["BloodDonation2019.jpg"] as const;
+
+const bloodDonation5Files = [
+  "39149908_1382696105207277_284675294281859072_n.jpg",
+  "39217445_1382696071873947_3519831810534014976_n.jpg",
+] as const;
+
+const bloodDonation3Files = ["BDD3_FB.JPG"] as const;
+
+const bloodDonation2Files = ["31 Oct1.jpg", "Image-2.jpg"] as const;
+
+const bloodDonation2014Files = ["7n_mbotobreak01.jpg"] as const;
+
+const bloodDonation4Files = [
+  "471422620_10161006008328790_1943197070436091888_n.jpg",
+  "471563818_10161006052603790_2445221243751951342_n.jpg",
+  "471600283_10161005999428790_6267250745655798677_n.jpg",
+  "471791272_10161005801033790_6601156033456357369_n.jpg",
+  "BloodDonati2017on-768x537.jpg",
+] as const;
+
 const kebajikanAnakFiles = [
   "493088795_1327995252661549_1598121936304151407_n.jpg",
   "493864951_1327995342661540_3099303768945988568_n.jpg",
@@ -343,6 +643,66 @@ const albumImages: Record<string, string[]> = {
   ),
   "kebajikan-anak-ocu-2025": kebajikanAnakFiles.map(
     (file) => new URL(`../assets/event/${KEBAJIKAN_ANAK_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "first-aid-competition-2025": firstAidCompetitionFiles.map(
+    (file) =>
+      new URL(`../assets/event/${FIRST_AID_COMPETITION_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "kps-cadet-training-2025": kpsCadetFiles.map(
+    (file) => new URL(`../assets/event/${KPS_CADET_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "little-sisters-2023": littleSisterFiles.map(
+    (file) => new URL(`../assets/event/${LITTLE_SISTER_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "cancer-screening-2023": cancerScreeningFiles.map(
+    (file) => new URL(`../assets/event/${CANCER_SCREENING_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "air-attendant-2023": airAttendantFiles.map(
+    (file) => new URL(`../assets/event/${AIR_ATTENDANT_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "air-attendant-2013": airAttendant2013Files.map(
+    (file) => new URL(`../assets/event/${AIR_ATTENDANT_2013_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-drive-nationwide-2023": bloodDriveNationwideFiles.map(
+    (file) =>
+      new URL(`../assets/event/${BLOOD_DRIVE_NATIONWIDE_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "mass-cpr-2023": massCprFiles.map(
+    (file) => new URL(`../assets/event/${MASS_CPR_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-drive-2023": bloodDriveFiles.map(
+    (file) => new URL(`../assets/event/${BLOOD_DRIVE_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "batang-kali-2022": batangKaliFiles.map(
+    (file) => new URL(`../assets/event/${BATANG_KALI_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "mobile-clinic-2022": mobileClinicChikFiles.map(
+    (file) =>
+      new URL(`../assets/event/${MOBILE_CLINIC_CHIK_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "flood-relief-2021": floodReliefFiles.map(
+    (file) => new URL(`../assets/event/${FLOOD_RELIEF_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "covid-standby-2020": covidStandbyFiles.map(
+    (file) => new URL(`../assets/event/${COVID_STANDBY_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-6-2019": bloodDonation6Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_6_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-5-2018": bloodDonation5Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_5_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-3-2016": bloodDonation3Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_3_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-2-2015": bloodDonation2Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_2_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-2014": bloodDonation2014Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_2014_FOLDER}/${file}`, import.meta.url).href,
+  ),
+  "blood-donation-4-2017": bloodDonation4Files.map(
+    (file) => new URL(`../assets/event/${BLOOD_DONATION_4_FOLDER}/${file}`, import.meta.url).href,
   ),
 };
 
