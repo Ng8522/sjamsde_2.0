@@ -282,14 +282,15 @@ export const pastEventAlbums: PastEventAlbum[] = [
   },
   {
     id: "mock-exercise-2025",
-    title: "Mock Exercise",
+    title: "2025 Mock Exercise",
     eventDate: "2025-01-23",
     dateLabel: "23 January 2025",
-    location: "Selangor",
+    location: "Kawasan Pantai Selangor, Klang",
     tag: "Training",
-    summary: "Disaster response and emergency preparedness mock exercise.",
+    summary:
+      "SJAM Kawasan Pantai Selangor Yayasan Mock Exercise 2025\n\nDate: 23 January 2025\nTime: 8am – 12pm\n\nWe are proud to have successfully conducted a first aid mock exercise, providing an invaluable opportunity to train for real-life emergency situations. This drill allowed us to assess and enhance our response capabilities, improve coordination among agencies, and ensure that our teams are well-prepared to act swiftly and effectively when it matters most.\n\nThrough this hands-on simulation, participants were able to refine their skills in trauma care, rescue operations, and emergency medical response—fostering stronger teamwork and reinforcing the importance of quick, efficient action in critical situations.\n\nA huge thank you to Majlis Bandaraya Diraja Klang, PDRM IPD Klang Selatan, Zone Klang, Hospital Tengku Ampuan Rahimah Klang, Pantai Hospital Klang, Sri Kota Specialist Medical Centre Klang, Kawasan Selangor Tengah Utara, Kawasan Selangor Tengah Selatan, Kawasan Selangor Barat, Kawasan Selangor Selatan, and Kawasan Selangor Utara for their dedication, hard work, and commitment to emergency preparedness.\n\nYour support and cooperation were instrumental in making this exercise a great success.",
     coverImage: "ambulance",
-    photoCount: 18,
+    photoCount: 1071,
   },
   {
     id: "little-sisters-2023",
