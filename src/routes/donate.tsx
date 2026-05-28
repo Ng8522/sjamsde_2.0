@@ -3,11 +3,8 @@ import { ArrowRight } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import { donationCampaigns } from "@/lib/donation-campaigns";
 import { DONATE_PAGE_INTRO } from "@/lib/site-footer-content";
-import bloodDonationImg from "../assets/blood_donation.jpg";
-import disasterReliefImg from "../assets/disaster_relief.jpg";
-import fundraisingImg from "../assets/fund1.jpg";
-import mobileClinicImg from "../assets/mobile_clinic.JPG";
 
 export const Route = createFileRoute("/donate")({
   component: DonatePage,
@@ -22,90 +19,6 @@ export const Route = createFileRoute("/donate")({
     ],
   }),
 });
-
-const donationCampaigns = [
-  {
-    title: "LifeSaver Ambulance Fuel Fund",
-    org: "SJAM Selangor",
-    status: "Active",
-    raised: 35706,
-    goal: 72551,
-    donors: 1300,
-    imageSrc: fundraisingImg,
-  },
-  {
-    title: "Community Blood Drive Support",
-    org: "SJAM Selangor",
-    status: "Ongoing",
-    raised: 16240,
-    goal: 45000,
-    donors: 478,
-    imageSrc: bloodDonationImg,
-  },
-  {
-    title: "Dialysis Patient Transport Aid",
-    org: "SJAM Selangor",
-    status: "Urgent",
-    raised: 2825,
-    goal: 15000,
-    donors: 34,
-    imageSrc: mobileClinicImg,
-  },
-  {
-    title: "Flood Relief Medical Packs",
-    org: "SJAM Selangor",
-    status: "Standby",
-    raised: 12480,
-    goal: 40000,
-    donors: 221,
-    imageSrc: disasterReliefImg,
-  },
-  {
-    title: "First Aid Training Scholarships",
-    org: "SJAM Selangor",
-    status: "Active",
-    raised: 9160,
-    goal: 28000,
-    donors: 95,
-    imageSrc: bloodDonationImg,
-  },
-  {
-    title: "Community AED Expansion",
-    org: "SJAM Selangor",
-    status: "Planning",
-    raised: 15340,
-    goal: 55000,
-    donors: 184,
-    imageSrc: fundraisingImg,
-  },
-  {
-    title: "Volunteer Uniform & PPE",
-    org: "SJAM Selangor",
-    status: "Active",
-    raised: 6840,
-    goal: 20000,
-    donors: 76,
-    imageSrc: disasterReliefImg,
-  },
-  {
-    title: "Mobile Clinic Medicine Basket",
-    org: "SJAM Selangor",
-    status: "Urgent",
-    raised: 11890,
-    goal: 32000,
-    donors: 142,
-    imageSrc: mobileClinicImg,
-  },
-  {
-    title: "Youth Medics Development Fund",
-    org: "SJAM Selangor",
-    status: "Ongoing",
-    raised: 10420,
-    goal: 30000,
-    donors: 129,
-    imageSrc: bloodDonationImg,
-  },
-] as const;
 
 function DonatePage() {
   return (
@@ -128,10 +41,10 @@ function DonatePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
             {donationCampaigns.map((campaign) => {
-              const fundedPct = Math.max(
-                0,
-                Math.min(100, Math.round((campaign.raised / campaign.goal) * 100)),
-              );
+              const isUnlimited = campaign.goal === null;
+              const fundedPct = isUnlimited
+                ? 100
+                : Math.max(0, Math.min(100, Math.round((campaign.raised / campaign.goal) * 100)));
               return (
                 <article
                   key={campaign.title}
@@ -152,24 +65,26 @@ function DonatePage() {
                     <div className="mt-4">
                       <div className="flex items-center justify-between text-sm mb-1 text-foreground/80">
                         <span className="font-medium text-emerald-600">Raised</span>
-                        <span className="font-medium">Goal</span>
+                        <span className="font-medium">{isUnlimited ? "Type" : "Goal"}</span>
                       </div>
                       <div className="flex items-center justify-between text-2xl font-semibold text-foreground mb-2">
                         <span>RM {campaign.raised.toLocaleString()}</span>
-                        <span>RM {campaign.goal.toLocaleString()}</span>
+                        <span>{isUnlimited ? "Unlimited" : `RM ${campaign.goal.toLocaleString()}`}</span>
                       </div>
-                      <div className="h-2 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                          style={{ width: `${fundedPct}%` }}
-                        />
-                      </div>
+                      {!isUnlimited && (
+                        <div className="h-2 rounded-full bg-muted overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
+                            style={{ width: `${fundedPct}%` }}
+                          />
+                        </div>
+                      )}
                     </div>
                     <p className="mt-2 text-sm text-muted-foreground">
                       {campaign.donors.toLocaleString()} donations
                     </p>
                     <Button asChild className="w-full mt-4 gap-2">
-                      <Link to="/payment">
+                      <Link to="/donation/$projectId" params={{ projectId: campaign.id }}>
                         Donate now
                         <ArrowRight className="size-4" />
                       </Link>

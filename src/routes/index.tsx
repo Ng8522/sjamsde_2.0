@@ -130,7 +130,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground antialiased">
       {/* Floating Side Donate Button */}
       <Link
-        to="/donate"
+        to="/donation/support-to-sjam-sde"
         aria-label="Donate to SJAM SDE"
         className="group fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-2 bg-gradient-to-b from-secondary to-primary text-primary-foreground py-5 px-2.5 rounded-l-xl shadow-2xl shadow-primary/30 hover:px-3.5 transition-all"
       >

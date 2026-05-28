@@ -27,6 +27,7 @@ import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
 import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as DonationProjectIdRouteImport } from './routes/donation.$projectId'
 import { Route as AboutQualifiedTrainersRouteImport } from './routes/about/qualified-trainers'
 
 const VolunteerRoute = VolunteerRouteImport.update({
@@ -119,6 +120,11 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/$eventId',
   getParentRoute: () => EventsRoute,
 } as any)
+const DonationProjectIdRoute = DonationProjectIdRouteImport.update({
+  id: '/donation/$projectId',
+  path: '/donation/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutQualifiedTrainersRoute = AboutQualifiedTrainersRouteImport.update({
   id: '/qualified-trainers',
   path: '/qualified-trainers',
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -268,6 +280,7 @@ export interface RootRouteChildren {
   QualifiedTrainersRoute: typeof QualifiedTrainersRoute
   ScheduleRoute: typeof ScheduleRoute
   VolunteerRoute: typeof VolunteerRoute
+  DonationProjectIdRoute: typeof DonationProjectIdRoute
   MobileClinicEventIdRoute: typeof MobileClinicEventIdRoute
 }
 
@@ -399,6 +412,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof EventsRoute
     }
+    '/donation/$projectId': {
+      id: '/donation/$projectId'
+      path: '/donation/$projectId'
+      fullPath: '/donation/$projectId'
+      preLoaderRoute: typeof DonationProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about/qualified-trainers': {
       id: '/about/qualified-trainers'
       path: '/qualified-trainers'
@@ -458,6 +478,7 @@ const rootRouteChildren: RootRouteChildren = {
   QualifiedTrainersRoute: QualifiedTrainersRoute,
   ScheduleRoute: ScheduleRoute,
   VolunteerRoute: VolunteerRoute,
+  DonationProjectIdRoute: DonationProjectIdRoute,
   MobileClinicEventIdRoute: MobileClinicEventIdRoute,
 }
 export const routeTree = rootRouteImport
