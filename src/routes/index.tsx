@@ -25,18 +25,16 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
 import communityImg from "../assets/community.jpg";
 import mobileAppImg from "../assets/mobile-app.jpeg";
+import bloodDonationImg from "../assets/blood_donation.jpg";
+import disasterReliefImg from "../assets/disaster_relief.jpg";
+import fundraisingImg from "../assets/fund1.jpg";
+import mobileClinicImg from "../assets/mobile_clinic.JPG";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
 import { pickRandomHomeGalleryPreview } from "@/lib/home-gallery-preview";
 import { SSMP_HOMEPAGE } from "@/lib/ssmp-app";
 import { SiteFooter, SiteTopChrome } from "@/components/site-layout";
 import { portalEvents } from "@/lib/mock-data";
-import {
-  RAKAN_ST_JOHN_HOME_HIGHLIGHTS,
-  RAKAN_ST_JOHN_HOME_SUMMARY,
-  RAKAN_ST_JOHN_LOGO_URL,
-  RAKAN_ST_JOHN_TAGLINE,
-} from "@/lib/rakan-st-john";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -64,7 +62,6 @@ const services = [
     icon: Ambulance,
     title: "24 Hr Ambulance",
     desc: "Rapid emergency evacuation and inter-hospital transfers with advanced life support.",
-    tag: "Available Now",
     live: true,
     href: "tel:0333715005",
     cta: "03-3371 5005",
@@ -72,16 +69,14 @@ const services = [
   {
     icon: HeartPulse,
     title: "Public Duty StandBy",
-    desc: "Trained medical standby for sporting events, concerts and public gatherings.",
-    tag: "Book Ahead",
-    href: "mailto:user.selangor@sjam.org.my",
-    cta: "Request",
+    desc: "Our major public service since establishment, with members stationed at sports events, social gatherings, and parades to provide first aid anytime, anywhere.",
+    href: "mailto:admin@sjamsde.org.my",
+    cta: "Inquiries: admin@sjamsde.org.my",
   },
   {
     icon: Activity,
     title: "Haemodialysis Service",
     desc: "Subsidised dialysis treatment for community members with kidney conditions.",
-    tag: "Klang Centre",
     href: "tel:0333735005",
     cta: "03-3373 5005",
   },
@@ -89,10 +84,8 @@ const services = [
     icon: GraduationCap,
     title: "Public First Aid Classes",
     desc: "Accredited CPR and emergency trauma certification for individuals and corporates.",
-    tag: "Monthly Intake",
-    href: "/courses",
-    cta: "Book course",
-    internal: true,
+    href: "mailto:user.selangor@sjam.org.my",
+    cta: "Email to: user.selangor@sjam.org.my",
   },
 ];
 
@@ -103,24 +96,29 @@ const community = [
     title: "Fundraising",
     desc: "Public appeals and campaigns that sustain ambulance operations, dialysis subsidies and community programmes.",
     href: "/donate" as const,
+    imageSrc: fundraisingImg,
   },
   {
     n: "02",
     icon: Droplets,
     title: "Blood Donation Drives",
     desc: "Regular drives across Selangor to support the national blood bank reserves.",
+    imageSrc: bloodDonationImg,
   },
   {
     n: "03",
     icon: Truck,
     title: "Mobile Clinic",
     desc: "Bringing basic medical consultation and health screenings to underserved areas.",
+    href: "/programs#mobile-clinic",
+    imageSrc: mobileClinicImg,
   },
   {
     n: "04",
     icon: LifeBuoy,
     title: "Disaster Relief",
     desc: "Rapid deployment teams for flood response and large-scale emergency management.",
+    imageSrc: disasterReliefImg,
   },
 ];
 
@@ -201,66 +199,118 @@ function Index() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 pt-24 md:pt-20 lg:pt-24 pb-16 grid lg:grid-cols-[1.4fr_0.6fr] gap-6 lg:gap-6 items-center relative z-10">
-          <div className="animate-on-scroll">
-            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase mb-8 bg-gradient-to-r from-primary/10 to-secondary/10 px-5 py-2.5 rounded-full w-fit border border-primary/20">
-              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
-              SJAM SDE · Est. 1990
-            </span>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-balance leading-[0.95] mb-10 text-foreground">
-              Serve with{" "}
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                heart
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-12 relative z-10">
+          <div className="grid lg:grid-cols-[1fr_1.05fr] gap-8 sm:gap-10 lg:gap-14 items-start lg:items-center">
+            <div className="animate-on-scroll">
+              <span className="inline-flex items-center gap-2 text-primary font-semibold text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-5 bg-gradient-to-r from-primary/10 to-secondary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full w-fit border border-primary/20">
+                <span className="size-2 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
+                SJAM SDE · Est. 1990
               </span>
-              . Give with{" "}
-              <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
-                love
-              </span>
-              .
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-[55ch] mb-14 leading-relaxed font-medium">
-              Professional emergency medical response and community care across Selangor — sustained
-              by volunteers, clinicians and your generosity.
-            </p>
-            <div className="flex flex-wrap gap-5">
-              <a
-                href="tel:0333715005"
-                className="inline-flex items-center gap-3 h-14 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1.5 active:translate-y-0 transition-all text-base tracking-wider uppercase group"
-              >
-                <Phone className="size-6 group-hover:animate-bounce" />
-                Emergency Call
-              </a>
-              <a
-                href="#services"
-                className="inline-flex items-center gap-3 h-14 px-8 bg-white text-primary font-semibold rounded-xl border-2 border-primary hover:bg-primary/5 hover:shadow-lg transition-all text-base tracking-wider uppercase"
-              >
-                Our Services
-                <ArrowRight className="size-6 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-          <div className="relative group hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/20 to-transparent rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-            <div className="absolute inset-0 rounded-3xl border-2 border-primary/20 backdrop-blur-sm" />
-            <img
-              src={ambulanceImg}
-              alt="St John Ambulance Malaysia ambulance on duty"
-              width={1024}
-              height={1280}
-              className="w-full max-w-sm mx-auto aspect-[3/4] object-cover rounded-3xl shadow-2xl shadow-primary/40 ring-2 ring-primary/30 relative z-10 group-hover:scale-[1.03] transition-transform duration-500"
-            />
-            <div className="absolute -top-8 -right-8 size-24 rounded-full bg-gradient-to-br from-secondary via-primary to-secondary text-primary-foreground grid place-items-center shadow-2xl shadow-primary/50 rotate-12 relative z-20 font-semibold border-4 border-white">
-              <div className="text-center leading-tight">
-                <div className="text-xs font-semibold uppercase tracking-widest">Since</div>
-                <div className="text-3xl font-semibold tabular-nums">1990</div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-semibold tracking-tighter text-balance leading-[1.08] mb-4 sm:mb-5 text-foreground">
+                Serve with{" "}
+                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                  heart
+                </span>
+                . Give with{" "}
+                <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
+                  love
+                </span>
+                .
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-[52ch] mb-6 sm:mb-8 leading-relaxed">
+                Professional emergency medical response and community care across Selangor — sustained
+                by volunteers, clinicians and your generosity.
+              </p>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
+                <a
+                  href="tel:0333715005"
+                  className="inline-flex items-center justify-center gap-2.5 min-h-12 w-full sm:w-auto px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] sm:hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase group"
+                >
+                  <Phone className="size-5 group-hover:animate-bounce" />
+                  Emergency Call
+                </a>
+                <a
+                  href="#services"
+                  className="hidden lg:inline-flex items-center justify-center gap-2 min-h-12 text-sm font-semibold text-primary hover:text-secondary transition-colors"
+                >
+                  View all services
+                  <ArrowRight className="size-4" />
+                </a>
               </div>
+            </div>
+
+            <div
+              id="services"
+              className="scroll-mt-[8.5rem] sm:scroll-mt-24 animate-on-scroll rounded-2xl border border-primary/15 bg-card/90 backdrop-blur-md shadow-xl sm:shadow-2xl shadow-primary/10 ring-1 ring-primary/5 overflow-hidden min-w-0"
+            >
+              <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-primary/10 bg-gradient-to-r from-primary/[0.07] via-background to-secondary/[0.07]">
+                <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-primary to-secondary" />
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Our Services
+                  </h2>
+                </div>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Emergency and medical care, around the clock.
+                </p>
+              </div>
+              <div
+                className="p-3 sm:p-4 lg:p-5 flex gap-3 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-px-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:overflow-visible lg:snap-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                aria-label="Our services"
+              >
+                {services.map((s, idx) => {
+                  const cta =
+                    "internal" in s && s.internal ? (
+                      <Link
+                        to={s.href}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 lg:min-h-0 -ml-1 pl-1"
+                      >
+                        {s.cta}
+                        <ArrowRight className="size-4 shrink-0 group-hover/link:translate-x-0.5 transition-transform" />
+                      </Link>
+                    ) : (
+                      <a
+                        href={s.href}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 lg:min-h-0 -ml-1 pl-1"
+                      >
+                        {s.cta}
+                        <ArrowRight className="size-4 shrink-0 group-hover/link:translate-x-0.5 transition-transform" />
+                      </a>
+                    );
+
+                  return (
+                    <article
+                      key={s.title}
+                      className={`group relative flex flex-row lg:flex-col gap-3 lg:gap-0 snap-start shrink-0 w-[min(88vw,18.5rem)] sm:w-[17.25rem] lg:w-auto lg:shrink rounded-xl p-3.5 sm:p-4 lg:p-[1.125rem] border transition-all duration-300 active:scale-[0.99] lg:hover:-translate-y-0.5 lg:hover:shadow-lg lg:hover:shadow-primary/10 ${
+                        s.live
+                          ? "border-primary/25 bg-gradient-to-br from-primary/[0.08] via-card to-secondary/[0.06] lg:hover:border-primary/40 ring-1 ring-primary/10"
+                          : "border-border/80 bg-gradient-to-br from-background to-muted/30 lg:hover:border-primary/25"
+                      }`}
+                      style={{ animationDelay: `${idx * 75}ms` }}
+                    >
+                      <div className="size-10 sm:size-11 shrink-0 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shadow-md shadow-primary/25 lg:mb-3">
+                        <s.icon className="size-[1.125rem] sm:size-5" />
+                      </div>
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <h3 className="text-sm sm:text-[0.95rem] lg:text-base font-semibold text-foreground leading-snug mb-1">
+                          {s.title}
+                        </h3>
+                        {cta}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              <p className="lg:hidden text-center text-[11px] text-muted-foreground pb-3 px-4">
+                Swipe for more services
+              </p>
             </div>
           </div>
         </div>
 
         {/* Stats strip */}
         <div className="border-y border-primary/20 bg-gradient-to-r from-primary/8 via-background to-secondary/8 backdrop-blur-xl relative z-10">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/15">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/15">
             {[
               { v: "35+", l: "Years in Selangor" },
               { v: "24/7", l: "Emergency Ready" },
@@ -269,12 +319,12 @@ function Index() {
             ].map((s) => (
               <div
                 key={s.l}
-                className="px-4 md:px-8 py-12 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default"
+                className="px-3 sm:px-4 md:px-6 py-5 sm:py-6 md:py-8 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default"
               >
-                <div className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-110 transition-transform origin-left">
+                <div className="text-xl sm:text-2xl md:text-3xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-105 transition-transform origin-center md:origin-left">
                   {s.v}
                 </div>
-                <div className="text-[12px] md:text-xs uppercase tracking-widest text-muted-foreground mt-3 font-medium">
+                <div className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-wider sm:tracking-widest text-muted-foreground mt-1 sm:mt-1.5 font-medium leading-snug">
                   {s.l}
                 </div>
               </div>
@@ -283,190 +333,61 @@ function Index() {
         </div>
       </section>
 
-      {/* Services */}
-      <section id="services" className="relative bg-white py-16 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
-          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/15 px-6 py-3 rounded-full mb-6 border border-primary/20">
-              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
-              Our Services
-            </span>
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[28ch] mx-auto leading-tight mb-6">
-              Emergency &{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                medical care
-              </span>
-              , around the clock.
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-[50ch] mx-auto leading-relaxed">
-              Accredited healthcare support for residents, organisations and event organisers across
-              Selangor.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            {services.map((s, idx) => (
-              <article
-                key={s.title}
-                className="group relative bg-gradient-to-br from-white to-gray-50 p-10 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all flex flex-col overflow-hidden animate-on-scroll"
-                style={{ animationDelay: `${idx * 100}ms` }}
-              >
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 group-hover:from-primary/30 transition-all" />
-                <div className="size-16 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center mb-8 group-hover:shadow-xl group-hover:shadow-primary/40 transition-all relative z-10 font-semibold">
-                  <s.icon className="size-7" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 relative z-10 text-foreground">
-                  {s.title}
-                </h3>
-                <p className="text-base text-muted-foreground mb-10 leading-relaxed relative z-10">
-                  {s.desc}
-                </p>
-                <div className="mt-auto pt-8 border-t-2 border-gray-200 flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-3">
-                    {s.live && (
-                      <span className="size-3 rounded-full bg-gradient-to-r from-secondary to-primary animate-pulse" />
-                    )}
-                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                      {s.tag}
-                    </span>
-                  </div>
-                  {"internal" in s && s.internal ? (
-                    <Link
-                      to={s.href}
-                      className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link"
-                    >
-                      {s.cta}
-                      <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
-                  ) : (
-                    <a
-                      href={s.href}
-                      className="text-base font-semibold text-primary hover:text-secondary inline-flex items-center gap-3 group/link"
-                    >
-                      {s.cta}
-                      <ArrowRight className="size-5 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Community */}
-      <section
-        id="community"
-        className="relative py-16 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-20 items-center relative z-10">
-          <div className="group">
-            <img
-              src={communityImg}
-              alt="St John volunteers caring for the community"
-              width={1200}
-              height={800}
-              loading="lazy"
-              className="w-full max-w-md mx-auto aspect-[4/3] object-cover rounded-3xl ring-4 ring-primary/20 shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 group-hover:ring-primary/40 transition-all"
-            />
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20 w-fit">
-              <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
-              Community
-            </span>
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-8 leading-tight">
-              For the{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                people
-              </span>
-              , by the{" "}
-              <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                people
-              </span>
-              .
+      <section id="community" className="py-14 md:py-16 bg-[#f3f4f4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+              Community Programmes
             </h2>
-            <p className="text-xl text-muted-foreground mb-14 max-w-[50ch] leading-relaxed font-medium">
-              Beyond emergencies, our volunteers run programmes that bring care to where it's needed
-              most.
+            <p className="text-sm md:text-base text-muted-foreground mt-2 max-w-3xl mx-auto">
+              Public appeals and community-led services supporting healthcare access, emergency
+              response, and humanitarian relief.
             </p>
-            <div className="space-y-8">
-              {community.map((c) => (
-                <div key={c.n} className="flex gap-6 group cursor-default">
-                  <div className="shrink-0 size-16 rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/15 text-primary grid place-items-center group-hover:from-primary group-hover:to-secondary group-hover:text-primary-foreground transition-all group-hover:shadow-xl group-hover:shadow-primary/40 group-hover:scale-110 font-semibold text-xl">
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+            {community.map((c) => {
+              return (
+                <article
+                  key={c.n}
+                  className="rounded-2xl border border-border/80 bg-white p-5 hover:shadow-lg hover:border-primary/40 transition-all"
+                >
+                  <img
+                    src={c.imageSrc}
+                    alt={c.title}
+                    className="w-full aspect-[16/10] object-cover rounded-xl mb-4 border border-border/70"
+                    loading="lazy"
+                  />
+                  <div className="h-11 w-11 rounded-xl bg-emerald-100/70 text-emerald-700 grid place-items-center font-semibold text-lg mb-3">
                     {c.n}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">
-                      {c.title}
-                    </h4>
-                    <p className="text-base text-muted-foreground max-w-[42ch] leading-relaxed">
-                      {c.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{c.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
 
-        <div
-          id="rakan-st-john"
-          className="max-w-7xl mx-auto px-6 mt-24 pt-24 border-t border-primary/10 grid lg:grid-cols-[minmax(0,340px)_1fr] gap-6 lg:gap-20 items-center"
-        >
-          <div className="flex justify-center lg:justify-start group">
-            <img
-              src={RAKAN_ST_JOHN_LOGO_URL}
-              alt="Rakan St John logo"
-              width={320}
-              height={320}
-              loading="lazy"
-              className="w-full max-w-[280px] md:max-w-[320px] h-auto object-contain drop-shadow-xl group-hover:drop-shadow-2xl transition-all"
-            />
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-5">
-              <span className="size-1.5 rounded-full bg-primary" />
-              Community programme
-            </span>
-            <h3 className="text-3xl md:text-4xl font-medium tracking-tight mb-4 leading-tight">
-              Rakan St John
-            </h3>
-            <p className="text-lg text-primary font-semibold mb-4 max-w-[48ch]">
-              {RAKAN_ST_JOHN_TAGLINE}
-            </p>
-            <p className="text-muted-foreground leading-relaxed max-w-[56ch] mb-8">
-              {RAKAN_ST_JOHN_HOME_SUMMARY}
-            </p>
-            <ul className="space-y-3 mb-10 max-w-[56ch]">
-              {RAKAN_ST_JOHN_HOME_HIGHLIGHTS.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 text-sm text-muted-foreground group hover:text-foreground transition-colors"
-                >
-                  <span
-                    className="mt-1.5 size-2 rounded-full bg-gradient-to-br from-primary to-secondary shrink-0"
-                    aria-hidden
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/volunteer"
-              className="inline-flex items-center gap-2 h-12 px-8 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all"
-            >
-              Register online
-              <ArrowRight className="size-4" />
-            </Link>
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
+                    {c.title === "Mobile Clinic" && c.href && (
+                      <a
+                        href={c.href}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                      >
+                        View Program
+                        <ArrowRight className="size-4" />
+                      </a>
+                    )}
+                    {c.title !== "Mobile Clinic" && (
+                      <Link
+                        to="/donate"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                      >
+                        Support Us
+                        <ArrowRight className="size-4" />
+                      </Link>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -13,11 +13,14 @@ import { Route as VolunteerRouteImport } from './routes/volunteer'
 import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as QualifiedTrainersRouteImport } from './routes/qualified-trainers'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as HaemodialysisServiceRouteImport } from './routes/haemodialysis-service'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as Ambulance24hrRouteImport } from './routes/ambulance-24hr'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
@@ -46,9 +49,19 @@ const ProgramsRoute = ProgramsRouteImport.update({
   path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HaemodialysisServiceRoute = HaemodialysisServiceRouteImport.update({
+  id: '/haemodialysis-service',
+  path: '/haemodialysis-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -69,6 +82,11 @@ const DonateRoute = DonateRouteImport.update({
 const CoursesRoute = CoursesRouteImport.update({
   id: '/courses',
   path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Ambulance24hrRoute = Ambulance24hrRouteImport.update({
+  id: '/ambulance-24hr',
+  path: '/ambulance-24hr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -110,11 +128,14 @@ const AboutQualifiedTrainersRoute = AboutQualifiedTrainersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
+  '/ambulance-24hr': typeof Ambulance24hrRoute
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
+  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -128,10 +149,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
+  '/ambulance-24hr': typeof Ambulance24hrRoute
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
+  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -146,11 +170,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
+  '/ambulance-24hr': typeof Ambulance24hrRoute
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
+  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
   '/qualified-trainers': typeof QualifiedTrainersRoute
   '/schedule': typeof ScheduleRoute
@@ -166,11 +193,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/ambulance-24hr'
     | '/courses'
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/haemodialysis-service'
     | '/login'
+    | '/payment'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -184,10 +214,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/ambulance-24hr'
     | '/courses'
     | '/donate'
     | '/events'
+    | '/haemodialysis-service'
     | '/login'
+    | '/payment'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -201,11 +234,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/ambulance-24hr'
     | '/courses'
     | '/donate'
     | '/events'
     | '/gallery'
+    | '/haemodialysis-service'
     | '/login'
+    | '/payment'
     | '/programs'
     | '/qualified-trainers'
     | '/schedule'
@@ -220,11 +256,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRouteWithChildren
+  Ambulance24hrRoute: typeof Ambulance24hrRoute
   CoursesRoute: typeof CoursesRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRouteWithChildren
+  HaemodialysisServiceRoute: typeof HaemodialysisServiceRoute
   LoginRoute: typeof LoginRoute
+  PaymentRoute: typeof PaymentRoute
   ProgramsRoute: typeof ProgramsRoute
   QualifiedTrainersRoute: typeof QualifiedTrainersRoute
   ScheduleRoute: typeof ScheduleRoute
@@ -262,11 +301,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/haemodialysis-service': {
+      id: '/haemodialysis-service'
+      path: '/haemodialysis-service'
+      fullPath: '/haemodialysis-service'
+      preLoaderRoute: typeof HaemodialysisServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -295,6 +348,13 @@ declare module '@tanstack/react-router' {
       path: '/courses'
       fullPath: '/courses'
       preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ambulance-24hr': {
+      id: '/ambulance-24hr'
+      path: '/ambulance-24hr'
+      fullPath: '/ambulance-24hr'
+      preLoaderRoute: typeof Ambulance24hrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -386,11 +446,14 @@ const GalleryRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRouteWithChildren,
+  Ambulance24hrRoute: Ambulance24hrRoute,
   CoursesRoute: CoursesRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRouteWithChildren,
+  HaemodialysisServiceRoute: HaemodialysisServiceRoute,
   LoginRoute: LoginRoute,
+  PaymentRoute: PaymentRoute,
   ProgramsRoute: ProgramsRoute,
   QualifiedTrainersRoute: QualifiedTrainersRoute,
   ScheduleRoute: ScheduleRoute,
