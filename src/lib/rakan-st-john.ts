@@ -1,5 +1,6 @@
-export const RAKAN_ST_JOHN_LOGO_URL =
-  "https://sde.sjamsde.org.my/wp-content/uploads/elementor/thumbs/Rakan-StJohn-logo-q3994vrlvhi02490jl7ufrcjbvst3e5kv6pndij1m0.png";
+import rakanStJohnLogo from "@/assets/Rakan-StJohn-logo.png";
+
+export const RAKAN_ST_JOHN_LOGO_URL = rakanStJohnLogo;
 
 export const RAKAN_ST_JOHN_TAGLINE = "Empowering the community with the help of community";
 

@@ -20,6 +20,7 @@ import {
   ZoomIn,
   FileDown,
   ExternalLink,
+  Users,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
@@ -31,6 +32,12 @@ import fundraisingImg from "../assets/fund1.jpg";
 import mobileClinicImg from "../assets/mobile_clinic.JPG";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
+import {
+  RAKAN_ST_JOHN_HOME_HIGHLIGHTS,
+  RAKAN_ST_JOHN_HOME_SUMMARY,
+  RAKAN_ST_JOHN_LOGO_URL,
+  RAKAN_ST_JOHN_TAGLINE,
+} from "@/lib/rakan-st-john";
 import { pickRandomHomeGalleryPreview } from "@/lib/home-gallery-preview";
 import { SSMP_HOMEPAGE } from "@/lib/ssmp-app";
 import { SiteFooter, SiteTopChrome } from "@/components/site-layout";
@@ -334,9 +341,9 @@ function Index() {
       </section>
 
       {/* Community */}
-      <section id="community" className="py-14 md:py-16 bg-[#f3f4f4]">
+      <section id="community" className="py-10 md:py-12 bg-[#f3f4f4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
               Community Programmes
             </h2>
@@ -344,7 +351,7 @@ function Index() {
               Public appeals and community-led services supporting healthcare access, emergency
               response, and humanitarian relief.
             </p>
-          </div>
+        </div>
 
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
             {community.map((c) => {
@@ -376,13 +383,13 @@ function Index() {
                       </a>
                     )}
                     {c.title !== "Mobile Clinic" && (
-                      <Link
+            <Link
                         to="/donate"
                         className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-                      >
+            >
                         Support Us
-                        <ArrowRight className="size-4" />
-                      </Link>
+              <ArrowRight className="size-4" />
+            </Link>
                     )}
                   </div>
                 </article>
@@ -395,19 +402,19 @@ function Index() {
       {/* Activity */}
       <section
         id="activity"
-        className="relative py-16 overflow-hidden bg-gradient-to-br from-background via-background to-white"
+        className="relative py-12 md:py-14 overflow-hidden bg-gradient-to-br from-background via-background to-white"
       >
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 left-0 w-96 h-96 bg-gradient-to-tr from-secondary/15 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-4 border border-primary/20">
               <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
               Upcoming Activity
             </span>
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-8">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-6">
               Join us at our next{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 community activity
@@ -494,23 +501,23 @@ function Index() {
       </section>
 
       {/* Mobile App */}
-      <section id="app" className="relative py-24 overflow-hidden">
+      <section id="app" className="relative py-12 md:py-14 overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none opacity-30">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-secondary/20 to-transparent rounded-full blur-3xl translate-y-1/3 translate-x-1/3" />
         </div>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-6 items-center relative z-10">
           <div className="order-2 md:order-1">
-            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-6 bg-primary/10 px-4 py-2 rounded-full">
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-4 bg-primary/10 px-4 py-2 rounded-full">
               <Smartphone className="size-4" />
               {SSMP_HOMEPAGE.eyebrow}
             </span>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-4 leading-tight">
               {SSMP_HOMEPAGE.title}
             </h2>
-            <p className="text-muted-foreground max-w-[48ch] mb-6 leading-relaxed text-lg">
+            <p className="text-muted-foreground max-w-[48ch] mb-4 leading-relaxed text-lg">
               {SSMP_HOMEPAGE.description}
             </p>
-            <ul className="text-sm text-muted-foreground space-y-2 mb-6 max-w-[48ch]">
+            <ul className="text-sm text-muted-foreground space-y-1.5 mb-4 max-w-[48ch]">
               {SSMP_HOMEPAGE.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-2">
                   <span className="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
@@ -518,7 +525,7 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <p className="text-sm text-muted-foreground/90 max-w-[48ch] mb-10 leading-relaxed border-l-2 border-primary/25 pl-4">
+            <p className="text-sm text-muted-foreground/90 max-w-[48ch] mb-6 leading-relaxed border-l-2 border-primary/25 pl-4">
               {SSMP_HOMEPAGE.scopeNote}
             </p>
             <StoreDownloadBadges className="[&_img]:h-12" />
@@ -562,16 +569,68 @@ function Index() {
         </div>
       </section>
 
+      {/* Rakan St John */}
+      <section
+        id="rakan-st-john"
+        className="relative py-12 md:py-14 overflow-hidden bg-muted/30 border-t border-primary/10"
+      >
+        <div className="absolute inset-0 -z-10 pointer-events-none opacity-40">
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10">
+          <div className="flex justify-center md:justify-start">
+            <img
+              src={RAKAN_ST_JOHN_LOGO_URL}
+              alt="Rakan St John logo"
+              width={240}
+              height={240}
+              loading="lazy"
+              className="w-full max-w-[12rem] sm:max-w-[13rem] h-auto object-contain drop-shadow-md"
+            />
+          </div>
+          <div>
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-4 bg-primary/10 px-4 py-2 rounded-full">
+              <Users className="size-4" />
+              Community programme
+            </span>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-2 leading-tight">
+              Rakan St John
+            </h2>
+            <p className="text-lg text-muted-foreground font-medium mb-4 max-w-[48ch]">
+              {RAKAN_ST_JOHN_TAGLINE}
+            </p>
+            <p className="text-muted-foreground max-w-[48ch] mb-4 leading-relaxed text-lg">
+              {RAKAN_ST_JOHN_HOME_SUMMARY}
+            </p>
+            <ul className="text-sm text-muted-foreground space-y-1.5 mb-6 max-w-[48ch]">
+              {RAKAN_ST_JOHN_HOME_HIGHLIGHTS.map((highlight) => (
+                <li key={highlight} className="flex items-start gap-2">
+                  <span className="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/volunteer"
+              className="inline-flex items-center gap-2.5 min-h-12 px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase"
+            >
+              Register interest
+              <ArrowRight className="size-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Preview Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 md:py-14 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -top-40 left-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
           <div className="absolute -bottom-40 right-0 w-96 h-96 bg-gradient-to-tl from-secondary/10 to-transparent rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-6 gap-4">
             <div>
-              <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+              <span className="inline-flex items-center gap-2.5 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-6 py-3 rounded-full mb-4 border border-primary/20">
                 <span className="size-2.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
                 Activity Gallery
               </span>
@@ -596,9 +655,9 @@ function Index() {
       </section>
 
       {/* Applications */}
-      <section className="py-14 bg-muted/40 border-y border-primary/10">
+      <section className="py-10 md:py-12 bg-muted/40 border-y border-primary/10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-2 rounded-full mb-4">
               <FileDown className="size-4" />
               Applications
