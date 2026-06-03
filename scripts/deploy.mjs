@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publishDir = path.join(root, ".output", "public");
+/** Publishes the built site to the gh-pages branch (legacy). Prefer pushing source to main — GitHub Actions deploys Pages automatically. */
 const branch = "gh-pages";
 const remote = "origin";
 
@@ -112,6 +113,10 @@ const workDir = path.join(
 
 try {
   mkdirSync(workDir, { recursive: true });
+
+  console.log(
+    "Note: This updates the gh-pages branch (built site only), not main. To publish via GitHub Actions, push your commits: git push origin main",
+  );
 
   if (remoteBranchExists()) {
     console.log(`Updating ${remote}/${branch}…`);
