@@ -10,7 +10,8 @@
     "build:pages": "node scripts/build-pages.mjs",
     "build:vinxi": "vinxi build",
     "start": "vinxi start",
-    "deploy:gh-pages": "pnpm run build:pages && node scripts/deploy.mjs"
+    "predeploy": "pnpm run build:pages",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
