@@ -572,37 +572,35 @@ function Index() {
       {/* Rakan St John */}
       <section
         id="rakan-st-john"
-        className="relative py-12 md:py-14 overflow-hidden bg-muted/30 border-t border-primary/10"
+        className="relative py-8 md:py-10 overflow-hidden bg-muted/30 border-t border-primary/10"
       >
         <div className="absolute inset-0 -z-10 pointer-events-none opacity-40">
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10">
-          <div className="flex justify-center md:justify-start">
-            <img
-              src={RAKAN_ST_JOHN_LOGO_URL}
-              alt="Rakan St John logo"
-              width={240}
-              height={240}
-              loading="lazy"
-              className="w-full max-w-[12rem] sm:max-w-[13rem] h-auto object-contain drop-shadow-md"
-            />
-          </div>
-          <div>
-            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase mb-4 bg-primary/10 px-4 py-2 rounded-full">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-start gap-3 md:gap-2 lg:gap-3 relative z-10">
+          <img
+            src={RAKAN_ST_JOHN_LOGO_URL}
+            alt="Rakan St John logo"
+            width={320}
+            height={320}
+            loading="lazy"
+            className="mx-auto md:mx-0 shrink-0 w-[min(72vw,16rem)] sm:w-64 md:w-72 lg:w-80 h-auto object-contain drop-shadow-md"
+          />
+          <div className="space-y-2 min-w-0 md:pt-0.5">
+            <span className="inline-flex items-center gap-2 text-primary font-medium text-xs tracking-[0.2em] uppercase bg-primary/10 px-4 py-1.5 rounded-full">
               <Users className="size-4" />
               Community programme
             </span>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-2 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-medium tracking-tight leading-tight">
               Rakan St John
             </h2>
-            <p className="text-lg text-muted-foreground font-medium mb-4 max-w-[48ch]">
+            <p className="text-base text-muted-foreground font-medium leading-snug">
               {RAKAN_ST_JOHN_TAGLINE}
             </p>
-            <p className="text-muted-foreground max-w-[48ch] mb-4 leading-relaxed text-lg">
+            <p className="text-muted-foreground leading-snug text-base">
               {RAKAN_ST_JOHN_HOME_SUMMARY}
             </p>
-            <ul className="text-sm text-muted-foreground space-y-1.5 mb-6 max-w-[48ch]">
+            <ul className="text-sm text-muted-foreground space-y-0.5">
               {RAKAN_ST_JOHN_HOME_HIGHLIGHTS.map((highlight) => (
                 <li key={highlight} className="flex items-start gap-2">
                   <span className="mt-1.5 size-1.5 rounded-full bg-primary shrink-0" />
@@ -612,7 +610,7 @@ function Index() {
             </ul>
             <Link
               to="/volunteer"
-              className="inline-flex items-center gap-2.5 min-h-12 px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase"
+              className="inline-flex items-center gap-2.5 min-h-11 px-6 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase"
             >
               Register interest
               <ArrowRight className="size-5" />
