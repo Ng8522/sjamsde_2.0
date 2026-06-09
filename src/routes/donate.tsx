@@ -1,10 +1,74 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Heart, LayoutGrid } from "lucide-react";
 
-import { SiteLayout } from "@/components/site-layout";
-import { Button } from "@/components/ui/button";
-import { donationCampaigns } from "@/lib/donation-campaigns";
-import { DONATE_PAGE_INTRO } from "@/lib/site-footer-content";
+import donateQrCode from "@/assets/qrcode.png";
+import { SiteTopChrome } from "@/components/site-layout";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  donationFundraisingProjects,
+  getFundraisingProgress,
+} from "@/lib/donation-fundraising-projects";
+import { getDonationLeaderboardRows } from "@/lib/donation-leaderboard";
+import { cn } from "@/lib/utils";
+
+function LeaderboardDateTime({ value }: { value: string }) {
+  const [date, time = ""] = value.split(", ");
+
+  return (
+    <span className="block leading-tight">
+      <span className="block text-foreground/75">{date}</span>
+      {time ? <span className="block text-muted-foreground">{time}</span> : null}
+    </span>
+  );
+}
+
+function FundraisingProjectCard({
+  title,
+  imageSrc,
+  raised,
+  goal,
+}: {
+  title: string;
+  imageSrc: string;
+  raised: number;
+  goal: number;
+}) {
+  const progress = getFundraisingProgress({ id: "", title, imageSrc, raised, goal });
+
+  return (
+    <article className="flex flex-col overflow-hidden rounded-lg border border-border/70 bg-background shadow-sm">
+      <img
+        src={imageSrc}
+        alt={title}
+        loading="lazy"
+        className="h-14 sm:h-16 w-full shrink-0 object-cover"
+      />
+      <div className="flex flex-col gap-1.5 p-2 sm:p-2.5">
+        <h3 className="text-[10px] sm:text-xs font-semibold leading-snug line-clamp-2 text-foreground">
+          {title}
+        </h3>
+        <div className="flex items-center justify-between gap-1 text-[9px] sm:text-[10px] text-muted-foreground tabular-nums">
+          <span className="font-semibold text-primary">RM {raised.toLocaleString()}</span>
+          <span>RM {goal.toLocaleString()}</span>
+        </div>
+        <div
+          className="h-2 w-full overflow-hidden rounded-full bg-muted"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`${title} funding progress`}
+        >
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export const Route = createFileRoute("/donate")({
   component: DonatePage,
@@ -14,88 +78,158 @@ export const Route = createFileRoute("/donate")({
       {
         name: "description",
         content:
-          "Support St John Ambulance Selangor Darul Ehsan. Tax-exempt donations help fund community medical and humanitarian services.",
+          "Scan to donate and see recent supporters of St John Ambulance Selangor Darul Ehsan.",
       },
     ],
   }),
 });
 
 function DonatePage() {
-  return (
-    <SiteLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 border-b border-border">
-        <div className="max-w-4xl mx-auto px-6 py-14 md:py-16">
-          <span className="text-primary font-semibold text-xs tracking-[0.2em] uppercase">Donate</span>
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3 text-balance">
-            Choose a project and support SJAM Selangor
-          </h1>
-          <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-            {DONATE_PAGE_INTRO.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+  const [qrPreviewOpen, setQrPreviewOpen] = useState(false);
+  const leaderboardRows = getDonationLeaderboardRows();
 
-      <section className="py-10 md:py-14 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {donationCampaigns.map((campaign) => {
-              const isUnlimited = campaign.goal === null;
-              const fundedPct = isUnlimited
-                ? 100
-                : Math.max(0, Math.min(100, Math.round((campaign.raised / campaign.goal) * 100)));
-              return (
-                <article
-                  key={campaign.title}
-                  className="rounded-xl border border-border/70 bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+  return (
+    <div className="h-screen max-h-dvh overflow-hidden flex flex-col bg-background text-foreground antialiased">
+      <SiteTopChrome />
+
+      <main className="relative flex-1 min-h-0">
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-24 -left-24 size-72 rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 size-80 rounded-full bg-secondary/10 blur-3xl" />
+        </div>
+
+        <div className="flex h-full min-h-0 flex-col gap-3 px-4 py-3 sm:px-6 sm:py-4 max-w-7xl mx-auto w-full">
+          <section className="shrink-0 overflow-hidden rounded-2xl bg-gradient-to-r from-primary via-primary to-secondary shadow-lg shadow-primary/20">
+            <div className="grid sm:grid-cols-[1fr_auto] items-center gap-4 p-4 sm:p-5">
+              <div className="text-primary-foreground text-center sm:text-left">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em]">
+                  <Heart className="size-3 fill-current" />
+                  Donate
+                </span>
+                <h1 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight leading-tight">
+                  We Need Your Support
+                </h1>
+                <p className="mt-2 text-sm sm:text-base text-primary-foreground/90 max-w-lg mx-auto sm:mx-0 leading-relaxed">
+                  Every cost counts as below.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center gap-2 shrink-0 mx-auto sm:mx-0">
+                <button
+                  type="button"
+                  onClick={() => setQrPreviewOpen(true)}
+                  className="group rounded-xl bg-white p-2.5 sm:p-3 shadow-md ring-1 ring-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                  aria-label="Zoom in donation QR code"
                 >
                   <img
-                    src={campaign.imageSrc}
-                    alt={campaign.title}
-                    className="w-full aspect-[16/10] object-cover"
-                    loading="lazy"
+                    src={donateQrCode}
+                    alt="DuitNow donation QR code"
+                    width={512}
+                    height={512}
+                    className="size-24 sm:size-28 md:size-[7.5rem] object-contain transition-transform group-hover:scale-[1.02]"
                   />
-                  <div className="p-4">
-                    <h2 className="text-[1.35rem] font-semibold leading-snug text-foreground">{campaign.title}</h2>
-                    <p className="text-xs text-muted-foreground mt-1">By {campaign.org}</p>
-                    <p className="mt-3 inline-flex rounded-full bg-emerald-100 text-emerald-700 px-2.5 py-1 text-[11px] font-semibold">
-                      {campaign.status}
-                    </p>
-                    <div className="mt-4">
-                      <div className="flex items-center justify-between text-sm mb-1 text-foreground/80">
-                        <span className="font-medium text-emerald-600">Raised</span>
-                        <span className="font-medium">{isUnlimited ? "Type" : "Goal"}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-2xl font-semibold text-foreground mb-2">
-                        <span>RM {campaign.raised.toLocaleString()}</span>
-                        <span>{isUnlimited ? "Unlimited" : `RM ${campaign.goal.toLocaleString()}`}</span>
-                      </div>
-                      {!isUnlimited && (
-                        <div className="h-2 rounded-full bg-muted overflow-hidden">
-                          <div
-                            className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
-                            style={{ width: `${fundedPct}%` }}
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {campaign.donors.toLocaleString()} donations
-                    </p>
-                    <Button asChild className="w-full mt-4 gap-2">
-                      <Link to="/donation/$projectId" params={{ projectId: campaign.id }}>
-                        Donate now
-                        <ArrowRight className="size-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </article>
-              );
-            })}
+                </button>
+                <p className="text-[11px] sm:text-xs font-medium text-primary-foreground/90 text-center">
+                  Scan QR Code to donate · Tap to enlarge
+                </p>
+                <Dialog open={qrPreviewOpen} onOpenChange={setQrPreviewOpen}>
+                  <DialogContent className="max-w-[min(96vw,28rem)] border-border p-3 sm:p-4 gap-0">
+                    <DialogTitle className="sr-only">Donation QR code</DialogTitle>
+                    <img
+                      src={donateQrCode}
+                      alt="DuitNow donation QR code — enlarged"
+                      width={512}
+                      height={512}
+                      className="w-full max-h-[min(85vh,28rem)] object-contain rounded-lg bg-white"
+                    />
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </div>
+          </section>
+
+          <div className="flex-1 min-h-0 grid grid-cols-1 sm:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-3">
+            <section className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border/70 bg-card/90 shadow-sm backdrop-blur-sm">
+              <div className="shrink-0 flex items-center border-b border-border/70 bg-gradient-to-r from-primary/5 to-secondary/5 px-3 py-2.5 sm:px-4">
+                <h2 className="flex items-center gap-1.5 text-sm font-semibold">
+                  <Heart className="size-4 text-primary fill-primary/20" />
+                  Thank You for Your Support
+                </h2>
+              </div>
+
+              <div className="min-h-0 flex-1 overflow-hidden">
+                <table className="w-full table-fixed border-collapse">
+                  <thead>
+                    <tr className="border-b border-border/80 bg-muted/40">
+                      {[
+                        { label: "DateTime", className: "w-[30%]" },
+                        { label: "Donor", className: "w-[34%]" },
+                        { label: "Amount", className: "w-[18%] text-right" },
+                        { label: "Total", className: "w-[18%] text-right" },
+                      ].map((col) => (
+                        <th
+                          key={col.label}
+                          className={cn(
+                            "px-2 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-muted-foreground",
+                            col.className,
+                          )}
+                        >
+                          {col.label}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {leaderboardRows.map((entry, index) => (
+                      <tr
+                        key={`${entry.dateTime}-${entry.donor}`}
+                        className={cn(
+                          "border-b border-border/50 last:border-0",
+                          index % 2 === 0 ? "bg-background" : "bg-muted/20",
+                        )}
+                      >
+                        <td className="px-2 py-1.5 text-[10px] sm:text-[11px] align-top">
+                          <LeaderboardDateTime value={entry.dateTime} />
+                        </td>
+                        <td className="px-2 py-1.5 text-[10px] sm:text-[11px] font-medium leading-snug break-words align-top">
+                          {entry.donor}
+                        </td>
+                        <td className="px-2 py-1.5 text-[10px] sm:text-[11px] font-semibold text-primary text-right tabular-nums align-top whitespace-nowrap">
+                          {entry.amount.toLocaleString()}
+                        </td>
+                        <td className="px-2 py-1.5 text-[10px] sm:text-[11px] font-semibold text-foreground text-right tabular-nums align-top whitespace-nowrap">
+                          {entry.total.toLocaleString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border/70 bg-card/90 shadow-sm backdrop-blur-sm">
+              <div className="shrink-0 border-b border-border/70 bg-gradient-to-r from-primary/5 to-secondary/5 px-3 py-2.5 sm:px-4">
+                <h2 className="flex items-center gap-1.5 text-sm font-semibold">
+                  <LayoutGrid className="size-4 text-primary" />
+                  What we will do from 2026 to 2028
+                </h2>
+              </div>
+
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-2 sm:p-2.5 grid grid-cols-2 lg:grid-cols-4 gap-2 content-start">
+                {donationFundraisingProjects.map((project) => (
+                  <FundraisingProjectCard
+                    key={project.id}
+                    title={project.title}
+                    imageSrc={project.imageSrc}
+                    raised={project.raised}
+                    goal={project.goal}
+                  />
+                ))}
+              </div>
+            </section>
           </div>
         </div>
-      </section>
-    </SiteLayout>
+      </main>
+    </div>
   );
 }
