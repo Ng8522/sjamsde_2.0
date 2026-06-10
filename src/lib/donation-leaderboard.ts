@@ -34,5 +34,8 @@ export function getDonationLeaderboardRows() {
 }
 
 export function formatDonationRm(amount: number) {
-  return `RM${amount.toLocaleString("en-MY")}`;
+  return `RM${amount.toLocaleString("en-MY", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
 }
