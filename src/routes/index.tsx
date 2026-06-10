@@ -145,6 +145,19 @@ function Index() {
   const [adOpen, setAdOpen] = useState(true);
   const [appPreviewOpen, setAppPreviewOpen] = useState(false);
 
+  const upcomingThisMonth = useMemo(() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    return portalEvents
+      .filter((e) => {
+        const d = new Date(`${e.startsAt}T12:00:00`);
+        return d.getFullYear() === year && d.getMonth() === month;
+      })
+      .sort((a, b) => a.startsAt.localeCompare(b.startsAt))
+      .slice(0, 3);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       {/* Floating Side Donate Button */}
