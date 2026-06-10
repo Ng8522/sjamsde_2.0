@@ -208,3 +208,22 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes donate-leaderboard-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-donate-leaderboard-scroll {
+  animation: donate-leaderboard-scroll 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-donate-leaderboard-scroll {
+    animation: none;
+  }
+}
