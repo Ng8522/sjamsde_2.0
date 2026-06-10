@@ -157,7 +157,7 @@ function GalleryPost({
   return (
     <article className="bg-card rounded-xl border border-border shadow-sm overflow-hidden">
       <header className="flex items-start gap-3 px-4 pt-4 pb-2">
-        <StJohnCross className="size-10 shrink-0 rounded-full ring-2 ring-background shadow-sm" />
+        <StJohnCross className="size-12 shrink-0 rounded-full ring-2 ring-background shadow-sm" />
         <div className="min-w-0 flex-1 pt-0.5">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <p className="font-semibold text-[15px] leading-tight text-foreground">{album.organizer || "SJAM Selangor"}</p>

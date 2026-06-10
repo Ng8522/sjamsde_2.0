@@ -19,6 +19,7 @@ export const OCU = {
     "The SJAM Selangor Ophthalmic Care Unit brings optometry outreach to orphanages, old folks homes, schools and welfare centres. Volunteer optometrists, opticians and St John members conduct vision screenings and arrange free prescription glasses for those who need them.",
     "Each deployment is one community visit — pairing clinical care with compassion, one pair of glasses at a time.",
   ],
+  highlight: "Volunteer optometrists and opticians bringing free vision care to communities across Selangor.",
   services: [
     "Comprehensive eye screening",
     "Free prescription glasses",

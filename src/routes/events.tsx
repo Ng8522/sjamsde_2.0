@@ -25,9 +25,12 @@ function EventsPage() {
             <CalendarDays className="size-3.5" />
             Community activity
           </span>
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3">Upcoming activity</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-3">
+            SJAM SDE <em className="italic">Rancangan Tahunan</em>
+          </h1>
           <p className="text-muted-foreground mt-4 max-w-2xl">
-            Choose a month and year, then filter the list by SJAM area.
+            SJAM Selangor Darul Ehsan annual programme calendar. Choose a month and year, then filter
+            by SJAM area.
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground mt-3">
             <Link to="/gallery" className="text-primary font-medium hover:underline">

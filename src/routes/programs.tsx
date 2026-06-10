@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Activity, Ambulance, ArrowRight, GraduationCap, HeartPulse } from "lucide-react";
+import { Ambulance, ArrowRight, Eye, GraduationCap, HeartPulse } from "lucide-react";
 
 import { MobileClinicSection } from "@/components/mobile-clinic-section";
 import { OcuSection } from "@/components/ocu-section";
@@ -7,7 +7,7 @@ import { SiteLayout } from "@/components/site-layout";
 import ambulanceImg from "../assets/AmbuHandover-1.jpg";
 import firstaidImg from "../assets/first_aid1.jpg";
 import courseImg from "../assets/course.jpg";
-import haemodialysisImg from "../assets/haemodialysis.jpg";
+import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_7397446257909075388_n.jpg";
 
 export const Route = createFileRoute("/programs")({
   component: ProgramsPage,
@@ -26,34 +26,37 @@ export const Route = createFileRoute("/programs")({
 const serviceHighlights = [
   {
     icon: Ambulance,
-    title: "24 Hr Ambulance",
+    title: "Ambulance Service",
     subtitle: "Emergency response and hospital transfers",
     image: ambulanceImg,
     cta: "View Program",
     to: "/ambulance-24hr",
+    phoneHref: "tel:0196820911",
+    phoneLabel: "019-682 0911",
+    emailHref: "mailto:amb.sde@sjam.org.my",
+    emailLabel: "amb.sde@sjam.org.my",
     featured: true,
   },
   {
     icon: HeartPulse,
     title: "Public Duty StandBy",
     subtitle: "Our major public service since establishment",
-    details:
-      "Members are stationed at sports events, social gatherings, and parades to provide first aid anytime, anywhere. For inquiries, fax 03-3372 4898 or email admin@sjamsde.org.my. Please include a simple requisition letter on company letterhead, attention to Ms Lim Lay Yin.",
     image: firstaidImg,
     cta: "Contact",
-    phoneHref: "tel:0333715005",
-    phoneLabel: "03-3371 5005",
+    phoneHref: "tel:0196820911",
+    phoneLabel: "019-682 0911",
     emailHref: "mailto:admin@sjamsde.org.my",
     emailLabel: "admin@sjamsde.org.my",
     featured: false,
   },
   {
-    icon: Activity,
-    title: "Haemodialysis Service",
-    subtitle: "Community dialysis support",
-    image: haemodialysisImg,
-    cta: "View Program",
-    to: "/haemodialysis-service",
+    icon: Eye,
+    title: "Ophthalmic Care Service",
+    subtitle: "Free eye screening and prescription glasses",
+    image: ocuImg,
+    cta: "Contact",
+    emailHref: "mailto:sjamselangor@sjam.org.my",
+    emailLabel: "sjamselangor@sjam.org.my",
     featured: false,
   },
   {
@@ -61,8 +64,9 @@ const serviceHighlights = [
     title: "Public First Aid Classes",
     subtitle: "Training for individuals and teams",
     image: courseImg,
-    cta: "View Program",
-    to: "/courses",
+    cta: "Contact",
+    emailHref: "mailto:admin@sjamsde.org.my",
+    emailLabel: "admin@sjamsde.org.my",
     featured: false,
   },
 ] as const;
@@ -146,14 +150,39 @@ function ProgramsPage() {
                       </a>
                     </div>
                   </div>
+                ) : "emailHref" in service ? (
+                  <div className="mt-auto pt-1">
+                    <p className="text-sm font-semibold text-primary mb-2">{service.cta}</p>
+                    <a
+                      href={service.emailHref}
+                      className="text-sm text-primary hover:underline break-all"
+                    >
+                      {service.emailLabel}
+                    </a>
+                  </div>
                 ) : "to" in service ? (
-                  <Link
-                    to={service.to}
-                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-                  >
-                    {service.cta}
-                    <ArrowRight className="size-4 shrink-0" />
-                  </Link>
+                  <div className="mt-auto pt-1 space-y-2">
+                    <Link
+                      to={service.to}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                    >
+                      {service.cta}
+                      <ArrowRight className="size-4 shrink-0" />
+                    </Link>
+                    {"phoneHref" in service && (
+                      <a href={service.phoneHref} className="block text-sm text-primary hover:underline">
+                        {service.phoneLabel}
+                      </a>
+                    )}
+                    {"emailHref" in service && (
+                      <a
+                        href={service.emailHref}
+                        className="block text-sm text-primary hover:underline break-all"
+                      >
+                        {service.emailLabel}
+                      </a>
+                    )}
+                  </div>
                 ) : null}
               </article>
             ))}
@@ -163,7 +192,9 @@ function ProgramsPage() {
 
       <section className="py-20 bg-gradient-to-br from-background via-primary/2 to-background">
         <div className="max-w-5xl mx-auto px-6 space-y-12">
-          <OcuSection />
+          <div id="ophthalmic-care-unit" className="scroll-mt-28">
+            <OcuSection />
+          </div>
           <div id="mobile-clinic" className="scroll-mt-28">
             <MobileClinicSection />
           </div>

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import type { LucideIcon } from "lucide-react";
-import { ChevronLeft, ChevronRight, Eye, Glasses, Heart, Images, MapPin, Users } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+import { ChevronLeft, ChevronRight, Eye, Glasses, HeartPulse, Images } from "lucide-react";
 
 import {
   Carousel,
@@ -17,12 +17,13 @@ import {
 import { cn } from "@/lib/utils";
 
 export function OcuSection() {
+  const navigate = useNavigate();
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
 
   const deploymentsCompleted = getOcuDeploymentsCompleted();
-  const featured = ocuDeployments[selectedIndex] ?? ocuDeployments[0];
+  const latestDeployment = ocuDeployments[0];
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -40,6 +41,13 @@ export function OcuSection() {
       api.off("reInit", onSelect);
     };
   }, [api, onSelect]);
+
+  const openDeployment = useCallback(
+    (deploymentId: string) => {
+      void navigate({ to: "/ocu/$deploymentId", params: { deploymentId } });
+    },
+    [navigate],
+  );
 
   return (
     <div className="animate-on-scroll">
@@ -72,22 +80,44 @@ export function OcuSection() {
                 ))}
               </div>
 
+              <div className="p-4 bg-primary/10 border border-primary/20 rounded-xl mb-6">
+                <p className="text-sm font-semibold text-primary">{OCU.highlight}</p>
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-2">
                 {OCU.services.map((service) => (
                   <div
                     key={service}
                     className="flex items-center gap-2.5 text-sm text-foreground/80 bg-muted/50 rounded-lg px-3 py-2.5 border border-border/60"
                   >
-                    <Eye className="size-4 text-primary shrink-0" />
+                    <HeartPulse className="size-4 text-primary shrink-0" />
                     {service}
                   </div>
                 ))}
               </div>
             </div>
 
-            {featured?.coverImage ? (
+            {latestDeployment?.coverImage ? (
               <div className="lg:w-72 xl:w-80 shrink-0">
-                <DeploymentCover deployment={featured} />
+                <button
+                  type="button"
+                  onClick={() => openDeployment(latestDeployment.id)}
+                  className="block relative w-full rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-primary/15 shadow-md group text-left cursor-pointer"
+                >
+                  <img
+                    src={latestDeployment.coverImage}
+                    alt={latestDeployment.title}
+                    className="absolute inset-0 size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                      Latest deployment
+                    </span>
+                    <p className="text-sm font-semibold mt-1 leading-snug">{latestDeployment.title}</p>
+                    <p className="text-xs text-white/75 mt-0.5">{latestDeployment.location}</p>
+                  </div>
+                </button>
               </div>
             ) : null}
           </div>
@@ -95,86 +125,80 @@ export function OcuSection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-6 border-y border-primary/10 mb-8">
             <StatCard
               value={String(deploymentsCompleted)}
-              label="Times programme carried out"
+              label="Deployments completed"
               accent
             />
-            <StatCard value={String(ocuDeployments.length)} label="With photos listed below" />
-            {OCU.stats.slice(0, 2).map((stat) => (
+            {OCU.stats.map((stat) => (
               <StatCard key={stat.label} value={stat.value} label={stat.label} />
             ))}
           </div>
 
           {ocuDeployments.length > 0 ? (
-            <>
-              <DeploymentsCarousel
-                api={api}
-                setApi={setApi}
-                selectedIndex={selectedIndex}
-                slideCount={slideCount}
-                count={ocuDeployments.length}
-                onSelectDeployment={(index) => api?.scrollTo(index)}
-              />
-
-              {featured ? <FeaturedDeploymentDetail deployment={featured} /> : null}
-            </>
+            <RecentDeploymentsCarousel
+              api={api}
+              setApi={setApi}
+              selectedIndex={selectedIndex}
+              slideCount={slideCount}
+              deploymentCount={ocuDeployments.length}
+              onOpen={openDeployment}
+            />
           ) : null}
-
-          <p className="mt-8 text-sm text-muted-foreground inline-flex items-center gap-1.5 justify-center w-full">
-            <Heart className="size-4 text-primary shrink-0" />
-            In the Service of Humanity
-          </p>
         </div>
       </div>
     </div>
   );
 }
 
-function DeploymentsCarousel({
+function RecentDeploymentsCarousel({
   api,
   setApi,
   selectedIndex,
   slideCount,
-  count,
-  onSelectDeployment,
+  deploymentCount,
+  onOpen,
 }: {
   api: CarouselApi | undefined;
   setApi: (api: CarouselApi) => void;
   selectedIndex: number;
   slideCount: number;
-  count: number;
-  onSelectDeployment: (index: number) => void;
+  deploymentCount: number;
+  onOpen: (deploymentId: string) => void;
 }) {
   return (
-    <div className="mb-8">
+    <div>
       <div className="flex items-end justify-between gap-4 mb-5">
         <div>
-          <h4 className="text-lg font-bold text-foreground">Recent deployments</h4>
+          <h4 className="text-lg font-bold text-foreground">Recent Events</h4>
           <p className="text-sm text-muted-foreground mt-0.5">
-            Select a deployment to read highlights and photos below.
+            Tap an event to open the photo album.
           </p>
         </div>
         <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-muted-foreground">
           <Images className="size-3.5" />
-          {count} {count === 1 ? "deployment" : "deployments"}
+          {deploymentCount} albums
         </span>
       </div>
 
       <div className="relative -mx-1">
         <Carousel setApi={setApi} opts={{ align: "start", loop: false }} className="w-full">
           <CarouselContent className="-ml-3">
-            {ocuDeployments.map((deployment, index) => (
+            {ocuDeployments.map((deployment) => (
               <CarouselItem key={deployment.id} className="pl-3 basis-full sm:basis-1/2 lg:basis-[45%]">
-                <DeploymentCard
-                  deployment={deployment}
-                  active={index === selectedIndex}
-                  onSelect={() => onSelectDeployment(index)}
-                />
+                <DeploymentCard deployment={deployment} onOpen={() => onOpen(deployment.id)} />
               </CarouselItem>
             ))}
           </CarouselContent>
 
-          <CarouselNavButton direction="prev" onClick={() => api?.scrollPrev()} disabled={!api?.canScrollPrev()} />
-          <CarouselNavButton direction="next" onClick={() => api?.scrollNext()} disabled={!api?.canScrollNext()} />
+          <CarouselNavButton
+            direction="prev"
+            onClick={() => api?.scrollPrev()}
+            disabled={!api?.canScrollPrev()}
+          />
+          <CarouselNavButton
+            direction="next"
+            onClick={() => api?.scrollNext()}
+            disabled={!api?.canScrollNext()}
+          />
         </Carousel>
 
         {slideCount > 1 ? (
@@ -197,173 +221,6 @@ function DeploymentsCarousel({
         ) : null}
       </div>
     </div>
-  );
-}
-
-function DeploymentCard({
-  deployment,
-  active,
-  onSelect,
-}: {
-  deployment: OcuDeployment;
-  active?: boolean;
-  onSelect: () => void;
-}) {
-  const { number, peopleScreened, glassesProvided } = deployment;
-  const hasVisitStats = peopleScreened != null && glassesProvided != null;
-
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      className={cn(
-        "group relative block w-full aspect-[16/10] overflow-hidden rounded-xl bg-muted text-left ring-1 transition-all duration-300 cursor-pointer",
-        active ? "ring-2 ring-primary shadow-lg" : "ring-border/60 hover:ring-primary/40 hover:shadow-lg",
-      )}
-    >
-      {deployment.coverImage ? (
-        <img
-          src={deployment.coverImage}
-          alt={deployment.title}
-          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-      ) : null}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" aria-hidden />
-      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-left">
-        <span className="text-[10px] font-semibold uppercase tracking-widest text-[#6ecf8a]">
-          {number}th deployment
-        </span>
-        <h5 className="text-base sm:text-lg font-bold text-[#f5d000] leading-snug line-clamp-2 mt-0.5">
-          {deployment.title}
-        </h5>
-        <p className="mt-1 text-xs text-white/80 line-clamp-1">{deployment.location}</p>
-        {hasVisitStats ? (
-          <p className="mt-2 text-[11px] text-white/75">
-            {peopleScreened} screened · {glassesProvided} glasses
-          </p>
-        ) : (
-          <span className="inline-flex items-center gap-1 mt-2 text-[11px] text-white/70">
-            <Images className="size-3" />
-            {deployment.images.length} photos
-          </span>
-        )}
-      </div>
-    </button>
-  );
-}
-
-function FeaturedDeploymentDetail({ deployment }: { deployment: OcuDeployment }) {
-  const { number, peopleScreened, glassesProvided } = deployment;
-  const hasVisitStats = peopleScreened != null && glassesProvided != null;
-
-  return (
-    <article className="rounded-xl border border-primary/20 bg-primary/5 p-6">
-      <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-        {number}th deployment — highlights
-      </p>
-      <p className="text-sm font-medium text-foreground mb-4 flex items-center gap-1">
-        <MapPin className="size-3.5 text-primary shrink-0" />
-        {deployment.title}, {deployment.location}
-      </p>
-
-      <div className="space-y-3 mb-5">
-        {deployment.paragraphs.map((paragraph) => (
-          <p key={paragraph.slice(0, 28)} className="text-sm text-foreground/90 leading-relaxed">
-            {paragraph}
-          </p>
-        ))}
-      </div>
-
-      {hasVisitStats ? (
-        <div className="grid sm:grid-cols-2 gap-3 mb-5">
-          <ImpactStat icon={Users} value={String(peopleScreened)} label="People screened at this visit" />
-          <ImpactStat
-            icon={Glasses}
-            value={String(glassesProvided)}
-            label="Free prescription glasses from this visit"
-            accent
-          />
-        </div>
-      ) : null}
-
-      {deployment.thanks.length > 0 ? (
-        <div className="space-y-3 pt-4 border-t border-primary/15 mb-5">
-          {deployment.thanks.map((paragraph) => (
-            <p key={paragraph.slice(0, 28)} className="text-sm text-muted-foreground leading-relaxed">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      ) : null}
-
-      {deployment.images.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {deployment.images.map((src, index) => (
-            <div
-              key={src}
-              className="relative overflow-hidden rounded-lg aspect-[4/3] ring-1 ring-border/60 bg-muted"
-            >
-              <img
-                src={src}
-                alt={`${number}th OCU deployment photo ${index + 1}`}
-                className="absolute inset-0 size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      ) : null}
-    </article>
-  );
-}
-
-function DeploymentCover({ deployment }: { deployment: OcuDeployment }) {
-  return (
-    <div className="relative w-full rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-primary/15 shadow-md">
-      <img
-        src={deployment.coverImage}
-        alt={`OCU ${deployment.number}th deployment at ${deployment.title}`}
-        className="absolute inset-0 size-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-        <span className="text-[10px] font-semibold uppercase tracking-widest text-[#6ecf8a]">
-          {deployment.number}th deployment
-        </span>
-        <p className="text-sm font-semibold mt-1 leading-snug text-[#f5d000]">{deployment.title}</p>
-        <p className="text-xs text-white/80 mt-1 flex items-center gap-1">
-          <MapPin className="size-3 shrink-0" />
-          {deployment.location}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function CarouselNavButton({
-  direction,
-  onClick,
-  disabled,
-}: {
-  direction: "prev" | "next";
-  onClick: () => void;
-  disabled: boolean;
-}) {
-  const Icon = direction === "prev" ? ChevronLeft : ChevronRight;
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={cn(
-        "absolute top-1/2 -translate-y-1/2 z-10 size-9 rounded-full bg-background/95 text-foreground shadow-md border border-border/60 grid place-items-center hover:bg-background disabled:opacity-30 disabled:pointer-events-none transition-opacity",
-        direction === "prev" ? "left-1" : "right-1",
-      )}
-      aria-label={direction === "prev" ? "Previous deployments" : "Next deployments"}
-    >
-      <Icon className="size-4" />
-    </button>
   );
 }
 
@@ -391,31 +248,59 @@ function StatCard({
   );
 }
 
-function ImpactStat({
-  icon: Icon,
-  value,
-  label,
-  accent = false,
+function CarouselNavButton({
+  direction,
+  onClick,
+  disabled,
 }: {
-  icon: LucideIcon;
-  value: string;
-  label: string;
-  accent?: boolean;
+  direction: "prev" | "next";
+  onClick: () => void;
+  disabled: boolean;
 }) {
+  const Icon = direction === "prev" ? ChevronLeft : ChevronRight;
   return (
-    <div
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
       className={cn(
-        "flex items-center gap-3 rounded-lg px-4 py-3 border",
-        accent ? "bg-primary/10 border-primary/25" : "bg-background/80 border-border/60",
+        "absolute top-1/2 -translate-y-1/2 z-10 size-9 rounded-full bg-background/95 text-foreground shadow-md border border-border/60 grid place-items-center hover:bg-background disabled:opacity-30 disabled:pointer-events-none transition-opacity",
+        direction === "prev" ? "left-1" : "right-1",
       )}
+      aria-label={direction === "prev" ? "Previous events" : "Next events"}
+    />
+  );
+}
+
+function DeploymentCard({ deployment, onOpen }: { deployment: OcuDeployment; onOpen: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group relative block w-full aspect-[16/10] overflow-hidden rounded-xl bg-muted text-left cursor-pointer ring-1 ring-border/60 hover:ring-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-all duration-300 hover:shadow-lg"
     >
-      <Icon className={cn("size-5 shrink-0", accent ? "text-primary" : "text-muted-foreground")} />
-      <div>
-        <p className={cn("text-2xl font-bold leading-none", accent ? "text-primary" : "text-foreground")}>
-          {value}
-        </p>
-        <p className="text-xs text-muted-foreground mt-1 leading-snug">{label}</p>
+      {deployment.coverImage ? (
+        <img
+          src={deployment.coverImage}
+          alt={deployment.title}
+          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+      ) : null}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10 transition-opacity group-hover:via-black/45"
+        aria-hidden
+      />
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 text-left">
+        <h5 className="text-base sm:text-lg font-bold text-[#f5d000] leading-snug line-clamp-2">
+          {deployment.title}
+        </h5>
+        <p className="mt-1 text-xs sm:text-sm font-medium text-[#6ecf8a]">{deployment.location}</p>
+        <span className="inline-flex items-center gap-1 mt-2.5 text-[11px] font-medium text-white/70 opacity-0 group-hover:opacity-100 transition-opacity">
+          <Images className="size-3" />
+          View {deployment.images.length} photos
+        </span>
       </div>
-    </div>
+    </button>
   );
 }

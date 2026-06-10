@@ -24,6 +24,7 @@ import { Route as Ambulance24hrRouteImport } from './routes/ambulance-24hr'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as OcuDeploymentIdRouteImport } from './routes/ocu.$deploymentId'
 import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
 import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -105,6 +106,11 @@ const GalleryIndexRoute = GalleryIndexRouteImport.update({
   path: '/',
   getParentRoute: () => GalleryRoute,
 } as any)
+const OcuDeploymentIdRoute = OcuDeploymentIdRouteImport.update({
+  id: '/ocu/$deploymentId',
+  path: '/ocu/$deploymentId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MobileClinicEventIdRoute = MobileClinicEventIdRouteImport.update({
   id: '/mobile-clinic/$eventId',
   path: '/mobile-clinic/$eventId',
@@ -151,6 +157,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRoutesByTo {
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/gallery': typeof GalleryIndexRoute
 }
 export interface FileRoutesById {
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
+  '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRouteTypes {
@@ -219,6 +228,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
+    | '/ocu/$deploymentId'
     | '/gallery/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
+    | '/ocu/$deploymentId'
     | '/gallery'
   id:
     | '__root__'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
+    | '/ocu/$deploymentId'
     | '/gallery/'
   fileRoutesById: FileRoutesById
 }
@@ -282,6 +294,7 @@ export interface RootRouteChildren {
   VolunteerRoute: typeof VolunteerRoute
   DonationProjectIdRoute: typeof DonationProjectIdRoute
   MobileClinicEventIdRoute: typeof MobileClinicEventIdRoute
+  OcuDeploymentIdRoute: typeof OcuDeploymentIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -391,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryIndexRouteImport
       parentRoute: typeof GalleryRoute
     }
+    '/ocu/$deploymentId': {
+      id: '/ocu/$deploymentId'
+      path: '/ocu/$deploymentId'
+      fullPath: '/ocu/$deploymentId'
+      preLoaderRoute: typeof OcuDeploymentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mobile-clinic/$eventId': {
       id: '/mobile-clinic/$eventId'
       path: '/mobile-clinic/$eventId'
@@ -480,6 +500,7 @@ const rootRouteChildren: RootRouteChildren = {
   VolunteerRoute: VolunteerRoute,
   DonationProjectIdRoute: DonationProjectIdRoute,
   MobileClinicEventIdRoute: MobileClinicEventIdRoute,
+  OcuDeploymentIdRoute: OcuDeploymentIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

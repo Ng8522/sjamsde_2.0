@@ -26,8 +26,10 @@ export const AMBULANCE_SERVICE = {
   title: "24-hour ambulance services",
   summary:
     "Emergency evacuation, inter-hospital transfers and event medical standby — operated around the clock from our Selangor bases.",
-  hotline: "03-3371 5005",
-  hotlineTel: "tel:0333715005",
+  hotline: "019-682 0911",
+  hotlineTel: "tel:0196820911",
+  email: "amb.sde@sjam.org.my",
+  emailMailto: "mailto:amb.sde@sjam.org.my",
   points: [
     "Statewide fleet of more than 40 ambulances and supporting vehicles, with the majority registered under the \"911\" plate series introduced in Selangor in 2005.",
     "Fleet includes standard ambulances, bariatric units, 4×4 vehicles, first-responder motorcycles and mobile clinic assets for community deployments.",

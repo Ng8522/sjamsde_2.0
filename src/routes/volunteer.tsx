@@ -4,9 +4,16 @@ import { Upload, Users } from "lucide-react";
 
 import { MockSuccess, SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import {
   RAKAN_ST_JOHN_ABOUT,
@@ -30,7 +37,6 @@ export const Route = createFileRoute("/volunteer")({
   }),
 });
 
-const shirtSizes = ["S", "M", "L", "XL", "XXL"] as const;
 const acceptedFileTypes = ".jpg,.jpeg,.pdf,.png";
 
 function RequiredLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
@@ -91,9 +97,12 @@ function FileField({
   );
 }
 
+const REGISTRATION_DISCLAIMER =
+  "By submitting this form, you confirm that the information provided is your own and accurate. Your data will be submitted to St John Ambulans Malaysia Selangor Darul Ehsan (SJAM SDE) for the purpose of registering as Rakan St John.";
+
 function RakanStJohnPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [shirtSize, setShirtSize] = useState<string>("M");
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   if (submitted) {
     return (
@@ -150,7 +159,12 @@ function RakanStJohnPage() {
           className="grid lg:grid-cols-2 gap-10 lg:gap-14"
           onSubmit={(e) => {
             e.preventDefault();
-            setSubmitted(true);
+            const form = e.currentTarget;
+            if (!form.checkValidity()) {
+              form.reportValidity();
+              return;
+            }
+            setShowDisclaimer(true);
           }}
         >
           <div className="space-y-6">
@@ -203,24 +217,6 @@ function RakanStJohnPage() {
                   Specialty/ Skill
                 </Label>
                 <Input id="pd-skill" name="skill" placeholder="Your Skill" className="mt-1.5" />
-              </div>
-              <div>
-                <Label className="text-sm font-medium">T-shirt Size</Label>
-                <RadioGroup
-                  value={shirtSize}
-                  onValueChange={setShirtSize}
-                  name="shirtSize"
-                  className="mt-2 flex flex-wrap gap-4"
-                >
-                  {shirtSizes.map((size) => (
-                    <div key={size} className="flex items-center gap-2">
-                      <RadioGroupItem value={size} id={`shirt-${size}`} />
-                      <Label htmlFor={`shirt-${size}`} className="font-normal cursor-pointer">
-                        {size}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
               </div>
               <div>
                 <Label htmlFor="pd-medical" className="text-sm font-medium">
@@ -289,7 +285,6 @@ function RakanStJohnPage() {
                 <FileField id="doc-passport" label="Passport Photo" />
                 <FileField id="doc-ic" label="Copy of Identification Card" />
                 <FileField id="doc-cert" label="Copy of Professional Qualification Certificate" required={false} />
-                <FileField id="doc-payment" label="Proof of Payment" />
               </div>
             </div>
           </div>
@@ -300,6 +295,31 @@ function RakanStJohnPage() {
             </Button>
           </div>
         </form>
+
+        <Dialog open={showDisclaimer} onOpenChange={setShowDisclaimer}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Disclaimer</DialogTitle>
+              <DialogDescription className="text-left leading-relaxed pt-2">
+                {REGISTRATION_DISCLAIMER}
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="gap-2 sm:gap-0">
+              <Button type="button" variant="outline" onClick={() => setShowDisclaimer(false)}>
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                onClick={() => {
+                  setShowDisclaimer(false);
+                  setSubmitted(true);
+                }}
+              >
+                Confirm & Submit
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </section>
     </SiteLayout>
   );

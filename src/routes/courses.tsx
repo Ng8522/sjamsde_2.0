@@ -118,7 +118,7 @@ function CoursesPage() {
 
         <p className="text-center text-sm text-muted-foreground mt-10 max-w-lg mx-auto">
           Corporate and on-site training available —{" "}
-          <a href="mailto:user.selangor@sjam.org.my" className="text-primary font-medium hover:underline">
+          <a href="mailto:admin@sjamsde.org.my" className="text-primary font-medium hover:underline">
             contact our training unit
           </a>
         </p>

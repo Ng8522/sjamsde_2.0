@@ -19,17 +19,15 @@ import {
 } from "@/lib/contact-content";
 import { SITE_FOOTER_INTRO } from "@/lib/site-footer-content";
 import { cn } from "@/lib/utils";
+import stJohnLogo from "../assets/st-john-ambulans-malaysia-logo.png";
 
 export function StJohnCross({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "grid place-items-center bg-primary text-primary-foreground rounded-md",
-        className,
-      )}
-    >
-      <Plus className="size-3/5" strokeWidth={2.5} />
-    </div>
+    <img
+      src={stJohnLogo}
+      alt="St John Ambulans Malaysia"
+      className={cn("object-contain", className)}
+    />
   );
 }
 
@@ -43,15 +41,11 @@ export function EmergencyBanner() {
             <span className="relative inline-flex rounded-full size-2.5 bg-primary-foreground" />
           </span>
           <span className="text-xs font-medium tracking-widest uppercase">
-            24hr Emergency Hotline
+            Ambulance Service Hotline
           </span>
-          <a href="tel:0333715005" className="text-base font-semibold tabular-nums hover:underline">
-            03-3371 5005
+          <a href="tel:0196820911" className="text-base font-semibold tabular-nums hover:underline">
+            019-682 0911
           </a>
-        </div>
-        <div className="hidden md:flex items-center gap-2 text-sm opacity-80">
-          <Phone className="size-3.5" />
-          <span>Haemodialysis: 03-3373 5005</span>
         </div>
       </div>
     </div>
@@ -144,13 +138,13 @@ function MobileSiteNav({ pathname }: { pathname: string }) {
         </nav>
         <div className="shrink-0 px-6 py-4 border-t border-border bg-muted/40">
           <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-            24hr emergency
+            Ambulance Service Hotline
           </p>
           <a
-            href="tel:0333715005"
+            href="tel:0196820911"
             className="text-lg font-semibold tabular-nums text-primary hover:text-secondary"
           >
-            03-3371 5005
+            019-682 0911
           </a>
         </div>
       </SheetContent>
@@ -165,7 +159,7 @@ export function SiteHeader() {
     <header className="bg-background/95 border-b border-border/50 backdrop-blur-sm supports-[backdrop-filter]:bg-background/90 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
-          <StJohnCross className="size-9 sm:size-10 shrink-0" />
+          <StJohnCross className="size-12 sm:size-14 shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-xs sm:text-sm font-medium truncate text-foreground">
               St John Ambulans Malaysia
@@ -256,7 +250,7 @@ export function SiteFooter({ id }: { id?: string }) {
           {/* Brand Column */}
           <div>
             <div className="flex items-start gap-3 mb-6">
-              <StJohnCross className="size-11 shrink-0" />
+              <StJohnCross className="size-14 shrink-0" />
               <div className="flex flex-col">
                 <span className="font-medium text-lg text-foreground">SJAM Selangor</span>
                 <span className="text-xs text-muted-foreground font-medium tracking-wide">
@@ -331,28 +325,23 @@ export function SiteFooter({ id }: { id?: string }) {
               Contact & Support
             </h4>
             <div className="space-y-3">
-              <a
-                href="tel:0333715005"
-                className="block group bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground rounded-xl p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom"
-              >
+              <div className="rounded-xl bg-gradient-to-br from-primary via-secondary to-primary/90 text-primary-foreground p-5 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 origin-bottom">
                 <p className="text-xs font-medium uppercase tracking-widest opacity-95 mb-2">
-                  24/7 Ambulance
+                  Ambulance Service
                 </p>
-                <p className="text-xl font-medium tabular-nums group-hover:translate-y-0.5 transition-transform">
-                  03-3371 5005
-                </p>
-              </a>
-              <a
-                href="tel:0333735005"
-                className="block group bg-gradient-to-br from-accent to-accent/80 border border-primary/20 text-foreground rounded-xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all hover:-translate-y-1 origin-bottom"
-              >
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">
-                  Haemodialysis
-                </p>
-                <p className="text-xl font-medium tabular-nums group-hover:text-primary transition-colors">
-                  03-3373 5005
-                </p>
-              </a>
+                <a
+                  href="tel:0196820911"
+                  className="block text-xl font-medium tabular-nums hover:underline"
+                >
+                  019-682 0911
+                </a>
+                <a
+                  href="mailto:amb.sde@sjam.org.my"
+                  className="block text-sm font-medium mt-2 opacity-95 hover:underline break-all"
+                >
+                  amb.sde@sjam.org.my
+                </a>
+              </div>
               <div className="rounded-xl border border-primary/15 bg-white/50 p-4 space-y-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">

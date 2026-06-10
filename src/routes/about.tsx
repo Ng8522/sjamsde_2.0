@@ -513,7 +513,7 @@ function AboutPage() {
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">Kawasan Pantai Selangor (KPS)</h4>
                     <p className="text-xs text-muted-foreground mb-2">Achieved ISO 9001:2000 in 2000, upgraded to 2008 in 2010. Received SJAM Color in 2001 from HRH Sultan of Selangor.</p>
-                    <p className="text-xs font-medium text-primary">Coverage: Administration, Ambulance Service, Haemodialysis Service</p>
+                    <p className="text-xs font-medium text-primary">Coverage: Administration, Ambulance Service, Ophthalmic Care Service</p>
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-4 border border-primary/10">
                     <h4 className="font-semibold text-foreground mb-2">State HQ</h4>
@@ -611,15 +611,6 @@ function AboutPage() {
                         </div>
                       </div>
                     </div>
-                    <Link
-                      to="/qualified-trainers"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-semibold"
-                    >
-                      Search Trainers Directory
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
                   </div>
                 </div>
               ),

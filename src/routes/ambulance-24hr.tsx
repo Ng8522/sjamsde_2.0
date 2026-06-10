@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Ambulance, ArrowLeft, Phone } from "lucide-react";
+import { Ambulance, ArrowLeft, Mail, Phone } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 
@@ -7,7 +7,7 @@ export const Route = createFileRoute("/ambulance-24hr")({
   component: Ambulance24HrPage,
   head: () => ({
     meta: [
-      { title: "24 Hr Ambulance — SJAM Selangor" },
+      { title: "Ambulance Service — SJAM Selangor" },
       {
         name: "description",
         content:
@@ -101,7 +101,7 @@ function Ambulance24HrPage() {
           </Link>
           <div className="rounded-2xl border border-primary/20 bg-card/80 backdrop-blur-sm p-5 sm:p-7">
             <span className="inline-flex items-center gap-2 text-primary font-semibold text-[11px] tracking-[0.25em] uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20 mb-4">
-              24 Hr Ambulance
+              Ambulance Service
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-[2.8rem] font-semibold tracking-tight leading-tight mb-3">
               Statewide Emergency Ambulance Service
@@ -111,15 +111,25 @@ function Ambulance24HrPage() {
               supporting community emergency response.
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-3 mt-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
               <div className="rounded-xl border border-border/80 bg-muted/30 px-4 py-3">
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">Hotline</p>
                 <a
-                  href="tel:0333715005"
+                  href="tel:0196820911"
                   className="inline-flex items-center gap-2 text-primary font-semibold mt-1 hover:underline"
                 >
                   <Phone className="size-4" />
-                  03-3371 5005
+                  019-682 0911
+                </a>
+              </div>
+              <div className="rounded-xl border border-border/80 bg-muted/30 px-4 py-3">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">Email</p>
+                <a
+                  href="mailto:amb.sde@sjam.org.my"
+                  className="inline-flex items-center gap-2 text-primary font-semibold mt-1 hover:underline break-all"
+                >
+                  <Mail className="size-4 shrink-0" />
+                  amb.sde@sjam.org.my
                 </a>
               </div>
               <div className="rounded-xl border border-border/80 bg-muted/30 px-4 py-3">
@@ -201,7 +211,13 @@ function Ambulance24HrPage() {
                 Transfer Project (Shimizu-Nishimatsu-UEMB-IJM JV) for 5 years, with 2 ambulances on
                 24-hour duty stationed at Hulu Langat, Selangor and Karak, Pahang.
               </p>
-              <p className="font-semibold text-foreground">24 hr hotline: 03-3371 5005</p>
+              <p className="font-semibold text-foreground">24 hr hotline: 019-682 0911</p>
+              <p className="font-semibold text-foreground">
+                Email:{" "}
+                <a href="mailto:amb.sde@sjam.org.my" className="text-primary hover:underline">
+                  amb.sde@sjam.org.my
+                </a>
+              </p>
             </div>
           </article>
         </div>

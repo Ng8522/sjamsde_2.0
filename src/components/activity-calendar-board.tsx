@@ -51,16 +51,11 @@ export function ActivityCalendarBoard({
   emptyDayMessage,
   onSelectEntry,
 }: ActivityCalendarBoardProps) {
-  const defaultDate = useMemo(() => {
-    const sorted = [...entries].sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime());
-    return sorted[0]?.startsAt ?? new Date();
-  }, [entries]);
-
   const yearOptions = useMemo(() => buildYearOptions(entries), [entries]);
 
-  const [viewYear, setViewYear] = useState(defaultDate.getFullYear());
-  const [viewMonth, setViewMonth] = useState(defaultDate.getMonth());
-  const [selected, setSelected] = useState<Date | undefined>(defaultDate);
+  const [viewYear, setViewYear] = useState(() => new Date().getFullYear());
+  const [viewMonth, setViewMonth] = useState(() => new Date().getMonth());
+  const [selected, setSelected] = useState<Date | undefined>(() => new Date());
   const [areaFilter, setAreaFilter] = useState<SjamAreaId | "all">("all");
 
   const viewMonthDate = useMemo(() => new Date(viewYear, viewMonth, 1), [viewYear, viewMonth]);

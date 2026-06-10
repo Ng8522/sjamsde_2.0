@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Phone,
@@ -11,6 +11,7 @@ import {
   Droplets,
   Truck,
   LifeBuoy,
+  Eye,
   ArrowRight,
   MapPin,
   Clock,
@@ -30,6 +31,7 @@ import bloodDonationImg from "../assets/blood_donation.jpg";
 import disasterReliefImg from "../assets/disaster_relief.jpg";
 import fundraisingImg from "../assets/fund1.jpg";
 import mobileClinicImg from "../assets/mobile_clinic.JPG";
+import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_7397446257909075388_n.jpg";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
 import {
@@ -51,13 +53,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "24-hour ambulance, haemodialysis, first aid training and community medical services across Selangor. Serve with heart. Give with love.",
+          "24-hour ambulance, ophthalmic care, first aid training and community medical services across Selangor. Serve with heart. Give with love.",
       },
       { property: "og:title", content: "St John Ambulans Malaysia — Selangor" },
       {
         property: "og:description",
         content:
-          "Emergency medical response, haemodialysis, first aid courses and humanitarian services across Selangor.",
+          "Emergency medical response, ophthalmic care, first aid courses and humanitarian services across Selangor.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -67,11 +69,13 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     icon: Ambulance,
-    title: "24 Hr Ambulance",
+    title: "Ambulance Service",
     desc: "Rapid emergency evacuation and inter-hospital transfers with advanced life support.",
     live: true,
-    href: "tel:0333715005",
-    cta: "03-3371 5005",
+    href: "tel:0196820911",
+    cta: "019-682 0911",
+    emailHref: "mailto:amb.sde@sjam.org.my",
+    emailCta: "amb.sde@sjam.org.my",
   },
   {
     icon: HeartPulse,
@@ -81,18 +85,18 @@ const services = [
     cta: "Inquiries: admin@sjamsde.org.my",
   },
   {
-    icon: Activity,
-    title: "Haemodialysis Service",
-    desc: "Subsidised dialysis treatment for community members with kidney conditions.",
-    href: "tel:0333735005",
-    cta: "03-3373 5005",
+    icon: Eye,
+    title: "Ophthalmic Care Service",
+    desc: "Free eye screening and prescription glasses for underserved communities across Selangor.",
+    href: "mailto:sjamselangor@sjam.org.my",
+    cta: "Email to: sjamselangor@sjam.org.my",
   },
   {
     icon: GraduationCap,
     title: "Public First Aid Classes",
     desc: "Accredited CPR and emergency trauma certification for individuals and corporates.",
-    href: "mailto:user.selangor@sjam.org.my",
-    cta: "Email to: user.selangor@sjam.org.my",
+    href: "mailto:admin@sjamsde.org.my",
+    cta: "Email to: admin@sjamsde.org.my",
   },
 ];
 
@@ -126,6 +130,14 @@ const community = [
     title: "Disaster Relief",
     desc: "Rapid deployment teams for flood response and large-scale emergency management.",
     imageSrc: disasterReliefImg,
+  },
+  {
+    n: "05",
+    icon: Eye,
+    title: "Ophthalmic Care Unit",
+    desc: "Free eye screening and prescription glasses for children, seniors and underserved communities across Selangor.",
+    href: "/programs#ophthalmic-care-unit",
+    imageSrc: ocuImg,
   },
 ];
 
@@ -230,7 +242,7 @@ function Index() {
               </p>
               <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
                 <a
-                  href="tel:0333715005"
+                  href="tel:0196820911"
                   className="inline-flex items-center justify-center gap-2.5 min-h-12 w-full sm:w-auto px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] sm:hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase group"
                 >
                   <Phone className="size-5 group-hover:animate-bounce" />
@@ -303,6 +315,14 @@ function Index() {
                           {s.title}
                         </h3>
                         {cta}
+                        {"emailHref" in s && s.emailHref && (
+                          <a
+                            href={s.emailHref}
+                            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary mt-1 break-all"
+                          >
+                            {s.emailCta}
+                          </a>
+                        )}
                       </div>
                     </article>
                   );
@@ -353,43 +373,42 @@ function Index() {
             </p>
         </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
             {community.map((c) => {
               return (
                 <article
                   key={c.n}
-                  className="rounded-2xl border border-border/80 bg-white p-5 hover:shadow-lg hover:border-primary/40 transition-all"
+                  className="rounded-xl border border-border/80 bg-white p-3 sm:p-4 hover:shadow-md hover:border-primary/40 transition-all"
                 >
                   <img
                     src={c.imageSrc}
                     alt={c.title}
-                    className="w-full aspect-[16/10] object-cover rounded-xl mb-4 border border-border/70"
+                    className="w-full aspect-[4/3] object-cover rounded-lg mb-2.5 border border-border/70"
                     loading="lazy"
                   />
-                  <div className="h-11 w-11 rounded-xl bg-emerald-100/70 text-emerald-700 grid place-items-center font-semibold text-lg mb-3">
+                  <div className="h-7 w-7 rounded-lg bg-emerald-100/70 text-emerald-700 grid place-items-center font-semibold text-xs mb-2">
                     {c.n}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{c.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1 leading-snug">{c.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">{c.desc}</p>
 
-                  <div className="mt-4 flex flex-wrap items-center gap-3">
-                    {c.title === "Mobile Clinic" && c.href && (
+                  <div className="mt-2.5 flex flex-wrap items-center gap-2">
+                    {"href" in c && c.href?.includes("/programs") ? (
                       <a
                         href={c.href}
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
                       >
                         View Program
-                        <ArrowRight className="size-4" />
+                        <ArrowRight className="size-3.5" />
                       </a>
-                    )}
-                    {c.title !== "Mobile Clinic" && (
-            <Link
+                    ) : (
+                      <Link
                         to="/donate"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-            >
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                      >
                         Support Us
-              <ArrowRight className="size-4" />
-            </Link>
+                        <ArrowRight className="size-3.5" />
+                      </Link>
                     )}
                   </div>
                 </article>
@@ -415,11 +434,7 @@ function Index() {
               Upcoming Activity
             </span>
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter max-w-[26ch] mx-auto leading-tight mb-6">
-              Join us at our next{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                community activity
-              </span>
-              .
+              SJAM SDE <em className="italic font-semibold">Rancangan Tahunan</em>
             </h2>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
@@ -449,7 +464,15 @@ function Index() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {portalEvents.slice(0, 3).map((e) => {
+            {upcomingThisMonth.length === 0 ? (
+              <p className="md:col-span-3 text-center text-muted-foreground py-10">
+                No activities scheduled this month.{" "}
+                <Link to="/events" className="text-primary font-medium hover:underline">
+                  View full calendar
+                </Link>
+              </p>
+            ) : null}
+            {upcomingThisMonth.map((e) => {
               const [day, month] = e.date.split(" ");
               return (
                 <article
