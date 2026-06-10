@@ -1,6 +1,6 @@
 import ambulanceImg from "../assets/ambulance.jpg";
 import sdeBuildingImg from "../assets/event/2025 Launching of SJAM-SDE State Training Center/522034799_1368034225324318_5417606558004982396_n.jpg";
-import firstAidCompImg from "../assets/first_aid1.jpg";
+import disasterReliefImg from "../assets/disaster_relief.jpg";
 import mobileClinicImg from "../assets/mobile_clinic.JPG";
 import mobileAppImg from "../assets/mobile-app.jpeg";
 import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_7397446257909075388_n.jpg";
@@ -8,25 +8,24 @@ import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_739
 export type DonationFundraisingProject = {
   id: string;
   title: string;
-  /** One-line label for the 6×1 donate page row */
+  /** One-line label for the donate page card */
   shortTitle: string;
-  /** What this fund supports — shown on donate cards */
   description: string;
   imageSrc: string;
   raised: number;
   goal: number;
 };
 
-/** Six 2026–2028 fundraising priorities on the donate page (6 columns × 1 row). */
+/** Six 2026–2028 fundraising priorities on the donate page (3×2 grid). */
 export const donationFundraisingProjects: DonationFundraisingProject[] = [
   {
-    id: "sde-building",
-    title: "SDE Building",
-    shortTitle: "SDE Building",
+    id: "state-hq-building",
+    title: "State HQ Building",
+    shortTitle: "State HQ Building",
     description: "State training centre & SJAM SDE headquarters, Klang",
     imageSrc: sdeBuildingImg,
-    raised: 1250000,
-    goal: 3500000,
+    raised: 1_250_000,
+    goal: 3_500_000,
   },
   {
     id: "ambulance",
@@ -34,44 +33,44 @@ export const donationFundraisingProjects: DonationFundraisingProject[] = [
     shortTitle: "Ambulance Services",
     description: "24-hour ambulance fleet, equipment & operational costs",
     imageSrc: ambulanceImg,
-    raised: 357000,
-    goal: 725000,
+    raised: 357_000,
+    goal: 725_000,
   },
   {
-    id: "ocu-deployment",
-    title: "Ophthalmic Care Unit (OCU) Deployment",
+    id: "ocu",
+    title: "Ophthalmic Care Unit",
     shortTitle: "Ophthalmic Care Unit",
     description: "Free eye screening, spectacles & cataract referral in the community",
     imageSrc: ocuImg,
-    raised: 84200,
-    goal: 150000,
+    raised: 84_200,
+    goal: 150_000,
   },
   {
-    id: "mobile-clinic",
-    title: "Mobile Clinic",
-    shortTitle: "Mobile Clinic",
+    id: "outreach",
+    title: "Outreach Program",
+    shortTitle: "Outreach Program",
     description: "Community health screening at schools & public programmes",
     imageSrc: mobileClinicImg,
-    raised: 92400,
-    goal: 200000,
+    raised: 92_400,
+    goal: 200_000,
   },
   {
-    id: "first-aid-competition",
-    title: "State First Aid and Home Nursing Competition",
-    shortTitle: "State First Aid Competition",
-    description: "Annual state first aid & home nursing competition",
-    imageSrc: firstAidCompImg,
-    raised: 45800,
-    goal: 120000,
+    id: "disaster-recovery",
+    title: "Disaster Recovery Fund",
+    shortTitle: "Disaster Recovery Fund",
+    description: "Flood relief, medical packs & rapid response essentials",
+    imageSrc: disasterReliefImg,
+    raised: 124_800,
+    goal: 400_000,
   },
   {
-    id: "ssmp",
-    title: "SJAM Super App — SSMP",
-    shortTitle: "SSMP Super App",
+    id: "sjam-super-app",
+    title: "SJAM Super App",
+    shortTitle: "SJAM Super App",
     description: "Member super-app for duty hours, events & coordination",
     imageSrc: mobileAppImg,
-    raised: 186000,
-    goal: 400000,
+    raised: 186_000,
+    goal: 400_000,
   },
 ];
 

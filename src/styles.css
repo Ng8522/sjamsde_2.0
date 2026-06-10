@@ -209,21 +209,21 @@
   }
 }
 
-@keyframes donate-leaderboard-scroll {
+@keyframes donate-ticker-scroll {
   from {
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
 }
 
-.animate-donate-leaderboard-scroll {
-  animation: donate-leaderboard-scroll 28s linear infinite;
+.animate-donate-ticker-scroll {
+  animation: donate-ticker-scroll 32s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-donate-leaderboard-scroll {
+  .animate-donate-ticker-scroll {
     animation: none;
   }
 }

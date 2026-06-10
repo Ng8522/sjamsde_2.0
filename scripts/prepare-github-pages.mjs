@@ -39,3 +39,8 @@ html = rewriteAssetPaths(html);
 writeFileSync(indexPath, html);
 copyFileSync(indexPath, join(publicDir, "404.html"));
 walk(publicDir);
+
+const customDomain = process.env.PAGES_CUSTOM_DOMAIN?.trim();
+if (customDomain) {
+  writeFileSync(join(publicDir, "CNAME"), `${customDomain}\n`);
+}

@@ -4,61 +4,23 @@ export type DonationLeaderboardEntry = {
   amount: number;
 };
 
+/** Summary totals shown on the donate page footer. */
+export const DONATION_PAGE_TOTAL_RAISED = 150_888;
+export const DONATION_PAGE_TARGET = 200_000;
+
 /** Mock leaderboard for the donate page (public-facing summary only). */
 export const donationLeaderboard: DonationLeaderboardEntry[] = [
-  {
-    dateTime: "08 Jun 2026, 15:42",
-    donor: "Lee Family Trust",
-    amount: 5000,
-  },
-  {
-    dateTime: "07 Jun 2026, 11:18",
-    donor: "Anonymous",
-    amount: 2500,
-  },
-  {
-    dateTime: "06 Jun 2026, 09:05",
-    donor: "Petaling Jaya Community Group",
-    amount: 2000,
-  },
-  {
-    dateTime: "05 Jun 2026, 16:30",
-    donor: "A. Rahman",
-    amount: 1500,
-  },
-  {
-    dateTime: "04 Jun 2026, 13:22",
-    donor: "Klang Valley Rotaract",
-    amount: 1200,
-  },
-  {
-    dateTime: "03 Jun 2026, 10:47",
-    donor: "Anonymous",
-    amount: 1000,
-  },
-  {
-    dateTime: "02 Jun 2026, 08:15",
-    donor: "Shah Alam Youth Club",
-    amount: 800,
-  },
-  {
-    dateTime: "01 Jun 2026, 19:03",
-    donor: "S. Tan",
-    amount: 650,
-  },
-  {
-    dateTime: "31 May 2026, 14:56",
-    donor: "Subang Jaya Residents Assoc.",
-    amount: 500,
-  },
-  {
-    dateTime: "30 May 2026, 12:08",
-    donor: "Anonymous",
-    amount: 300,
-  },
+  { dateTime: "10 Jun 2026, 09:12", donor: "Dato Lim", amount: 500 },
+  { dateTime: "10 Jun 2026, 08:45", donor: "Mr. Adam", amount: 100 },
+  { dateTime: "10 Jun 2026, 08:30", donor: "anonymous", amount: 100 },
+  { dateTime: "09 Jun 2026, 17:22", donor: "Lee Family Trust", amount: 5_000 },
+  { dateTime: "09 Jun 2026, 11:18", donor: "Anonymous", amount: 2_500 },
+  { dateTime: "08 Jun 2026, 16:30", donor: "Petaling Jaya Community Group", amount: 2_000 },
+  { dateTime: "08 Jun 2026, 13:05", donor: "A. Rahman", amount: 1_500 },
+  { dateTime: "07 Jun 2026, 10:47", donor: "Klang Valley Rotaract", amount: 1_200 },
 ];
 
-/** Running total from oldest (no. 10) upward — each row adds its amount to the previous total. */
+/** Running total from oldest upward — each row adds its amount to the previous total. */
 export function getDonationLeaderboardRows() {
   const oldestFirst = [...donationLeaderboard].reverse();
   let running = 0;
@@ -69,4 +31,8 @@ export function getDonationLeaderboardRows() {
   });
 
   return [...oldestFirstWithTotals].reverse();
+}
+
+export function formatDonationRm(amount: number) {
+  return `RM${amount.toLocaleString("en-MY")}`;
 }

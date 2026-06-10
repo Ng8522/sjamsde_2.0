@@ -36,7 +36,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build for GitHub Pages
+      - name: Build for www.sjamsde.org
+        env:
+          GITHUB_PAGES_BASE: /
+          VITE_BASE_PATH: ""
+          PAGES_CUSTOM_DOMAIN: www.sjamsde.org
         run: pnpm run build:pages
 
       - name: Upload artifact
