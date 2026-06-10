@@ -6,6 +6,8 @@
   "homepage": "https://ng8522.github.io/sjamsde_2.0",
   "scripts": {
     "dev": "node scripts/dev.mjs",
+    "dev:api": "pnpm --dir server --ignore-workspace dev",
+    "start:api": "pnpm --dir server --ignore-workspace start",
     "build": "node scripts/build-pages.mjs",
     "build:pages": "node scripts/build-pages.mjs",
     "build:vinxi": "vinxi build",

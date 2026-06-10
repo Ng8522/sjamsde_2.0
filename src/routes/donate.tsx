@@ -1,8 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, LayoutGrid } from "lucide-react";
 
 import donateQrCode from "@/assets/qrcode.png";
 import { SiteTopChrome } from "@/components/site-layout";
+import { fetchDonationLeaderboard, type DonationLeaderboardRow } from "@/lib/donation-api";
 import {
   donationFundraisingProjects,
   type DonationFundraisingProject,
@@ -16,7 +18,7 @@ function LeaderboardDateTime({ value }: { value: string }) {
   );
 }
 
-type LeaderboardRow = ReturnType<typeof getDonationLeaderboardRows>[number];
+type LeaderboardRow = DonationLeaderboardRow;
 
 const LEADERBOARD_COLUMNS = [
   { label: "DateTime", width: "32%", align: "center" as const },
@@ -131,7 +133,14 @@ export const Route = createFileRoute("/donate")({
 });
 
 function DonatePage() {
-  const leaderboardRows = getDonationLeaderboardRows();
+  const { data } = useQuery({
+    queryKey: ["donation-leaderboard"],
+    queryFn: fetchDonationLeaderboard,
+    refetchInterval: 15_000,
+    placeholderData: { rows: getDonationLeaderboardRows(), source: "mock" as const },
+  });
+
+  const leaderboardRows = data?.rows ?? getDonationLeaderboardRows();
 
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground antialiased lg:h-screen lg:max-h-dvh lg:overflow-hidden">

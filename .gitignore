@@ -24,6 +24,13 @@ lerna-debug.log*
 !.env.example
 .dev.vars
 *.local
+server/.env
+server/data/*.json
+server/data/*.xml
+server/data/*.xlsx
+
+# Donation API runtime data (keep folder)
+!server/data/.gitkeep
 
 # Wrangler / Cloudflare
 .wrangler/
