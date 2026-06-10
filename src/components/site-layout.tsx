@@ -19,17 +19,20 @@ import {
 } from "@/lib/contact-content";
 import { SITE_FOOTER_INTRO } from "@/lib/site-footer-content";
 import { cn } from "@/lib/utils";
-import stJohnLogo from "../assets/st-john-ambulans-malaysia-logo.png";
+import siteLogo from "@/assets/st-john-ambulans-malaysia-logo.png";
 
-export function StJohnCross({ className = "" }: { className?: string }) {
+export function SiteLogo({ className = "" }: { className?: string }) {
   return (
     <img
-      src={stJohnLogo}
+      src={siteLogo}
       alt="St John Ambulans Malaysia"
       className={cn("object-contain", className)}
     />
   );
 }
+
+/** @deprecated Use SiteLogo */
+export const StJohnCross = SiteLogo;
 
 export function EmergencyBanner() {
   return (
@@ -159,7 +162,7 @@ export function SiteHeader() {
     <header className="bg-background/95 border-b border-border/50 backdrop-blur-sm supports-[backdrop-filter]:bg-background/90 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
-          <StJohnCross className="size-12 sm:size-14 shrink-0" />
+          <SiteLogo className="size-12 sm:size-14 shrink-0" />
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-xs sm:text-sm font-medium truncate text-foreground">
               St John Ambulans Malaysia
@@ -250,7 +253,7 @@ export function SiteFooter({ id }: { id?: string }) {
           {/* Brand Column */}
           <div>
             <div className="flex items-start gap-3 mb-6">
-              <StJohnCross className="size-14 shrink-0" />
+              <SiteLogo className="size-14 shrink-0" />
               <div className="flex flex-col">
                 <span className="font-medium text-lg text-foreground">SJAM Selangor</span>
                 <span className="text-xs text-muted-foreground font-medium tracking-wide">

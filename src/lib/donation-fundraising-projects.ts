@@ -2,7 +2,7 @@ import ambulanceImg from "../assets/ambulance.jpg";
 import sdeBuildingImg from "../assets/event/2025 Launching of SJAM-SDE State Training Center/522034799_1368034225324318_5417606558004982396_n.jpg";
 import disasterReliefImg from "../assets/disaster_relief.jpg";
 import mobileClinicImg from "../assets/mobile_clinic.JPG";
-import mobileAppImg from "../assets/mobile-app.jpeg";
+import mobileAppImg from "../assets/mobile-hand.png";
 import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_7397446257909075388_n.jpg";
 
 export type DonationFundraisingProject = {
@@ -19,9 +19,9 @@ export type DonationFundraisingProject = {
 /** Six 2026–2028 fundraising priorities on the donate page (3×2 grid). */
 export const donationFundraisingProjects: DonationFundraisingProject[] = [
   {
-    id: "state-hq-building",
-    title: "State HQ Building",
-    shortTitle: "State HQ Building",
+    id: "sde-building",
+    title: "SDE Building",
+    shortTitle: "SDE Building",
     description: "State training centre & SJAM SDE headquarters, Klang",
     imageSrc: sdeBuildingImg,
     raised: 1_250_000,
@@ -46,27 +46,27 @@ export const donationFundraisingProjects: DonationFundraisingProject[] = [
     goal: 150_000,
   },
   {
-    id: "outreach",
-    title: "Outreach Program",
-    shortTitle: "Outreach Program",
+    id: "mobile-clinic",
+    title: "Mobile Clinic",
+    shortTitle: "Mobile Clinic",
     description: "Community health screening at schools & public programmes",
     imageSrc: mobileClinicImg,
     raised: 92_400,
     goal: 200_000,
   },
   {
-    id: "disaster-recovery",
-    title: "Disaster Recovery Fund",
-    shortTitle: "Disaster Recovery Fund",
-    description: "Flood relief, medical packs & rapid response essentials",
+    id: "state-fa-competition",
+    title: "State First Aid Competition",
+    shortTitle: "State First Aid Competition",
+    description: "State-level first aid competition for members and cadets",
     imageSrc: disasterReliefImg,
     raised: 124_800,
     goal: 400_000,
   },
   {
-    id: "sjam-super-app",
-    title: "SJAM Super App",
-    shortTitle: "SJAM Super App",
+    id: "ssmp-super-app",
+    title: "SSMP Super App",
+    shortTitle: "SSMP Super App",
     description: "Member super-app for duty hours, events & coordination",
     imageSrc: mobileAppImg,
     raised: 186_000,

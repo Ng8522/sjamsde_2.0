@@ -26,7 +26,7 @@ import {
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import ambulanceImg from "../assets/ambulance.jpg";
 import communityImg from "../assets/community.jpg";
-import mobileAppImg from "../assets/mobile-app.jpeg";
+import mobileAppImg from "../assets/mobile-hand.png";
 import bloodDonationImg from "../assets/blood_donation.jpg";
 import disasterReliefImg from "../assets/disaster_relief.jpg";
 import fundraisingImg from "../assets/fund1.jpg";

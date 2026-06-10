@@ -17,15 +17,15 @@ import {
 } from "@/lib/donation-leaderboard";
 function FundraisingProjectCard({ project }: { project: DonationFundraisingProject }) {
   return (
-    <article className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-lg border border-border bg-background shadow-sm lg:h-full">
+    <article className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background lg:h-full">
       <img
         src={project.imageSrc}
         alt={project.title}
         loading="lazy"
-        className="min-h-0 w-full flex-1 object-cover lg:aspect-auto"
+        className="aspect-[4/3] w-full shrink-0 object-cover lg:min-h-0 lg:flex-1 lg:aspect-auto"
       />
-      <div className="shrink-0 border-t border-border/60 bg-background px-1.5 py-1.5 sm:px-2 sm:py-2">
-        <h3 className="text-center text-[10px] font-bold leading-snug text-primary sm:text-[11px]">
+      <div className="shrink-0 bg-background px-2 py-2 sm:px-3 sm:py-2.5">
+        <h3 className="text-center text-xs font-bold leading-snug text-primary sm:text-sm">
           {project.shortTitle}
         </h3>
       </div>
@@ -107,22 +107,22 @@ function DonatePage() {
         <div className="mx-auto flex w-full max-w-[90rem] min-h-0 flex-1 flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-3 sm:px-4 sm:py-3 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] lg:grid-rows-1 lg:items-stretch xl:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)]">
           {/* Left — hero + 3×2 project grid */}
           <section className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-            <div className="shrink-0 bg-primary px-3 py-2 text-primary-foreground sm:px-4 sm:py-2.5 lg:px-4 lg:py-2">
-              <h1 className="text-base font-semibold tracking-tight sm:text-lg">We Need Your Support</h1>
-              <p className="mt-0.5 text-xs text-primary-foreground/90 sm:text-sm">
+            <div className="shrink-0 bg-primary px-4 py-3 text-primary-foreground sm:px-5 sm:py-4">
+              <h1 className="text-lg font-semibold tracking-tight sm:text-xl">We Need Your Support</h1>
+              <p className="mt-1 text-sm text-primary-foreground/90 sm:text-base">
                 Scan DuitNow on the right to donate.
               </p>
             </div>
 
-            <div className="flex shrink-0 items-center gap-2 border-b border-border bg-muted/40 px-3 py-2 sm:px-4 lg:py-1.5">
-              <LayoutGrid className="size-3.5 shrink-0 text-primary" aria-hidden />
-              <p className="text-[11px] font-semibold leading-snug sm:text-xs">
+            <div className="flex shrink-0 items-center gap-2 border-b border-border bg-muted/40 px-4 py-2.5 sm:px-5">
+              <LayoutGrid className="size-4 shrink-0 text-primary" aria-hidden />
+              <p className="text-xs font-semibold leading-snug sm:text-sm">
                 You are supporting our current projects from 2026 to 2028
               </p>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto p-2 sm:p-3 lg:overflow-hidden lg:p-2.5">
-              <div className="grid h-full grid-cols-2 gap-1.5 sm:gap-2 lg:grid-cols-3 lg:grid-rows-2 lg:gap-2">
+            <div className="min-h-0 flex-1 overflow-y-auto p-3 sm:p-4 lg:overflow-hidden lg:p-3">
+              <div className="grid h-full grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 lg:grid-rows-2 lg:gap-3">
                 {donationFundraisingProjects.map((project) => (
                   <FundraisingProjectCard key={project.id} project={project} />
                 ))}
