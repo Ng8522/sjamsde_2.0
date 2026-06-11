@@ -1,5 +1,22 @@
 /** State HQ and area office details — aligned with sde.sjamsde.org.my/about_us/contact-us/ */
 
+export const FACEBOOK_PAGE_URL = "https://www.facebook.com/sjamsde";
+export const FACEBOOK_EMBED_WIDTH = 500;
+
+export function facebookPageEmbedUrl(width = FACEBOOK_EMBED_WIDTH) {
+  const params = new URLSearchParams({
+    href: FACEBOOK_PAGE_URL,
+    tabs: "timeline",
+    width: String(width),
+    height: "500",
+    small_header: "false",
+    adapt_container_width: "true",
+    hide_cover: "false",
+    show_facepile: "true",
+  });
+  return `https://www.facebook.com/plugins/page.php?${params}`;
+}
+
 export type GpsCoordinate = { lat: number; lng: number };
 
 export type AreaOffice = {

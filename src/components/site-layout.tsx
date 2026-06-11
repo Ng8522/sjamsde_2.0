@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, Menu, Phone, Plus, Mail, MapPin, Facebook } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { StoreDownloadBadges } from "@/components/store-download-badges";
@@ -14,6 +14,7 @@ import {
 import {
   STATE_HEADQUARTERS,
   googleMapsEmbedUrl,
+  FACEBOOK_PAGE_URL,
   stateHqGoogleMapsUrl,
   stateHqMapsQuery,
 } from "@/lib/contact-content";
@@ -388,9 +389,20 @@ export function SiteFooter({ id }: { id?: string }) {
         {/* Footer Bottom */}
         <div className="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} St John Ambulans Malaysia. All rights reserved.</p>
-          <p className="font-medium tracking-widest uppercase text-foreground/50 text-center sm:text-right">
-            Pro Utilitate Hominum
-          </p>
+          <div className="flex items-center justify-center sm:justify-end gap-5">
+            <a
+              href={FACEBOOK_PAGE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow SJAM Selangor on Facebook"
+              className="inline-flex size-9 items-center justify-center rounded-full border border-primary/20 bg-white/60 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <Facebook className="size-4" />
+            </a>
+            <p className="font-medium tracking-widest uppercase text-foreground/50">
+              Pro Utilitate Hominum
+            </p>
+          </div>
         </div>
       </div>
     </footer>
