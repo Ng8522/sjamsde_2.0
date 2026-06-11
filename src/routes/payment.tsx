@@ -193,7 +193,6 @@ function PaymentPage() {
               <p className="text-sm opacity-90 mb-2">Your gift supports</p>
               <ul className="text-sm space-y-2 opacity-95">
                 <li>- 24-hour ambulance fleet</li>
-                <li>- Subsidised haemodialysis</li>
                 <li>- Community training and outreach</li>
               </ul>
             </CardContent>

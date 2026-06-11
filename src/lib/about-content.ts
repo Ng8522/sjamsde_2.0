@@ -9,16 +9,32 @@ export const ABOUT_HERO = {
 } as const;
 
 export const ABOUT_INTRO = [
-  "St John Ambulans Malaysia (SJAM) Selangor Darul Ehsan (SDE) is the state branch serving residents, event organisers and partner agencies throughout Selangor. Our members and staff work alongside volunteers to deliver ambulance cover, haemodialysis support, public duty standby and community outreach.",
-  "The Selangor Coastal Area pioneered our ambulance operations in 1978. The first fully equipped ambulance and 24-hour emergency service began in 1990 — a milestone that continues to define how we respond today.",
-  "We are sustained by public donations, corporate partnerships and thousands of volunteers who share our motto: serve with heart, give with love.",
+  'St. John Ambulans Malaysia (SJAM) Selangor Darul Ehsan (SDE) is the state branch of SJAM serving communities throughout Selangor. Guided by our motto, "Service for Mankind", our volunteers and staff provide ambulance services, event medical coverage, first aid training, community healthcare programmes and humanitarian outreach initiatives.',
+  "Our ambulance operations began in the Selangor Coastal Area in 1978, and our first fully equipped ambulance with 24-hour emergency service was introduced in 1935. Since then, SJAM Selangor has continued to expand its services to meet the growing needs of the community.",
+  "In recent years, SJAM Selangor has strengthened its commitment to community healthcare through innovative outreach initiatives, including ophthalmic care programmes that provide free eye screening and prescription spectacles to underprivileged communities. Through partnerships with healthcare professionals, corporate sponsors and volunteers, thousands of individuals have benefited from these services.",
+  "SJAM Selangor is sustained by public donations, corporate partnerships and the dedication of our volunteers who contribute countless hours of service each year. Together, we continue to build a safer, healthier and more caring community for all.",
+  "Serve with Heart. Give with Love.",
+] as const;
+
+export const ABOUT_INTRO_PROGRAMMES_LEAD =
+  "Today, SJAM Selangor operates a wide range of programmes including:" as const;
+
+export const ABOUT_INTRO_PROGRAMMES = [
+  "Emergency and non-emergency ambulance services",
+  "Event Health Services and First Aid standby",
+  "First Aid, CPR and AED training",
+  "Youth leadership and cadet development programmes",
+  "Blood donation campaigns",
+  "Community health screening and outreach projects",
+  "Rakan St. John volunteer programme",
+  "Humanitarian and disaster relief support",
 ] as const;
 
 export const ABOUT_STATS = [
   { value: "40+", label: "Ambulances & support vehicles" },
   { value: "24/7", label: "Emergency hotline" },
   { value: "4,400+", label: "Volunteers statewide" },
-  { value: "1993", label: "Haemodialysis centre established" },
+  { value: "1935", label: "24-hour ambulance service launched" },
 ] as const;
 
 export const AMBULANCE_SERVICE = {
@@ -31,7 +47,7 @@ export const AMBULANCE_SERVICE = {
   email: "amb.sde@sjam.org.my",
   emailMailto: "mailto:amb.sde@sjam.org.my",
   points: [
-    "Statewide fleet of more than 40 ambulances and supporting vehicles, with the majority registered under the \"911\" plate series introduced in Selangor in 2005.",
+    'Statewide fleet of more than 40 ambulances and supporting vehicles, with the majority registered under the "911" plate series introduced in Selangor in 2005.',
     "Fleet includes standard ambulances, bariatric units, 4×4 vehicles, first-responder motorcycles and mobile clinic assets for community deployments.",
     "Fees may apply depending on location and case type; ambulance response for motor vehicle accidents is provided free of charge.",
     "Professional drivers and trained ambulance crews support public events, industrial sites and emergency call-outs across the state.",
@@ -55,10 +71,6 @@ export const ABOUT_OTHER_SERVICES = [
   {
     title: "Public duty standby",
     description: "Medical teams for sports fixtures, concerts, festivals and official gatherings.",
-  },
-  {
-    title: "Haemodialysis centre",
-    description: "Subsidised dialysis at our Klang centre — enquiries: 03-3373 5005.",
   },
   {
     title: "First aid & CPR courses",

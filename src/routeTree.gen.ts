@@ -15,7 +15,6 @@ import { Route as QualifiedTrainersRouteImport } from './routes/qualified-traine
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as HaemodialysisServiceRouteImport } from './routes/haemodialysis-service'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
@@ -59,11 +58,6 @@ const PaymentRoute = PaymentRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HaemodialysisServiceRoute = HaemodialysisServiceRouteImport.update({
-  id: '/haemodialysis-service',
-  path: '/haemodialysis-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -145,7 +139,6 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
-  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -167,7 +160,6 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
-  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -191,7 +183,6 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
-  '/haemodialysis-service': typeof HaemodialysisServiceRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -216,7 +207,6 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
-    | '/haemodialysis-service'
     | '/login'
     | '/payment'
     | '/programs'
@@ -238,7 +228,6 @@ export interface FileRouteTypes {
     | '/courses'
     | '/donate'
     | '/events'
-    | '/haemodialysis-service'
     | '/login'
     | '/payment'
     | '/programs'
@@ -261,7 +250,6 @@ export interface FileRouteTypes {
     | '/donate'
     | '/events'
     | '/gallery'
-    | '/haemodialysis-service'
     | '/login'
     | '/payment'
     | '/programs'
@@ -285,7 +273,6 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRouteWithChildren
-  HaemodialysisServiceRoute: typeof HaemodialysisServiceRoute
   LoginRoute: typeof LoginRoute
   PaymentRoute: typeof PaymentRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -339,13 +326,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/haemodialysis-service': {
-      id: '/haemodialysis-service'
-      path: '/haemodialysis-service'
-      fullPath: '/haemodialysis-service'
-      preLoaderRoute: typeof HaemodialysisServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -491,7 +471,6 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRouteWithChildren,
-  HaemodialysisServiceRoute: HaemodialysisServiceRoute,
   LoginRoute: LoginRoute,
   PaymentRoute: PaymentRoute,
   ProgramsRoute: ProgramsRoute,

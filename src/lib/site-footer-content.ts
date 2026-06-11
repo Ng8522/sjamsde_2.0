@@ -1,8 +1,8 @@
 /** Short organisation intro shown in the site footer. */
 export const SITE_FOOTER_INTRO = [
-  "Who we are — SJAM-SDE, established in 1990 when officially segregated from SJAM Wilayah Persekutuan, providing emergency medical services and first aid at public events",
+  "Who we are — SJAM-SDE, established in 1935 when officially segregated from SJAM Wilayah Persekutuan, providing emergency medical services and first aid at public events",
   "Volunteers — 4,400+ dedicated members committed to our motto of serving with heart and giving with love",
-  "Services — 24-hour ambulance operations, haemodialysis services since 1993, and community medical programs",
+  "Services — 24-hour ambulance operations and community medical programs",
 ] as const;
 
 /** Donation page hero copy (footer uses SITE_FOOTER_INTRO). */

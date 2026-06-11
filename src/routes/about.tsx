@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button";
 import {
   ABOUT_HERO,
   ABOUT_INTRO,
+  ABOUT_INTRO_PROGRAMMES,
+  ABOUT_INTRO_PROGRAMMES_LEAD,
   ABOUT_STATS,
 } from "@/lib/about-content";
 import {
@@ -112,8 +114,23 @@ function AboutPage() {
               <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-4 py-2 rounded-full w-fit border border-primary/20 mb-6">Who we are</span>
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-8 leading-tight">Serving with <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">heart</span></h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
-                {ABOUT_INTRO.map((paragraph) => (
-                  <p key={paragraph.slice(0, 40)} className="text-base font-medium">{paragraph}</p>
+                {ABOUT_INTRO.slice(0, 2).map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)} className="text-base font-medium">
+                    {paragraph}
+                  </p>
+                ))}
+                <div>
+                  <p className="text-base font-medium mb-3">{ABOUT_INTRO_PROGRAMMES_LEAD}</p>
+                  <ul className="list-disc pl-5 space-y-1.5 text-base font-medium">
+                    {ABOUT_INTRO_PROGRAMMES.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                {ABOUT_INTRO.slice(2).map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)} className="text-base font-medium">
+                    {paragraph}
+                  </p>
                 ))}
               </div>
               <div className="mt-12 flex flex-wrap gap-4">

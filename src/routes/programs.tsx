@@ -45,8 +45,8 @@ const serviceHighlights = [
     cta: "Contact",
     phoneHref: "tel:0196820911",
     phoneLabel: "019-682 0911",
-    emailHref: "mailto:admin@sjamsde.org.my",
-    emailLabel: "admin@sjamsde.org.my",
+    emailHref: "mailto:user.selangor@sjam.org.my",
+    emailLabel: "user.selangor@sjam.org.my",
     featured: false,
   },
   {
@@ -65,8 +65,8 @@ const serviceHighlights = [
     subtitle: "Training for individuals and teams",
     image: courseImg,
     cta: "Contact",
-    emailHref: "mailto:admin@sjamsde.org.my",
-    emailLabel: "admin@sjamsde.org.my",
+    emailHref: "mailto:user.selangor@sjam.org.my",
+    emailLabel: "user.selangor@sjam.org.my",
     featured: false,
   },
 ] as const;
@@ -130,12 +130,33 @@ function ProgramsPage() {
                   {service.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mt-1">{service.subtitle}</p>
-                {"details" in service && (
-                  <p className="text-xs text-muted-foreground/90 mt-2 mb-5 leading-relaxed">
-                    {service.details}
-                  </p>
-                )}
-                {"phoneHref" in service && "emailHref" in service ? (
+                {"to" in service ? (
+                  <div className="mt-auto pt-1 space-y-2">
+                    <Link
+                      to={service.to}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                    >
+                      {service.cta}
+                      <ArrowRight className="size-4 shrink-0" />
+                    </Link>
+                    {"phoneHref" in service && (
+                      <a
+                        href={service.phoneHref}
+                        className="block text-sm text-primary hover:underline"
+                      >
+                        {service.phoneLabel}
+                      </a>
+                    )}
+                    {"emailHref" in service && (
+                      <a
+                        href={service.emailHref}
+                        className="block text-sm text-primary hover:underline break-all"
+                      >
+                        {service.emailLabel}
+                      </a>
+                    )}
+                  </div>
+                ) : "phoneHref" in service && "emailHref" in service ? (
                   <div className="mt-auto pt-1">
                     <p className="text-sm font-semibold text-primary mb-2">{service.cta}</p>
                     <div className="flex flex-col gap-1.5 text-sm">
@@ -159,29 +180,6 @@ function ProgramsPage() {
                     >
                       {service.emailLabel}
                     </a>
-                  </div>
-                ) : "to" in service ? (
-                  <div className="mt-auto pt-1 space-y-2">
-                    <Link
-                      to={service.to}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-                    >
-                      {service.cta}
-                      <ArrowRight className="size-4 shrink-0" />
-                    </Link>
-                    {"phoneHref" in service && (
-                      <a href={service.phoneHref} className="block text-sm text-primary hover:underline">
-                        {service.phoneLabel}
-                      </a>
-                    )}
-                    {"emailHref" in service && (
-                      <a
-                        href={service.emailHref}
-                        className="block text-sm text-primary hover:underline break-all"
-                      >
-                        {service.emailLabel}
-                      </a>
-                    )}
                   </div>
                 ) : null}
               </article>

@@ -48,20 +48,6 @@ export const donationCampaigns: DonationCampaign[] = [
       "Your support funds blood drive logistics, volunteer kits, venue setup, and public awareness campaigns that strengthen blood bank reserves.",
   },
   {
-    id: "dialysis-patient-transport-aid",
-    title: "Dialysis Patient Transport Aid",
-    org: "SJAM Selangor",
-    status: "Urgent",
-    raised: 2825,
-    goal: 15000,
-    donors: 34,
-    imageSrc: mobileClinicImg,
-    category: "Patient Assistance",
-    location: "Selangor",
-    story:
-      "This campaign supports low-income dialysis patients by reducing transport burden and helping them attend treatment consistently.",
-  },
-  {
     id: "flood-relief-medical-packs",
     title: "Flood Relief Medical Packs",
     org: "SJAM Selangor",

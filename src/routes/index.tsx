@@ -81,8 +81,8 @@ const services = [
     icon: HeartPulse,
     title: "Public Duty StandBy",
     desc: "Our major public service since establishment, with members stationed at sports events, social gatherings, and parades to provide first aid anytime, anywhere.",
-    href: "mailto:admin@sjamsde.org.my",
-    cta: "Inquiries: admin@sjamsde.org.my",
+    href: "mailto:user.selangor@sjam.org.my",
+    cta: "Inquiries: user.selangor@sjam.org.my",
   },
   {
     icon: Eye,
@@ -95,8 +95,8 @@ const services = [
     icon: GraduationCap,
     title: "Public First Aid Classes",
     desc: "Accredited CPR and emergency trauma certification for individuals and corporates.",
-    href: "mailto:admin@sjamsde.org.my",
-    cta: "Email to: admin@sjamsde.org.my",
+    href: "mailto:user.selangor@sjam.org.my",
+    cta: "Email to: user.selangor@sjam.org.my",
   },
 ];
 
@@ -105,7 +105,7 @@ const community = [
     n: "01",
     icon: HeartHandshake,
     title: "Fundraising",
-    desc: "Public appeals and campaigns that sustain ambulance operations, dialysis subsidies and community programmes.",
+    desc: "Public appeals and campaigns that sustain ambulance operations and community programmes.",
     href: "/donate" as const,
     imageSrc: fundraisingImg,
   },
@@ -236,7 +236,7 @@ function Index() {
             <div className="animate-on-scroll">
               <span className="inline-flex items-center gap-2 text-primary font-semibold text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-5 bg-gradient-to-r from-primary/10 to-secondary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full w-fit border border-primary/20">
                 <span className="size-2 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
-                SJAM SDE · Est. 1990
+                SJAM SDE · Est. 1935
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-semibold tracking-tighter text-balance leading-[1.08] mb-4 sm:mb-5 text-foreground">
                 Serve with{" "}
@@ -352,7 +352,7 @@ function Index() {
         <div className="border-y border-primary/20 bg-gradient-to-r from-primary/8 via-background to-secondary/8 backdrop-blur-xl relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-primary/15">
             {[
-              { v: "35+", l: "Years in Selangor" },
+              { v: "90+", l: "Years in Selangor" },
               { v: "24/7", l: "Emergency Ready" },
               { v: "1,200+", l: "Active Volunteers" },
               { v: "50k+", l: "Lives Touched" },

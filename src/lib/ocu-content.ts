@@ -31,4 +31,11 @@ export const OCU = {
     { value: "Volunteer-led", label: "Clinical teams" },
     { value: "Free glasses", label: "For those in need" },
   ],
+  introVideo: {
+    title: "Introducing the Ophthalmic Care Unit",
+    caption: "Ophthalmic Care Unit, St. John Ambulans Malaysia — Negeri Selangor",
+    embedUrl:
+      "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fsjamsde%2Fvideos%2F768692135686742%2F&show_text=true&width=560",
+    watchUrl: "https://www.facebook.com/sjamsde/videos/768692135686742/",
+  },
 } as const;

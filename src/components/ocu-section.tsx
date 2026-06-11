@@ -60,6 +60,31 @@ export function OcuSection() {
         </p>
 
         <div className="p-8 pt-4">
+          <div className="mb-8">
+            <h4 className="text-lg font-bold text-foreground mb-1">{OCU.introVideo.title}</h4>
+            <p className="text-sm text-muted-foreground mb-4">{OCU.introVideo.caption}</p>
+            <div className="rounded-xl overflow-hidden border border-primary/20 bg-muted/30 shadow-sm">
+              <div className="relative w-full aspect-video max-w-3xl mx-auto">
+                <iframe
+                  title={OCU.introVideo.caption}
+                  src={OCU.introVideo.embedUrl}
+                  className="absolute inset-0 size-full border-0"
+                  scrolling="no"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+            <a
+              href={OCU.introVideo.watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 text-sm font-semibold text-primary hover:underline"
+            >
+              Watch on Facebook
+            </a>
+          </div>
+
           <div className="flex flex-col lg:flex-row lg:items-start gap-8 mb-8">
             <div className="flex-1 min-w-0">
               <div className="flex items-start gap-4 mb-5">

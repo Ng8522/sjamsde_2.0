@@ -59,8 +59,7 @@ export const AREA_OFFICES: AreaOffice[] = [
     nameMs: "Kawasan Selangor Tengah Utara",
     address: ["1, Jalan 4", "Desa Jaya, Kepong", "52100 Kuala Lumpur"],
     gps: { lat: 3.2148, lng: 101.63111 },
-    tel: ["03-6277 2911", "017-207 2766"],
-    fax: "03-6277 2911",
+    tel: ["0126527447"],
     email: ["sjamkstghu@sjam.org.my", "sjamkstu@hotmail.com"],
   },
   {
@@ -99,10 +98,7 @@ export const AREA_OFFICES: AreaOffice[] = [
     id: "ksb",
     nameEn: "Western Selangor Area",
     nameMs: "Kawasan Selangor Barat",
-    address: [
-      "D-G-7 (1st Floor), Jalan Seri Pekan 5",
-      "Medan Seri Pekan, 42700 Banting, Selangor",
-    ],
+    address: ["D-G-7 (1st Floor), Jalan Seri Pekan 5", "Medan Seri Pekan, 42700 Banting, Selangor"],
     gps: { lat: 2.80985, lng: 101.50338 },
     tel: ["012-226 4767", "03-3181 6911"],
     email: ["sjamksb@sjam.org.my"],
