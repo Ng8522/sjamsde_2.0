@@ -15,7 +15,10 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { MOBILE_CLINIC } from "@/lib/mobile-clinic-content";
+import {
+  MOBILE_CLINIC,
+  MOBILE_CLINIC_DEPLOYMENTS,
+} from "@/lib/mobile-clinic-content";
 import { mobileClinicEvents, type MobileClinicEvent } from "@/lib/mobile-clinic-events";
 import { cn } from "@/lib/utils";
 
@@ -127,8 +130,8 @@ export function MobileClinicSection() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-6 border-y border-primary/10 mb-8">
             <StatCard
-              value={String(deploymentCount)}
-              label={`Deployments in ${new Date().getFullYear()}`}
+              value={MOBILE_CLINIC_DEPLOYMENTS}
+              label="Deployments completed"
               accent
             />
             {MOBILE_CLINIC.stats.map((stat) => (

@@ -1,5 +1,12 @@
 /** Mobile Clinic program copy for the Programs page. */
 
+export const MOBILE_CLINIC_START_YEAR = 2012;
+export const MOBILE_CLINIC_DEPLOYMENTS = "60+";
+
+export function getMobileClinicYearsSinceStart() {
+  return `${new Date().getFullYear() - MOBILE_CLINIC_START_YEAR}+`;
+}
+
 export const MOBILE_CLINIC = {
   title: "Mobile Clinic",
   summary:
@@ -16,7 +23,7 @@ export const MOBILE_CLINIC = {
     "Referrals to partner healthcare providers",
   ],
   stats: [
-    { value: "60+", label: "Years of community service" },
+    { value: getMobileClinicYearsSinceStart(), label: `Years of outreach since ${MOBILE_CLINIC_START_YEAR}` },
     { value: "Selangor-wide", label: "Deployment coverage" },
     { value: "Volunteer-led", label: "Medical teams" },
   ],

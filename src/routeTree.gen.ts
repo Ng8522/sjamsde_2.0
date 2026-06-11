@@ -23,11 +23,13 @@ import { Route as Ambulance24hrRouteImport } from './routes/ambulance-24hr'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as OcuDeploymentIdRouteImport } from './routes/ocu.$deploymentId'
 import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
 import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as DonationProjectIdRouteImport } from './routes/donation.$projectId'
+import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 import { Route as AboutQualifiedTrainersRouteImport } from './routes/about/qualified-trainers'
 
 const VolunteerRoute = VolunteerRouteImport.update({
@@ -100,6 +102,11 @@ const GalleryIndexRoute = GalleryIndexRouteImport.update({
   path: '/',
   getParentRoute: () => GalleryRoute,
 } as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CoursesRoute,
+} as any)
 const OcuDeploymentIdRoute = OcuDeploymentIdRouteImport.update({
   id: '/ocu/$deploymentId',
   path: '/ocu/$deploymentId',
@@ -125,6 +132,11 @@ const DonationProjectIdRoute = DonationProjectIdRouteImport.update({
   path: '/donation/$projectId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
+  id: '/$courseId',
+  path: '/$courseId',
+  getParentRoute: () => CoursesRoute,
+} as any)
 const AboutQualifiedTrainersRoute = AboutQualifiedTrainersRouteImport.update({
   id: '/qualified-trainers',
   path: '/qualified-trainers',
@@ -135,7 +147,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
   '/ambulance-24hr': typeof Ambulance24hrRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
@@ -146,18 +158,19 @@ export interface FileRoutesByFullPath {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
+  '/courses/': typeof CoursesIndexRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
   '/ambulance-24hr': typeof Ambulance24hrRoute
-  '/courses': typeof CoursesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/login': typeof LoginRoute
@@ -167,11 +180,13 @@ export interface FileRoutesByTo {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
+  '/courses': typeof CoursesIndexRoute
   '/gallery': typeof GalleryIndexRoute
 }
 export interface FileRoutesById {
@@ -179,7 +194,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRouteWithChildren
   '/ambulance-24hr': typeof Ambulance24hrRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/donate': typeof DonateRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
@@ -190,11 +205,13 @@ export interface FileRoutesById {
   '/schedule': typeof ScheduleRoute
   '/volunteer': typeof VolunteerRoute
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
+  '/courses/': typeof CoursesIndexRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRouteTypes {
@@ -214,18 +231,19 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/courses/$courseId'
     | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
+    | '/courses/'
     | '/gallery/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/ambulance-24hr'
-    | '/courses'
     | '/donate'
     | '/events'
     | '/login'
@@ -235,11 +253,13 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/courses/$courseId'
     | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
+    | '/courses'
     | '/gallery'
   id:
     | '__root__'
@@ -257,11 +277,13 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/volunteer'
     | '/about/qualified-trainers'
+    | '/courses/$courseId'
     | '/donation/$projectId'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
+    | '/courses/'
     | '/gallery/'
   fileRoutesById: FileRoutesById
 }
@@ -269,7 +291,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRouteWithChildren
   Ambulance24hrRoute: typeof Ambulance24hrRoute
-  CoursesRoute: typeof CoursesRoute
+  CoursesRoute: typeof CoursesRouteWithChildren
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRouteWithChildren
@@ -384,6 +406,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryIndexRouteImport
       parentRoute: typeof GalleryRoute
     }
+    '/courses/': {
+      id: '/courses/'
+      path: '/'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof CoursesRoute
+    }
     '/ocu/$deploymentId': {
       id: '/ocu/$deploymentId'
       path: '/ocu/$deploymentId'
@@ -419,6 +448,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DonationProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/$courseId': {
+      id: '/courses/$courseId'
+      path: '/$courseId'
+      fullPath: '/courses/$courseId'
+      preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof CoursesRoute
+    }
     '/about/qualified-trainers': {
       id: '/about/qualified-trainers'
       path: '/qualified-trainers'
@@ -438,6 +474,19 @@ const AboutRouteChildren: AboutRouteChildren = {
 }
 
 const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
+
+interface CoursesRouteChildren {
+  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+}
+
+const CoursesRouteChildren: CoursesRouteChildren = {
+  CoursesCourseIdRoute: CoursesCourseIdRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+}
+
+const CoursesRouteWithChildren =
+  CoursesRoute._addFileChildren(CoursesRouteChildren)
 
 interface EventsRouteChildren {
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -467,7 +516,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRouteWithChildren,
   Ambulance24hrRoute: Ambulance24hrRoute,
-  CoursesRoute: CoursesRoute,
+  CoursesRoute: CoursesRouteWithChildren,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRouteWithChildren,
