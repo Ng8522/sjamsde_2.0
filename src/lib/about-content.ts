@@ -48,7 +48,7 @@ export const AMBULANCE_SERVICE = {
   emailMailto: "mailto:amb.sde@sjam.org.my",
   points: [
     'Statewide fleet of more than 40 ambulances and supporting vehicles, with the majority registered under the "911" plate series introduced in Selangor in 2005.',
-    "Fleet includes standard ambulances, bariatric units, 4×4 vehicles, first-responder motorcycles and mobile clinic assets for community deployments.",
+    "Fleet includes standard ambulances, bariatric units, 4×4 vehicles, first-responder motorcycles and outreach program assets for community deployments.",
     "Fees may apply depending on location and case type; ambulance response for motor vehicle accidents is provided free of charge.",
     "Professional drivers and trained ambulance crews support public events, industrial sites and emergency call-outs across the state.",
   ],

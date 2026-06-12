@@ -27,7 +27,7 @@ const areaFleet = [
       "4 first responder units (Mofaz Scooter x2, Modenas Scooter x2)",
       "2 minibuses (Ford Transit x1, M/Benz 313 Sprinter x1)",
       "2 box vans (HINO 5 Ton Lorry x1, Inokom Box Van x1)",
-      "1 pickup (Era Star), 1 mobile clinic (Ford Transit 350L)",
+      "1 pickup (Era Star), 1 Outreach Program vehicle (Ford Transit 350L)",
     ],
   },
   {

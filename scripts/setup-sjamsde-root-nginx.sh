@@ -43,7 +43,7 @@ block = f"""
 \t\tproxy_set_header X-Forwarded-Proto $scheme;
 \t}}
 
-\tlocation /api/donations/ {{
+\tlocation /api/donations {{
 \t\tproxy_pass http://127.0.0.1:8080;
 \t\tproxy_set_header Host $host;
 \t\tproxy_set_header X-Real-IP $remote_addr;

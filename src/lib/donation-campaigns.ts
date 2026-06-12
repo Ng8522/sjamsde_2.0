@@ -105,7 +105,7 @@ export const donationCampaigns: DonationCampaign[] = [
   },
   {
     id: "mobile-clinic-medicine-basket",
-    title: "Mobile Clinic Medicine Basket",
+    title: "Outreach Program Medicine Basket",
     org: "SJAM Selangor",
     status: "Urgent",
     raised: 11890,

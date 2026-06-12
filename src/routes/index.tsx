@@ -33,6 +33,7 @@ import disasterReliefImg from "../assets/disaster_relief.jpg";
 import fundraisingImg from "../assets/fund1.jpg";
 import mobileClinicImg from "../assets/mobile_clinic.JPG";
 import ocuImg from "../assets/ocu/47th Deployment/700971405_1653371716790566_7397446257909075388_n.jpg";
+import aboutBgImg from "../assets/about-bg.jpg";
 import { StoreDownloadBadges } from "@/components/store-download-badges";
 import { HOMEPAGE_APPLICATION_FORMS } from "@/lib/application-forms";
 import {
@@ -125,9 +126,9 @@ const community = [
   {
     n: "03",
     icon: Truck,
-    title: "Mobile Clinic",
+    title: "Outreach Program",
     desc: "Bringing basic medical consultation and health screenings to underserved areas.",
-    href: "/programs#mobile-clinic",
+    href: "/programs#outreach-program",
     imageSrc: mobileClinicImg,
   },
   {
@@ -150,6 +151,7 @@ const community = [
 function Index() {
   const [adOpen, setAdOpen] = useState(true);
   const [appPreviewOpen, setAppPreviewOpen] = useState(false);
+  const [teamPhotoOpen, setTeamPhotoOpen] = useState(false);
 
   const upcomingThisMonth = useMemo(() => {
     const now = new Date();
@@ -225,7 +227,7 @@ function Index() {
       <SiteTopChrome />
 
       <div className="overflow-x-hidden">
-        {/* Hero */}
+        {/* Hero — intro + services; team photo under headline */}
         <section className="relative overflow-hidden bg-gradient-to-br from-background via-primary/2 to-background">
           {/* Decorative animated gradients */}
           <div className="absolute inset-0 -z-10">
@@ -237,14 +239,14 @@ function Index() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full blur-3xl" />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-12 relative z-10">
-            <div className="grid lg:grid-cols-[1fr_1.05fr] gap-8 sm:gap-10 lg:gap-14 items-start lg:items-center">
-              <div className="animate-on-scroll">
-                <span className="inline-flex items-center gap-2 text-primary font-semibold text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-5 bg-gradient-to-r from-primary/10 to-secondary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full w-fit border border-primary/20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-3 sm:pt-5 pb-6 sm:pb-8 relative z-10">
+            <div className="grid md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-5 sm:gap-6 lg:gap-10 items-start">
+              <div className="animate-on-scroll min-w-0">
+                <span className="inline-flex items-center gap-2 text-primary font-semibold text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-4 bg-gradient-to-r from-primary/10 to-secondary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full w-fit border border-primary/20">
                   <span className="size-2 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse" />
                   SJAM SDE · Est. 1935
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-semibold tracking-tighter text-balance leading-[1.08] mb-4 sm:mb-5 text-foreground">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter text-balance leading-[1.08] mb-2 sm:mb-4 text-foreground">
                   Serve with{" "}
                   <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                     heart
@@ -255,33 +257,55 @@ function Index() {
                   </span>
                   .
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-[52ch] mb-6 sm:mb-8 leading-relaxed">
+                <figure className="mb-3 sm:mb-4">
+                  <button
+                    type="button"
+                    onClick={() => setTeamPhotoOpen(true)}
+                    className="block w-full cursor-zoom-in rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    aria-label="View team photo enlarged"
+                  >
+                    <img
+                      src={aboutBgImg}
+                      alt="St John Ambulance Malaysia Selangor Darul Ehsan — members and volunteers"
+                      className="w-full max-h-28 sm:max-h-36 md:max-h-40 lg:max-h-44 object-cover object-center rounded-xl border border-border/80 shadow-md shadow-primary/10"
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  </button>
+                  <figcaption className="sr-only">
+                    St John Ambulance of Malaysia — Selangor Darul Ehsan
+                  </figcaption>
+                  <Dialog open={teamPhotoOpen} onOpenChange={setTeamPhotoOpen}>
+                    <DialogContent className="max-w-[min(96vw,56rem)] border-border p-2 sm:p-3 gap-0">
+                      <DialogTitle className="sr-only">
+                        St John Ambulance Malaysia Selangor Darul Ehsan — team photo
+                      </DialogTitle>
+                      <img
+                        src={aboutBgImg}
+                        alt="St John Ambulance Malaysia Selangor Darul Ehsan — members and volunteers — enlarged"
+                        className="w-full max-h-[min(88vh,40rem)] object-contain rounded-lg"
+                      />
+                    </DialogContent>
+                  </Dialog>
+                </figure>
+                <p className="hidden sm:block text-sm lg:text-base text-muted-foreground max-w-[52ch] mb-4 leading-relaxed">
                   Professional emergency medical response and community care across Selangor —
                   sustained by volunteers, clinicians and your generosity.
                 </p>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
-                  <a
-                    href="tel:0196820911"
-                    className="inline-flex items-center justify-center gap-2.5 min-h-12 w-full sm:w-auto px-7 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] sm:hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase group"
-                  >
-                    <Phone className="size-5 group-hover:animate-bounce" />
-                    Emergency Call
-                  </a>
-                  <a
-                    href="#services"
-                    className="hidden lg:inline-flex items-center justify-center gap-2 min-h-12 text-sm font-semibold text-primary hover:text-secondary transition-colors"
-                  >
-                    View all services
-                    <ArrowRight className="size-4" />
-                  </a>
-                </div>
+                <a
+                  href="tel:0196820911"
+                  className="inline-flex items-center justify-center gap-2.5 min-h-11 w-full sm:w-auto px-6 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] sm:hover:-translate-y-0.5 transition-all text-sm tracking-wider uppercase group"
+                >
+                  <Phone className="size-5 group-hover:animate-bounce" />
+                  Emergency Call
+                </a>
               </div>
 
               <div
                 id="services"
                 className="scroll-mt-[8.5rem] sm:scroll-mt-24 animate-on-scroll rounded-2xl border border-primary/15 bg-card/90 backdrop-blur-md shadow-xl sm:shadow-2xl shadow-primary/10 ring-1 ring-primary/5 overflow-hidden min-w-0"
               >
-                <div className="px-4 py-3.5 sm:px-6 sm:py-4 border-b border-primary/10 bg-gradient-to-r from-primary/[0.07] via-background to-secondary/[0.07]">
+                <div className="px-4 py-2.5 sm:px-5 sm:py-3 border-b border-primary/10 bg-gradient-to-r from-primary/[0.07] via-background to-secondary/[0.07]">
                   <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
                     <span className="size-2 rounded-full bg-gradient-to-r from-primary to-secondary" />
                     <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
@@ -293,7 +317,7 @@ function Index() {
                   </p>
                 </div>
                 <div
-                  className="p-3 sm:p-4 lg:p-5 flex gap-3 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-px-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:overflow-visible lg:snap-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                  className="p-2.5 sm:p-3 lg:p-4 flex gap-2.5 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-px-2.5 md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:snap-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                   aria-label="Our services"
                 >
                   {services.map((s, idx) => {
@@ -301,7 +325,7 @@ function Index() {
                       "internal" in s && s.internal ? (
                         <Link
                           to={s.href}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 lg:min-h-0 -ml-1 pl-1"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 md:min-h-0 -ml-1 pl-1"
                         >
                           {s.cta}
                           <ArrowRight className="size-4 shrink-0 group-hover/link:translate-x-0.5 transition-transform" />
@@ -309,7 +333,7 @@ function Index() {
                       ) : (
                         <a
                           href={s.href}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 lg:min-h-0 -ml-1 pl-1"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-secondary group/link min-h-10 md:min-h-0 -ml-1 pl-1"
                         >
                           {s.cta}
                           <ArrowRight className="size-4 shrink-0 group-hover/link:translate-x-0.5 transition-transform" />
@@ -319,14 +343,14 @@ function Index() {
                     return (
                       <article
                         key={s.title}
-                        className={`group relative flex flex-row lg:flex-col gap-3 lg:gap-0 snap-start shrink-0 w-[min(88vw,18.5rem)] sm:w-[17.25rem] lg:w-auto lg:shrink rounded-xl p-3.5 sm:p-4 lg:p-[1.125rem] border transition-all duration-300 active:scale-[0.99] lg:hover:-translate-y-0.5 lg:hover:shadow-lg lg:hover:shadow-primary/10 ${
+                        className={`group relative flex flex-row md:flex-col gap-2.5 md:gap-0 snap-start shrink-0 w-[min(84vw,17rem)] sm:w-[16rem] md:w-auto md:shrink rounded-xl p-3 sm:p-3.5 border transition-all duration-300 active:scale-[0.99] md:hover:-translate-y-0.5 md:hover:shadow-lg md:hover:shadow-primary/10 ${
                           s.live
                             ? "border-primary/25 bg-gradient-to-br from-primary/[0.08] via-card to-secondary/[0.06] lg:hover:border-primary/40 ring-1 ring-primary/10"
                             : "border-border/80 bg-gradient-to-br from-background to-muted/30 lg:hover:border-primary/25"
                         }`}
                         style={{ animationDelay: `${idx * 75}ms` }}
                       >
-                        <div className="size-10 sm:size-11 shrink-0 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shadow-md shadow-primary/25 lg:mb-3">
+                        <div className="size-10 sm:size-11 shrink-0 rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground grid place-items-center shadow-md shadow-primary/25 md:mb-2.5">
                           <s.icon className="size-[1.125rem] sm:size-5" />
                         </div>
                         <div className="flex flex-col min-w-0 flex-1">
@@ -347,7 +371,7 @@ function Index() {
                     );
                   })}
                 </div>
-                <p className="lg:hidden text-center text-[11px] text-muted-foreground pb-3 px-4">
+                <p className="md:hidden text-center text-[11px] text-muted-foreground pb-2.5 px-4">
                   Swipe for more services
                 </p>
               </div>
@@ -365,7 +389,7 @@ function Index() {
               ].map((s) => (
                 <div
                   key={s.l}
-                  className="px-3 sm:px-4 md:px-6 py-5 sm:py-6 md:py-8 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default"
+                  className="px-3 sm:px-4 md:px-6 py-4 sm:py-5 md:py-6 text-center md:text-left group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/5 transition-all cursor-default"
                 >
                   <div className="text-xl sm:text-2xl md:text-3xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent tabular-nums group-hover:scale-105 transition-transform origin-center md:origin-left">
                     {s.v}
@@ -377,6 +401,7 @@ function Index() {
               ))}
             </div>
           </div>
+
         </section>
 
         {/* Community */}

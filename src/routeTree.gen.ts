@@ -28,6 +28,8 @@ import { Route as OcuDeploymentIdRouteImport } from './routes/ocu.$deploymentId'
 import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
 import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as DonationsLoginRouteImport } from './routes/donations.login'
+import { Route as DonationsEntryRouteImport } from './routes/donations.entry'
 import { Route as DonationProjectIdRouteImport } from './routes/donation.$projectId'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 import { Route as AboutQualifiedTrainersRouteImport } from './routes/about/qualified-trainers'
@@ -127,6 +129,16 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/$eventId',
   getParentRoute: () => EventsRoute,
 } as any)
+const DonationsLoginRoute = DonationsLoginRouteImport.update({
+  id: '/donations/login',
+  path: '/donations/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonationsEntryRoute = DonationsEntryRouteImport.update({
+  id: '/donations/entry',
+  path: '/donations/entry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DonationProjectIdRoute = DonationProjectIdRouteImport.update({
   id: '/donation/$projectId',
   path: '/donation/$projectId',
@@ -160,6 +172,8 @@ export interface FileRoutesByFullPath {
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
+  '/donations/entry': typeof DonationsEntryRoute
+  '/donations/login': typeof DonationsLoginRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -182,6 +196,8 @@ export interface FileRoutesByTo {
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
+  '/donations/entry': typeof DonationsEntryRoute
+  '/donations/login': typeof DonationsLoginRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -207,6 +223,8 @@ export interface FileRoutesById {
   '/about/qualified-trainers': typeof AboutQualifiedTrainersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/donation/$projectId': typeof DonationProjectIdRoute
+  '/donations/entry': typeof DonationsEntryRoute
+  '/donations/login': typeof DonationsLoginRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/gallery/$albumId': typeof GalleryAlbumIdRoute
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
@@ -233,6 +251,8 @@ export interface FileRouteTypes {
     | '/about/qualified-trainers'
     | '/courses/$courseId'
     | '/donation/$projectId'
+    | '/donations/entry'
+    | '/donations/login'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -255,6 +275,8 @@ export interface FileRouteTypes {
     | '/about/qualified-trainers'
     | '/courses/$courseId'
     | '/donation/$projectId'
+    | '/donations/entry'
+    | '/donations/login'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -279,6 +301,8 @@ export interface FileRouteTypes {
     | '/about/qualified-trainers'
     | '/courses/$courseId'
     | '/donation/$projectId'
+    | '/donations/entry'
+    | '/donations/login'
     | '/events/$eventId'
     | '/gallery/$albumId'
     | '/mobile-clinic/$eventId'
@@ -302,6 +326,8 @@ export interface RootRouteChildren {
   ScheduleRoute: typeof ScheduleRoute
   VolunteerRoute: typeof VolunteerRoute
   DonationProjectIdRoute: typeof DonationProjectIdRoute
+  DonationsEntryRoute: typeof DonationsEntryRoute
+  DonationsLoginRoute: typeof DonationsLoginRoute
   MobileClinicEventIdRoute: typeof MobileClinicEventIdRoute
   OcuDeploymentIdRoute: typeof OcuDeploymentIdRoute
 }
@@ -441,6 +467,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof EventsRoute
     }
+    '/donations/login': {
+      id: '/donations/login'
+      path: '/donations/login'
+      fullPath: '/donations/login'
+      preLoaderRoute: typeof DonationsLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donations/entry': {
+      id: '/donations/entry'
+      path: '/donations/entry'
+      fullPath: '/donations/entry'
+      preLoaderRoute: typeof DonationsEntryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/donation/$projectId': {
       id: '/donation/$projectId'
       path: '/donation/$projectId'
@@ -527,6 +567,8 @@ const rootRouteChildren: RootRouteChildren = {
   ScheduleRoute: ScheduleRoute,
   VolunteerRoute: VolunteerRoute,
   DonationProjectIdRoute: DonationProjectIdRoute,
+  DonationsEntryRoute: DonationsEntryRoute,
+  DonationsLoginRoute: DonationsLoginRoute,
   MobileClinicEventIdRoute: MobileClinicEventIdRoute,
   OcuDeploymentIdRoute: OcuDeploymentIdRoute,
 }

@@ -1,25 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock3, MapPin, Share2, Users } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { getDonationCampaignById } from "@/lib/donation-campaigns";
+import { fetchDonationRecent } from "@/lib/donation-api";
+import { formatDonationRm, formatDonorName } from "@/lib/donation-leaderboard";
 
 export const Route = createFileRoute("/donation/$projectId")({
   component: DonationDetailsPage,
 });
 
-const mockDonations = [
-  { name: "Anonymous", amount: 20 },
-  { name: "Eke", amount: 100 },
-  { name: "Anonymous", amount: 500 },
-  { name: "Anonymous", amount: 15 },
-  { name: "Anonymous", amount: 25 },
-] as const;
-
 function DonationDetailsPage() {
   const { projectId } = Route.useParams();
   const project = getDonationCampaignById(projectId);
+  const { data: recent } = useQuery({
+    queryKey: ["donation-recent"],
+    queryFn: fetchDonationRecent,
+    refetchInterval: 15_000,
+  });
 
   if (!project) {
     return (
@@ -122,15 +122,24 @@ function DonationDetailsPage() {
             <article className="rounded-xl border border-border bg-card p-4">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-base font-semibold">Recent Donations</h2>
-                <span className="text-xs text-primary font-semibold">{project.donors.toLocaleString()} supporters</span>
+                <span className="text-xs text-primary font-semibold">
+                  {(recent?.donationCount ?? 0).toLocaleString()} supporters
+                </span>
               </div>
               <div className="space-y-3">
-                {mockDonations.map((item, index) => (
-                  <div key={`${item.name}-${index}`} className="flex items-center justify-between border-b border-border/70 pb-2">
-                    <p className="text-sm text-foreground">{item.name}</p>
-                    <p className="text-sm font-semibold">RM {item.amount}</p>
-                  </div>
-                ))}
+                {(recent?.rows ?? []).length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No donations recorded yet.</p>
+                ) : (
+                  (recent?.rows ?? []).slice(0, 5).map((item, index) => (
+                    <div
+                      key={`${item.name}-${item.transactionTime}-${index}`}
+                      className="flex items-center justify-between border-b border-border/70 pb-2"
+                    >
+                      <p className="text-sm text-foreground">{formatDonorName(item)}</p>
+                      <p className="text-sm font-semibold">{formatDonationRm(item.amount)}</p>
+                    </div>
+                  ))
+                )}
               </div>
             </article>
           </aside>

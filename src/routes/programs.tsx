@@ -193,7 +193,7 @@ function ProgramsPage() {
           <div id="ophthalmic-care-unit" className="scroll-mt-28">
             <OcuSection />
           </div>
-          <div id="mobile-clinic" className="scroll-mt-28">
+          <div id="outreach-program" className="scroll-mt-28">
             <MobileClinicSection />
           </div>
         </div>

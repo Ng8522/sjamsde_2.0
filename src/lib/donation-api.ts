@@ -1,41 +1,135 @@
-import { getDonationLeaderboardRows } from "@/lib/donation-leaderboard";
-
 export type DonationLeaderboardRow = {
-  dateTime: string;
-  donor: string;
+  title: string;
+  name: string;
   amount: number;
+  transactionTime: string;
   total: number;
+  transactionRef?: string;
 };
 
-const API_BASE = import.meta.env.DONATION_API_URL ?? "";
-const RECENT_PATH = "/api/donations/recent";
+export type DonationSummary = {
+  target: number;
+  raised: number;
+  donationCount: number;
+};
 
-export async function fetchDonationLeaderboard(): Promise<{
+export type DonationRecentResponse = DonationSummary & {
   rows: DonationLeaderboardRow[];
-  source: "api" | "mock";
-}> {
-  if (!API_BASE && !import.meta.env.DEV) {
-    return { rows: getDonationLeaderboardRows(), source: "mock" };
-  }
+};
 
-  const url = API_BASE ? `${API_BASE.replace(/\/$/, "")}${RECENT_PATH}` : RECENT_PATH;
+export type DonorRecord = {
+  id: string;
+  title: string;
+  name: string;
+  transactionRef?: string;
+  amount: number;
+  transactionTime: string;
+  createdAt: string;
+};
 
+export type CreateDonationInput = {
+  title?: string;
+  name: string;
+  transactionRef?: string;
+  amount: number;
+  transactionTime?: string;
+};
+
+import { adminAuthHeaders } from "@/lib/admin-auth";
+
+const API_BASE = import.meta.env.DONATION_API_URL ?? "";
+
+function donationApiUrl(path: string) {
+  return API_BASE ? `${API_BASE.replace(/\/$/, "")}${path}` : path;
+}
+
+async function parseApiError(response: Response) {
   try {
-    const response = await fetch(url, {
-      headers: { Accept: "application/json" },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Donation API ${response.status}`);
-    }
-
-    const data = (await response.json()) as { rows: DonationLeaderboardRow[] };
-    if (!Array.isArray(data.rows) || data.rows.length === 0) {
-      return { rows: getDonationLeaderboardRows(), source: "mock" };
-    }
-
-    return { rows: data.rows, source: "api" };
+    const data = (await response.json()) as { error?: string };
+    if (data.error) return data.error;
   } catch {
-    return { rows: getDonationLeaderboardRows(), source: "mock" };
+    // ignore
   }
+  return `Donation API ${response.status}`;
+}
+
+export async function fetchDonationRecent(): Promise<DonationRecentResponse> {
+  const response = await fetch(donationApiUrl("/api/donations/recent"), {
+    headers: { Accept: "application/json" },
+  });
+
+  if (!response.ok) {
+    throw new Error(await parseApiError(response));
+  }
+
+  const data = (await response.json()) as Partial<DonationRecentResponse> & {
+    rows?: Array<
+      Partial<DonationLeaderboardRow> & {
+        donor?: string;
+        dateTime?: string;
+      }
+    >;
+  };
+
+  const rows = Array.isArray(data.rows)
+    ? data.rows.map((row) => {
+        const title = String(row.title ?? "").trim();
+        const name = String(row.name ?? row.donor ?? "").trim();
+        return {
+          title,
+          name,
+          amount: Number(row.amount ?? 0),
+          transactionTime: String(row.transactionTime ?? row.dateTime ?? ""),
+          total: Number(row.total ?? 0),
+          transactionRef: row.transactionRef,
+        };
+      })
+    : [];
+
+  return {
+    rows,
+    target: Number(data.target ?? 0),
+    raised: Number(data.raised ?? 0),
+    donationCount: Number(data.donationCount ?? rows.length),
+  };
+}
+
+/** @deprecated Use fetchDonationRecent */
+export const fetchDonationLeaderboard = fetchDonationRecent;
+
+export async function fetchDonationSummary(): Promise<DonationSummary> {
+  const response = await fetch(donationApiUrl("/api/donations/summary"), {
+    headers: { Accept: "application/json" },
+  });
+
+  if (!response.ok) {
+    throw new Error(await parseApiError(response));
+  }
+
+  return (await response.json()) as DonationSummary;
+}
+
+export async function createDonation(input: CreateDonationInput): Promise<DonorRecord> {
+  const response = await fetch(donationApiUrl("/api/donations"), {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      ...adminAuthHeaders(),
+    },
+    body: JSON.stringify({
+      title: input.title,
+      name: input.name,
+      transactionRef: input.transactionRef,
+      amount: input.amount,
+      transactionTime: input.transactionTime,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(await parseApiError(response));
+  }
+
+  const data = (await response.json()) as { donor: DonorRecord };
+  return data.donor;
 }

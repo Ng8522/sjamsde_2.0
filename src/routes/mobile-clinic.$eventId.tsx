@@ -14,8 +14,8 @@ export const Route = createFileRoute("/mobile-clinic/$eventId")({
       meta: [
         {
           title: event
-            ? `${event.title} — Mobile Clinic — SJAM Selangor`
-            : "Mobile Clinic — SJAM Selangor",
+            ? `${event.title} — Outreach Program — SJAM Selangor`
+            : "Outreach Program — SJAM Selangor",
         },
       ],
     };
