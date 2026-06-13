@@ -22,15 +22,15 @@ export const Route = createFileRoute("/donation-status")({
 
 function StatBlock({ label, value, accent }: { label: string; value: string; accent: "gold" | "red" }) {
   return (
-    <div className="donation-status-stat flex w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-slate-600/80 bg-slate-900/90 px-4 py-6 sm:px-6 sm:py-8 lg:rounded-3xl lg:px-8 lg:py-10">
+    <div className="donation-status-stat flex w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-slate-600/80 bg-slate-900/90 px-5 py-8 sm:px-8 sm:py-10 lg:rounded-3xl lg:px-10 lg:py-12 xl:px-12 xl:py-14">
       <span
-        className={`max-w-full text-center text-[clamp(0.65rem,2.5vw,1rem)] font-bold uppercase tracking-wide ${
+        className={`donation-status-stat-label max-w-full text-center font-bold uppercase tracking-wide ${
           accent === "gold" ? "text-amber-400" : "text-red-500"
         }`}
       >
         {label}
       </span>
-      <span className="donation-status-stat-value mt-2 max-w-full text-center font-bold leading-none tabular-nums text-white sm:mt-3">
+      <span className="donation-status-stat-value mt-3 max-w-full text-center font-bold leading-none tabular-nums text-amber-400 sm:mt-4">
         {value}
       </span>
     </div>

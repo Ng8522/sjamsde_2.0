@@ -82,11 +82,11 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
 
 function ProgressStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="donate-progress-stat flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[7rem] sm:flex-none sm:px-3 sm:py-2 md:min-w-[8rem] md:px-3.5 md:py-2.5 lg:min-h-[7vh] lg:min-w-[10rem] lg:rounded-xl lg:px-5 lg:py-4 xl:min-w-[12rem] xl:px-6 xl:py-5 2xl:min-w-[14rem] 2xl:px-8 2xl:py-6">
+    <div className="donate-progress-stat flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[8rem] sm:flex-none sm:px-3 sm:py-2 md:min-w-[9rem] md:px-3.5 md:py-2.5 lg:min-h-[7vh] lg:min-w-[11rem] lg:rounded-xl lg:px-5 lg:py-4 xl:min-w-[13rem] xl:px-6 xl:py-5 2xl:min-w-[16rem] 2xl:px-8 2xl:py-6">
       <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px] lg:text-sm xl:text-base 2xl:text-lg">
         {label}
       </span>
-      <span className="mt-0.5 text-sm font-bold tabular-nums text-amber-400 sm:mt-1 sm:text-base lg:mt-2 lg:text-2xl xl:text-3xl 2xl:text-4xl">
+      <span className="donate-progress-stat-value mt-0.5 text-base font-bold tabular-nums text-amber-400 sm:mt-1 sm:text-lg lg:mt-2 lg:text-3xl xl:text-4xl 2xl:text-5xl">
         {value}
       </span>
     </div>
@@ -187,7 +187,7 @@ function DonatePage() {
               </h2>
               <DonorTicker rows={leaderboardRows} />
             </div>
-            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-stretch sm:gap-2.5 lg:min-w-[22rem] lg:gap-4 xl:min-w-[26rem] xl:gap-5 2xl:min-w-[30rem] 2xl:gap-6">
+            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-stretch sm:gap-2.5 lg:min-w-[24rem] lg:gap-4 xl:min-w-[28rem] xl:gap-5 2xl:min-w-[34rem] 2xl:gap-6">
               <ProgressStat label="Total Raised" value={formatDonationRm(totalRaised)} />
               <ProgressStat label="Target" value={formatDonationRm(target)} />
             </div>
