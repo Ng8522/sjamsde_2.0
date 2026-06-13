@@ -81,7 +81,7 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
 
 function ProgressStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex min-w-[6.5rem] shrink-0 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[7.5rem] sm:px-3 sm:py-2">
+    <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[7.5rem] sm:flex-none sm:px-3 sm:py-2">
       <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px]">
         {label}
       </span>
@@ -174,7 +174,7 @@ function DonatePage() {
 
         {/* Bottom status bar — full width */}
         <footer className="shrink-0 border-t border-slate-700/80 bg-[#1a1a24] text-white">
-          <div className="mx-auto flex w-full max-w-[90rem] items-end gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
+          <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-2 px-3 py-2.5 sm:flex-row sm:items-end sm:gap-3 sm:px-4 sm:py-3">
             <div className="flex min-w-0 flex-1 flex-col gap-1.5 sm:gap-2">
               <h2 className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white sm:text-base">
                 <Heart className="size-4 shrink-0 fill-red-500/30 text-red-500" aria-hidden />
@@ -182,7 +182,7 @@ function DonatePage() {
               </h2>
               <DonorTicker rows={leaderboardRows} />
             </div>
-            <div className="flex shrink-0 items-end gap-2 sm:gap-3">
+            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-end sm:gap-3">
               <ProgressStat label="Total Raised" value={formatDonationRm(totalRaised)} />
               <ProgressStat label="Target" value={formatDonationRm(target)} />
             </div>
