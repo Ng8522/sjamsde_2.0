@@ -17,6 +17,7 @@ import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as DonationStatusRouteImport } from './routes/donation-status'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as Ambulance24hrRouteImport } from './routes/ambulance-24hr'
@@ -72,6 +73,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonationStatusRoute = DonationStatusRouteImport.update({
+  id: '/donation-status',
+  path: '/donation-status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonateRoute = DonateRouteImport.update({
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/ambulance-24hr': typeof Ambulance24hrRoute
   '/courses': typeof CoursesRouteWithChildren
   '/donate': typeof DonateRoute
+  '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
   '/login': typeof LoginRoute
@@ -186,6 +193,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRouteWithChildren
   '/ambulance-24hr': typeof Ambulance24hrRoute
   '/donate': typeof DonateRoute
+  '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
@@ -212,6 +220,7 @@ export interface FileRoutesById {
   '/ambulance-24hr': typeof Ambulance24hrRoute
   '/courses': typeof CoursesRouteWithChildren
   '/donate': typeof DonateRoute
+  '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
   '/login': typeof LoginRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
     | '/ambulance-24hr'
     | '/courses'
     | '/donate'
+    | '/donation-status'
     | '/events'
     | '/gallery'
     | '/login'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/ambulance-24hr'
     | '/donate'
+    | '/donation-status'
     | '/events'
     | '/login'
     | '/payment'
@@ -290,6 +301,7 @@ export interface FileRouteTypes {
     | '/ambulance-24hr'
     | '/courses'
     | '/donate'
+    | '/donation-status'
     | '/events'
     | '/gallery'
     | '/login'
@@ -317,6 +329,7 @@ export interface RootRouteChildren {
   Ambulance24hrRoute: typeof Ambulance24hrRoute
   CoursesRoute: typeof CoursesRouteWithChildren
   DonateRoute: typeof DonateRoute
+  DonationStatusRoute: typeof DonationStatusRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRouteWithChildren
   LoginRoute: typeof LoginRoute
@@ -388,6 +401,13 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donation-status': {
+      id: '/donation-status'
+      path: '/donation-status'
+      fullPath: '/donation-status'
+      preLoaderRoute: typeof DonationStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donate': {
@@ -558,6 +578,7 @@ const rootRouteChildren: RootRouteChildren = {
   Ambulance24hrRoute: Ambulance24hrRoute,
   CoursesRoute: CoursesRouteWithChildren,
   DonateRoute: DonateRoute,
+  DonationStatusRoute: DonationStatusRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRouteWithChildren,
   LoginRoute: LoginRoute,

@@ -209,6 +209,41 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .donate-showcase .donate-footer {
+    min-height: max(14vh, 9rem);
+  }
+
+  .donate-showcase .donate-ticker-chip {
+    font-size: clamp(1.125rem, 1.6vw, 2rem);
+    padding-block: clamp(0.65rem, 1.1vh, 1.25rem);
+    padding-inline: clamp(1rem, 1.4vw, 2rem);
+  }
+
+  .donate-showcase .donate-progress-stat span:last-child {
+    font-size: clamp(1.5rem, 2.4vw, 3rem);
+  }
+
+  .donate-showcase .donate-progress-stat span:first-child {
+    font-size: clamp(0.75rem, 1vw, 1.125rem);
+  }
+}
+
+.donation-status-showcase .donation-status-stat {
+  container-type: inline-size;
+}
+
+.donation-status-showcase .donation-status-stat-value {
+  font-size: clamp(1.25rem, 11cqi, 3.25rem);
+  word-break: break-word;
+}
+
+@media (min-width: 1024px) {
+  .donation-status-showcase .donation-status-stat-value {
+    font-size: clamp(1.5rem, 10cqi, 3.5rem);
+  }
+}
+
 @keyframes donate-ticker-scroll {
   from {
     transform: translateX(-50%);

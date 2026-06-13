@@ -9,6 +9,7 @@ import {
   donationFundraisingProjects,
   type DonationFundraisingProject,
 } from "@/lib/donation-fundraising-projects";
+import { DONATION_EVENT_TITLE } from "@/lib/donation-event";
 import { formatDonationRm, formatDonorName } from "@/lib/donation-leaderboard";
 function FundraisingProjectCard({ project }: { project: DonationFundraisingProject }) {
   return (
@@ -30,21 +31,21 @@ function FundraisingProjectCard({ project }: { project: DonationFundraisingProje
 
 function DonorTickerChip({ row }: { row: DonationLeaderboardRow }) {
   return (
-    <span className="inline-flex shrink-0 items-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-3.5 py-2 text-sm font-medium text-white shadow-sm sm:px-4 sm:py-2.5 sm:text-base">
+    <span className="donate-ticker-chip inline-flex shrink-0 items-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:px-3.5 sm:py-2 sm:text-sm md:px-4 md:py-2.5 md:text-base lg:rounded-xl lg:px-5 lg:py-3 lg:text-xl xl:px-6 xl:py-3.5 xl:text-2xl 2xl:px-8 2xl:py-4 2xl:text-3xl">
       {formatDonorName(row)} – {formatDonationRm(row.amount)}
     </span>
   );
 }
 
-/** ~8s per donor so the full list scrolls at a readable pace. */
+/** ~5s per donor — slightly faster scroll for venue displays. */
 function donateTickerDurationSeconds(donorCount: number) {
-  return Math.max(150, donorCount * 8);
+  return Math.max(90, donorCount * 5);
 }
 
 function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
   if (rows.length === 0) {
     return (
-      <p className="min-w-0 flex-1 text-sm text-slate-400">
+      <p className="min-w-0 flex-1 text-xs text-slate-400 sm:text-sm md:text-base lg:text-xl xl:text-2xl">
         No donations recorded yet — be the first to support us.
       </p>
     );
@@ -52,7 +53,7 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
 
   if (rows.length === 1) {
     return (
-      <div className="flex min-w-0 flex-1 gap-2">
+      <div className="flex min-w-0 flex-1 gap-2 sm:gap-2.5 lg:gap-4 xl:gap-5">
         <DonorTickerChip row={rows[0]!} />
       </div>
     );
@@ -64,7 +65,7 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
   return (
     <div className="relative min-w-0 flex-1 overflow-hidden">
       <div
-        className="flex w-max gap-2 animate-donate-ticker-scroll hover:[animation-play-state:paused]"
+        className="flex w-max gap-2 animate-donate-ticker-scroll hover:[animation-play-state:paused] sm:gap-2.5 lg:gap-4 xl:gap-5"
         style={{ "--donate-ticker-duration": `${scrollDuration}s` } as React.CSSProperties}
         aria-live="off"
       >
@@ -81,11 +82,11 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
 
 function ProgressStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[7.5rem] sm:flex-none sm:px-3 sm:py-2">
-      <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px]">
+    <div className="donate-progress-stat flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[7rem] sm:flex-none sm:px-3 sm:py-2 md:min-w-[8rem] md:px-3.5 md:py-2.5 lg:min-h-[7vh] lg:min-w-[10rem] lg:rounded-xl lg:px-5 lg:py-4 xl:min-w-[12rem] xl:px-6 xl:py-5 2xl:min-w-[14rem] 2xl:px-8 2xl:py-6">
+      <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px] lg:text-sm xl:text-base 2xl:text-lg">
         {label}
       </span>
-      <span className="mt-0.5 text-sm font-bold tabular-nums text-amber-400 sm:text-base">
+      <span className="mt-0.5 text-sm font-bold tabular-nums text-amber-400 sm:mt-1 sm:text-base lg:mt-2 lg:text-2xl xl:text-3xl 2xl:text-4xl">
         {value}
       </span>
     </div>
@@ -96,11 +97,10 @@ export const Route = createFileRoute("/donate")({
   component: DonatePage,
   head: () => ({
     meta: [
-      { title: "Donate — SJAM Selangor" },
+      { title: `Donate — ${DONATION_EVENT_TITLE}` },
       {
         name: "description",
-        content:
-          "Scan to donate and see recent supporters of St John Ambulance Selangor Darul Ehsan.",
+        content: `Scan to donate and support ${DONATION_EVENT_TITLE}.`,
       },
     ],
   }),
@@ -118,7 +118,7 @@ function DonatePage() {
   const target = data?.target ?? 0;
 
   return (
-    <div className="flex min-h-dvh flex-col overflow-y-auto bg-background text-foreground antialiased lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
+    <div className="donate-showcase flex min-h-dvh flex-col overflow-y-auto bg-background text-foreground antialiased lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
       <SiteTopChrome />
 
       <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
@@ -126,7 +126,9 @@ function DonatePage() {
           {/* Left — hero + 3×2 project grid */}
           <section className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
             <div className="shrink-0 bg-primary px-4 py-1.5 text-primary-foreground sm:px-5 sm:py-2">
-              <h1 className="text-base font-semibold tracking-tight sm:text-lg">We Need Your Support</h1>
+              <h1 className="text-sm font-semibold leading-snug tracking-tight sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
+                {DONATION_EVENT_TITLE}
+              </h1>
               <p className="text-xs text-primary-foreground/90 sm:text-sm">
                 Scan DuitNow on the right to donate.
               </p>
@@ -172,17 +174,20 @@ function DonatePage() {
           </section>
         </div>
 
-        {/* Bottom status bar — full width */}
-        <footer className="shrink-0 border-t border-slate-700/80 bg-[#1a1a24] text-white">
-          <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-2 px-3 py-2.5 sm:flex-row sm:items-end sm:gap-3 sm:px-4 sm:py-3">
-            <div className="flex min-w-0 flex-1 flex-col gap-1.5 sm:gap-2">
-              <h2 className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white sm:text-base">
-                <Heart className="size-4 shrink-0 fill-red-500/30 text-red-500" aria-hidden />
+        {/* Bottom status bar — venue showcase scale on large screens */}
+        <footer className="donate-footer shrink-0 border-t border-slate-700/80 bg-[#1a1a24] text-white lg:min-h-[14vh] xl:min-h-[16vh] 2xl:min-h-[18vh]">
+          <div className="donate-footer-inner mx-auto flex h-full w-full max-w-[90rem] flex-col gap-2 px-3 py-2.5 sm:flex-row sm:items-stretch sm:gap-3 sm:px-4 sm:py-3 md:gap-3.5 md:py-3.5 lg:gap-5 lg:px-6 lg:py-5 xl:gap-6 xl:px-8 xl:py-6 2xl:gap-8 2xl:px-10 2xl:py-8">
+            <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3 xl:gap-4">
+              <h2 className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white sm:gap-2 sm:text-base lg:gap-3 lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                <Heart
+                  className="size-4 shrink-0 fill-red-500/30 text-red-500 sm:size-5 lg:size-8 xl:size-10 2xl:size-12"
+                  aria-hidden
+                />
                 Thank You for Your Support
               </h2>
               <DonorTicker rows={leaderboardRows} />
             </div>
-            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-end sm:gap-3">
+            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-stretch sm:gap-2.5 lg:min-w-[22rem] lg:gap-4 xl:min-w-[26rem] xl:gap-5 2xl:min-w-[30rem] 2xl:gap-6">
               <ProgressStat label="Total Raised" value={formatDonationRm(totalRaised)} />
               <ProgressStat label="Target" value={formatDonationRm(target)} />
             </div>
