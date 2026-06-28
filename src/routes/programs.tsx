@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Ambulance, ArrowRight, Eye, GraduationCap, HeartPulse } from "lucide-react";
+import { Ambulance, ArrowRight, Eye, GraduationCap, HeartPulse, Home } from "lucide-react";
 
 import { MobileClinicSection } from "@/components/mobile-clinic-section";
 import { OcuSection } from "@/components/ocu-section";
@@ -47,6 +47,15 @@ const serviceHighlights = [
     phoneLabel: "019-682 0911",
     emailHref: "mailto:user.selangor@sjam.org.my",
     emailLabel: "user.selangor@sjam.org.my",
+    featured: false,
+  },
+  {
+    icon: Home,
+    title: "Preliminary Home Nursing",
+    subtitle: "Perawatan Asas di Rumah — membership documentation",
+    image: courseImg,
+    cta: "View listing",
+    to: "/home-nursing",
     featured: false,
   },
   {

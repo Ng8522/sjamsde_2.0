@@ -15,6 +15,7 @@ import { Route as QualifiedTrainersRouteImport } from './routes/qualified-traine
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as HomeNursingRouteImport } from './routes/home-nursing'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonationStatusRouteImport } from './routes/donation-status'
@@ -63,6 +64,11 @@ const PaymentRoute = PaymentRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeNursingRoute = HomeNursingRouteImport.update({
+  id: '/home-nursing',
+  path: '/home-nursing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -170,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
+  '/home-nursing': typeof HomeNursingRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
+  '/home-nursing': typeof HomeNursingRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -223,6 +231,7 @@ export interface FileRoutesById {
   '/donation-status': typeof DonationStatusRoute
   '/events': typeof EventsRouteWithChildren
   '/gallery': typeof GalleryRouteWithChildren
+  '/home-nursing': typeof HomeNursingRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/programs': typeof ProgramsRoute
@@ -252,6 +261,7 @@ export interface FileRouteTypes {
     | '/donation-status'
     | '/events'
     | '/gallery'
+    | '/home-nursing'
     | '/login'
     | '/payment'
     | '/programs'
@@ -277,6 +287,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/donation-status'
     | '/events'
+    | '/home-nursing'
     | '/login'
     | '/payment'
     | '/programs'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/donation-status'
     | '/events'
     | '/gallery'
+    | '/home-nursing'
     | '/login'
     | '/payment'
     | '/programs'
@@ -332,6 +344,7 @@ export interface RootRouteChildren {
   DonationStatusRoute: typeof DonationStatusRoute
   EventsRoute: typeof EventsRouteWithChildren
   GalleryRoute: typeof GalleryRouteWithChildren
+  HomeNursingRoute: typeof HomeNursingRoute
   LoginRoute: typeof LoginRoute
   PaymentRoute: typeof PaymentRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -387,6 +400,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-nursing': {
+      id: '/home-nursing'
+      path: '/home-nursing'
+      fullPath: '/home-nursing'
+      preLoaderRoute: typeof HomeNursingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -581,6 +601,7 @@ const rootRouteChildren: RootRouteChildren = {
   DonationStatusRoute: DonationStatusRoute,
   EventsRoute: EventsRouteWithChildren,
   GalleryRoute: GalleryRouteWithChildren,
+  HomeNursingRoute: HomeNursingRoute,
   LoginRoute: LoginRoute,
   PaymentRoute: PaymentRoute,
   ProgramsRoute: ProgramsRoute,

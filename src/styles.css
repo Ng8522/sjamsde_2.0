@@ -222,12 +222,22 @@
 
   .donate-showcase .donate-progress-stat span:last-child,
   .donate-showcase .donate-progress-stat-value {
-    font-size: clamp(1.75rem, 3.2vw, 4.5rem);
+    font-size: clamp(1rem, 2.2cqi, 2.75rem);
+  }
+
+  .donate-showcase .donate-progress-stat {
+    container-type: inline-size;
   }
 
   .donate-showcase .donate-progress-stat span:first-child {
     font-size: clamp(0.75rem, 1vw, 1.125rem);
   }
+}
+
+.donation-status-showcase {
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
 }
 
 .donation-status-showcase .donation-status-stat {
@@ -239,17 +249,17 @@
 }
 
 .donation-status-showcase .donation-status-stat-value {
-  font-size: clamp(1.75rem, 14cqi, 4rem);
+  font-size: clamp(1.5rem, 12cqi, 3.75rem);
   word-break: break-word;
 }
 
 @media (min-width: 1024px) {
   .donation-status-showcase .donation-status-stat-label {
-    font-size: clamp(1.125rem, 2.5vw, 2.25rem);
+    font-size: clamp(1rem, 2vw, 2rem);
   }
 
   .donation-status-showcase .donation-status-stat-value {
-    font-size: clamp(2.25rem, 5vw, 5.5rem);
+    font-size: clamp(2rem, 4.5vw, 5rem);
   }
 }
 

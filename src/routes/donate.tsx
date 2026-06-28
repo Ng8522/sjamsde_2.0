@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, LayoutGrid } from "lucide-react";
+import { Heart } from "lucide-react";
 
 import donateQrCode from "@/assets/qrcode.png";
 import { SiteTopChrome } from "@/components/site-layout";
@@ -9,8 +9,8 @@ import {
   donationFundraisingProjects,
   type DonationFundraisingProject,
 } from "@/lib/donation-fundraising-projects";
-import { DONATION_EVENT_TITLE } from "@/lib/donation-event";
-import { formatDonationRm, formatDonorName } from "@/lib/donation-leaderboard";
+import { DONATE_PAGE_HEADLINE, DONATION_EVENT_TITLE } from "@/lib/donation-event";
+import { formatDonationRm, formatDonorName, tickerDonorRows } from "@/lib/donation-leaderboard";
 function FundraisingProjectCard({ project }: { project: DonationFundraisingProject }) {
   return (
     <article className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background lg:h-full">
@@ -82,11 +82,11 @@ function DonorTicker({ rows }: { rows: DonationLeaderboardRow[] }) {
 
 function ProgressStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="donate-progress-stat flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2.5 py-1.5 sm:min-w-[8rem] sm:flex-none sm:px-3 sm:py-2 md:min-w-[9rem] md:px-3.5 md:py-2.5 lg:min-h-[7vh] lg:min-w-[11rem] lg:rounded-xl lg:px-5 lg:py-4 xl:min-w-[13rem] xl:px-6 xl:py-5 2xl:min-w-[16rem] 2xl:px-8 2xl:py-6">
-      <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px] lg:text-sm xl:text-base 2xl:text-lg">
+    <div className="donate-progress-stat flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg border border-slate-600/80 bg-slate-900/90 px-2 py-1.5 sm:px-2.5 sm:py-2 lg:min-h-[7vh] lg:rounded-xl lg:px-3 lg:py-3 xl:px-4 xl:py-4">
+      <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 sm:text-[10px] lg:text-xs xl:text-sm">
         {label}
       </span>
-      <span className="donate-progress-stat-value mt-0.5 text-base font-bold tabular-nums text-amber-400 sm:mt-1 sm:text-lg lg:mt-2 lg:text-3xl xl:text-4xl 2xl:text-5xl">
+      <span className="donate-progress-stat-value mt-0.5 text-sm font-bold tabular-nums text-amber-400 sm:mt-1 sm:text-base lg:mt-1.5 lg:text-2xl xl:text-3xl 2xl:text-4xl">
         {value}
       </span>
     </div>
@@ -114,6 +114,7 @@ function DonatePage() {
   });
 
   const leaderboardRows = data?.rows ?? [];
+  const tickerRows = tickerDonorRows(leaderboardRows);
   const totalRaised = data?.raised ?? 0;
   const target = data?.target ?? 0;
 
@@ -127,17 +128,10 @@ function DonatePage() {
           <section className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
             <div className="shrink-0 bg-primary px-4 py-1.5 text-primary-foreground sm:px-5 sm:py-2">
               <h1 className="text-sm font-semibold leading-snug tracking-tight sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
-                {DONATION_EVENT_TITLE}
+                {DONATE_PAGE_HEADLINE}
               </h1>
               <p className="text-xs text-primary-foreground/90 sm:text-sm">
                 Scan DuitNow on the right to donate.
-              </p>
-            </div>
-
-            <div className="flex shrink-0 items-center gap-2 border-b border-border bg-muted/40 px-4 py-1.5 sm:px-5 sm:py-2">
-              <LayoutGrid className="size-3.5 shrink-0 text-primary sm:size-4" aria-hidden />
-              <p className="text-[11px] font-semibold leading-snug sm:text-xs">
-                You are supporting our current projects from 2026 to 2028
               </p>
             </div>
 
@@ -176,8 +170,8 @@ function DonatePage() {
 
         {/* Bottom status bar — venue showcase scale on large screens */}
         <footer className="donate-footer shrink-0 border-t border-slate-700/80 bg-[#1a1a24] text-white lg:min-h-[14vh] xl:min-h-[16vh] 2xl:min-h-[18vh]">
-          <div className="donate-footer-inner mx-auto flex h-full w-full max-w-[90rem] flex-col gap-2 px-3 py-2.5 sm:flex-row sm:items-stretch sm:gap-3 sm:px-4 sm:py-3 md:gap-3.5 md:py-3.5 lg:gap-5 lg:px-6 lg:py-5 xl:gap-6 xl:px-8 xl:py-6 2xl:gap-8 2xl:px-10 2xl:py-8">
-            <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3 xl:gap-4">
+          <div className="donate-footer-inner mx-auto flex h-full w-full max-w-[90rem] flex-col gap-2 px-3 py-2.5 sm:grid sm:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] sm:items-stretch sm:gap-3 sm:px-4 sm:py-3 md:gap-3.5 md:py-3.5 lg:gap-5 lg:px-6 lg:py-5 xl:gap-6 xl:px-8 xl:py-6 2xl:gap-8 2xl:px-10 2xl:py-8">
+            <div className="flex min-w-0 flex-col justify-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3 xl:gap-4">
               <h2 className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white sm:gap-2 sm:text-base lg:gap-3 lg:text-2xl xl:text-3xl 2xl:text-4xl">
                 <Heart
                   className="size-4 shrink-0 fill-red-500/30 text-red-500 sm:size-5 lg:size-8 xl:size-10 2xl:size-12"
@@ -185,9 +179,9 @@ function DonatePage() {
                 />
                 Thank You for Your Support
               </h2>
-              <DonorTicker rows={leaderboardRows} />
+              <DonorTicker rows={tickerRows} />
             </div>
-            <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:items-stretch sm:gap-2.5 lg:min-w-[24rem] lg:gap-4 xl:min-w-[28rem] xl:gap-5 2xl:min-w-[34rem] 2xl:gap-6">
+            <div className="flex min-w-0 w-full gap-2 sm:gap-2.5 lg:gap-3">
               <ProgressStat label="Total Raised" value={formatDonationRm(totalRaised)} />
               <ProgressStat label="Target" value={formatDonationRm(target)} />
             </div>

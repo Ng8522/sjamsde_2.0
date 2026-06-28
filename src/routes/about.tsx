@@ -33,6 +33,7 @@ import {
 } from "@/lib/contact-content";
 import { SSMP_APP_STORE_URL, SSMP_PLAY_STORE_URL } from "@/lib/ssmp-app";
 import communityImg from "../assets/community.jpg";
+import statePresidentImg from "@/assets/organisation-structure/LiuHanMing.png";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -195,7 +196,7 @@ function AboutPage() {
               content: (
                 <div className="space-y-8">
                   <div className="text-center pb-6 border-b border-primary/10">
-                    <span className="inline-flex items-center gap-2 text-primary font-semibold text-xs tracking-[0.3em] uppercase bg-gradient-to-r from-primary/15 to-secondary/10 px-3 py-1.5 rounded-full border border-primary/20 mb-3">
+                    <span className="inline-flex items-center gap-2 text-foreground font-semibold text-xs tracking-[0.3em] uppercase bg-muted/50 px-3 py-1.5 rounded-full border border-border mb-3">
                       Leadership
                     </span>
                     <h3 className="text-lg font-semibold tracking-tight text-foreground mb-1">State Headquarters</h3>
@@ -211,7 +212,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/sultan.jpg" alt="State Patron" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Patron</p>
                           <p className="text-sm font-semibold text-foreground mb-1">D.Y.M.M. Sultan Sharafuddin Idris Shah Alhaj</p>
                           <p className="text-xs text-foreground mb-2">Ibni Almarhum Sultan Salahuddin Abdul Aziz Shah Alhaj</p>
                           <div className="space-y-1 border-t border-primary/10 pt-2">
@@ -229,11 +229,10 @@ function AboutPage() {
                     <h4 className="text-sm font-semibold text-foreground mb-4 text-center">State President</h4>
                     <div className="max-w-sm mx-auto">
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
-                        <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/TeeBoonKee-300x300.gif" alt="State President" className={orgLeaderAvatar} />
+                        <img src={statePresidentImg} alt="State President — Dato' Liu Han Ming" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State President</p>
-                          <p className="text-sm font-semibold text-foreground mb-1">Tan Sri Dato&apos; Sri Tee Boon Kee</p>
-                          <p className="text-xs text-muted-foreground">PSM, SSAP, DSSA, OStJ</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Dato&apos; Liu Han Ming</p>
+                          <p className="text-xs text-muted-foreground">DIMP</p>
                         </div>
                       </div>
                     </div>
@@ -246,7 +245,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/IMG_6427.JPEG-scaled.jpg" alt="Deputy State President" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State President</p>
                           <p className="text-sm font-semibold text-foreground mb-1">(Dr.) Lim Tee Leong</p>
                           <p className="text-xs text-muted-foreground">PJK, SBStJ, DHL(Hons)</p>
                         </div>
@@ -266,7 +264,6 @@ function AboutPage() {
                         <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                           <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                           <div className="mt-3">
-                            <p className="text-xs uppercase tracking-wider font-bold text-primary mb-0.5">State Vice President</p>
                             <p className="text-xs font-semibold text-foreground mb-0.5">{person.name}</p>
                             <p className="text-xs text-muted-foreground">{person.cred}</p>
                           </div>
@@ -282,7 +279,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim_Wun_Lok.png" alt="State Commander" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Commander</p>
                           <p className="text-sm font-semibold text-foreground mb-1">Mr. Lim Wun Lok</p>
                           <p className="text-xs text-muted-foreground">SIS, PJK, OStJ</p>
                         </div>
@@ -297,7 +293,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Sim_Kah_Heun-277x300.png" alt="Deputy State Commander" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">Deputy State Commander</p>
                           <p className="text-sm font-semibold text-foreground mb-1">Mr. Sim Kah Heun</p>
                           <p className="text-xs text-muted-foreground">AMP, OStJ, FBDO</p>
                         </div>
@@ -312,7 +307,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WongHuiChin-300x300.jpg" alt="State Medical Officer" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Medical Officer</p>
                           <p className="text-sm font-semibold text-foreground mb-1">Dr. Wong Hui Chin</p>
                           <p className="text-xs text-muted-foreground">SSStJ</p>
                         </div>
@@ -327,7 +321,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Chee-Kai-1-200x300.jpg" alt="State Superintendent (Operations)" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Operations)</p>
                           <p className="text-sm font-semibold text-foreground mb-1">Mr. Ng Chee Kai</p>
                           <p className="text-xs text-muted-foreground">PPT, OStJ, FNSM</p>
                         </div>
@@ -342,7 +335,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Ng-Sew-Wan-225x300.jpg" alt="State Superintendent (Nursing)" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Superintendent (Nursing)</p>
                           <p className="text-sm font-semibold text-foreground mb-1">Ms. Ng Sew Wan</p>
                           <p className="text-xs text-muted-foreground">PJK, SSStJ</p>
                         </div>
@@ -357,7 +349,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Che-Wei-Sien-199x300.jpeg" alt="State Honorary Secretary" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Secretary</p>
                           <p className="text-sm font-semibold text-foreground">Ms. Che Wei Sien</p>
                         </div>
                       </div>
@@ -371,7 +362,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Michael-Chang-Hian-Keong.png" alt="State Honorary Treasurer" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Honorary Treasurer</p>
                           <p className="text-sm font-semibold text-foreground">Mr. Chang Hian Keon @ Michael Chang</p>
                         </div>
                       </div>
@@ -385,7 +375,6 @@ function AboutPage() {
                       <div className="rounded-lg border border-primary/20 bg-white shadow-sm p-4 text-center">
                         <img src="https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Farah-200x300.jpg" alt="State Nursing Officer" className={orgLeaderAvatar} />
                         <div className="mt-3">
-                          <p className="text-xs uppercase tracking-wider font-bold text-primary mb-1">State Nursing Officer</p>
                           <p className="text-sm font-semibold text-foreground">Ms. Farah Abdul Wahab</p>
                         </div>
                       </div>
@@ -408,7 +397,6 @@ function AboutPage() {
                         <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                           <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                           <div className="mt-3">
-                            <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Medical)</p>
                             <p className="text-xs font-semibold text-foreground leading-snug">{person.name}</p>
                             {person.cred && <p className="text-xs text-muted-foreground mt-1">{person.cred}</p>}
                           </div>
@@ -432,7 +420,6 @@ function AboutPage() {
                         <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                           <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                           <div className="mt-3">
-                            <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Operations)</p>
                             <p className="text-xs font-semibold text-foreground leading-snug">{person.name}</p>
                           </div>
                         </div>
@@ -448,7 +435,7 @@ function AboutPage() {
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <h5 className="text-xs font-semibold text-primary/70 mb-3">Cadets Training</h5>
+                        <h5 className="text-xs font-semibold text-foreground mb-3">Cadets Training</h5>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {[
                             { name: "Mr. Soh Chin Yong", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Soh-Chin-Yong-210x300.jpg" },
@@ -457,7 +444,6 @@ function AboutPage() {
                             <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                               <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                               <div className="mt-3">
-                                <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Cadets)</p>
                                 <p className="text-xs font-semibold text-foreground">{person.name}</p>
                               </div>
                             </div>
@@ -465,7 +451,7 @@ function AboutPage() {
                         </div>
                       </div>
                       <div>
-                        <h5 className="text-xs font-semibold text-primary/70 mb-3">Training &amp; Examination</h5>
+                        <h5 className="text-xs font-semibold text-foreground mb-3">Training &amp; Examination</h5>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           {[
                             { name: "Ms. Lim Yih Siah", img: "https://sde.sjamsde.org.my/wp-content/uploads/2024/05/Lim-Yih-Siah-200x300.jpg" },
@@ -475,7 +461,6 @@ function AboutPage() {
                             <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                               <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                               <div className="mt-3">
-                                <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Training &amp; Exam)</p>
                                 <p className="text-xs font-semibold text-foreground">{person.name}</p>
                               </div>
                             </div>
@@ -483,7 +468,7 @@ function AboutPage() {
                         </div>
                       </div>
                       <div>
-                        <h5 className="text-xs font-semibold text-primary/70 mb-3">Nursing Services</h5>
+                        <h5 className="text-xs font-semibold text-foreground mb-3">Nursing Services</h5>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {[
                             { name: "Ms. Chan Zuo Wey", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/Chan-Zuo-Wey.jpeg" },
@@ -492,7 +477,6 @@ function AboutPage() {
                             <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                               <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                               <div className="mt-3">
-                                <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (Nursing)</p>
                                 <p className="text-xs font-semibold text-foreground">{person.name}</p>
                               </div>
                             </div>
@@ -500,7 +484,7 @@ function AboutPage() {
                         </div>
                       </div>
                       <div>
-                        <h5 className="text-xs font-semibold text-primary/70 mb-3">Information Technology</h5>
+                        <h5 className="text-xs font-semibold text-foreground mb-3">Information Technology</h5>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {[
                             { name: "Mr. Bernard Ng Chee Meng", img: "https://sde.sjamsde.org.my/wp-content/uploads/2022/12/WhatsApp-Image-2025-10-27-at-12.20.37_ce36db47-300x296.jpg" },
@@ -509,7 +493,6 @@ function AboutPage() {
                             <div key={idx} className="rounded-lg border border-primary/15 bg-white shadow-sm p-4 text-center">
                               <img src={person.img} alt={person.name} className={orgLeaderAvatar} />
                               <div className="mt-3">
-                                <p className="text-xs uppercase tracking-widest font-bold text-primary mb-1">Staff Officer (IT)</p>
                                 <p className="text-xs font-semibold text-foreground">{person.name}</p>
                               </div>
                             </div>
