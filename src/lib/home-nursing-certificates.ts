@@ -15,6 +15,24 @@ export type HomeNursingCertificate = {
   certNo: string;
 };
 
+const certImageGlob = import.meta.glob<string>("../assets/home-nursing/*.{jpg,JPG,jpeg}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const certImagesByNo = Object.fromEntries(
+  Object.entries(certImageGlob).flatMap(([path, url]) => {
+    const filename = path.replace(/\\/g, "/").split("/").pop() ?? "";
+    const certNo = filename.match(/^(\d+)/)?.[1];
+    return certNo ? [[certNo, url] as const] : [];
+  }),
+);
+
+export function getHomeNursingCertImage(certNo: string): string | undefined {
+  return certImagesByNo[certNo];
+}
+
 export const HOME_NURSING_BATCH = {
   title: "Summary Listing of Membership Documentation",
   intro:
@@ -220,3 +238,11 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
     certNo: "379660",
   },
 ];
+
+export function getHomeNursingCertGallery() {
+  return HOME_NURSING_CERTIFICATES.flatMap((row) => {
+    const src = getHomeNursingCertImage(row.certNo);
+    if (!src) return [];
+    return [{ src, alt: `${row.examName} — certificate ${row.certNo}`, certNo: row.certNo, name: row.examName }];
+  });
+}

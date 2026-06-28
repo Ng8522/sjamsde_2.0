@@ -1,13 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, FileText, Search } from "lucide-react";
+import { ArrowLeft, FileText, Search, ZoomIn } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { SiteLayout } from "@/components/site-layout";
+import { ZoomablePhotoGrid } from "@/components/zoomable-photo-grid";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import {
+  getHomeNursingCertGallery,
+  getHomeNursingCertImage,
   HOME_NURSING_BATCH,
   HOME_NURSING_CERTIFICATES,
   type HomeNursingCertificate,
@@ -43,49 +48,148 @@ function matchesQuery(row: HomeNursingCertificate, query: string) {
   ].some((value) => value.toLowerCase().includes(q));
 }
 
-function CertificateCard({ row }: { row: HomeNursingCertificate }) {
+function CertImageDialog({
+  src,
+  alt,
+  open,
+  onOpenChange,
+}: {
+  src: string;
+  alt: string;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   return (
-    <article className="rounded-xl border border-border bg-card p-4 shadow-sm">
-      <div className="mb-3 flex items-start justify-between gap-3">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">No. {row.no}</p>
-          <h3 className="text-base font-semibold text-foreground">{row.examName}</h3>
-          <p className="text-sm text-muted-foreground">{row.refno}</p>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-[min(96vw,52rem)] border-border p-2 sm:p-3 gap-0">
+        <DialogTitle className="sr-only">{alt}</DialogTitle>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full max-h-[min(85vh,44rem)] object-contain rounded-lg bg-muted/30"
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function ViewCertButton({
+  row,
+  variant = "outline",
+  className,
+}: {
+  row: HomeNursingCertificate;
+  variant?: "outline" | "ghost" | "link";
+  className?: string;
+}) {
+  const imageSrc = getHomeNursingCertImage(row.certNo);
+  const [open, setOpen] = useState(false);
+
+  if (!imageSrc) return null;
+
+  return (
+    <>
+      <Button
+        type="button"
+        variant={variant}
+        size="sm"
+        className={className}
+        onClick={() => setOpen(true)}
+      >
+        <ZoomIn className="size-3.5" aria-hidden />
+        View cert
+      </Button>
+      <CertImageDialog
+        src={imageSrc}
+        alt={`${row.examName} — certificate ${row.certNo}`}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </>
+  );
+}
+
+function CertificateCard({ row }: { row: HomeNursingCertificate }) {
+  const imageSrc = getHomeNursingCertImage(row.certNo);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <article className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+      {imageSrc ? (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="group relative block w-full border-b border-border bg-muted/20"
+        >
+          <img
+            src={imageSrc}
+            alt={`${row.examName} certificate preview`}
+            loading="lazy"
+            className="w-full aspect-[4/3] object-cover object-top transition-transform group-hover:scale-[1.02]"
+          />
+          <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium opacity-0 shadow-md transition-opacity group-hover:opacity-100">
+              <ZoomIn className="size-3.5 text-primary" />
+              View certificate
+            </span>
+          </span>
+          <CertImageDialog
+            src={imageSrc}
+            alt={`${row.examName} — certificate ${row.certNo}`}
+            open={open}
+            onOpenChange={setOpen}
+          />
+        </button>
+      ) : null}
+
+      <div className="p-4">
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">No. {row.no}</p>
+            <h3 className="text-base font-semibold text-foreground">{row.examName}</h3>
+            <p className="text-sm text-muted-foreground">{row.refno}</p>
+          </div>
+          <Badge className="bg-primary/15 text-primary hover:bg-primary/15">{row.result}</Badge>
         </div>
-        <Badge className="bg-primary/15 text-primary hover:bg-primary/15">{row.result}</Badge>
+        <dl className="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
+          <div>
+            <dt className="text-muted-foreground">Exam date</dt>
+            <dd className="font-medium">{row.examDate}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">IC no.</dt>
+            <dd className="font-medium tabular-nums">{row.examIc}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">Unit</dt>
+            <dd className="font-medium">{row.examUnit}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">Cert no.</dt>
+            <dd className="font-medium tabular-nums">{row.certNo}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">Date of issue</dt>
+            <dd className="font-medium">{row.dateOfIssue}</dd>
+          </div>
+          <div>
+            <dt className="text-muted-foreground">State</dt>
+            <dd className="font-medium">{row.state}</dd>
+          </div>
+        </dl>
+        {imageSrc ? (
+          <div className="mt-3">
+            <ViewCertButton row={row} />
+          </div>
+        ) : null}
       </div>
-      <dl className="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
-        <div>
-          <dt className="text-muted-foreground">Exam date</dt>
-          <dd className="font-medium">{row.examDate}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">IC no.</dt>
-          <dd className="font-medium tabular-nums">{row.examIc}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">Unit</dt>
-          <dd className="font-medium">{row.examUnit}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">Cert no.</dt>
-          <dd className="font-medium tabular-nums">{row.certNo}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">Date of issue</dt>
-          <dd className="font-medium">{row.dateOfIssue}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">State</dt>
-          <dd className="font-medium">{row.state}</dd>
-        </div>
-      </dl>
     </article>
   );
 }
 
 function HomeNursingPage() {
   const [query, setQuery] = useState("");
+  const certGallery = useMemo(() => getHomeNursingCertGallery(), []);
 
   const filteredRows = useMemo(
     () => HOME_NURSING_CERTIFICATES.filter((row) => matchesQuery(row, query)),
@@ -144,6 +248,22 @@ function HomeNursingPage() {
           </CardContent>
         </Card>
 
+        {certGallery.length > 0 ? (
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold">Certificate images</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Tap any certificate to view the full image.
+            </p>
+            <div className="mt-4">
+              <ZoomablePhotoGrid
+                photos={certGallery.map(({ src, alt }) => ({ src, alt }))}
+                columns={3}
+                aspectClassName="aspect-[3/4]"
+              />
+            </div>
+          </div>
+        ) : null}
+
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-xl font-semibold">Processed documentation</h2>
@@ -164,7 +284,7 @@ function HomeNursingPage() {
         </div>
 
         <div className="hidden overflow-x-auto rounded-xl border border-border bg-card md:block">
-          <table className="w-full min-w-[72rem] text-left text-sm">
+          <table className="w-full min-w-[76rem] text-left text-sm">
             <thead className="border-b border-border bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
               <tr>
                 <th className="px-3 py-3 font-semibold">No</th>
@@ -181,6 +301,7 @@ function HomeNursingPage() {
                 <th className="px-3 py-3 font-semibold">State</th>
                 <th className="px-3 py-3 font-semibold">Issued</th>
                 <th className="px-3 py-3 font-semibold">Cert No</th>
+                <th className="px-3 py-3 font-semibold">Cert</th>
               </tr>
             </thead>
             <tbody>
@@ -204,6 +325,9 @@ function HomeNursingPage() {
                   <td className="px-3 py-3">{row.state}</td>
                   <td className="px-3 py-3 tabular-nums">{row.issued}</td>
                   <td className="px-3 py-3 tabular-nums font-medium">{row.certNo}</td>
+                  <td className="px-3 py-3">
+                    <ViewCertButton row={row} variant="ghost" className="h-8 px-2" />
+                  </td>
                 </tr>
               ))}
             </tbody>
