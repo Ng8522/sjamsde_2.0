@@ -21,28 +21,32 @@ const certImageGlob = import.meta.glob<string>("../assets/home-nursing/*.{jpg,JP
   import: "default",
 });
 
-const certImagesByNo = Object.fromEntries(
+function normalizePersonName(name: string) {
+  return name.trim().toUpperCase().replace(/\s+/g, " ");
+}
+
+function parseCertImageFilename(filename: string) {
+  const match = filename.match(/^(\d+)\s*-\s*(.+)\.(jpg|jpeg)$/i);
+  if (!match) return null;
+  return {
+    certNo: match[1],
+    name: normalizePersonName(match[2]),
+  };
+}
+
+const certImagesByName = Object.fromEntries(
   Object.entries(certImageGlob).flatMap(([path, url]) => {
     const filename = path.replace(/\\/g, "/").split("/").pop() ?? "";
-    const certNo = filename.match(/^(\d+)/)?.[1];
-    return certNo ? [[certNo, url] as const] : [];
+    const parsed = parseCertImageFilename(filename);
+    return parsed ? [[parsed.name, url] as const] : [];
   }),
 );
 
-export function getHomeNursingCertImage(certNo: string): string | undefined {
-  return certImagesByNo[certNo];
+export function getHomeNursingCertImage(
+  row: Pick<HomeNursingCertificate, "examName">,
+): string | undefined {
+  return certImagesByName[normalizePersonName(row.examName)];
 }
-
-export const HOME_NURSING_BATCH = {
-  title: "Summary Listing of Membership Documentation",
-  intro:
-    "Reference to \"Summary Listing of Membership Documentation\", below are the details of the processed documentations.",
-  nhqCode: "KSB260001, KPS260012, KSTU260010, KSTS260014 & SDE260005",
-  idReference: "4279",
-  certificateCount: 12,
-  notes:
-    "Upon receiving the completed Certificates, kindly check and notify Processing Centre within 30 days from date of courier. PC will not be held liable for any mistakes in the applicants details there after the stipulated time given.",
-} as const;
 
 export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   {
@@ -63,15 +67,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "002",
-    refno: "KSB260002",
+    refno: "KPS260012",
     examDate: "09-May-26",
     examName: "KHOO SING RHONG",
     examSjamId: "",
-    examIc: "920415-10-5123",
+    examIc: "001018-10-0775",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KSB01 - IBU PEJABAT KSB",
+    examUnit: "KPS01 - IBU PEJABAT KPS",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -81,9 +85,9 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
     no: "003",
     refno: "KPS260012",
     examDate: "09-May-26",
-    examName: "CHOO LE YUEN",
+    examName: "LIM HUEY WEN",
     examSjamId: "",
-    examIc: "881227-10-5774",
+    examIc: "041130-10-1020",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
@@ -95,15 +99,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "004",
-    refno: "KPS260013",
+    refno: "KPS260012",
     examDate: "09-May-26",
-    examName: "CHIN HONG CHER",
+    examName: "PHUAH YOU PANG",
     examSjamId: "",
-    examIc: "910303-10-5194",
+    examIc: "000306-10-1331",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KPS04 - KUALA SELANGOR",
+    examUnit: "KPS01 - IBU PEJABAT KPS",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -111,15 +115,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "005",
-    refno: "KSTU260010",
+    refno: "KPS260012",
     examDate: "09-May-26",
-    examName: "TAN HUNG HONG",
+    examName: "TEAH JIAN HAU",
     examSjamId: "",
-    examIc: "990301-10-5597",
+    examIc: "970314-10-6965",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KSTU02 - HULU LANGAT",
+    examUnit: "KPS01 - IBU PEJABAT KPS",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -127,15 +131,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "006",
-    refno: "KSTU260011",
+    refno: "KSTU260010",
     examDate: "09-May-26",
-    examName: "LAI ZHI QI",
+    examName: "FAN JOE YEE",
     examSjamId: "",
-    examIc: "021007-10-1645",
+    examIc: "091130-14-0930",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KSTU02 - HULU LANGAT",
+    examUnit: "KST01 - IBU PEJABAT KSTU",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -143,15 +147,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "007",
-    refno: "KSTS260014",
+    refno: "KSTU260010",
     examDate: "09-May-26",
-    examName: "ONG MEI CHIN",
+    examName: "LAI PUI TUNG",
     examSjamId: "",
-    examIc: "910918-10-5122",
+    examIc: "090411-10-2178",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KSTS02 - KUALA LANGAT",
+    examUnit: "KST01 - IBU PEJABAT KSTU",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -159,15 +163,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "008",
-    refno: "KSTS260015",
+    refno: "KSTU260010",
     examDate: "09-May-26",
-    examName: "CHAN WUN SUM",
+    examName: "LEE QER YING",
     examSjamId: "",
-    examIc: "890922-10-5138",
+    examIc: "090620-14-0488",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "KSTS03 - SEPANG",
+    examUnit: "KST01 - IBU PEJABAT KSTU",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -175,15 +179,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "009",
-    refno: "SDE260005",
+    refno: "KSTS260014",
     examDate: "09-May-26",
-    examName: "LIM HUEY WEN",
+    examName: "KAELYN GAN CAI YUN",
     examSjamId: "",
-    examIc: "950612-10-5012",
+    examIc: "090911-05-0108",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "S01 - IBU PEJABAT",
+    examUnit: "KSTS01 - IBU PEJABAT KSTS",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -191,15 +195,15 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "010",
-    refno: "SDE260006",
+    refno: "KSTS260014",
     examDate: "09-May-26",
-    examName: "HO WENG KONG",
+    examName: "ASHLYN HAH XIN YUN",
     examSjamId: "",
-    examIc: "850616-10-5075",
+    examIc: "091219-10-1428",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
-    examUnit: "S01 - IBU PEJABAT",
+    examUnit: "KSTS01 - IBU PEJABAT KSTS",
     dateOfIssue: "26-Jun-26",
     state: "Selangor Darul Ehsan",
     issued: 0,
@@ -207,11 +211,11 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "011",
-    refno: "SDE260007",
+    refno: "SDE260005",
     examDate: "09-May-26",
-    examName: "CHONG MUN YEE",
+    examName: "LEE YONG CHIEU",
     examSjamId: "",
-    examIc: "031209-10-1178",
+    examIc: "780228-08-7377",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
@@ -223,11 +227,11 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
   },
   {
     no: "012",
-    refno: "SDE260008",
+    refno: "SDE260005",
     examDate: "09-May-26",
-    examName: "MOHAMMAD FIKRI BIN ABDULLAH",
+    examName: "TEO CHENG CHUAN",
     examSjamId: "",
-    examIc: "030816-10-5933",
+    examIc: "760129-01-5011",
     result: "Passed",
     examTypeEn: "Preliminary Home Nursing",
     examTypeMs: "Perawatan Asas di Rumah",
@@ -238,11 +242,3 @@ export const HOME_NURSING_CERTIFICATES: HomeNursingCertificate[] = [
     certNo: "379660",
   },
 ];
-
-export function getHomeNursingCertGallery() {
-  return HOME_NURSING_CERTIFICATES.flatMap((row) => {
-    const src = getHomeNursingCertImage(row.certNo);
-    if (!src) return [];
-    return [{ src, alt: `${row.examName} — certificate ${row.certNo}`, certNo: row.certNo, name: row.examName }];
-  });
-}
