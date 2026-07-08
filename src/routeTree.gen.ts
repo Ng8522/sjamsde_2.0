@@ -25,6 +25,7 @@ import { Route as Ambulance24hrRouteImport } from './routes/ambulance-24hr'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as OcuDeploymentIdRouteImport } from './routes/ocu.$deploymentId'
 import { Route as MobileClinicEventIdRouteImport } from './routes/mobile-clinic.$eventId'
@@ -116,6 +117,11 @@ const GalleryIndexRoute = GalleryIndexRouteImport.update({
   path: '/',
   getParentRoute: () => GalleryRoute,
 } as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EventsRoute,
+} as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -193,6 +199,7 @@ export interface FileRoutesByFullPath {
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/courses/': typeof CoursesIndexRoute
+  '/events/': typeof EventsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRoutesByTo {
@@ -201,7 +208,6 @@ export interface FileRoutesByTo {
   '/ambulance-24hr': typeof Ambulance24hrRoute
   '/donate': typeof DonateRoute
   '/donation-status': typeof DonationStatusRoute
-  '/events': typeof EventsRouteWithChildren
   '/home-nursing': typeof HomeNursingRoute
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
@@ -219,6 +225,7 @@ export interface FileRoutesByTo {
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/courses': typeof CoursesIndexRoute
+  '/events': typeof EventsIndexRoute
   '/gallery': typeof GalleryIndexRoute
 }
 export interface FileRoutesById {
@@ -248,6 +255,7 @@ export interface FileRoutesById {
   '/mobile-clinic/$eventId': typeof MobileClinicEventIdRoute
   '/ocu/$deploymentId': typeof OcuDeploymentIdRoute
   '/courses/': typeof CoursesIndexRoute
+  '/events/': typeof EventsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
 }
 export interface FileRouteTypes {
@@ -278,6 +286,7 @@ export interface FileRouteTypes {
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
     | '/courses/'
+    | '/events/'
     | '/gallery/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -286,7 +295,6 @@ export interface FileRouteTypes {
     | '/ambulance-24hr'
     | '/donate'
     | '/donation-status'
-    | '/events'
     | '/home-nursing'
     | '/login'
     | '/payment'
@@ -304,6 +312,7 @@ export interface FileRouteTypes {
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
     | '/courses'
+    | '/events'
     | '/gallery'
   id:
     | '__root__'
@@ -332,6 +341,7 @@ export interface FileRouteTypes {
     | '/mobile-clinic/$eventId'
     | '/ocu/$deploymentId'
     | '/courses/'
+    | '/events/'
     | '/gallery/'
   fileRoutesById: FileRoutesById
 }
@@ -472,6 +482,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryIndexRouteImport
       parentRoute: typeof GalleryRoute
     }
+    '/events/': {
+      id: '/events/'
+      path: '/'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof EventsRoute
+    }
     '/courses/': {
       id: '/courses/'
       path: '/'
@@ -570,10 +587,12 @@ const CoursesRouteWithChildren =
 
 interface EventsRouteChildren {
   EventsEventIdRoute: typeof EventsEventIdRoute
+  EventsIndexRoute: typeof EventsIndexRoute
 }
 
 const EventsRouteChildren: EventsRouteChildren = {
   EventsEventIdRoute: EventsEventIdRoute,
+  EventsIndexRoute: EventsIndexRoute,
 }
 
 const EventsRouteWithChildren =
