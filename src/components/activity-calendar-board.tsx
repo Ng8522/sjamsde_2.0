@@ -308,7 +308,9 @@ export function ActivityCalendarBoard({
                         {entry.location}
                       </p>
                       <p className="text-sm font-medium text-primary">{entry.detail}</p>
-                      <p className="text-xs text-muted-foreground mt-2">Register →</p>
+                      <p className="text-xs text-muted-foreground mt-2">
+                        {entry.tag === "Competition" ? "View details →" : "Register →"}
+                      </p>
                     </button>
                   ))
                 )}
@@ -428,7 +430,9 @@ export function ActivityCalendarBoard({
                           {entry.location}
                         </p>
                         <p className="text-sm font-medium text-primary">{entry.detail}</p>
-                        <p className="text-xs text-muted-foreground mt-2">Register →</p>
+                        <p className="text-xs text-muted-foreground mt-2">
+                        {entry.tag === "Competition" ? "View details →" : "Register →"}
+                      </p>
                       </button>
                     </li>
                   ))}

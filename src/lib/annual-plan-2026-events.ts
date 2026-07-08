@@ -1,7 +1,13 @@
 import type { SjamAreaId } from "@/lib/sjam-areas";
 
-type AnnualPlanEvent = {
+export type PortalEventDetailSection = {
+  title: string;
+  items: string[];
+};
+
+export type PortalEvent = {
   id: string;
+  /** ISO date YYYY-MM-DD for calendar */
   startsAt: string;
   areaId: SjamAreaId;
   date: string;
@@ -13,13 +19,22 @@ type AnnualPlanEvent = {
   description: string;
   spots: number;
   registered: number;
+  documentUrl?: string;
+  documentLabel?: string;
+  detailSections?: PortalEventDetailSection[];
+  contactEmail?: string;
+  contactPhone?: string;
+  hideMockRegistration?: boolean;
 };
+
+type AnnualPlanEvent = PortalEvent;
 
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] as const;
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
 
 const STATE_HQ = "SJAM State HQ, Klang";
 const NATIONAL_HQ = "National HQ / SJAM Kebangsaan";
+const POSTER_KEMERDEKAAN_PDF = "/IC063-poster-kemerdekaan-2026.pdf";
 
 function planEvent(input: {
   id: string;
@@ -32,6 +47,12 @@ function planEvent(input: {
   time?: string;
   spots?: number;
   registered?: number;
+  documentUrl?: string;
+  documentLabel?: string;
+  detailSections?: PortalEventDetailSection[];
+  contactEmail?: string;
+  contactPhone?: string;
+  hideMockRegistration?: boolean;
 }): AnnualPlanEvent {
   const date = new Date(`${input.startsAt}T12:00:00`);
   return {
@@ -47,6 +68,12 @@ function planEvent(input: {
     description: input.description,
     spots: input.spots ?? 120,
     registered: input.registered ?? 0,
+    documentUrl: input.documentUrl,
+    documentLabel: input.documentLabel,
+    detailSections: input.detailSections,
+    contactEmail: input.contactEmail,
+    contactPhone: input.contactPhone,
+    hideMockRegistration: input.hideMockRegistration,
   };
 }
 
@@ -343,14 +370,65 @@ export const annualPlan2026Events: AnnualPlanEvent[] = [
   }),
   planEvent({
     id: "2026-06-15-poster-competition",
-    startsAt: "2026-06-15",
+    startsAt: "2026-07-10",
     areaId: "hq",
-    title: "Pertandingan Melukis Poster Ke-6 (Bulan Kemerdekaan)",
+    title: "Pertandingan Melukis Poster Kali Ke-6 (Bulan Kemerdekaan 2026)",
     tag: "Competition",
     location: NATIONAL_HQ,
-    description: "Pertandingan melukis poster ke-6 sempena Bulan Kemerdekaan (15 Jun–15 Ogos).",
-    time: "15 Jun–15 Ogos 2026",
+    description:
+      "Anjuran Ibu Pejabat Kebangsaan SJAM (IC063). Terbuka kepada ahli SJAM yang bersekolah rendah dan menengah. Tempoh pertandingan: 10 Julai–10 Ogos 2026. Tarikh tutup: 10 Ogos 2026.",
+    time: "10 Julai–10 Ogos 2026 · tutup 10 Ogos 2026",
     spots: 150,
+    hideMockRegistration: true,
+    documentUrl: POSTER_KEMERDEKAAN_PDF,
+    documentLabel: "Muat turun surat edaran IC063 (PDF)",
+    contactPhone: "+6012-515 7554",
+    contactEmail: "kevinpeter@sjam.org.my",
+    detailSections: [
+      {
+        title: "Ringkasan",
+        items: [
+          "Pertandingan Melukis Poster Kali Ke-6 sempena Bulan Kemerdekaan 2026.",
+          "Anjuran: Ibu Pejabat Kebangsaan St. John Ambulans Malaysia (rujukan NHQ/IC/063).",
+          "Surat edaran bertarikh 28 Jun 2026.",
+          "Disokong Kementerian Pendidikan Malaysia (rujukan KPM.600.4/2/12 (65), 7 Mei 2026).",
+        ],
+      },
+      {
+        title: "Siapa layak?",
+        items: [
+          "Ahli St. John Ambulans Malaysia yang sedang belajar di sekolah rendah atau menengah.",
+          "Hanya ahli SJAM yang sah — unit/sekolah mesti sudah didaftarkan secara rasmi dengan Ibu Pejabat Kebangsaan SJAM (ada sijil pendaftaran sah).",
+          "Sekolah yang belum berdaftar rasmi dengan IPK SJAM tidak layak menyertai.",
+        ],
+      },
+      {
+        title: "Cara menyertai (ringkas)",
+        items: [
+          "Dapatkan Kertas Konsep Pertandingan serta Borang Penyertaan (Lampiran 1) bersama surat edaran IC063.",
+          "Lengkapkan Surat Maklum Balas Permohonan Penganjuran / penyertaan mengikut panduan Negeri / Kawasan.",
+          "Serahkan penyertaan melalui Pegawai Turus Negeri / Wilayah (Kadet atau St. John Muda) masing-masing.",
+          "Pastikan segala dokumen dan karya poster dihantar sebelum tarikh tutup: 10 Ogos 2026.",
+          "Muat turun PDF IC063 di bahagian dokumen untuk syarat penuh, kategori, hadiah dan borang.",
+        ],
+      },
+      {
+        title: "Tarikh penting",
+        items: [
+          "Tempoh pertandingan: 10 Julai 2026 hingga 10 Ogos 2026.",
+          "Tarikh tutup: 10 Ogos 2026.",
+        ],
+      },
+      {
+        title: "Hubungi",
+        items: [
+          "Kevin Peter A/L Ryapan — Ketua Pegawai Kadet, St. John Ambulans Malaysia.",
+          "Telefon: +6012-515 7554.",
+          "E-mel: kevinpeter@sjam.org.my (atau event@sjam.org.my).",
+          "Sila hubungi melalui Pegawai Turus Negeri / Wilayah (Kadet atau St. John Muda).",
+        ],
+      },
+    ],
   }),
   planEvent({
     id: "2026-06-24-st-john-day",

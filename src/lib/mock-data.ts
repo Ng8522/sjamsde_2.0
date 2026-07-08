@@ -1,21 +1,6 @@
-import { annualPlan2026Events } from "@/lib/annual-plan-2026-events";
-import type { SjamAreaId } from "@/lib/sjam-areas";
+import { annualPlan2026Events, type PortalEvent, type PortalEventDetailSection } from "@/lib/annual-plan-2026-events";
 
-export type PortalEvent = {
-  id: string;
-  /** ISO date YYYY-MM-DD for calendar */
-  startsAt: string;
-  areaId: SjamAreaId;
-  date: string;
-  day: string;
-  title: string;
-  location: string;
-  time: string;
-  tag: string;
-  description: string;
-  spots: number;
-  registered: number;
-};
+export type { PortalEvent, PortalEventDetailSection };
 
 export type CourseHighlight = {
   text: string;
