@@ -11,6 +11,18 @@ import { getEventById } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/events/$eventId")({
   component: EventDetailPage,
+  head: ({ params }) => {
+    const event = getEventById(params.eventId);
+    return {
+      meta: [
+        {
+          title: event
+            ? `${event.title} — SJAM Selangor`
+            : "Activity — SJAM Selangor",
+        },
+      ],
+    };
+  },
 });
 
 function EventDetailPage() {
